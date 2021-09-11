@@ -1,5 +1,6 @@
 let $NVIM_CONFIG_PATH = stdpath('config')
 
+
 nnoremap <space> <nop>
 let mapleader = " "
 let maplocalleader = ','

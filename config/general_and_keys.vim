@@ -20,7 +20,8 @@ set mouse=a
 set autochdir
 
 " Permanent undo
-set undodir=$NVIM_CONFIG_PATH/undodir
+let $NVIM_DATA_PATH = stdpath('data')
+set undodir=$NVIM_DATA_PATH/undodir
 set undofile
 set nobackup
 set noswapfile

@@ -18,7 +18,6 @@ return require('packer').startup(function()
     -- cosmetics
     use 'lukas-reineke/indent-blankline.nvim'
     use { 'folke/todo-comments.nvim', config = function() require("todo-comments").setup{} end }
-    -- use 'luochen1990/rainbow'
     use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end}
     use { 'karb94/neoscroll.nvim', config = function() require'neoscroll'.setup{} end }
     use 'glepnir/galaxyline.nvim'
@@ -86,17 +85,15 @@ return require('packer').startup(function()
     use 'ahmedkhalf/project.nvim'
 
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps' }
-    -- use 'kyazdani42/nvim-tree.lua'
     use 'mcchrish/nnn.vim'
 
 
     -- --- Git & project management & file browser
     use 'tpope/vim-fugitive'
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
     use 'mbbill/undotree'
-    vim.api.nvim_set_keymap('o', '<leader>u', ':UndotreeShow<CR>', { noremap = true })
-
+    vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeShow<CR>', { noremap = true })
 
 
 
@@ -106,12 +103,14 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/completion-treesitter'
     -- treesitter context don't yet work on windows
-    -- use 'romgrk/nvim-treesitter-context'
+    use {
+        'romgrk/nvim-treesitter-context',
+        cond = function()
+            return vim.fn.has 'win32' ~= 1
+        end,
+    }
     use 'p00f/nvim-ts-rainbow'
     use 'ThePrimeagen/refactoring.nvim'
-
-    -- vim.g.polyglot_disabled = {'autoindent', 'sensible', 'latex'}
-    -- use 'sheerun/vim-polyglot'
 
 
     -- document generator
