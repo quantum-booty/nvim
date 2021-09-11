@@ -1,0 +1,216 @@
+syntax on
+set nocompatible
+filetype plugin on
+set hidden
+set smartindent
+set fileformat=unix
+set encoding=utf-8
+set fileencodings=utf-8,cp936,gb18030,big5
+set signcolumn=yes
+set wrap
+set linebreak
+
+set noerrorbells
+set scrolloff=8
+set noshowmode
+set showmatch
+" use the system register
+set clipboard=unnamedplus
+set mouse=a
+set autochdir
+
+" Permanent undo
+set undodir=$NVIM_CONFIG_PATH/undodir
+set undofile
+
+" tabs
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+" =============================================================================
+" # Search settings
+" =============================================================================
+" Proper search
+set ignorecase
+set smartcase
+set incsearch
+set nohlsearch
+
+"live substitution
+set inccommand=split
+
+" Search results centered
+nnoremap <silent> n nzzzv
+nnoremap <silent> N Nzzzv
+nnoremap <silent> J mzJ`z
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" search replace
+nnoremap <Leader>sr :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <Leader>sr :s/\<\>//g<left><left><left><left><left>
+" nnoremap <Leader>sR :%s///g<Left><Left><Left>
+
+" " search number
+" nnoremap <leader>d :call search('\d\+')<CR>
+" nnoremap <leader>D :call search('\d\+', 'b')<CR>
+
+" =============================================================================
+" # Hop
+" =============================================================================
+nnoremap s :HopChar2<CR>
+onoremap s :HopChar2<CR>
+lua require'hop'.setup {keys = 'hieatrspyoudncjkmlf'}
+
+" =============================================================================
+" # Kommentary
+" =============================================================================
+lua << EOF
+require('kommentary.config').configure_language("default", {
+    prefer_single_line_comments = true,
+})
+vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
+vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
+EOF
+
+" =============================================================================
+" # Window Movements
+" =============================================================================
+" move between windows, if at the edge of screen, create new split
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+nnoremap <silent> <left> :call WinMove('h')<CR>
+nnoremap <silent> <down> :call WinMove('j')<CR>
+nnoremap <silent> <up> :call WinMove('k')<CR>
+nnoremap <silent> <right> :call WinMove('l')<CR>
+
+
+"" ******  barbar **************************************
+"" Magic buffer-picking mode
+nnoremap <silent> <C-s> :BufferPick<CR>
+"" Sort automatically by...
+" nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
+" nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
+"" Move to previous/next
+nnoremap <silent> <C-j> :BufferPrevious<CR>
+nnoremap <silent> <C-k> :BufferNext<CR>
+"" Re-order to previous/next
+" nnoremap <silent> <A-<> :BufferMovePrevious<CR>
+" nnoremap <silent> <A->> :BufferMoveNext<CR>
+"" Goto buffer in position...
+" nnoremap <silent> <A-1> :BufferGoto 1<CR>
+" nnoremap <silent> <A-2> :BufferGoto 2<CR>
+" nnoremap <silent> <A-3> :BufferGoto 3<CR>
+" nnoremap <silent> <A-4> :BufferGoto 4<CR>
+" nnoremap <silent> <A-5> :BufferGoto 5<CR>
+" nnoremap <silent> <A-6> :BufferGoto 6<CR>
+" nnoremap <silent> <A-7> :BufferGoto 7<CR>
+" nnoremap <silent> <A-8> :BufferGoto 8<CR>
+" nnoremap <silent> <A-9> :BufferLast<CR>
+"" Close buffer
+nnoremap <silent> <leader>x :BufferClose<CR>
+"" Wipeout buffer
+"                          :BufferWipeout<CR>
+"" Close commands
+"                          :BufferCloseAllButCurrent<CR>
+"                          :BufferCloseBuffersRight<CR>
+
+let bufferline = get(g:, 'bufferline', {})
+
+let bufferline.icons = 'both'
+let bufferline.closable = v:false
+let bufferline.letters = 'trspkjdncbmlfaeihuoyqwgzxv'
+let bufferline.maximum_padding = 1
+
+" =============================================================================
+" # General settings
+" =============================================================================
+" sourcing the vimrc
+nnoremap <Leader>so :source $MYVIMRC<CR>
+nnoremap <Leader>rc :e $MYVIMRC<CR>
+
+" Redo with U
+noremap U <C-R>
+
+" undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+
+" jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
+" ignores wrapping
+nnoremap <expr> j (v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")
+nnoremap <expr> k (v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")
+
+" moving text
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+nnoremap <leader>j <esc>:m .+1<CR>==
+nnoremap <leader>k <esc>:m .-2<CR>==
+
+
+" Blackhole regster
+vnoremap X "_d
+
+
+" " Yank to end of line (merged to masters)
+" nmap Y v$y
+
+" " " This allow ENTER to open new line
+" nnoremap <buffer> <CR> o
+
+" No pinkies please!
+nnoremap <leader>a <S-a>
+nnoremap <leader>i <S-i>
+
+" use + and - to increment and decrement number
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" use ( and ) for moving half page up and down
+nmap ( <C-u>
+nmap ) <C-d>
+
+" quote args in list, sets, tuples
+nnoremap <leader>q] :s/\([ a-zA-Z0-9]\+\)\(,\\|\]\)/"\1"\2/g<CR>
+nnoremap <leader>q) :s/\([ a-zA-Z0-9]\+\)\(,\\|\\)\)/"\1"\2/g<CR>
+nnoremap <leader>q} :s/\([ a-zA-Z0-9]\+\)\(,\\|\}\)/"\1"\2/g<CR>
+
+
+" lsp hover tab is the same as C-i", so remap C-y to C-i
+nnoremap <C-y> <C-i>
+" change list
+nnoremap gj g;
+nnoremap gk g,
+" scroll up and down
+nnoremap <C-a> <C-y>
+
+
+" Makes vim-surround easier
+vmap s S
+
+" --- Abbreviations
+cabbrev ps PackerSync
+
+" --- Terminal
+" press esc to go to normal mode
+tnoremap <Esc> <C-\><C-n>
+" press enter to enter and exit insert mode
+" tnoremap <CR> <CR><C-\><C-n>
