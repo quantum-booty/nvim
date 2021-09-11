@@ -1,11 +1,11 @@
 return require('packer').startup(function()
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
+
     -- prerequists for lua plugins
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
-
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
 
 
     -- colour schemes
@@ -15,7 +15,7 @@ return require('packer').startup(function()
     use 'EdenEast/nightfox.nvim'
     use 'Pocco81/Catppuccino.nvim'
 
-    -- cosmetic
+    -- cosmetics
     use 'lukas-reineke/indent-blankline.nvim'
     use { 'folke/todo-comments.nvim', config = function() require("todo-comments").setup{} end }
     -- use 'luochen1990/rainbow'
@@ -49,10 +49,11 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'kabouzeid/nvim-lspinstall'
 
-    use {'glepnir/lspsaga.nvim', config = function() require'lspsaga'.init_lsp_saga() end}
+    use { 'glepnir/lspsaga.nvim', config = function() require'lspsaga'.init_lsp_saga() end }
     use 'folke/lsp-trouble.nvim'
     vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
-    use {'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires = {'https://github.com/romgrk/fzy-lua-native'}}
+    use 'romgrk/fzy-lua-native'
+    use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins' }
     use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup() end }
     use 'simrat39/symbols-outline.nvim'
 
@@ -104,7 +105,8 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/completion-treesitter'
-    use 'romgrk/nvim-treesitter-context'
+    -- treesitter context don't yet work on windows
+    -- use 'romgrk/nvim-treesitter-context'
     use 'p00f/nvim-ts-rainbow'
     use 'ThePrimeagen/refactoring.nvim'
 
@@ -119,7 +121,7 @@ return require('packer').startup(function()
     -- --- Quality of life
     use { 'folke/which-key.nvim', config = function() require'which-key'.setup{} end }
     use 'glepnir/dashboard-nvim'
-    use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
+    -- use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
     use 'tpope/vim-obsession' -- session management
     -- use 'rmagatti/auto-session'
     use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }

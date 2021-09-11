@@ -22,6 +22,8 @@ set autochdir
 " Permanent undo
 set undodir=$NVIM_CONFIG_PATH/undodir
 set undofile
+set nobackup
+set noswapfile
 
 " tabs
 set shiftwidth=4
