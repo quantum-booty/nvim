@@ -6,7 +6,7 @@ lua require('dap-python').test_runner = 'pytest'
 " highlight NvimDapVirtualText link Error
 
 let g:maximizer_set_default_mapping = 0
-nmap <F11> :MaximizerToggle<CR>
+nmap <Del> :MaximizerToggle<CR>
 
 nnoremap <silent> <F1> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <F2> :lua require'dap'.step_into()<CR>
