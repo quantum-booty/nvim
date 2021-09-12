@@ -87,6 +87,7 @@ EOF
 " sourcing the vimrc
 nnoremap <Leader>so :source $MYVIMRC<CR>
 nnoremap <Leader>rc :e $MYVIMRC<CR>
+nnoremap <Leader>rp :e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>
 
 " Redo with U
 noremap U <C-R>

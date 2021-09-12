@@ -106,9 +106,22 @@ return require('packer').startup(function()
         config = function()
             require"telescope".load_extension("frecency")
         end,
-        requires = {"tami5/sqlite.lua"}
+        requires = {"tami5/sqlite.lua"},
+        cond = function()
+            return vim.fn.has 'win32' ~= 1
+        end,
+
     }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' , config = [[require('telescope').load_extension('fzf')]]}
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+        after = 'telescope.nvim',
+        config = [[require('telescope').load_extension('fzf')]],
+        cond = function()
+            return vim.fn.has 'win32' ~= 1
+        end,
+
+    }
 
 
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
