@@ -28,6 +28,7 @@ lua require('evilline_config')
 lua require('chadtree_config')
 lua require('toggleterm_config')
 lua require('discord_config')
+lua require('barbar_config')
 " lua require('neogit_config')
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
@@ -43,7 +44,8 @@ source $NVIM_CONFIG_PATH/config/snippets.vim
 " source $NVIM_CONFIG_PATH/config/vimspector.vim
 source $NVIM_CONFIG_PATH/config/dap.vim
 source $NVIM_CONFIG_PATH/config/markdown_and_latex.vim
-source $NVIM_CONFIG_PATH/config/git.vim
+source $NVIM_CONFIG_PATH/config/fugitive.vim
 source $NVIM_CONFIG_PATH/config/doge.vim
 source $NVIM_CONFIG_PATH/config/quality_of_life.vim
 source $NVIM_CONFIG_PATH/config/autocommands.vim
+source $NVIM_CONFIG_PATH/config/windows_movement.vim

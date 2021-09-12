@@ -80,68 +80,9 @@ vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
 vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
 EOF
 
-" =============================================================================
-" # Window Movements
-" =============================================================================
-" move between windows, if at the edge of screen, create new split
-function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
-endfunction
-
-nnoremap <silent> <left> :call WinMove('h')<CR>
-nnoremap <silent> <down> :call WinMove('j')<CR>
-nnoremap <silent> <up> :call WinMove('k')<CR>
-nnoremap <silent> <right> :call WinMove('l')<CR>
-
-
-"" ******  barbar **************************************
-"" Magic buffer-picking mode
-nnoremap <silent> <C-s> :BufferPick<CR>
-"" Sort automatically by...
-" nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
-" nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
-"" Move to previous/next
-nnoremap <silent> <C-j> :BufferPrevious<CR>
-nnoremap <silent> <C-k> :BufferNext<CR>
-"" Re-order to previous/next
-" nnoremap <silent> <A-<> :BufferMovePrevious<CR>
-" nnoremap <silent> <A->> :BufferMoveNext<CR>
-"" Goto buffer in position...
-" nnoremap <silent> <A-1> :BufferGoto 1<CR>
-" nnoremap <silent> <A-2> :BufferGoto 2<CR>
-" nnoremap <silent> <A-3> :BufferGoto 3<CR>
-" nnoremap <silent> <A-4> :BufferGoto 4<CR>
-" nnoremap <silent> <A-5> :BufferGoto 5<CR>
-" nnoremap <silent> <A-6> :BufferGoto 6<CR>
-" nnoremap <silent> <A-7> :BufferGoto 7<CR>
-" nnoremap <silent> <A-8> :BufferGoto 8<CR>
-" nnoremap <silent> <A-9> :BufferLast<CR>
-"" Close buffer
-nnoremap <silent> <leader>x :BufferClose<CR>
-"" Wipeout buffer
-"                          :BufferWipeout<CR>
-"" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseBuffersRight<CR>
-
-let bufferline = get(g:, 'bufferline', {})
-
-let bufferline.icons = 'both'
-let bufferline.closable = v:false
-let bufferline.letters = 'trspkjdncbmlfaeihuoyqwgzxv'
-let bufferline.maximum_padding = 1
 
 " =============================================================================
-" # General settings
+" # custom remaps
 " =============================================================================
 " sourcing the vimrc
 nnoremap <Leader>so :source $MYVIMRC<CR>
@@ -211,9 +152,3 @@ vmap s S
 
 " --- Abbreviations
 cabbrev ps PackerSync
-
-" --- Terminal
-" press esc to go to normal mode
-tnoremap <Esc> <C-\><C-n>
-" press enter to enter and exit insert mode
-" tnoremap <CR> <CR><C-\><C-n>

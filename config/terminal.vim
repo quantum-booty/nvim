@@ -1,3 +1,9 @@
+" --- Terminal
+" press esc to go to normal mode
+tnoremap <Esc> <C-\><C-n>
+" press enter to enter and exit insert mode
+" tnoremap <CR> <CR><C-\><C-n>
+
 function! ToggleTermAutoInsert()
     if !exists('g:termautoinsert')
             let g:termautoinsert = 1
@@ -16,4 +22,4 @@ function! ToggleTermAutoInsert()
     endif
 endfunction
 
-map <leader>AI :call ToggleTermAutoInsert()<CR>
+" map <leader>AI :call ToggleTermAutoInsert()<CR>
