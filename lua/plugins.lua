@@ -99,12 +99,13 @@ return require('packer').startup(function()
 
     -- --- language support / syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use 'nvim-treesitter/nvim-treesitter-refactor'
-    use 'nvim-treesitter/completion-treesitter'
+    use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = 'nvim-treesitter'}
+    use { 'nvim-treesitter/nvim-treesitter-refactor', requires = 'nvim-treesitter' }
+    use { 'nvim-treesitter/completion-treesitter', requires = 'nvim-treesitter' }
     -- treesitter context don't yet work on windows
     use {
         'romgrk/nvim-treesitter-context',
+        requires = 'nvim-treesitter',
         cond = function()
             return vim.fn.has 'win32' ~= 1
         end,

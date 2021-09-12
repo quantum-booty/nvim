@@ -27,6 +27,7 @@ lua require('refactor_config')
 lua require('evilline_config')
 lua require('chadtree_config')
 lua require('toggleterm_config')
+lua require('discord_config')
 " lua require('neogit_config')
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
