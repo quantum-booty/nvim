@@ -3,8 +3,6 @@ let g:dap_virtual_text = v:true
 lua require('dap-python').setup('~/virtualenvs/debugpy/bin/python')
 lua require('dap-python').test_runner = 'pytest'
 
-autocmd ColorScheme * highlight NvimDapVirtualText guifg=#82E0AA
-
 " highlight NvimDapVirtualText link Error
 
 let g:maximizer_set_default_mapping = 0

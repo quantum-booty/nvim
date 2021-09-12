@@ -46,7 +46,7 @@ return require('packer').startup(function()
 
 
     -- --- lsp, autocompletion
-    use 'neovim/nvim-lspconfig'
+    use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]]}
     use 'kabouzeid/nvim-lspinstall'
 
     use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
@@ -63,7 +63,7 @@ return require('packer').startup(function()
     }
 
     use {
-        "hrsh7th/nvim-cmp",
+        {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]},
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
     }
@@ -79,7 +79,7 @@ return require('packer').startup(function()
 
     -- --- Debugger
     use {
-        'mfussenegger/nvim-dap',
+        {'mfussenegger/nvim-dap', config = [[require('config.dap')]]},
         'mfussenegger/nvim-dap-python',
         'theHamsta/nvim-dap-virtual-text',
         'rcarriga/nvim-dap-ui',}

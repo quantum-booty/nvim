@@ -34,7 +34,8 @@ lua require('plugins')
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
-source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
+" source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
+" source $NVIM_CONFIG_PATH/config/COQ.vim
 source $NVIM_CONFIG_PATH/config/console.vim
 " source $NVIM_CONFIG_PATH/config/telescope.vim
 source $NVIM_CONFIG_PATH/config/terminal.vim
@@ -43,7 +44,7 @@ source $NVIM_CONFIG_PATH/config/ale.vim
 source $NVIM_CONFIG_PATH/config/wilder.vim
 source $NVIM_CONFIG_PATH/config/snippets.vim
 " source $NVIM_CONFIG_PATH/config/vimspector.vim
-source $NVIM_CONFIG_PATH/config/dap.vim
+" source $NVIM_CONFIG_PATH/config/dap.vim
 source $NVIM_CONFIG_PATH/config/markdown_and_latex.vim
 source $NVIM_CONFIG_PATH/config/fugitive.vim
 source $NVIM_CONFIG_PATH/config/doge.vim
