@@ -266,13 +266,20 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/presence.nvim"
   },
   ["project.nvim"] = {
+    config = { "\27LJ\2\nx\0\0\3\0\6\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\rprojects\19load_extension\14telescope\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/project.nvim"
+    needs_bufread = false,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/project.nvim"
   },
   ["refactoring.nvim"] = {
     config = { "require('config.refactor')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/refactoring.nvim"
+  },
+  ["sqlite.lua"] = {
+    loaded = true,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/sqlite.lua"
   },
   ["srcery-vim"] = {
     loaded = true,
@@ -290,10 +297,22 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/targets.vim"
   },
-  ["telescope.nvim"] = {
-    config = { "require('config.telescope')" },
+  ["telescope-frecency.nvim"] = {
+    config = { "\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    needs_bufread = false,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/telescope-frecency.nvim"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    config = { "require('telescope').load_extension('fzf')" },
+    loaded = true,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
+  },
+  ["telescope.nvim"] = {
+    after = { "telescope-frecency.nvim", "project.nvim" },
+    loaded = true,
+    only_config = true
   },
   ["tex-conceal.vim"] = {
     loaded = true,
@@ -381,62 +400,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-require("todo-comments").setup{}
-time([[Config for todo-comments.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require'which-key'.setup{}
-time([[Config for which-key.nvim]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-require('config.refactor')
-time([[Config for refactoring.nvim]], false)
--- Config for: vim-venter
-time([[Config for vim-venter]], true)
-try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
-time([[Config for vim-venter]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require('config.toggleterm')
-time([[Config for toggleterm.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require('nvim-autopairs').setup()
-time([[Config for nvim-autopairs]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require'neoscroll'.setup{}
-time([[Config for neoscroll.nvim]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-require'lspsaga'.init_lsp_saga()
-time([[Config for lspsaga.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require('config.barbar')
-time([[Config for barbar.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('gitsigns').setup()
-time([[Config for gitsigns.nvim]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-require('config.galaxyline')
-time([[Config for galaxyline.nvim]], false)
 -- Config for: nvim-notify
 time([[Config for nvim-notify]], true)
 vim.notify = require('notify')
 time([[Config for nvim-notify]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require('config.discord')
-time([[Config for presence.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require('config.barbar')
+time([[Config for barbar.nvim]], false)
 -- Config for: chadtree
 time([[Config for chadtree]], true)
 require('config.chadtree')
@@ -445,6 +416,58 @@ time([[Config for chadtree]], false)
 time([[Config for lsp_signature.nvim]], true)
 require'lsp_signature'.setup()
 time([[Config for lsp_signature.nvim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require'lspsaga'.init_lsp_saga()
+time([[Config for lspsaga.nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'neoscroll'.setup{}
+time([[Config for neoscroll.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('nvim-autopairs').setup()
+time([[Config for nvim-autopairs]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+require('config.galaxyline')
+time([[Config for galaxyline.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('gitsigns').setup()
+time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope-fzf-native.nvim
+time([[Config for telescope-fzf-native.nvim]], true)
+require('telescope').load_extension('fzf')
+time([[Config for telescope-fzf-native.nvim]], false)
+-- Config for: vim-venter
+time([[Config for vim-venter]], true)
+try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
+time([[Config for vim-venter]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('config.discord')
+time([[Config for presence.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require('config.refactor')
+time([[Config for refactoring.nvim]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require("todo-comments").setup{}
+time([[Config for todo-comments.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'which-key'.setup{}
+time([[Config for which-key.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('config.toggleterm')
+time([[Config for toggleterm.nvim]], false)
 -- Conditional loads
 time("Condition for { 'nvim-treesitter-context' }", true)
 if
@@ -457,6 +480,19 @@ time([[packadd for nvim-treesitter-context]], true)
 else
 time("Condition for { 'nvim-treesitter-context' }", false)
 end
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd project.nvim ]]
+
+-- Config for: project.nvim
+try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\rprojects\19load_extension\14telescope\frequire\0", "config", "project.nvim")
+
+vim.cmd [[ packadd telescope-frecency.nvim ]]
+
+-- Config for: telescope-frecency.nvim
+try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
+
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

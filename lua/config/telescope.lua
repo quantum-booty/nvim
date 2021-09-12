@@ -2,8 +2,10 @@ local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
 require("telescope").setup {}
-require("project_nvim").setup {}
-require('telescope').load_extension('projects')
+
+
+-- recent files
+map("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
 
 -- " project_nvim
 map('n', '<leader>pp', ':Telescope projects<CR>', opts)
@@ -29,10 +31,10 @@ map('n', '<leader>pb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], 
 map('n', '<leader>pH', ':tab help <C-R>=expand("<cword>")<CR><CR>', opts)
 map('n', '<leader>ph', [[<cmd>Telescope help_tags<cr>]], opts)
 
--- " Convert currently quickfixlist to telescope
-map('n', '<leader>qf', [[<cmd>lua require('telescope.builtin').quickfix()<CR>]], opts)
--- " Convert currently loclist to telescope
-map('n', '<leader>L', [[<cmd>lua require('telescope.builtin').loclist()<CR>]], opts)
+-- -- " Convert currently quickfixlist to telescope
+-- map('n', '<leader>qf', [[<cmd>lua require('telescope.builtin').quickfix()<CR>]], opts)
+-- -- " Convert currently loclist to telescope
+-- map('n', '<leader>L', [[<cmd>lua require('telescope.builtin').loclist()<CR>]], opts)
 -- " Colour schemes
 map('n', '<leader>pc', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 -- " Key maps
@@ -49,7 +51,7 @@ map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_sym
 map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
 -- " Code actions
 map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]], opts)
-map('n', '<leader>pD', [[<cmd>lua require('telescope.builtin').lsp_documentt_symbols()<CR>]], opts)
+map('n', '<leader>pD', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 
 
 -- " " --- git pickers

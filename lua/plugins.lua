@@ -88,10 +88,28 @@ return require('packer').startup(function()
     use 'szw/vim-maximizer'
 
     -- --- Fuzzy finder & project navigation
+    use {'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]]}
+
+
     use {
-        {'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]]},
-    'ahmedkhalf/project.nvim'
+        'ahmedkhalf/project.nvim',
+        after = 'telescope.nvim',
+        config = function()
+            require('telescope').load_extension('projects')
+            require("project_nvim").setup {}
+        end
     }
+
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        after = 'telescope.nvim',
+        config = function()
+            require"telescope".load_extension("frecency")
+        end,
+        requires = {"tami5/sqlite.lua"}
+    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' , config = [[require('telescope').load_extension('fzf')]]}
+
 
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
     use 'mcchrish/nnn.vim'
