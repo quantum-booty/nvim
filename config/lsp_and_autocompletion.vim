@@ -3,8 +3,6 @@ set completeopt+=menuone,noselect,noinsert
 set completeopt-=preview
 set shortmess+=c
 
-
-
 " =============================================================================
 " # COQ settings
 " =============================================================================
@@ -220,3 +218,8 @@ vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_a
 " -- float terminal also you can pass the cli command in open_float_terminal function
 " nnoremap <silent> <A-d> <cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR> -- or open_float_terminal('lazygit')<CR>
 " tnoremap <silent> <A-d> <C-\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>
+
+" =============================================================================
+" # symbols-outline
+" =============================================================================
+nnoremap <leader>T :SymbolsOutline<CR>
