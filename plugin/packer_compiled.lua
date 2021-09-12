@@ -82,10 +82,12 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/ale"
   },
   ["barbar.nvim"] = {
+    config = { "require('config.barbar')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
   chadtree = {
+    config = { "require('config.chadtree')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/chadtree"
   },
@@ -118,11 +120,12 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/fzy-lua-native"
   },
   ["galaxyline.nvim"] = {
+    config = { "require('config.galaxyline')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
+    config = { "require('gitsigns').setup()" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
@@ -152,12 +155,12 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
   },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0" },
+    config = { "require'lsp_signature'.setup()" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\18init_lsp_saga\flspsaga\frequire\0" },
+    config = { "require'lspsaga'.init_lsp_saga()" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
@@ -170,7 +173,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/neorg"
   },
   ["neoscroll.nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14neoscroll\frequire\0" },
+    config = { "require'neoscroll'.setup{}" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
@@ -183,7 +186,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nnn.vim"
   },
   ["nvim-autopairs"] = {
-    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    config = { "require('nvim-autopairs').setup()" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
@@ -216,7 +219,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-notify"] = {
-    config = { "\27LJ\2\n2\0\0\4\0\3\0\0066\0\0\0006\1\2\0'\3\1\0B\1\2\2=\1\1\0K\0\1\0\frequire\vnotify\bvim\0" },
+    config = { "vim.notify = require('notify')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-notify"
   },
@@ -258,6 +261,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["presence.nvim"] = {
+    config = { "require('config.discord')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/presence.nvim"
   },
@@ -266,6 +270,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/project.nvim"
   },
   ["refactoring.nvim"] = {
+    config = { "require('config.refactor')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/refactoring.nvim"
   },
@@ -286,6 +291,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/targets.vim"
   },
   ["telescope.nvim"] = {
+    config = { "require('config.telescope')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
@@ -294,11 +300,12 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/tex-conceal.vim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
+    config = { 'require("todo-comments").setup{}' },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
+    config = { "require('config.toggleterm')" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/toggleterm.nvim"
   },
@@ -338,6 +345,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-repeat"
   },
+  ["vim-startuptime"] = {
+    commands = { "StartupTime" },
+    config = { "vim.g.startuptime_tries = 10" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/vim-startuptime"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-surround"
@@ -356,7 +370,7 @@ _G.packer_plugins = {
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vimtex"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
+    config = { "require'which-key'.setup{}" },
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   },
@@ -367,42 +381,70 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\18init_lsp_saga\flspsaga\frequire\0", "config", "lspsaga.nvim")
-time([[Config for lspsaga.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14neoscroll\frequire\0", "config", "neoscroll.nvim")
-time([[Config for neoscroll.nvim]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require("todo-comments").setup{}
+time([[Config for todo-comments.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'which-key'.setup{}
+time([[Config for which-key.nvim]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require('config.refactor')
+time([[Config for refactoring.nvim]], false)
 -- Config for: vim-venter
 time([[Config for vim-venter]], true)
 try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
 time([[Config for vim-venter]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time([[Config for lsp_signature.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('config.toggleterm')
+time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('nvim-autopairs').setup()
+time([[Config for nvim-autopairs]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'neoscroll'.setup{}
+time([[Config for neoscroll.nvim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require'lspsaga'.init_lsp_saga()
+time([[Config for lspsaga.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require('config.barbar')
+time([[Config for barbar.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('gitsigns').setup()
+time([[Config for gitsigns.nvim]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+require('config.galaxyline')
+time([[Config for galaxyline.nvim]], false)
 -- Config for: nvim-notify
 time([[Config for nvim-notify]], true)
-try_loadstring("\27LJ\2\n2\0\0\4\0\3\0\0066\0\0\0006\1\2\0'\3\1\0B\1\2\2=\1\1\0K\0\1\0\frequire\vnotify\bvim\0", "config", "nvim-notify")
+vim.notify = require('notify')
 time([[Config for nvim-notify]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('config.discord')
+time([[Config for presence.nvim]], false)
+-- Config for: chadtree
+time([[Config for chadtree]], true)
+require('config.chadtree')
+time([[Config for chadtree]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+require'lsp_signature'.setup()
+time([[Config for lsp_signature.nvim]], false)
 -- Conditional loads
 time("Condition for { 'nvim-treesitter-context' }", true)
 if
@@ -415,6 +457,12 @@ time([[packadd for nvim-treesitter-context]], true)
 else
 time("Condition for { 'nvim-treesitter-context' }", false)
 end
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 if should_profile then save_profiles() end
 
 end)

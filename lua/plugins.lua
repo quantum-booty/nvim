@@ -9,25 +9,26 @@ return require('packer').startup(function()
 
 
     -- colour schemes
-    use 'srcery-colors/srcery-vim'
-    use 'gruvbox-community/gruvbox'
-    use 'folke/tokyonight.nvim'
-    use 'EdenEast/nightfox.nvim'
-    use 'Pocco81/Catppuccino.nvim'
-
+    use { 'srcery-colors/srcery-vim',
+        'gruvbox-community/gruvbox',
+        'folke/tokyonight.nvim',
+        'EdenEast/nightfox.nvim',
+        'Pocco81/Catppuccino.nvim',
+    }
     -- cosmetics
     use 'lukas-reineke/indent-blankline.nvim'
-    use { 'folke/todo-comments.nvim', config = function() require("todo-comments").setup{} end }
+    use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]]}
     use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end}
-    use { 'karb94/neoscroll.nvim', config = function() require'neoscroll'.setup{} end }
-    use 'glepnir/galaxyline.nvim'
-    use 'romgrk/barbar.nvim'
+    use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]]}
+    use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
+    use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
+    use 'glepnir/dashboard-nvim'
 
     -- Consoles for interactive development
     -- use 'untitled-ai/jupyter_ascending.vim'
     use { 'jupyter-vim/jupyter-vim', opt=true }
     use 'jalvesaq/Nvim-R'
-    use "akinsho/toggleterm.nvim"
+    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
 
     -- SQL
     -- use 'tpope/vim-dadbod'
@@ -44,25 +45,30 @@ return require('packer').startup(function()
     use 'wellle/targets.vim'
 
 
-    -- --- lsp, autocompletion, linter, fixer
+    -- --- lsp, autocompletion
     use 'neovim/nvim-lspconfig'
     use 'kabouzeid/nvim-lspinstall'
 
-    use { 'glepnir/lspsaga.nvim', config = function() require'lspsaga'.init_lsp_saga() end }
+    use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
     use 'folke/lsp-trouble.nvim'
     vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
     use 'romgrk/fzy-lua-native'
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins' }
-    use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup() end }
+    use {'ray-x/lsp_signature.nvim', config = [[require'lsp_signature'.setup()]]}
     use 'simrat39/symbols-outline.nvim'
 
-    use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
-    use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+    use {
+        { 'ms-jpq/coq_nvim', branch = 'coq'},
+        { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
+    }
 
-    use { "hrsh7th/nvim-cmp" }
-    use { "hrsh7th/cmp-nvim-lsp" }
-    use { "hrsh7th/cmp-buffer" }
+    use {
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+    }
 
+    -- linter, fixer, formatter
     use 'w0rp/ale'
 
 
@@ -72,46 +78,51 @@ return require('packer').startup(function()
 
 
     -- --- Debugger
-    use 'mfussenegger/nvim-dap'
-    use 'mfussenegger/nvim-dap-python'
-    use 'theHamsta/nvim-dap-virtual-text'
-    use 'rcarriga/nvim-dap-ui'
+    use {
+        'mfussenegger/nvim-dap',
+        'mfussenegger/nvim-dap-python',
+        'theHamsta/nvim-dap-virtual-text',
+        'rcarriga/nvim-dap-ui',}
 
     -- use 'puremourning/vimspector'
     use 'szw/vim-maximizer'
 
     -- --- Fuzzy finder & project navigation
-    use 'nvim-telescope/telescope.nvim'
-    use 'ahmedkhalf/project.nvim'
+    use {
+        {'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]]},
+    'ahmedkhalf/project.nvim'
+    }
 
-    use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps' }
+    use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
     use 'mcchrish/nnn.vim'
 
 
     -- --- Git & project management & file browser
     use 'tpope/vim-fugitive'
-    -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-    use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+    -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
+    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
     use 'mbbill/undotree'
-    vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeShow<CR>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
 
 
 
-    -- --- language support / syntax highlighting
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = 'nvim-treesitter'}
-    use { 'nvim-treesitter/nvim-treesitter-refactor', requires = 'nvim-treesitter' }
-    use { 'nvim-treesitter/completion-treesitter', requires = 'nvim-treesitter' }
-    -- treesitter context don't yet work on windows
+    -- language support / syntax highlighting
     use {
-        'romgrk/nvim-treesitter-context',
-        requires = 'nvim-treesitter',
-        cond = function()
-            return vim.fn.has 'win32' ~= 1
-        end,
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-refactor',
+        'nvim-treesitter/completion-treesitter',
+        -- treesitter context don't yet work on windows
+        {'romgrk/nvim-treesitter-context',
+            cond = function()
+                return vim.fn.has 'win32' ~= 1
+            end,},
+        'p00f/nvim-ts-rainbow',
+        run = ':TSUpdate',
+        config = [[require('config.treesitter')]]
+
     }
-    use 'p00f/nvim-ts-rainbow'
-    use 'ThePrimeagen/refactoring.nvim'
+    use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
 
     -- document generator
@@ -119,14 +130,14 @@ return require('packer').startup(function()
 
 
     -- --- Quality of life
-    use { 'folke/which-key.nvim', config = function() require'which-key'.setup{} end }
-    use 'glepnir/dashboard-nvim'
+    use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
     -- use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
     use 'tpope/vim-obsession' -- session management
     -- use 'rmagatti/auto-session'
-    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
-    use 'andweeb/presence.nvim' -- Lets be edgy on Discord!
-    use { 'rcarriga/nvim-notify', config = function() vim.notify = require('notify') end }
+    use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]]}
+    use { 'andweeb/presence.nvim', config = [[require('config.discord')]] }
+    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]]}
+    use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
 
     -- ---  Note taking, tex, orgmode
     use 'godlygeek/tabular'

@@ -21,22 +21,22 @@ let g:ale_disable_lsp = 1
 " use gf to open file
 lua require('plugins')
 
-lua require('treesitter_config')
-lua require('orgmode_config')
-lua require('refactor_config')
-lua require('evilline_config')
-lua require('chadtree_config')
-lua require('toggleterm_config')
-lua require('discord_config')
-lua require('barbar_config')
-" lua require('neogit_config')
+" lua require('treesitter_config')
+" lua require('orgmode_config')
+" lua require('refactor_config')
+" lua require('evilline_config')
+" lua require('chadtree_config')
+" lua require('toggleterm_config')
+" lua require('discord_config')
+" lua require('barbar_config')
+" " lua require('neogit_config')
 
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
 source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
 source $NVIM_CONFIG_PATH/config/console.vim
-source $NVIM_CONFIG_PATH/config/telescope.vim
+" source $NVIM_CONFIG_PATH/config/telescope.vim
 source $NVIM_CONFIG_PATH/config/terminal.vim
 source $NVIM_CONFIG_PATH/config/nnn.vim
 source $NVIM_CONFIG_PATH/config/ale.vim
