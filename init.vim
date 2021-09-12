@@ -31,6 +31,7 @@ lua require('discord_config')
 lua require('barbar_config')
 " lua require('neogit_config')
 
+
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
 source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
