@@ -21,7 +21,7 @@ parser_configs.norg = {
 
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"norg", "python", "lua", "vim", "html", "json"},
+  -- ensure_installed = {"norg", "python", "lua", "vim", "html", "json"},
 
   highlight = {
     enable = true,

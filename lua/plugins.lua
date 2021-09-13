@@ -139,7 +139,10 @@ return require('packer').startup(function()
 
     -- language support / syntax highlighting
     use {
-        'nvim-treesitter/nvim-treesitter',
+        {'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = [[require('config.treesitter')]]
+    },
         'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/completion-treesitter',
@@ -149,9 +152,6 @@ return require('packer').startup(function()
                 return vim.fn.has 'win32' ~= 1
             end,},
         'p00f/nvim-ts-rainbow',
-        run = ':TSUpdate',
-        config = [[require('config.treesitter')]]
-
     }
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
