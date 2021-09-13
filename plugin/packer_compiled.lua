@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\henry\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\henry\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\henry\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\henry\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\henry\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "/home/henryw/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/henryw/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/henryw/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/henryw/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/henryw/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,340 +71,340 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Catppuccino.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Catppuccino.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/Catppuccino.nvim"
   },
   ["Nvim-R"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Nvim-R"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/Nvim-R"
   },
   ale = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ale"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/ale"
   },
   ["barbar.nvim"] = {
     config = { "require('config.barbar')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\barbar.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
   chadtree = {
     config = { "require('config.chadtree')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\chadtree"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/chadtree"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
   ["completion-treesitter"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\completion-treesitter"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/completion-treesitter"
   },
   ["coq.artifacts"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq.artifacts"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/coq.artifacts"
   },
   coq_nvim = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq_nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/coq_nvim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\dashboard-nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
   ["fzy-lua-native"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzy-lua-native"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/fzy-lua-native"
   },
   ["galaxyline.nvim"] = {
     config = { "require('config.galaxyline')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\galaxyline.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
     config = { "require('gitsigns').setup()" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   gruvbox = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
   ["hop.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\hop.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/hop.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\indent-blankline.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   ["jupyter-vim"] = {
     loaded = false,
     needs_bufread = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\jupyter-vim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/jupyter-vim"
   },
   kommentary = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kommentary"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lsp-trouble.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-trouble.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim"
   },
   ["lsp_signature.nvim"] = {
     config = { "require'lsp_signature'.setup()" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp_signature.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lspsaga.nvim"] = {
     config = { "require'lspsaga'.init_lsp_saga()" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspsaga.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\markdown-preview.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
   },
   neorg = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neorg"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/neorg"
   },
   ["neoscroll.nvim"] = {
     config = { "require'neoscroll'.setup{}" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neoscroll.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
   },
   ["nnn.vim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nnn.vim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nnn.vim"
   },
   ["nvim-autopairs"] = {
     config = { "require('nvim-autopairs').setup()" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     config = { "require('config.cmp')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-dap"] = {
     config = { "require('config.dap')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-dap"
   },
   ["nvim-dap-python"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-python"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-dap-python"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-dap-ui"
   },
   ["nvim-dap-virtual-text"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-virtual-text"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text"
   },
   ["nvim-lspconfig"] = {
     config = { "require('config.lsp')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig"
-  },
-  ["nvim-lspinstall"] = {
-    loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspinstall"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-notify"] = {
     config = { "vim.notify = require('notify')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-notify"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-notify"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-treesitter-context"] = {
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-treesitter-context"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-context"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter-refactor"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
   },
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter-textobjects"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-rainbow"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popup.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["presence.nvim"] = {
     config = { "require('config.discord')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\presence.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/presence.nvim"
   },
   ["project.nvim"] = {
     config = { "\27LJ\2\nx\0\0\3\0\6\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\rprojects\19load_extension\14telescope\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\project.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/project.nvim"
   },
   ["refactoring.nvim"] = {
     config = { "require('config.refactor')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\refactoring.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/refactoring.nvim"
   },
   ["sqlite.lua"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\sqlite.lua"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/sqlite.lua"
   },
   ["srcery-vim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\srcery-vim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/srcery-vim"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\symbols-outline.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   tabular = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tabular"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/tabular"
   },
   ["targets.vim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\targets.vim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/targets.vim"
   },
   ["telescope-frecency.nvim"] = {
     config = { "\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0" },
     load_after = {},
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope-frecency.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/telescope-frecency.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     config = { "require('telescope').load_extension('fzf')" },
     load_after = {},
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope-fzf-native.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
-    after = { "project.nvim", "telescope-frecency.nvim", "telescope-fzf-native.nvim" },
+    after = { "project.nvim", "telescope-fzf-native.nvim", "telescope-frecency.nvim" },
     loaded = true,
     only_config = true
   },
   ["tex-conceal.vim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tex-conceal.vim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/tex-conceal.vim"
   },
   ["todo-comments.nvim"] = {
     config = { 'require("todo-comments").setup{}' },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\todo-comments.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "require('config.toggleterm')" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
   ultisnips = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ultisnips"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/ultisnips"
   },
   undotree = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\undotree"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/undotree"
   },
   ["vim-doge"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-doge"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-doge"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-markdown"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-markdown"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-markdown"
   },
   ["vim-maximizer"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-maximizer"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-maximizer"
   },
   ["vim-obsession"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-obsession"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-obsession"
   },
   ["vim-repeat"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-repeat"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-repeat"
   },
   ["vim-startuptime"] = {
     commands = { "StartupTime" },
     config = { "vim.g.startuptime_tries = 10" },
     loaded = false,
     needs_bufread = false,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vim-startuptime"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/opt/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-uppercase-sql"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-uppercase-sql"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-uppercase-sql"
   },
   ["vim-venter"] = {
     config = { "\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-venter"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vim-venter"
   },
   vimtex = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vimtex"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/vimtex"
   },
   ["which-key.nvim"] = {
     config = { "require'which-key'.setup{}" },
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   },
   ["wilder.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\wilder.nvim"
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/wilder.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require'lspsaga'.init_lsp_saga()
+time([[Config for lspsaga.nvim]], false)
 -- Config for: vim-venter
 time([[Config for vim-venter]], true)
 try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
@@ -417,86 +417,75 @@ time([[Config for todo-comments.nvim]], false)
 time([[Config for toggleterm.nvim]], true)
 require('config.toggleterm')
 time([[Config for toggleterm.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require('config.barbar')
-time([[Config for barbar.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('config.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-require'lsp_signature'.setup()
-time([[Config for lsp_signature.nvim]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require('config.dap')
-time([[Config for nvim-dap]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-require'lspsaga'.init_lsp_saga()
-time([[Config for lspsaga.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-require('config.refactor')
-time([[Config for refactoring.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp')
-time([[Config for nvim-lspconfig]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-vim.notify = require('notify')
-time([[Config for nvim-notify]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-require('config.galaxyline')
-time([[Config for galaxyline.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('gitsigns').setup()
-time([[Config for gitsigns.nvim]], false)
--- Config for: chadtree
-time([[Config for chadtree]], true)
-require('config.chadtree')
-time([[Config for chadtree]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require('config.discord')
-time([[Config for presence.nvim]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require'neoscroll'.setup{}
-time([[Config for neoscroll.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require('nvim-autopairs').setup()
 time([[Config for nvim-autopairs]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+require('config.galaxyline')
+time([[Config for galaxyline.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('config.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('config.discord')
+time([[Config for presence.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require('config.dap')
+time([[Config for nvim-dap]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require('config.refactor')
+time([[Config for refactoring.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require'which-key'.setup{}
 time([[Config for which-key.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'neoscroll'.setup{}
+time([[Config for neoscroll.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('gitsigns').setup()
+time([[Config for gitsigns.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require('config.barbar')
+time([[Config for barbar.nvim]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+vim.notify = require('notify')
+time([[Config for nvim-notify]], false)
+-- Config for: chadtree
+time([[Config for chadtree]], true)
+require('config.chadtree')
+time([[Config for chadtree]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+require'lsp_signature'.setup()
+time([[Config for lsp_signature.nvim]], false)
 -- Conditional loads
-time("Condition for { 'nvim-treesitter-context', 'telescope-frecency.nvim', 'telescope-fzf-native.nvim' }", true)
+time("Condition for { 'nvim-treesitter-context', 'telescope-fzf-native.nvim', 'telescope-frecency.nvim' }", true)
 if
-try_loadstring("\27LJ\2\nE\0\0\3\0\4\1\v6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\t\0\0\0X\0\2€+\0\1\0X\1\1€+\0\2\0L\0\2\0\nwin32\bhas\afn\bvim\2\0", "condition", '{ "nvim-treesitter-context", "telescope-frecency.nvim", "telescope-fzf-native.nvim" }')
+try_loadstring("\27LJ\2\nE\0\0\3\0\4\1\v6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\t\0\0\0X\0\2€+\0\1\0X\1\1€+\0\2\0L\0\2\0\nwin32\bhas\afn\bvim\2\0", "condition", '{ "nvim-treesitter-context", "telescope-fzf-native.nvim", "telescope-frecency.nvim" }')
 then
-time("Condition for { 'nvim-treesitter-context', 'telescope-frecency.nvim', 'telescope-fzf-native.nvim' }", false)
+time("Condition for { 'nvim-treesitter-context', 'telescope-fzf-native.nvim', 'telescope-frecency.nvim' }", false)
 time([[packadd for nvim-treesitter-context]], true)
 		vim.cmd [[packadd nvim-treesitter-context]]
 	time([[packadd for nvim-treesitter-context]], false)
-	time([[packadd for telescope-frecency.nvim]], true)
-		vim.cmd [[packadd telescope-frecency.nvim]]
-	time([[packadd for telescope-frecency.nvim]], false)
-	-- Config for: telescope-frecency.nvim
-	time([[Config for telescope-frecency.nvim]], true)
-	try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
-	time([[Config for telescope-frecency.nvim]], false)
 	time([[packadd for telescope-fzf-native.nvim]], true)
 		vim.cmd [[packadd telescope-fzf-native.nvim]]
 	time([[packadd for telescope-fzf-native.nvim]], false)
@@ -504,8 +493,15 @@ time([[packadd for nvim-treesitter-context]], true)
 	time([[Config for telescope-fzf-native.nvim]], true)
 	require('telescope').load_extension('fzf')
 	time([[Config for telescope-fzf-native.nvim]], false)
+	time([[packadd for telescope-frecency.nvim]], true)
+		vim.cmd [[packadd telescope-frecency.nvim]]
+	time([[packadd for telescope-frecency.nvim]], false)
+	-- Config for: telescope-frecency.nvim
+	time([[Config for telescope-frecency.nvim]], true)
+	try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
+	time([[Config for telescope-frecency.nvim]], false)
 else
-time("Condition for { 'nvim-treesitter-context', 'telescope-frecency.nvim', 'telescope-fzf-native.nvim' }", false)
+time("Condition for { 'nvim-treesitter-context', 'telescope-fzf-native.nvim', 'telescope-frecency.nvim' }", false)
 end
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)

@@ -47,7 +47,7 @@ return require('packer').startup(function()
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]]}
-    use 'kabouzeid/nvim-lspinstall'
+    -- use 'kabouzeid/nvim-lspinstall'
 
     use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
     use 'folke/lsp-trouble.nvim'
