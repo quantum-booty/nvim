@@ -11,8 +11,6 @@ autocmd('dap_aucmds', 'ColorScheme * highlight NvimDapVirtualText guifg=#82E0AA'
 
 -- " highlight NvimDapVirtualText link Error
 
-vim.g.maximizer_set_default_mapping = 0
-map('n', '<Del>', ':MaximizerToggle<CR>', opts)
 
 map('n','<F1>',  ":lua require'dap'.step_out()<CR>", opts)
 map('n','<F2>',  ":lua require'dap'.step_into()<CR>", opts)

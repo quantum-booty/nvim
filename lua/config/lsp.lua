@@ -11,7 +11,6 @@ vim.opt.shortmess:append('c')
 
 -- local coq = require "coq"
 
-require "lsp_signature".setup()
 
 
 -------------------------------------------------------------------------------

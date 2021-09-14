@@ -22,12 +22,12 @@ return require('packer').startup(function()
     use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]]}
     use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
-    use 'glepnir/dashboard-nvim'
+    use { 'glepnir/dashboard-nvim', config = [[vim.g.dashboard_default_executive="telescope"]] }
 
     -- Consoles for interactive development
     -- use 'untitled-ai/jupyter_ascending.vim'
     use { 'jupyter-vim/jupyter-vim', opt=true }
-    use 'jalvesaq/Nvim-R'
+    -- use 'jalvesaq/Nvim-R'
     use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
 
     -- SQL
@@ -52,15 +52,17 @@ return require('packer').startup(function()
     use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
     use 'folke/lsp-trouble.nvim'
     vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
-    use 'romgrk/fzy-lua-native'
-    use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins' }
+    -- use 'romgrk/fzy-lua-native'
+    use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native'}
+    -- TODO: maybe turn off for windows?
     use {'ray-x/lsp_signature.nvim', config = [[require'lsp_signature'.setup()]]}
     use 'simrat39/symbols-outline.nvim'
 
-    use {
-        { 'ms-jpq/coq_nvim', branch = 'coq'},
-        { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
-    }
+    -- use {
+    --     'ms-jpq/coq_nvim',
+    --     branch = 'coq',
+    --     requires = { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
+    -- }
 
     use {
         {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]},
@@ -85,7 +87,13 @@ return require('packer').startup(function()
         'rcarriga/nvim-dap-ui',}
 
     -- use 'puremourning/vimspector'
-    use 'szw/vim-maximizer'
+    use {
+    'szw/vim-maximizer',
+    config = function()
+        vim.g.maximizer_set_default_mapping = 0
+        vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
+        end
+    }
 
     -- --- Fuzzy finder & project navigation
     use {'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]]}
@@ -125,15 +133,20 @@ return require('packer').startup(function()
 
 
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
-    use 'mcchrish/nnn.vim'
+    use {
+        'mcchrish/nnn.vim',
+        cond = function()
+            return vim.fn.has 'win32' ~= 1
+        end,
+    }
 
 
-    -- --- Git & project management & file browser
+    -- --- Git & project management
     use 'tpope/vim-fugitive'
     -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
-    use 'mbbill/undotree'
-    vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
+    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]]}
+
 
 
 
@@ -157,26 +170,32 @@ return require('packer').startup(function()
 
 
     -- document generator
-    use { 'kkoomen/vim-doge', run = ':call doge#install()' }
+    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[vim.g.doge_doc_standard_python='numpy']]}
 
 
     -- --- Quality of life
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
     -- use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
-    use 'tpope/vim-obsession' -- session management
+    use {'tpope/vim-obsession', config = [[vim.api.nvim_set_keymap('n', '<leader>ss', ':Obsession<cr>', {noremap=true})]]} -- session management
     -- use 'rmagatti/auto-session'
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]]}
-    use { 'andweeb/presence.nvim', config = [[require('config.discord')]] }
+    use {
+        'andweeb/presence.nvim',
+        config = [[require('config.discord')]],
+        cond = function()
+            return vim.fn.has 'win32' ~= 1
+        end
+    }
     use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]]}
     use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
 
     -- ---  Note taking, tex, orgmode
-    use 'godlygeek/tabular'
-    use 'plasticboy/vim-markdown'
-    use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
-    use 'lervag/vimtex'
-    use 'KeitaNakamura/tex-conceal.vim'
-    use { 'vhyrro/neorg', branch = 'unstable' }
+    -- use 'godlygeek/tabular'
+    -- use 'plasticboy/vim-markdown'
+    -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
+    -- use 'lervag/vimtex'
+    -- use 'KeitaNakamura/tex-conceal.vim'
+    -- use { 'vhyrro/neorg', branch = 'unstable' }
 
 
 
