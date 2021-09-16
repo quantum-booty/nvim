@@ -118,8 +118,8 @@ nnoremap <leader>k <esc>:m .-2<CR>==
 vnoremap X "_d
 
 
-" " Yank to end of line (merged to masters)
-" nmap Y v$y
+" " Yank to end of line (merged to 0.6 masters)
+nmap Y v$y
 
 " " " This allow ENTER to open new line
 " nnoremap <buffer> <CR> o

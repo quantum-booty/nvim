@@ -19,11 +19,11 @@ colorscheme nightfox
 " =============================================================================
 " # Srcery
 " =============================================================================
-let g:srcery_italic = 1
+let g:srcery_italic = 0
 let g:srcery_bold = 1
 let g:srcery_inverse_matches = 1
 let g:srcery_inverse = 1
-let g:srcery_italic_types = 1
+let g:srcery_italic_types = 0
 let g:srcery_inverse_match_paren = 1
 
 " =============================================================================

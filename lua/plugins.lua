@@ -50,41 +50,47 @@ return require('packer').startup(function()
     -- use 'kabouzeid/nvim-lspinstall'
 
     use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
-    use 'folke/lsp-trouble.nvim'
-    vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
+    use {
+        'folke/lsp-trouble.nvim',
+        config = function()
+            vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
+        end
+    }
     -- use 'romgrk/fzy-lua-native'
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native'}
     -- TODO: maybe turn off for windows?
     use {'ray-x/lsp_signature.nvim', config = [[require'lsp_signature'.setup()]]}
     use 'simrat39/symbols-outline.nvim'
 
-    -- use {
-    --     'ms-jpq/coq_nvim',
-    --     branch = 'coq',
-    --     requires = { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
-    -- }
-
     use {
-        {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]},
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
+        'ms-jpq/coq_nvim',
+        branch = 'coq',
+        requires = { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
     }
+
+    -- use {
+    --     {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]},
+    --     "hrsh7th/cmp-nvim-lsp",
+    --     "hrsh7th/cmp-buffer",
+    -- }
 
     -- linter, fixer, formatter
     use 'w0rp/ale'
+    -- use 'sbdchd/neoformat'
+    -- use 'neomake/neomake'
 
 
     -- snippets
     -- use 'honza/vim-snippets'
     use 'sirver/ultisnips'
 
-
-    -- --- Debugger
-    use {
-        {'mfussenegger/nvim-dap', config = [[require('config.dap')]]},
-        'mfussenegger/nvim-dap-python',
-        'theHamsta/nvim-dap-virtual-text',
-        'rcarriga/nvim-dap-ui',}
+    -- -- --- Debugger
+    -- use {
+    --     {'mfussenegger/nvim-dap', config = [[require('config.dap')]]},
+    --     'mfussenegger/nvim-dap-python',
+    --     'theHamsta/nvim-dap-virtual-text',
+    --     'rcarriga/nvim-dap-ui',
+    -- }
 
     -- use 'puremourning/vimspector'
     use {
@@ -176,7 +182,15 @@ return require('packer').startup(function()
     -- --- Quality of life
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
     -- use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
-    use {'tpope/vim-obsession', config = [[vim.api.nvim_set_keymap('n', '<leader>ss', ':Obsession<cr>', {noremap=true})]]} -- session management
+    use {
+        'tpope/vim-obsession',
+        config = function()
+            vim.api.nvim_set_keymap('n', '<leader>ss', ':Obsession<cr>', {noremap=true})
+            vim.api.nvim_set_keymap('n', '<leader>SS', ':source Session.vim<cr>', {noremap=true})
+        end
+    }
+
+
     -- use 'rmagatti/auto-session'
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]]}
     use {

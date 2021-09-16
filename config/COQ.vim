@@ -3,7 +3,7 @@
 " =============================================================================
 " " Set recommended to false
 " vim.g.coq_settings = { ["keymap.recommended"] = false }
-let g.coq_settings = { "keymap.recommended" = v:false }
+let g:coq_settings = { "keymap": {"recommended" : v:false }}
 
 " Keybindings
 inoremap <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"

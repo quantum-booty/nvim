@@ -9,7 +9,7 @@ vim.opt.shortmess:append('c')
 -- vim.lsp.set_log_level('debug')
  -- log_path: ~/.cache/nvim/lsp.log
 
--- local coq = require "coq"
+local coq = require "coq"
 
 
 
@@ -37,13 +37,13 @@ vim.opt.shortmess:append('c')
 -------------------------------------------------------------------------------
 -- nvim-cmp settings
 -------------------------------------------------------------------------------
-require'cmp'.setup {
-  sources = {
-    { name = 'nvim_lsp' }
-  }
-}
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- require'cmp'.setup {
+--   sources = {
+--     { name = 'nvim_lsp' }
+--   }
+-- }
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 
 -------------------------------------------------------------------------------
@@ -80,8 +80,8 @@ local on_attach = function(client, bufnr)
 end
 
 
-nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
--- nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
+-- nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
+nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
 -- nvim_lsp.pylsp.setup { capabilities = capabilities, on_attach = on_attach}
 nvim_lsp.texlab.setup { capabilities = capabilities, on_attach = on_attach}
 nvim_lsp.julials.setup { capabilities = capabilities, on_attach = on_attach}

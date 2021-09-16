@@ -15,9 +15,9 @@ else
 endif
 
 
-let b:ale_python_isort_auto_pipenv = 1
-" disable ale lsp before loading the plugins
-let g:ale_disable_lsp = 1
+" let b:ale_python_isort_auto_pipenv = 1
+" " disable ale lsp before loading the plugins
+" let g:ale_disable_lsp = 1
 
 " use gf to open file
 lua require('plugins')
@@ -36,12 +36,13 @@ lua require('plugins')
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
 " source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
-" source $NVIM_CONFIG_PATH/config/COQ.vim
+source $NVIM_CONFIG_PATH/config/COQ.vim
 " source $NVIM_CONFIG_PATH/config/console.vim
 " source $NVIM_CONFIG_PATH/config/telescope.vim
 " source $NVIM_CONFIG_PATH/config/terminal.vim
 " TODO: migrate from ale to nvim plugins for linters and fixers?
 source $NVIM_CONFIG_PATH/config/ale.vim
+" source $NVIM_CONFIG_PATH/config/neoformat.vim
 source $NVIM_CONFIG_PATH/config/wilder.vim
 source $NVIM_CONFIG_PATH/config/snippets.vim
 " source $NVIM_CONFIG_PATH/config/vimspector.vim
