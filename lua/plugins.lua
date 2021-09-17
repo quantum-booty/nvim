@@ -14,6 +14,7 @@ return require('packer').startup(function()
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
         'Pocco81/Catppuccino.nvim',
+        "projekt0n/github-nvim-theme",
     }
     -- cosmetics
     use 'lukas-reineke/indent-blankline.nvim'
