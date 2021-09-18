@@ -3,6 +3,8 @@ vim.opt.completeopt:append({'menuone','noselect','noinsert'})
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
 
+
+
  -- =============================================================================
  -- # lsp-config settings
  -- =============================================================================

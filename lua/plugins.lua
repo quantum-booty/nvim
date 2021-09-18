@@ -21,7 +21,9 @@ return require('packer').startup(function()
     use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]]}
     use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end}
     use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]]}
-    use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
+    -- use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]]}
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
     use { 'glepnir/dashboard-nvim', config = [[vim.g.dashboard_default_executive="telescope"]] }
 
