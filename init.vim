@@ -14,7 +14,6 @@ else
     source $NVIM_CONFIG_PATH/config/nnn.vim
 endif
 
-let g:sqlite_clib_path = $NVIM_CONFIG_PATH.'/sqlite3.dll'
 
 
 " let b:ale_python_isort_auto_pipenv = 1
@@ -33,6 +32,8 @@ lua require('plugins')
 " lua require('discord_config')
 " lua require('barbar_config')
 " " lua require('neogit_config')
+
+let g:sqlite_clib_path = $NVIM_CONFIG_PATH.'/sqlite3.dll'
 
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
