@@ -124,20 +124,14 @@ return require('packer').startup(function()
             require"telescope".load_extension("frecency")
         end,
         requires = {"tami5/sqlite.lua"},
-        cond = function()
-            return vim.fn.has 'win32' ~= 1
-        end,
-
     }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
-        after = 'telescope.nvim',
         config = [[require('telescope').load_extension('fzf')]],
         cond = function()
             return vim.fn.has 'win32' ~= 1
         end,
-
     }
 
 
@@ -172,7 +166,8 @@ return require('packer').startup(function()
         {'romgrk/nvim-treesitter-context',
             cond = function()
                 return vim.fn.has 'win32' ~= 1
-            end,},
+            end,
+        },
         'p00f/nvim-ts-rainbow',
     }
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }

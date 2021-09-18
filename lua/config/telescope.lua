@@ -5,9 +5,7 @@ require("telescope").setup {}
 
 
 -- search recent files
-if vim.fn.has 'win32' == 0 then
 map("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
-end
 
 -- " project_nvim
 map('n', '<leader>pp', ':Telescope projects<CR>', opts)

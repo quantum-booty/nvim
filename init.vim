@@ -14,6 +14,8 @@ else
     source $NVIM_CONFIG_PATH/config/nnn.vim
 endif
 
+let g:sqlite_clib_path = $NVIM_CONFIG_PATH.'/sqlite3.dll'
+
 
 " let b:ale_python_isort_auto_pipenv = 1
 " " disable ale lsp before loading the plugins
