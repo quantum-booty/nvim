@@ -28,4 +28,4 @@ local function not_windows()
 end
 
 
-return {opt = opt, autocmd = autocmd, map = map, not_windows}
+return {opt = opt, autocmd = autocmd, map = map, not_windows = not_windows}
