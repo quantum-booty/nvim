@@ -1,3 +1,5 @@
+local not_windows = require('utils').not_windows
+
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -25,7 +27,7 @@ return require('packer').startup(function()
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]]}
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
-    use { 'glepnir/dashboard-nvim', config = [[vim.g.dashboard_default_executive="telescope"]] }
+    use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
 
     -- Consoles for interactive development
     -- use 'untitled-ai/jupyter_ascending.vim'
@@ -129,18 +131,14 @@ return require('packer').startup(function()
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
         config = [[require('telescope').load_extension('fzf')]],
-        cond = function()
-            return vim.fn.has 'win32' ~= 1
-        end,
+        cond = not_windows,
     }
 
 
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
     use {
         'mcchrish/nnn.vim',
-        cond = function()
-            return vim.fn.has 'win32' ~= 1
-        end,
+        cond = not_windows,
     }
 
 
@@ -164,9 +162,7 @@ return require('packer').startup(function()
         'nvim-treesitter/completion-treesitter',
         -- treesitter context don't yet work on windows
         {'romgrk/nvim-treesitter-context',
-            cond = function()
-                return vim.fn.has 'win32' ~= 1
-            end,
+            cond = not_windows
         },
         'p00f/nvim-ts-rainbow',
     }
@@ -194,9 +190,7 @@ return require('packer').startup(function()
     use {
         'andweeb/presence.nvim',
         config = [[require('config.discord')]],
-        cond = function()
-            return vim.fn.has 'win32' ~= 1
-        end
+        cond = not_windows,
     }
     use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]]}
     use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }

@@ -23,4 +23,9 @@ local function map(modes, lhs, rhs, opts)
   for _, mode in ipairs(modes) do map_key(mode, lhs, rhs, opts) end
 end
 
-return {opt = opt, autocmd = autocmd, map = map}
+local function not_windows()
+    return vim.fn.has 'win32' ~= 1
+end
+
+
+return {opt = opt, autocmd = autocmd, map = map, not_windows}

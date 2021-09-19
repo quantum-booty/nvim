@@ -8,6 +8,7 @@ let maplocalleader = ','
 if has('win32')
     let g:python_host_prog = $USERPROFILE.'/virtualenvs/neovim2/Scripts/python.exe'
     let g:python3_host_prog = $USERPROFILE.'/virtualenvs/neovim3/Scripts/python.exe'
+    let g:sqlite_clib_path = $NVIM_CONFIG_PATH.'/sqlite3.dll'
 else
     let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
     let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
@@ -22,18 +23,6 @@ endif
 
 " use gf to open file
 lua require('plugins')
-
-" lua require('treesitter_config')
-" lua require('orgmode_config')
-" lua require('refactor_config')
-" lua require('evilline_config')
-" lua require('chadtree_config')
-" lua require('toggleterm_config')
-" lua require('discord_config')
-" lua require('barbar_config')
-" " lua require('neogit_config')
-
-let g:sqlite_clib_path = $NVIM_CONFIG_PATH.'/sqlite3.dll'
 
 
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
