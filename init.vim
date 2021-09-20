@@ -17,9 +17,8 @@ endif
 
 
 
-" let b:ale_python_isort_auto_pipenv = 1
 " " disable ale lsp before loading the plugins
-" let g:ale_disable_lsp = 1
+let g:ale_disable_lsp = 1
 
 " use gf to open file
 lua require('plugins')
