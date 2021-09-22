@@ -28,12 +28,14 @@ return require('packer').startup(function()
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]]}
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
     use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
+    -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
 
     -- Consoles for interactive development
     -- use 'untitled-ai/jupyter_ascending.vim'
     use { 'jupyter-vim/jupyter-vim', opt=true }
     -- use 'jalvesaq/Nvim-R'
     use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
+
 
     -- SQL
     -- use 'tpope/vim-dadbod'
@@ -64,7 +66,7 @@ return require('packer').startup(function()
     -- use 'romgrk/fzy-lua-native'
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native'}
     -- TODO: maybe turn off for windows?
-    use {'ray-x/lsp_signature.nvim', config = [[require'lsp_signature'.setup()]]}
+    use {'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]]}
     use 'simrat39/symbols-outline.nvim'
 
     use {
