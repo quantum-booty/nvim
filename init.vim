@@ -24,6 +24,7 @@ let g:ale_disable_lsp = 1
 lua require('plugins')
 
 
+
 source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
 " source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim

@@ -28,7 +28,7 @@ return require('packer').startup(function()
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]]}
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
     use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
-    -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
+    use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
 
     -- Consoles for interactive development
     -- use 'untitled-ai/jupyter_ascending.vim'
@@ -169,6 +169,8 @@ return require('packer').startup(function()
         'p00f/nvim-ts-rainbow',
     }
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
+
+
 
 
     -- document generator

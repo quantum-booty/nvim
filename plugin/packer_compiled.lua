@@ -243,6 +243,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/refactoring.nvim"
   },
+  ["sidebar.nvim"] = {
+    config = { "require('config.sidebar')" },
+    loaded = true,
+    path = "/home/henryw/.local/share/nvim/site/pack/packer/start/sidebar.nvim"
+  },
   ["sqlite.lua"] = {
     loaded = true,
     path = "/home/henryw/.local/share/nvim/site/pack/packer/start/sqlite.lua"
@@ -355,6 +360,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: undotree
+time([[Config for undotree]], true)
+vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
+time([[Config for undotree]], false)
 -- Config for: vim-doge
 time([[Config for vim-doge]], true)
 vim.g.doge_doc_standard_python='numpy'
@@ -363,96 +372,96 @@ time([[Config for vim-doge]], false)
 time([[Config for dashboard-nvim]], true)
 require('config.dashboard')
 time([[Config for dashboard-nvim]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require'neoscroll'.setup{}
-time([[Config for neoscroll.nvim]], false)
--- Config for: vim-maximizer
-time([[Config for vim-maximizer]], true)
-try_loadstring("\27LJ\2\n¤\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\25:MaximizerToggle<CR>\n<Del>\6n\20nvim_set_keymap\bapi\"maximizer_set_default_mapping\6g\bvim\0", "config", "vim-maximizer")
-time([[Config for vim-maximizer]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-require('config.refactor')
-time([[Config for refactoring.nvim]], false)
--- Config for: vim-obsession
-time([[Config for vim-obsession]], true)
-try_loadstring("\27LJ\2\nº\1\0\0\6\0\n\0\0176\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\28:source Session.vim<cr>\15<leader>SS\1\0\1\fnoremap\2\19:Obsession<cr>\15<leader>ss\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-obsession")
-time([[Config for vim-obsession]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require('nvim-autopairs').setup()
 time([[Config for nvim-autopairs]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('gitsigns').setup()
-time([[Config for gitsigns.nvim]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require('config.refactor')
+time([[Config for refactoring.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require('config.lsp')
 time([[Config for nvim-lspconfig]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-vim.notify = require('notify')
-time([[Config for nvim-notify]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('config.treesitter')
-time([[Config for nvim-treesitter]], false)
+-- Config for: sidebar.nvim
+time([[Config for sidebar.nvim]], true)
+require('config.sidebar')
+time([[Config for sidebar.nvim]], false)
+-- Config for: vim-obsession
+time([[Config for vim-obsession]], true)
+try_loadstring("\27LJ\2\nº\1\0\0\6\0\n\0\0176\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\28:source Session.vim<cr>\15<leader>SS\1\0\1\fnoremap\2\19:Obsession<cr>\15<leader>ss\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-obsession")
+time([[Config for vim-obsession]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('gitsigns').setup()
+time([[Config for gitsigns.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require('config.telescope')
 time([[Config for telescope.nvim]], false)
--- Config for: vim-venter
-time([[Config for vim-venter]], true)
-try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
-time([[Config for vim-venter]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-require("galaxyline.themes.spaceline")
-time([[Config for galaxyline.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require'which-key'.setup{}
-time([[Config for which-key.nvim]], false)
--- Config for: lsp-trouble.nvim
-time([[Config for lsp-trouble.nvim]], true)
-try_loadstring("\27LJ\2\nu\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\30<cmd>LspTroubleToggle<cr>\14<leader>z\6n\20nvim_set_keymap\bapi\bvim\0", "config", "lsp-trouble.nvim")
-time([[Config for lsp-trouble.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require('config.toggleterm')
-time([[Config for toggleterm.nvim]], false)
 -- Config for: chadtree
 time([[Config for chadtree]], true)
 require('config.chadtree')
 time([[Config for chadtree]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-require('config.lspsignature')
-time([[Config for lsp_signature.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require('config.barbar')
-time([[Config for barbar.nvim]], false)
+-- Config for: vim-maximizer
+time([[Config for vim-maximizer]], true)
+try_loadstring("\27LJ\2\n¤\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\3\0009\0\4\0'\2\5\0'\3\6\0'\4\a\0005\5\b\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\25:MaximizerToggle<CR>\n<Del>\6n\20nvim_set_keymap\bapi\"maximizer_set_default_mapping\6g\bvim\0", "config", "vim-maximizer")
+time([[Config for vim-maximizer]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+vim.notify = require('notify')
+time([[Config for nvim-notify]], false)
+-- Config for: vim-venter
+time([[Config for vim-venter]], true)
+try_loadstring("\27LJ\2\nn\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\22:VenterToggle<CR>\15<leader>go\6n\20nvim_set_keymap\bapi\bvim\0", "config", "vim-venter")
+time([[Config for vim-venter]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 require("todo-comments").setup{}
 time([[Config for todo-comments.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: lsp-trouble.nvim
+time([[Config for lsp-trouble.nvim]], true)
+try_loadstring("\27LJ\2\nu\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\1\fnoremap\2\30<cmd>LspTroubleToggle<cr>\14<leader>z\6n\20nvim_set_keymap\bapi\bvim\0", "config", "lsp-trouble.nvim")
+time([[Config for lsp-trouble.nvim]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require('config.barbar')
+time([[Config for barbar.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('config.toggleterm')
+time([[Config for toggleterm.nvim]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+require('config.lspsignature')
+time([[Config for lsp_signature.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'which-key'.setup{}
+time([[Config for which-key.nvim]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
 require'lspsaga'.init_lsp_saga()
 time([[Config for lspsaga.nvim]], false)
--- Config for: undotree
-time([[Config for undotree]], true)
-vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })
-time([[Config for undotree]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+require("galaxyline.themes.spaceline")
+time([[Config for galaxyline.nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'neoscroll'.setup{}
+time([[Config for neoscroll.nvim]], false)
 -- Conditional loads
-time("Condition for { 'presence.nvim', 'telescope-fzf-native.nvim', 'nnn.vim', 'nvim-treesitter-context' }", true)
+time("Condition for { 'presence.nvim', 'nnn.vim', 'nvim-treesitter-context', 'telescope-fzf-native.nvim' }", true)
 if
-try_loadstring("\27LJ\2\nE\0\0\3\0\4\1\v6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\t\0\0\0X\0\2€+\0\1\0X\1\1€+\0\2\0L\0\2\0\nwin32\bhas\afn\bvim\2\0", "condition", '{ "presence.nvim", "telescope-fzf-native.nvim", "nnn.vim", "nvim-treesitter-context" }')
+try_loadstring("\27LJ\2\nE\0\0\3\0\4\1\v6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\t\0\0\0X\0\2€+\0\1\0X\1\1€+\0\2\0L\0\2\0\nwin32\bhas\afn\bvim\2\0", "condition", '{ "presence.nvim", "nnn.vim", "nvim-treesitter-context", "telescope-fzf-native.nvim" }')
 then
-time("Condition for { 'presence.nvim', 'telescope-fzf-native.nvim', 'nnn.vim', 'nvim-treesitter-context' }", false)
+time("Condition for { 'presence.nvim', 'nnn.vim', 'nvim-treesitter-context', 'telescope-fzf-native.nvim' }", false)
 time([[packadd for presence.nvim]], true)
 		require("packer.load")({"presence.nvim"}, {}, _G.packer_plugins)
 	time([[packadd for presence.nvim]], false)
@@ -460,6 +469,12 @@ time([[packadd for presence.nvim]], true)
 	time([[Config for presence.nvim]], true)
 	require('config.discord')
 	time([[Config for presence.nvim]], false)
+	time([[packadd for nnn.vim]], true)
+		require("packer.load")({"nnn.vim"}, {}, _G.packer_plugins)
+	time([[packadd for nnn.vim]], false)
+	time([[packadd for nvim-treesitter-context]], true)
+		require("packer.load")({"nvim-treesitter-context"}, {}, _G.packer_plugins)
+	time([[packadd for nvim-treesitter-context]], false)
 	time([[packadd for telescope-fzf-native.nvim]], true)
 		require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
 	time([[packadd for telescope-fzf-native.nvim]], false)
@@ -467,26 +482,20 @@ time([[packadd for presence.nvim]], true)
 	time([[Config for telescope-fzf-native.nvim]], true)
 	require('telescope').load_extension('fzf')
 	time([[Config for telescope-fzf-native.nvim]], false)
-	time([[packadd for nnn.vim]], true)
-		require("packer.load")({"nnn.vim"}, {}, _G.packer_plugins)
-	time([[packadd for nnn.vim]], false)
-	time([[packadd for nvim-treesitter-context]], true)
-		require("packer.load")({"nvim-treesitter-context"}, {}, _G.packer_plugins)
-	time([[packadd for nvim-treesitter-context]], false)
 else
-time("Condition for { 'presence.nvim', 'telescope-fzf-native.nvim', 'nnn.vim', 'nvim-treesitter-context' }", false)
+time("Condition for { 'presence.nvim', 'nnn.vim', 'nvim-treesitter-context', 'telescope-fzf-native.nvim' }", false)
 end
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd project.nvim ]]
-
--- Config for: project.nvim
-try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\rprojects\19load_extension\14telescope\frequire\0", "config", "project.nvim")
-
 vim.cmd [[ packadd telescope-frecency.nvim ]]
 
 -- Config for: telescope-frecency.nvim
 try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\rfrecency\19load_extension\14telescope\frequire\0", "config", "telescope-frecency.nvim")
+
+vim.cmd [[ packadd project.nvim ]]
+
+-- Config for: project.nvim
+try_loadstring("\27LJ\2\nx\0\0\3\0\6\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17project_nvim\rprojects\19load_extension\14telescope\frequire\0", "config", "project.nvim")
 
 time([[Sequenced loading]], false)
 

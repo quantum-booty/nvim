@@ -2,7 +2,7 @@ local map = require('utils').map
 
 local sidebar = require('sidebar-nvim')
 local opts = {
-    open = true,
+    open = false,
     disable_default_keybindings = 1,
     side = 'right',
 }
