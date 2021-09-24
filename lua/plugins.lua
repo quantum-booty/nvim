@@ -20,13 +20,13 @@ return require('packer').startup(function()
     }
     -- cosmetics
     use 'lukas-reineke/indent-blankline.nvim'
-    use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]]}
-    use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end}
-    use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]]}
+    use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]] }
+    use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end }
+    use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
     -- use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]]}
-    use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]]}
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
+    use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
     use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
 
@@ -34,7 +34,7 @@ return require('packer').startup(function()
     -- use 'untitled-ai/jupyter_ascending.vim'
     use { 'jupyter-vim/jupyter-vim', opt=true }
     -- use 'jalvesaq/Nvim-R'
-    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
+    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]] }
 
 
     -- SQL
@@ -53,10 +53,10 @@ return require('packer').startup(function()
 
 
     -- --- lsp, autocompletion
-    use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]]}
+    use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     -- use 'kabouzeid/nvim-lspinstall'
 
-    use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]]}
+    use { 'glepnir/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]] }
     use {
         'folke/lsp-trouble.nvim',
         config = function()
@@ -64,15 +64,15 @@ return require('packer').startup(function()
         end
     }
     -- use 'romgrk/fzy-lua-native'
-    use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native'}
+    use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
     -- TODO: maybe turn off for windows?
-    use {'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]]}
-    use 'simrat39/symbols-outline.nvim'
+    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]] }
+    use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
     use {
         'ms-jpq/coq_nvim',
         branch = 'coq',
-        requires = { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
+        requires = { 'ms-jpq/coq.artifacts', branch= 'artifacts' }
     }
 
     -- use {
@@ -109,7 +109,7 @@ return require('packer').startup(function()
     }
 
     -- --- Fuzzy finder & project navigation
-    use {'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]]}
+    use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
 
 
     use {

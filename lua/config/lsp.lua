@@ -117,8 +117,3 @@ map('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_actio
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 -- scroll down hover doc or scroll in definition preview
 -- float terminal also you can pass the cli command in open_float_terminal function
-
--- =============================================================================
--- # symbols-outline
--- =============================================================================
-map('n', '<leader>T', "<cmd>SymbolsOutline<CR>", opts)
