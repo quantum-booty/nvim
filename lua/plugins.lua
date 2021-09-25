@@ -8,19 +8,20 @@ end
 
 local not_windows = require('utils').not_windows
 
-return require('packer').startup(function()
+return require('packer').startup({function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'lewis6991/impatient.nvim'
 
     -- prerequists for lua plugins
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
 
-
     -- colour schemes
     use { 'srcery-colors/srcery-vim',
-        'gruvbox-community/gruvbox',
+        -- 'gruvbox-community/gruvbox',
+        {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}},
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
         'Pocco81/Catppuccino.nvim',
@@ -156,7 +157,7 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
-    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]]}
+    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
 
 
 
@@ -198,13 +199,13 @@ return require('packer').startup(function()
 
 
     -- use 'rmagatti/auto-session'
-    use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]]}
+    use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
     use {
         'andweeb/presence.nvim',
         config = [[require('config.discord')]],
         cond = not_windows,
     }
-    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]]}
+    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
     use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
 
     -- ---  Note taking, tex, orgmode
@@ -217,4 +218,9 @@ return require('packer').startup(function()
 
 
 
-end)
+end,
+config = {
+    -- Move to lua dir so impatient.nvim can cache it
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+}
+})

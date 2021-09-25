@@ -11,7 +11,7 @@ set background=dark
 
 
 " colorscheme srcery
-" colorscheme tokyonight
+" colorscheme nightfox
 colorscheme tokyonight
 " colorscheme gruvbox
 " colorscheme catppuccino

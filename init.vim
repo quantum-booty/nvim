@@ -21,6 +21,8 @@ endif
 let g:ale_disable_lsp = 1
 
 " use gf to open file
+lua require('impatient')
+lua require('packer_compiled')
 lua require('plugins')
 
 
