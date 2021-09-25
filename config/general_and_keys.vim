@@ -1,4 +1,3 @@
-syntax on
 set nocompatible
 filetype plugin on
 set hidden
@@ -7,8 +6,10 @@ set fileformat=unix
 set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5
 set signcolumn=yes
-set wrap
-set linebreak
+set nowrap
+" set linebreak
+set lazyredraw
+set shadafile="NONE"
 
 set noerrorbells
 set scrolloff=8
@@ -17,7 +18,7 @@ set showmatch
 " use the system register
 set clipboard=unnamedplus
 set mouse=a
-set autochdir
+" set autochdir
 
 " Permanent undo
 let $NVIM_DATA_PATH = stdpath('data')
@@ -87,6 +88,10 @@ EOF
 " =============================================================================
 " # custom remaps
 " =============================================================================
+" ignore trailing space
+nmap $ g_
+vmap $ g_
+
 " sourcing the vimrc
 nnoremap <Leader>so :source $MYVIMRC<CR>
 nnoremap <Leader>rc :e $MYVIMRC<CR>
@@ -104,8 +109,8 @@ inoremap ? ?<c-g>u
 
 " jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
 " ignores wrapping
-nnoremap <expr> j (v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")
-nnoremap <expr> k (v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")
+nnoremap <silent><expr> j (v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")
+nnoremap <silent><expr> k (v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")
 
 " moving text
 vnoremap J :m '>+1<cr>gv=gv
@@ -120,9 +125,6 @@ vnoremap X "_d
 
 " " Yank to end of line (merged to 0.6 masters)
 nmap Y v$y
-
-" " " This allow ENTER to open new line
-" nnoremap <buffer> <CR> o
 
 " No pinkies please!
 nnoremap <leader>a <S-a>

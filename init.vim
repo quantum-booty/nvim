@@ -17,17 +17,19 @@ endif
 
 
 
-" " disable ale lsp before loading the plugins
-let g:ale_disable_lsp = 1
+
 
 " use gf to open file
-lua require('impatient')
-lua require('packer_compiled')
-lua require('plugins')
+:lua << EOF
+require('impatient')
+require('packer_compiled')
+require('plugins')
+require('settings')
+require('mappings')
+EOF
 
 
-
-source $NVIM_CONFIG_PATH/config/general_and_keys.vim
+" source $NVIM_CONFIG_PATH/config/general_and_keys.vim
 source $NVIM_CONFIG_PATH/config/appearance.vim
 " source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
 source $NVIM_CONFIG_PATH/config/COQ.vim
@@ -42,7 +44,7 @@ source $NVIM_CONFIG_PATH/config/wilder.vim
 " source $NVIM_CONFIG_PATH/config/dap.vim
 " source $NVIM_CONFIG_PATH/config/markdown_and_latex.vim
 " source $NVIM_CONFIG_PATH/config/doge.vim
-source $NVIM_CONFIG_PATH/config/fugitive.vim
+" source $NVIM_CONFIG_PATH/config/fugitive.vim
 " source $NVIM_CONFIG_PATH/config/quality_of_life.vim
 source $NVIM_CONFIG_PATH/config/autocommands.vim
 " source $NVIM_CONFIG_PATH/config/windows_movement.vim
