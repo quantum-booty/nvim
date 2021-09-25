@@ -1,15 +1,3 @@
-" =============================================================================
-" # colorscheme settings
-" =============================================================================
-set relativenumber
-set number
-set colorcolumn=80
-set cmdheight=1 " Give more space for displaying messages.
-set termguicolors
-let &fcs='eob: ' " Hide ~ for empty buffer line
-set background=dark
-
-
 " colorscheme srcery
 " colorscheme nightfox
 colorscheme tokyonight

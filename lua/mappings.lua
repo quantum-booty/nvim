@@ -1,6 +1,10 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
+map('n', '<space>', '<nop>', opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = ','
+
  -- Search results centered
 map('n', 'n', 'nzzzv', opts)
 map('n', 'N', 'Nzzzv', opts)
@@ -31,8 +35,9 @@ vnoremap <Leader>sr :s/\<\>//g<left><left><left><left><left>
 -- # custom remaps
 -- =============================================================================
 -- sourcing the vimrc
+
 map('n', '<Leader>so', ':source $MYVIMRC<CR>', opts)
-map('n', '<Leader>rc', ':e $MYVIMRC<CR>', opts)
+map('n', '<Leader>rc', ':e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
 map('n', '<Leader>rp', ':e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
 
 -- Redo with U

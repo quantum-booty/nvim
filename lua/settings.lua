@@ -27,6 +27,16 @@ vim.cmd([[
 filetype plugin on
 ]])
 
+vim.o.relativenumber = true
+vim.o.number = true
+vim.o.colorcolumn = '80'
+vim.o.cmdheight = 1
+vim.o.termguicolors = true
+vim.o.background = 'dark'
+vim.cmd([[let &fcs='eob: ']]) -- Hide ~ for empty buffer line
+
+
+
 
 
 

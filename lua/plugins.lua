@@ -152,6 +152,7 @@ use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', confi
 use {
     'mcchrish/nnn.vim',
     cond = not_windows,
+    config = [[require('config.nnn')]]
 }
 
 

@@ -1,4 +1,5 @@
 let $NVIM_CONFIG_PATH = stdpath('config')
+echo shiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 
 nnoremap <space> <nop>
@@ -15,6 +16,12 @@ else
     source $NVIM_CONFIG_PATH/config/nnn.vim
 endif
 
+" colorscheme srcery
+" colorscheme nightfox
+colorscheme tokyonight
+" colorscheme gruvbox
+" colorscheme catppuccino
+" colorscheme github
 
 
 
@@ -26,11 +33,13 @@ require('packer_compiled')
 require('plugins')
 require('settings')
 require('mappings')
+require('colourschemes')
+require('autocommands')
 EOF
 
 
 " source $NVIM_CONFIG_PATH/config/general_and_keys.vim
-source $NVIM_CONFIG_PATH/config/appearance.vim
+" source $NVIM_CONFIG_PATH/config/appearance.vim
 " source $NVIM_CONFIG_PATH/config/lsp_and_autocompletion.vim
 source $NVIM_CONFIG_PATH/config/COQ.vim
 " source $NVIM_CONFIG_PATH/config/console.vim
@@ -46,5 +55,5 @@ source $NVIM_CONFIG_PATH/config/wilder.vim
 " source $NVIM_CONFIG_PATH/config/doge.vim
 " source $NVIM_CONFIG_PATH/config/fugitive.vim
 " source $NVIM_CONFIG_PATH/config/quality_of_life.vim
-source $NVIM_CONFIG_PATH/config/autocommands.vim
-" source $NVIM_CONFIG_PATH/config/windows_movement.vim
+" source $NVIM_CONFIG_PATH/config/autocommands.vim
+" " source $NVIM_CONFIG_PATH/config/windows_movement.vim
