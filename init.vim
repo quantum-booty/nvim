@@ -33,10 +33,9 @@ source $NVIM_CONFIG_PATH/config/COQ.vim
 " source $NVIM_CONFIG_PATH/config/telescope.vim
 " source $NVIM_CONFIG_PATH/config/terminal.vim
 " TODO: migrate from ale to nvim plugins for linters and fixers?
-source $NVIM_CONFIG_PATH/config/ale.vim
 " source $NVIM_CONFIG_PATH/config/neoformat.vim
 source $NVIM_CONFIG_PATH/config/wilder.vim
-source $NVIM_CONFIG_PATH/config/snippets.vim
+" source $NVIM_CONFIG_PATH/config/snippets.vim
 " source $NVIM_CONFIG_PATH/config/vimspector.vim
 " source $NVIM_CONFIG_PATH/config/dap.vim
 " source $NVIM_CONFIG_PATH/config/markdown_and_latex.vim

@@ -82,7 +82,7 @@ return require('packer').startup(function()
     -- }
 
     -- linter, fixer, formatter
-    use 'w0rp/ale'
+    use { 'w0rp/ale', config = [[require('config.ale')]] }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
 
