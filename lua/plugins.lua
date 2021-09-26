@@ -73,7 +73,6 @@ use {
         vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
     end
 }
--- use 'romgrk/fzy-lua-native'u
 use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
 -- TODO: maybe turn off for windows?
 use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]] }

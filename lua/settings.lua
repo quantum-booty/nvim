@@ -10,6 +10,7 @@ else
     vim.g.python3_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim3/bin/python'
 end
 
+-- disable unused build in plugins to improve start-up time
 local disabled_built_ins = {
     "netrw",
     "netrwPlugin",
@@ -30,7 +31,6 @@ local disabled_built_ins = {
     "spellfile_plugin",
     "matchit"
 }
-
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
@@ -46,10 +46,6 @@ vim.o.cmdheight = 1
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.cmd([[let &fcs='eob: ']]) -- Hide ~ for empty buffer line
-
-
-
-
 
 
 vim.o.smartindent = true
@@ -93,4 +89,5 @@ vim.o.hlsearch = false
 -- live substitution
 vim.o.inccommand = 'split'
 
+-- magic regex please!
 vim.o.magic = true
