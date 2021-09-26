@@ -18,6 +18,11 @@ return require('packer').startup({function()
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
 
+
+    -- plugins to check out in the future
+    -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
+    --
+
     -- colour schemes
     use { 'srcery-colors/srcery-vim',
         -- 'gruvbox-community/gruvbox',
@@ -59,9 +64,10 @@ return require('packer').startup({function()
         config = [[require('config.kommentary')]],
     }
     use 'tpope/vim-repeat'
-    use 'tpope/vim-surround'
-    use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
+    use { 'tpope/vim-surround', config = [[require('config.surround')]] }
     use 'wellle/targets.vim'
+    -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
+    use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
 
 
     -- --- lsp, autocompletion
