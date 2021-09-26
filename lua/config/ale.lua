@@ -27,13 +27,24 @@ vim.g.ale_r_lintr_options = "with_defaults(line_length_linter(120), commented_co
 
 
 -- fixers
-vim.g.ale_fixers = {
-    python = {'black'},
-    r = {'styler', 'remove_trailing_lines', 'trim_whitespace'},
-    tex = {'latexindent', 'remove_trailing_lines', 'textlint'},
-    markdown = {'prettier', 'textlint', 'remark-lint'},
-    vim = {'remove_trailing_lines', 'trim_whitespace'},
-    lua = {'remove_trailing_lines', 'trim_whitespace'},
-}
+-- vim.g.ale_fixers = {
+--     python = {'black'},
+--     r = {'styler', 'remove_trailing_lines', 'trim_whitespace'},
+--     tex = {'latexindent', 'remove_trailing_lines', 'textlint'},
+--     markdown = {'prettier', 'textlint', 'remark-lint'},
+--     vim = {'remove_trailing_lines', 'trim_whitespace'},
+--     lua = {'remove_trailing_lines', 'trim_whitespace'},
+-- }
+
+vim.cmd([[
+let g:ale_fixers = {
+                \   'python': ['black'],
+				\	'r': ['styler', 'remove_trailing_lines', 'trim_whitespace'],
+                \   'tex': ['latexindent', 'remove_trailing_lines', 'textlint'],
+                \   'markdown': ['prettier', 'textlint', 'remark-lint'],
+                \   '*': ['trim_whitespace', 'remove_trailing_lines'],
+                \  }
+
+]])
 
 vim.g.ale_python_black_options = '--line-length 120 --skip-string-normalization'

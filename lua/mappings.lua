@@ -22,12 +22,14 @@ vnoremap <Leader>sr :s/\<\>//g<left><left><left><left><left>
 " " search number
 " nnoremap <leader>d :call search('\d\+')<CR>
 " nnoremap <leader>D :call search('\d\+', 'b')<CR>
-
+nnoremap <Leader>n /\d\+<CR>
+nnoremap <Leader>N ?\d\+<CR>
 ]])
+
 -- map('n', '<Leader>sr', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts)
 -- map('v', '<Leader>sr', [[:s/\<\>//g<left><left><left><left><left>]], opts)
 
--- search number
+-- -- search number
 -- map('n', '<leader>d', [[':call search("\d\+")<CR>']], opts)
 -- map('n', '<leader>D', [[':call search("\d\+", "b")<CR>']], opts)
 
@@ -36,7 +38,7 @@ vnoremap <Leader>sr :s/\<\>//g<left><left><left><left><left>
 -- =============================================================================
 -- sourcing the vimrc
 
-map('n', '<Leader>so', ':source $MYVIMRC<CR>', opts)
+map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
 map('n', '<Leader>rc', ':e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
 map('n', '<Leader>rp', ':e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
 
@@ -52,10 +54,8 @@ map('i', '?', '?<c-g>u', opts)
 
 -- jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
 -- ignores wrapping
-vim.cmd([[
-    nnoremap <silent><expr> j (v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")
-    nnoremap <silent><expr> k (v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")
-]])
+map('n', 'j', [[(v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")]], {expr=true, silent=true, noremap=true})
+map('n', 'k', [[(v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")]], {expr=true, silent=true, noremap=true})
 
 -- moving text
 map('v', 'J', ":m '>+1<cr>gv=gv", opts)
@@ -115,7 +115,7 @@ map('t', '<Esc>', [['<C-\><C-n>']], opts)
 -- " # Window Movements
 -- " =============================================================================
 -- " move between windows, if at the edge of screen, create new split
---
+
 vim.cmd([[
 function! WinMove(key)
     let t:curwin = winnr()
@@ -135,8 +135,3 @@ nnoremap <silent> <down> :call WinMove('j')<CR>
 nnoremap <silent> <up> :call WinMove('k')<CR>
 nnoremap <silent> <right> :call WinMove('l')<CR>
 ]])
-
--- map('n', '<silent>', '<left> :call WinMove("h")<CR>', opts)
--- map('n', '<silent>', '<down> :call WinMove("j")<CR>', opts)
--- map('n', '<silent>', '<up> :call WinMove("k")<CR>', opts)
--- map('n', '<silent>', '<right> :call WinMove("l")<CR>', opts)
