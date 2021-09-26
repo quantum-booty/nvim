@@ -6,8 +6,6 @@ colorscheme tokyonight
 " colorscheme gruvbox
 " colorscheme catppuccino
 " colorscheme github
-source $NVIM_CONFIG_PATH/config/COQ.vim
-source $NVIM_CONFIG_PATH/config/wilder.vim
 ]]
 )
 

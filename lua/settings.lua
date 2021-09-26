@@ -1,3 +1,15 @@
+if vim.fn.has('win32') == 1 then
+    USERPROFILE = vim.env.USERPROFILE
+    if USERPROFILE then
+        vim.g.python_host_prog = USERPROFILE..'/virtualenvs/neovim2/Scripts/python.exe'
+        vim.g.python3_host_prog = USERPROFILE..'/virtualenvs/neovim3/Scripts/python.exe'
+        vim.g.sqlite_clib_path = NVIM_CONFIG_PATH..'/sqlite3.dll'
+    end
+else
+    vim.g.python_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim2/bin/python'
+    vim.g.python3_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim3/bin/python'
+end
+
 local disabled_built_ins = {
     "netrw",
     "netrwPlugin",
@@ -46,7 +58,6 @@ vim.o.fileencodings = "utf-8"
 vim.o.wrap = false
 -- set linebreak
 vim.o.lazyredraw = true
-vim.o.shadafile = "NONE" --apparently good behaviour
 
 vim.o.errorbells = false
 vim.o.scrolloff = 8

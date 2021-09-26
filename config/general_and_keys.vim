@@ -9,7 +9,6 @@ set signcolumn=yes
 set nowrap
 " set linebreak
 set lazyredraw
-set shadafile="NONE"
 
 set noerrorbells
 set scrolloff=8

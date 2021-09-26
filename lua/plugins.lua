@@ -79,7 +79,7 @@ use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-l
 use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]] }
 use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
-use { 'ms-jpq/coq_nvim', branch = 'coq' }
+use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
 use { 'ms-jpq/coq.artifacts', branch= 'artifacts' }
 -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
@@ -149,11 +149,11 @@ use {
 
 
 use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
-use {
-    'mcchrish/nnn.vim',
-    cond = not_windows,
-    config = [[require('config.nnn')]]
-}
+-- use {
+--     'mcchrish/nnn.vim',
+--     cond = not_windows,
+--     config = [[require('config.nnn')]]
+-- }
 
 
 -- --- Git & project management
@@ -203,11 +203,11 @@ use {
 
 -- use 'rmagatti/auto-session'
 use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
-use {
-    'andweeb/presence.nvim',
-    config = [[require('config.discord')]],
-    cond = not_windows,
-}
+-- use {
+--     'andweeb/presence.nvim',
+--     config = [[require('config.discord')]],
+--     cond = not_windows,
+-- }
 use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
 use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
 
@@ -222,9 +222,9 @@ end,
 config = {
     -- Move to lua dir so impatient.nvim can cache it
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
-    -- profile = {
-    --     enable = true,
-    --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-    -- }
+    profile = {
+        enable = true,
+        threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+    }
 }
 })
