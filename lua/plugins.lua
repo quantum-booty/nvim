@@ -36,7 +36,7 @@ return require('packer').startup({function()
     use 'lukas-reineke/indent-blankline.nvim'
     use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]] }
     use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end }
-    use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
+    -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
     -- use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
@@ -121,8 +121,9 @@ return require('packer').startup({function()
     use {
         'szw/vim-maximizer',
         config = function()
-            vim.g.maximizer_set_default_mapping = 0
-            vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
+            vim.g.maximizer_default_mapping_key = '<Del>'
+            -- vim.g.maximizer_set_default_mapping = 0
+            -- vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
         end
     }
 
