@@ -38,6 +38,8 @@ use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spac
 use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
 use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
 use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
+use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]], opt = true}
+
 
 -- Consoles for interactive development
 -- use 'untitled-ai/jupyter_ascending.vim'
@@ -221,9 +223,9 @@ end,
 config = {
     -- Move to lua dir so impatient.nvim can cache it
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
-    profile = {
-        enable = true,
-        threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-    }
+    -- profile = {
+    --     enable = true,
+    --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+    -- }
 }
 })
