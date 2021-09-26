@@ -67,7 +67,7 @@ return require('packer').startup({function()
     use { 'tpope/vim-surround', config = [[require('config.surround')]] }
     use 'wellle/targets.vim'
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
-    use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
+    use { 'ggandor/lightspeed.nvim' }
 
 
     -- --- lsp, autocompletion
