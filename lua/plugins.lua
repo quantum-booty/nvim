@@ -38,12 +38,12 @@ return require('packer').startup({function()
     use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
     -- use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]]}
-    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
     use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
-    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]], opt = true}
+    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]], opt = true }
 
 
     -- Consoles for interactive development
@@ -129,8 +129,6 @@ return require('packer').startup({function()
 
     -- --- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
-
-
     use {
         'ahmedkhalf/project.nvim',
         after = 'telescope.nvim',
@@ -139,7 +137,6 @@ return require('packer').startup({function()
             require("project_nvim").setup {}
         end
     }
-
     use {
         "nvim-telescope/telescope-frecency.nvim",
         after = 'telescope.nvim',
