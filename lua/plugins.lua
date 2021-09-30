@@ -170,6 +170,8 @@ return require('packer').startup({function()
 
 
 
+
+
     -- language support / syntax highlighting
     use {
         {'nvim-treesitter/nvim-treesitter',
@@ -205,6 +207,8 @@ return require('packer').startup({function()
         end
     }
 
+    -- not working with neovim
+    -- use { 'kshenoy/vim-signature' }
 
     -- use 'rmagatti/auto-session'
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
