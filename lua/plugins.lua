@@ -19,7 +19,7 @@ return require('packer').startup({function()
     use 'kyazdani42/nvim-web-devicons'
 
 
-    -- plugins to check out in the future
+    -- TODO: plugins to check out in the future
     -- remote editing
     -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
 
@@ -114,6 +114,7 @@ return require('packer').startup({function()
 
     -- Debugger
     -- use 'puremourning/vimspector'
+    -- TODO: enable DAP
     -- use {
     --     'mfussenegger/nvim-dap', 
     --     config = [[require('config.dap')]],
