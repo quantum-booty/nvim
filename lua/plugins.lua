@@ -108,6 +108,7 @@ return require('packer').startup({function()
     -- snippets
     -- use 'honza/vim-snippets'
     use 'sirver/ultisnips'
+    -- use 'L3MON4D3/LuaSnip'
 
     -- -- --- Debugger
     -- use {
