@@ -37,3 +37,14 @@ vim.g.ale_fixers = {
 }
 
 vim.g.ale_python_black_options = '--line-length 120 --skip-string-normalization'
+
+-- require("nvim-ale-diagnostic")
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--     underline = true,
+--     virtual_text = true,
+--     signs = true,
+--     update_in_insert = false,
+--   }
+-- )

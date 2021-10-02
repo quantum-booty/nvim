@@ -103,6 +103,7 @@ return require('packer').startup({function()
     }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
+    -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
 
 
     -- snippets
