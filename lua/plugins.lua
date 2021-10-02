@@ -101,6 +101,7 @@ return require('packer').startup({function()
         setup=[[ vim.g.ale_disable_lsp = 1]],
         config = [[require('config.ale')]],
     }
+    -- use 'jose-elias-alvarez/null-ls.nvim'
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
     -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
@@ -165,7 +166,7 @@ return require('packer').startup({function()
 
     -- --- Git & project management
     use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
-    -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
+    -- use { 'TimUntersberger/nepwntester/octo.nvimogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
     -- use { 'pwntester/octo.nvim' }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
