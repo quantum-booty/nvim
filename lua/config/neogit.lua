@@ -39,6 +39,8 @@ neogit.setup {
     status = {
       -- Adds a mapping with "B" as key that does the "BranchPopup" command
       ["B"] = "BranchPopup",
+      ["p"] = "PushPopup",
+      ["P"] = "PullPopup",
     }
   }
 }
