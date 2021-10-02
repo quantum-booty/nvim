@@ -165,8 +165,16 @@ return require('packer').startup({function()
 
 
     -- --- Git & project management
-    use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
-    -- use { 'TimUntersberger/nepwntester/octo.nvimogit', requires = 'nvim-lua/plenary.nvim', config = [[require('config.neogit')]]}
+    -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
+    -- use { 'TimUntersberger/nepwntester/octo.nvim
+    use { 
+        'TimUntersberger/neogit', 
+        config = [[require('config.neogit')]],
+        requires = { 
+            'nvim-lua/plenary.nvim',
+            'sindrets/diffview.nvim' 
+        }
+    }
     -- use { 'pwntester/octo.nvim' }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
