@@ -10,8 +10,16 @@ autocmd('restore_cursor_pos', [[BufReadPost * if line("'\"") > 1 && line("'\"") 
 
 
 autocmd(
-    'MyColours',
+    'BrighterNumberColor',
     {'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE'},
     true
 )
+-- need this line below to set l
 vim.cmd([[highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE]])
+
+
+autocmd(
+    'preserve_lsp_underline_when_colorscheme_change',
+    {'ColorScheme * runtime plugin/diagnostic.vim'},
+    true
+)
