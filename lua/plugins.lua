@@ -114,16 +114,16 @@ return require('packer').startup({function()
 
     -- Debugger
     -- use 'puremourning/vimspector'
-    use {
-        'mfussenegger/nvim-dap', 
-        config = [[require('config.dap')]],
-        ft = {'python'},
-        requires = {
-            'mfussenegger/nvim-dap-python',
-            'theHamsta/nvim-dap-virtual-text',
-            'rcarriga/nvim-dap-ui',
-        }
-    }
+    -- use {
+    --     'mfussenegger/nvim-dap', 
+    --     config = [[require('config.dap')]],
+    --     ft = {'python'},
+    --     requires = {
+    --         'mfussenegger/nvim-dap-python',
+    --         'theHamsta/nvim-dap-virtual-text',
+    --         'rcarriga/nvim-dap-ui',
+    --     }
+    -- }
 
     use {
         'szw/vim-maximizer',
