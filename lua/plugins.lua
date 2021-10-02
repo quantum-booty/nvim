@@ -20,8 +20,9 @@ return require('packer').startup({function()
 
 
     -- plugins to check out in the future
+    -- remote editing
     -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
-    --
+
 
     -- colour schemes
     use { 'srcery-colors/srcery-vim',
@@ -82,7 +83,6 @@ return require('packer').startup({function()
         end
     }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
-    -- TODO: maybe turn off for windows?
     use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]] }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
@@ -112,21 +112,25 @@ return require('packer').startup({function()
     use 'sirver/ultisnips'
     -- use 'L3MON4D3/LuaSnip'
 
-    -- -- --- Debugger
-    -- use {
-    --     {'mfussenegger/nvim-dap', config = [[require('config.dap')]]},
-    --     'mfussenegger/nvim-dap-python',
-    --     'theHamsta/nvim-dap-virtual-text',
-    --     'rcarriga/nvim-dap-ui',
-    -- }
-
+    -- Debugger
     -- use 'puremourning/vimspector'
+    use {
+        'mfussenegger/nvim-dap', 
+        config = [[require('config.dap')]],
+        ft = {'python'},
+        requires = {
+            'mfussenegger/nvim-dap-python',
+            'theHamsta/nvim-dap-virtual-text',
+            'rcarriga/nvim-dap-ui',
+        }
+    }
+
     use {
         'szw/vim-maximizer',
         config = function()
-            vim.g.maximizer_default_mapping_key = '<Del>'
-            -- vim.g.maximizer_set_default_mapping = 0
-            -- vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
+            -- vim.g.maximizer_default_mapping_key = '<Del>'
+            vim.g.maximizer_set_default_mapping = 0
+            vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
         end
     }
 
@@ -173,7 +177,8 @@ return require('packer').startup({function()
         requires = { 
             'nvim-lua/plenary.nvim',
             'sindrets/diffview.nvim' 
-        }
+        },
+        keys='<leader>gs'
     }
     -- use { 'pwntester/octo.nvim' }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
