@@ -1,10 +1,10 @@
 vim.cmd(
 [[
 " colorscheme srcery
-colorscheme nightfox
+" colorscheme nightfox
 " colorscheme tokyonight
 " colorscheme gruvbox
-" colorscheme catppuccino
+colorscheme catppuccino
 " colorscheme github
 ]]
 )
@@ -12,11 +12,11 @@ colorscheme nightfox
 -- " =============================================================================
 -- " # Srcery
 -- " =============================================================================
-vim.g.srcery_italic = 0
+vim.g.srcery_italic = 1
 vim.g.srcery_bold = 1
 vim.g.srcery_inverse_matches = 1
 vim.g.srcery_inverse = 1
-vim.g.srcery_italic_types = 0
+vim.g.srcery_italic_types = 1
 vim.g.srcery_inverse_match_paren = 1
 
 -- " =============================================================================
