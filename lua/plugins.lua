@@ -97,11 +97,11 @@ return require('packer').startup({function()
     -- }
 
     -- linter, fixer, formatter
-    use { 'w0rp/ale',
-        setup=[[ vim.g.ale_disable_lsp = 1]],
-        config = [[require('config.ale')]],
-    }
-    -- use 'jose-elias-alvarez/null-ls.nvim'
+    -- use { 'w0rp/ale',
+    --     setup=[[ vim.g.ale_disable_lsp = 1]],
+    --     config = [[require('config.ale')]],
+    -- }
+    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]], disable=false }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
     -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
