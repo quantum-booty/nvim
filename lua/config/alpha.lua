@@ -40,9 +40,10 @@ dashboard.section.buttons.val = {
     dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
     }
 
-local handle = io.popen('fortune')
-local fortune = handle:read("*a")
-handle:close()
-dashboard.section.footer.val = fortune
+
+
+-- disable bufferline
+vim.cmd([[ autocmd FileType alpha set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2 ]])
+
 alpha.setup(dashboard.opts)
 

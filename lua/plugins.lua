@@ -71,7 +71,7 @@ return require('packer').startup({function()
         config = [[require('config.kommentary')]],
         keys = 'gc',
     }
-    use 'tpope/vim-repeat'
+    use { 'tpope/vim-repeat', event = 'InsertEnter'}
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
