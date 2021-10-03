@@ -53,13 +53,11 @@ return require('packer').startup({function()
     use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
 
 
-
-
     -- Consoles for interactive development
-    -- use 'untitled-ai/jupyter_ascending.vim'
     use { 'jupyter-vim/jupyter-vim', opt=true }
-    -- use 'jalvesaq/Nvim-R'
     use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]] }
+    -- use 'untitled-ai/jupyter_ascending.vim'
+    -- use 'jalvesaq/Nvim-R'
 
 
     -- SQL
@@ -105,19 +103,19 @@ return require('packer').startup({function()
     -- }
 
     -- linter, fixer, formatter
+    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
     -- use { 'w0rp/ale',
     --     setup=[[ vim.g.ale_disable_lsp = 1]],
     --     config = [[require('config.ale')]],
     -- }
-    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]], disable=false }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
     -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
 
 
     -- snippets
-    -- use 'honza/vim-snippets'
     use 'sirver/ultisnips'
+    -- use 'honza/vim-snippets'
     -- use 'L3MON4D3/LuaSnip'
 
     -- Debugger
@@ -169,7 +167,6 @@ return require('packer').startup({function()
         cond = not_windows,
     }
 
-
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
     -- use {
     --     'mcchrish/nnn.vim',
@@ -178,9 +175,7 @@ return require('packer').startup({function()
     -- }
 
 
-    -- --- Git & project management
-    -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
-    -- use { 'TimUntersberger/nepwntester/octo.nvim
+    -- Git
     use { 
         'TimUntersberger/neogit', 
         config = [[require('config.neogit')]],
@@ -190,9 +185,9 @@ return require('packer').startup({function()
         },
         keys='<leader>gs'
     }
+    -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     -- use { 'pwntester/octo.nvim' }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
-    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
 
 
 
@@ -217,13 +212,12 @@ return require('packer').startup({function()
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
 
-
-
     -- document generator
     use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]]}
 
 
     -- --- Quality of life
+    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
     use {
         'tpope/vim-obsession',
