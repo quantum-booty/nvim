@@ -38,7 +38,7 @@ nnoremap <Leader>N ?\d\+<CR>
 -- =============================================================================
 -- sourcing the vimrc
 
-map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
+-- map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
 map('n', '<Leader>rc', ':e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
 map('n', '<Leader>rp', ':e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
 

@@ -3,6 +3,7 @@ if vim.fn.has('win32') == 1 then
     if USERPROFILE then
         vim.g.python_host_prog = USERPROFILE..'/virtualenvs/neovim2/Scripts/python.exe'
         vim.g.python3_host_prog = USERPROFILE..'/virtualenvs/neovim3/Scripts/python.exe'
+        -- for the telescope recency plugin
         vim.g.sqlite_clib_path = vim.env.NVIM_CONFIG_PATH..'/sqlite3.dll'
     end
 else
