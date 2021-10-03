@@ -21,7 +21,7 @@ neogit.setup {
   auto_refresh = true,
   disable_builtin_notifications = false,
   commit_popup = {
-      kind = "vsplit",
+      kind = "split",
   },
   -- customize displayed signs
   signs = {

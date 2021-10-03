@@ -225,7 +225,6 @@ return require('packer').startup({function()
 
     -- --- Quality of life
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
-    -- use 'gioele/vim-autoswap' -- handles the swaps unannoyingly!
     use {
         'tpope/vim-obsession',
         config = function()
@@ -233,11 +232,11 @@ return require('packer').startup({function()
             vim.api.nvim_set_keymap('n', '<leader>SS', ':source Session.vim<cr>', {noremap=true})
         end
     }
+    -- use 'rmagatti/auto-session'
 
-    -- not working with neovim
+    -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
 
-    -- use 'rmagatti/auto-session'
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
     -- use {
     --     'andweeb/presence.nvim',

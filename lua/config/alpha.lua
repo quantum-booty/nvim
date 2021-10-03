@@ -36,7 +36,7 @@ dashboard.section.buttons.val = {
     dashboard.button( "r", "  Recents", ":Telescope frecency<CR>"),
     dashboard.button( "w", "  Find Word", ":Telescope live_grep<CR>"),
     dashboard.button( "b", "  Bookmarks", ":Telescope marks<CR>"),
-    dashboard.button( "s", "  Load Last Session", ":SessionLoad<CR>"),
+    -- dashboard.button( "s", "  Load Last Session", ":SessionLoad<CR>"),
     dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
     }
 
