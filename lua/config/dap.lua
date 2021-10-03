@@ -32,19 +32,20 @@ vim.fn.sign_define('DapStopped', {text='⏩', texthl='', linehl='', numhl=''})
 -- 
 
 local dap = require('dap')
-dap.defaults.fallback.external_terminal = {
-    command = 'kitty';
-    args = {'-e'};
-}
-dap.defaults.fallback.force_external_terminal = true
--- dap.defaults.fallback.terminal_win_cmd = 'botright vnew'
+-- dap.defaults.fallback.external_terminal = {
+--     command = 'kitty';
+--     args = {'-e'};
+-- }
+-- dap.defaults.fallback.force_external_terminal = true
+dap.defaults.fallback.terminal_win_cmd = 'botright vnew'
 
 map('n','<F1>',  ":lua require'dap'.step_out()<CR>", opts)
 map('n','<F2>',  ":lua require'dap'.step_over()<CR>", opts)
 map('n','<F3>',  ":lua require'dap'.step_into()<CR>", opts)
 
 map('n','<F4>',  ":lua require'dap'.run_to_cursor()<CR>", opts)
-map('n','<F5>',  ":lua require'dapui'.open(); require'dap'.continue()<CR>", opts)
+-- map('n','<F5>',  ":lua require'dapui'.open(); require'dap'.continue()<CR>", opts)
+map('n','<F5>',  ":lua require'dap'.continue();require'dapui'.open()<CR>", opts)
 map('n','<F6>',  ":lua require'dapui'.eval()<CR>", opts)
 map('v','<F6>',  ":lua require'dapui'.eval()<CR>", opts)
 map('n','<F11>', ":lua require'dapui'.float_element('repl')<CR>", opts)
@@ -82,9 +83,8 @@ require("dapui").setup({
         -- You can change the order of elements in the sidebar
         elements = {
             -- Provide as ID strings or tables with "id" and "size" keys
-            { id = "stacks", size = 0.25 },
-            { id = "breakpoints", size = 0.25 },
-            { id = "breakpoints", size=0.30 },
+            { id = "stacks", size = 0.5 },
+            { id = "breakpoints", size = 0.5 },
         },
         size = 30,
         position = "left", -- Can be "left", "right", "top", "bottom"
