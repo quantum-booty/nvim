@@ -48,10 +48,10 @@ map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({i
 -- " workspace symbol
 map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
 -- " document symbol using treesitter
-map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
+-- map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
+map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 -- " Code actions
 map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]], opts)
-map('n', '<leader>pD', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 
 
 -- " " --- git pickers

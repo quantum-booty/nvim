@@ -9,12 +9,19 @@ autocmd('restore_cursor_pos', [[BufReadPost * if line("'\"") > 1 && line("'\"") 
 
 autocmd(
     'MyColors',
-    -- set brighter numbers at colorscheme change
-    {'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE'},
-    -- preserve diagnostic highlights when colorscheme changes 
-    {'ColorScheme * runtime plugin/diagnostic.vim'},
+    {
+        -- set brighter numbers at colorscheme change
+        'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE',
+        -- make split brighther
+        'ColorScheme * highlight VertSplit guibg=bg guifg=lightcyan',
+        -- preserve diagnostic highlights when colorscheme changes 
+        'ColorScheme * runtime plugin/diagnostic.vim',
+    },
     true
 )
--- need this line below to set brighter numbers at vim start
-vim.cmd([[highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE]])
+-- set colours at vim start
+vim.cmd([[
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight VertSplit guibg=bg guifg=lightcyan
+]])
 

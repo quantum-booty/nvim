@@ -47,7 +47,6 @@ vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.cmd([[let &fcs='eob: ']]) -- Hide ~ for empty buffer line
 
-
 vim.o.smartindent = true
 vim.o.fileformat = 'unix'
 vim.o.fileencodings = "utf-8"

@@ -22,7 +22,10 @@ return require('packer').startup({function()
     -- TODO: plugins to check out in the future
     -- remote editing
     -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
-
+    -- code action - although pyright does not support code action
+    -- https://github.com/weilbith/nvim-code-action-menu
+    -- jupyter
+    -- https://github.com/dccsillag/magma-nvim
 
     -- colour schemes
     use { 'srcery-colors/srcery-vim',
@@ -42,9 +45,14 @@ return require('packer').startup({function()
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]]}
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
-    use { 'glepnir/dashboard-nvim', config = [[require('config.dashboard')]] }
+    -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
+    use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
+
     use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]], opt = true }
+    use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
+
+
 
 
     -- Consoles for interactive development
@@ -114,17 +122,18 @@ return require('packer').startup({function()
 
     -- Debugger
     -- use 'puremourning/vimspector'
-    -- TODO: enable DAP
-    -- use {
-    --     'mfussenegger/nvim-dap', 
-    --     config = [[require('config.dap')]],
-    --     ft = {'python'},
-    --     requires = {
-    --         'mfussenegger/nvim-dap-python',
-    --         'theHamsta/nvim-dap-virtual-text',
-    --         'rcarriga/nvim-dap-ui',
-    --     }
-    -- }
+    use {
+        'mfussenegger/nvim-dap', 
+        config = [[require('config.dap')]],
+        ft = {'python'},
+        keys = '<F5>',
+        requires = {
+            'mfussenegger/nvim-dap-python',
+            'theHamsta/nvim-dap-virtual-text',
+            'rcarriga/nvim-dap-ui',
+            'nvim-telescope/telescope-dap.nvim',
+        }
+    }
 
     use {
         'szw/vim-maximizer',
@@ -211,7 +220,7 @@ return require('packer').startup({function()
 
 
     -- document generator
-    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[vim.g.doge_doc_standard_python='numpy']]}
+    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]]}
 
 
     -- --- Quality of life

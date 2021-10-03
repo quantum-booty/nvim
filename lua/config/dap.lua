@@ -2,61 +2,107 @@ local map = require('utils').map
 local autocmd = require('utils').autocmd
 local opts = { noremap=true, silent=true }
 
-vim.g.dap_virtual_text = true
 
-require('dap-python').setup('~/virtualenvs/debugpy/bin/python')
+require('dap-python').setup(os.getenv('PYENV_ROOT')..'/versions/debugpy/bin/python')
 require('dap-python').test_runner = 'pytest'
 
-autocmd('dap_aucmds', 'ColorScheme * highlight NvimDapVirtualText guifg=#82E0AA', true)
-
+vim.g.dap_virtual_text = true -- recommended
+-- vim.g.dap_virtual_text = 'all frames' -- experimental
 -- " highlight NvimDapVirtualText link Error
 
 
+vim.cmd([[highlight NvimDapVirtualText guifg=#82E0AA]])
+autocmd(
+    'dap', 
+    {
+        -- brighter dap virtual text
+        'ColorScheme * highlight NvimDapVirtualText guifg=#82E0AA',
+        -- add autocompletion to dap REPL
+        'FileType dap-repl lua require("dap.ext.autocompl").attach()'
+    },
+    true
+)
+
+
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='🟢', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='⏩', texthl='', linehl='', numhl=''})
+-- vim.fn.sign_define('DapBreakRejected', {text='🛑', texthl='', linehl='', numhl=''})
+-- 
+
+local dap = require('dap')
+dap.defaults.fallback.external_terminal = {
+    command = 'kitty';
+    args = {'-e'};
+}
+dap.defaults.fallback.force_external_terminal = true
+-- dap.defaults.fallback.terminal_win_cmd = 'botright vnew'
+
 map('n','<F1>',  ":lua require'dap'.step_out()<CR>", opts)
-map('n','<F2>',  ":lua require'dap'.step_into()<CR>", opts)
-map('n','<F3>',  ":lua require'dap'.step_over()<CR>", opts)
-map('n','<F5>',  ":lua require'dap'.continue()<CR>", opts)
-map('n','<F7>',  ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-map('n','<F8>',  ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+map('n','<F2>',  ":lua require'dap'.step_over()<CR>", opts)
+map('n','<F3>',  ":lua require'dap'.step_into()<CR>", opts)
+
+map('n','<F4>',  ":lua require'dap'.run_to_cursor()<CR>", opts)
+map('n','<F5>',  ":lua require'dapui'.open(); require'dap'.continue()<CR>", opts)
+map('n','<F6>',  ":lua require'dapui'.eval()<CR>", opts)
+map('v','<F6>',  ":lua require'dapui'.eval()<CR>", opts)
+map('n','<F11>', ":lua require'dapui'.float_element('repl')<CR>", opts)
+
+map('n','<F7>',  ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+map('n','<F8>',  ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 map('n','<F9>',  ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
-map('n','<F10>', ":lua require'dap'.repl.open()<CR>", opts)
+map('n','<F10>', ":lua require'dapui'.toggle()<CR>", opts)
 map('n','<F12>', ":lua require'dap'.run_last()<CR>", opts)
 
-map('n','<leader>tn', ":lua require('dap-python').test_method()<CR>", opts)
-map('n','<leader>tf', ":lua require('dap-python').test_class()<CR>", opts)
+map('n','<leader>tm', ":lua require('dap-python').test_method()<CR>", opts)
+map('n','<leader>tc', ":lua require('dap-python').test_class()<CR>", opts)
 map('v','<leader>ts', "<ESC>:lua require('dap-python').debug_selection()<CR>", opts)
 
 
+
+map('n', '<leader>dC', ':Telescope dap commands<CR>', opts)
+map('n', '<leader>dc', ':Telescope dap configurations<CR>', opts)
+map('n', '<leader>db', ':Telescope dap list_breakpoints<CR>', opts)
+map('n', '<leader>dv', ':Telescope dap variables<CR>', opts)
+map('n', '<leader>df', ':Telescope dap frames<CR>', opts)
+
+
 require("dapui").setup({
-  icons = {
-    expanded = "⯆",
-    collapsed = "⯈",
-    circular = "↺"
-  },
-  mappings = {
-    expand = "<CR>",
-    open = "o",
-    remove = "d"
-  },
-  sidebar = {
-    elements = {
-      -- You can change the order of elements in the sidebar
-      "scopes",
-      "stacks",
-      "watches"
+    icons = { expanded = "▾", collapsed = "▸" },
+    mappings = {
+        -- Use a table to apply multiple mappings
+        expand = { "<CR>", "<2-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        edit = "e",
+        repl = "r",
     },
-    size = 40,
-    position = "left" -- Can be "left" or "right"
-  },
-  tray = {
-    elements = {
-      "repl"
+    sidebar = {
+        -- You can change the order of elements in the sidebar
+        elements = {
+            -- Provide as ID strings or tables with "id" and "size" keys
+            { id = "stacks", size = 0.25 },
+            { id = "breakpoints", size = 0.25 },
+            { id = "breakpoints", size=0.30 },
+        },
+        size = 30,
+        position = "left", -- Can be "left", "right", "top", "bottom"
     },
-    size = 10,
-    position = "bottom" -- Can be "bottom" or "top"
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil   -- Floats will be treated as percentage of your screen.
-  }
+    tray = {
+        elements = {
+            { id = "watches", size = 0.45 },
+            { id = "scopes", size=0.55 },
+        },
+        size = 20,
+        position = "bottom", -- Can be "left", "right", "top", "bottom"
+    },
+    floating = {
+        max_height = nil, -- These can be integers or a float between 0 and 1.
+        max_width = nil, -- Floats will be treated as percentage of your screen.
+        mappings = {
+            close = { "q", "<Esc>" },
+        },
+    },
+    windows = { indent = 1 },
 })
