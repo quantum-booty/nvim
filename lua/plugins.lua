@@ -49,7 +49,7 @@ return require('packer').startup({function()
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
 
     use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
-    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]], opt = true }
+    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
 
 
@@ -141,7 +141,6 @@ return require('packer').startup({function()
             vim.g.maximizer_set_default_mapping = 0
             vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
         end,
-        cmd = 'MaximizerToggle',
     }
 
     -- Fuzzy finder & project navigation
@@ -169,7 +168,7 @@ return require('packer').startup({function()
         cond = not_windows,
     }
 
-    use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]], cmd = 'CHADopen'}
+    use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
     -- use {
     --     'mcchrish/nnn.vim',
     --     cond = not_windows,
