@@ -18,15 +18,14 @@ dashboard.section.header.val = {
    "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
    "                                   ",
 }
--- # TODO: get this shit working
 -- random coloured dragon fuck yeah!!!
--- function random_colours(colours)
---    return colours[math.random(1, #colours)]
--- end
--- colours = {'cyan', 'red', 'yellow', 'orange', 'magenta', 'white', 'violet', 'lightyellow', 'seagreen', 'slateblue'}
--- -- vim.cmd(string.format('highlight dashboard guifg=%s guibg=bg', random_colours(colours)))
-
-vim.cmd([[highlight dashboard guifg=red guibg=bg]])
+math.randomseed(os.time())
+function random_colours(colours)
+   return colours[math.random(1, #colours)]
+end
+colours = {'cyan', 'red', 'yellow', 'orange', 'magenta', 'white', 'violet', 'lightyellow', 'seagreen', 'slateblue'}
+vim.cmd(string.format('highlight dashboard guifg=%s guibg=bg', random_colours(colours)))
+-- vim.cmd([[highlight dashboard guifg=red guibg=bg]])
 
 dashboard.section.header.opts.hl = 'dashboard'
 
