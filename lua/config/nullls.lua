@@ -20,7 +20,7 @@ null_ls.config({
                 '--from-stdin', '$FILENAME',
                 '-f', 'json',
                 '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$',
-                '--disable=C0103,C0114,C0115,C0116,R0903,W0612',
+                '--disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705',
                 '--max-line-length=120',
             }
         }),
