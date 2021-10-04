@@ -24,8 +24,16 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- vim.lsp.set_log_level('debug')
  -- log_path: ~/.cache/nvim/lsp.log
 
-local coq = require "coq"
 
+vim.g.coq_settings = {
+  ["auto_start"] = 'shut-up',
+  ["keymap.bigger_preview"] = "<c-b>",
+  -- ["clients.buffers.enabled"] = false,
+  ["clients.snippets.enabled"] = false,
+  ["clients.tree_sitter.enabled"] = true,
+}
+
+local coq = require "coq"
 
 
 -------------------------------------------------------------------------------
@@ -96,7 +104,8 @@ end
 
 
 -- nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
-nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
+-- nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
+nvim_lsp.pyright.setup({ on_attach = on_attach})
 -- nvim_lsp.pylsp.setup { capabilities = capabilities, on_attach = on_attach}
 nvim_lsp.texlab.setup { capabilities = capabilities, on_attach = on_attach}
 nvim_lsp.julials.setup { capabilities = capabilities, on_attach = on_attach}

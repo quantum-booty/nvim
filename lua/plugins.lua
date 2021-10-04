@@ -115,7 +115,7 @@ return require('packer').startup({function()
 
 
     -- snippets
-    use {'sirver/ultisnips', config = [[require('config.ultisnips')]], event = 'InsertEnter' }
+    use {'sirver/ultisnips', config = [[require('config.ultisnips')]] }
     -- use 'honza/vim-snippets'
     -- use 'L3MON4D3/LuaSnip'
 

@@ -24,9 +24,9 @@ dashboard.section.header.val = {
 --    return colours[math.random(1, #colours)]
 -- end
 -- colours = {'cyan', 'red', 'yellow', 'orange', 'magenta', 'white', 'violet', 'lightyellow', 'seagreen', 'slateblue'}
--- vim.cmd(string.format('highlight dashboard guifg=%s guibg=bg', random_colours(colours)))
---
-vim.cmd('highlight dashboard guifg=red guibg=bg')
+-- -- vim.cmd(string.format('highlight dashboard guifg=%s guibg=bg', random_colours(colours)))
+
+vim.cmd([[highlight dashboard guifg=red guibg=bg]])
 
 dashboard.section.header.opts.hl = 'dashboard'
 
