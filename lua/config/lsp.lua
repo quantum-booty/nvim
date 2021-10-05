@@ -125,17 +125,17 @@ settings = {
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
--------------------------------------------------------------------------------
--- lsp saga
--------------------------------------------------------------------------------
--- preview definition
-map('n', '<leader>f', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
--- rename
--- map('n', '<leader>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
--- code action
-map('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-map('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
--- show hover doc
-map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
--- scroll down hover doc or scroll in definition preview
--- float terminal also you can pass the cli command in open_float_terminal function
+-- -------------------------------------------------------------------------------
+-- -- lsp saga
+-- -------------------------------------------------------------------------------
+-- -- preview definition
+-- map('n', '<leader>f', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
+-- -- rename
+-- -- map('n', '<leader>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
+-- -- code action
+-- map('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+-- map('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
+-- -- show hover doc
+-- map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+-- -- scroll down hover doc or scroll in definition preview
+-- -- float terminal also you can pass the cli command in open_float_terminal function

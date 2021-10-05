@@ -1,8 +1,8 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-map('n', 'gn', ':lua vim.diagnostic.goto_next()<cr>', opts)
-map('n', 'gp', ':lua vim.diagnostic.goto_prev()<cr>', opts)
+map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
+map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
 
 
 local null_ls = require('null-ls')
@@ -31,10 +31,12 @@ null_ls.config({
     }
 })
 
-on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
-    end
-end
+-- on_attach = function(client)
+--     if client.resolved_capabilities.document_formatting then
+--         vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+--     end
+-- end
+--
+map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>')
 
 require('lspconfig')['null-ls'].setup({on_attach = on_attach})
