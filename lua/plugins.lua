@@ -106,8 +106,7 @@ return require('packer').startup({function()
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]], disable = true }
     use { 'w0rp/ale',
-        setup=[[ vim.g.ale_disable_lsp = 1]],
-        config = [[require('config.ale')]],
+        setup = [[require('config.ale')]],
         disable = false
     }
     -- use 'sbdchd/neoformat'

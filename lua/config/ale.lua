@@ -1,6 +1,8 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
+ vim.g.ale_disable_lsp = 1
+
 map('n', 'gp', ':ALEPrevious<cr>', opts)
 map('n', 'gn', ':ALENext<cr>', opts)
 
@@ -29,7 +31,7 @@ vim.g.ale_fix_on_save = 0
  -- linters
 vim.g.ale_linters = {python = {'pylint', 'flake8'}, markdown= {'writegood', 'textlint'}}
 
-vim.g.ale_python_flake8_options = '--ignore=E501,E203,F405,F403,B007,W291'
+vim.g.ale_python_flake8_options = '--ignore=E501,E303,E203,F405,F403,B007,W291'
 
  -- Disable Pylint variable name warning!!!
 vim.g.ale_python_pylint_options = '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$ --disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705'
@@ -61,3 +63,14 @@ vim.g.ale_python_black_options = '--line-length 120 --skip-string-normalization 
 --     update_in_insert = false,
 --   }
 -- )
+--
+-- ALEVirtualTextStyleError
+-- ALEVirtualTextStyleWarning
+
+vim.cmd([[highlight ALEVirtualTextError guifg=Red]])
+vim.cmd([[highlight ALEVirtualTextWarning guifg=LightYellow]])
+
+-- highlight link ALEVirtualTextError texthl=DiagnosticSignError linehl= numhl=
+-- highlight link ALEVirtualTextWarning text= texthl=DiagnosticSignWarn linehl= numhl=
+-- highlight link ALEVirtualTextInfo text= texthl=DiagnosticSignInfo linehl= numhl=
+-- highlight link DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
