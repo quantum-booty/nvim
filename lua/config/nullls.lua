@@ -24,9 +24,9 @@ null_ls.config({
                 '--max-line-length=120',
             }
         }),
-        null_ls.builtins.diagnostics.flake8.with({
-            args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E203,F405,F403' }
-        }),
+        -- null_ls.builtins.diagnostics.flake8.with({
+        --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E203,F405,F403' }
+        -- }),
 
     }
 })
@@ -37,6 +37,6 @@ null_ls.config({
 --     end
 -- end
 --
-map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>')
+map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
 require('lspconfig')['null-ls'].setup({on_attach = on_attach})
