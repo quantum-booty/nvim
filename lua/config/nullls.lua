@@ -7,6 +7,9 @@ map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
 
 local null_ls = require('null-ls')
 null_ls.config({
+    diagnostics_format = "#{m} (#{s})",
+    debounce = 1000,
+    default_timeout = 5000,
     sources = { 
         null_ls.builtins.formatting.black.with({
             args = {
@@ -39,4 +42,6 @@ null_ls.config({
 --
 map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
-require('lspconfig')['null-ls'].setup({on_attach = on_attach})
+
+-- require('lspconfig')['null-ls'].setup({on_attach = on_attach})
+require('lspconfig')['null-ls'].setup({})

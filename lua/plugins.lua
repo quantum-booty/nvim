@@ -104,11 +104,12 @@ return require('packer').startup({function()
     -- }
 
     -- linter, fixer, formatter
-    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
-    -- use { 'w0rp/ale',
-    --     setup=[[ vim.g.ale_disable_lsp = 1]],
-    --     config = [[require('config.ale')]],
-    -- }
+    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]], disable = true }
+    use { 'w0rp/ale',
+        setup=[[ vim.g.ale_disable_lsp = 1]],
+        config = [[require('config.ale')]],
+        disable = false
+    }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
     -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
@@ -122,7 +123,7 @@ return require('packer').startup({function()
     -- Debugger
     -- use 'puremourning/vimspector'
     use {
-        'mfussenegger/nvim-dap', 
+        'mfussenegger/nvim-dap',
         config = [[require('config.dap')]],
         ft = {'python'},
         keys = '<F5>',
@@ -177,12 +178,12 @@ return require('packer').startup({function()
 
 
     -- Git
-    use { 
-        'TimUntersberger/neogit', 
+    use {
+        'TimUntersberger/neogit',
         config = [[require('config.neogit')]],
-        requires = { 
+        requires = {
             'nvim-lua/plenary.nvim',
-            'sindrets/diffview.nvim' 
+            'sindrets/diffview.nvim'
         },
         keys='<leader>gs'
     }
