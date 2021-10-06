@@ -1,8 +1,6 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
-map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
 
 
 local null_ls = require('null-ls')
@@ -18,15 +16,15 @@ null_ls.config({
                 '--skip-string-normalization',
             }
         }),
-        null_ls.builtins.diagnostics.pylint.with({
-            args = {
-                '--from-stdin', '$FILENAME',
-                '-f', 'json',
-                '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$',
-                '--disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705',
-                '--max-line-length=120',
-            }
-        }),
+        -- null_ls.builtins.diagnostics.pylint.with({
+        --     args = {
+        --         '--from-stdin', '$FILENAME',
+        --         '-f', 'json',
+        --         '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$',
+        --         '--disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705',
+        --         '--max-line-length=120',
+        --     }
+        -- }),
         -- null_ls.builtins.diagnostics.flake8.with({
         --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E203,F405,F403' }
         -- }),

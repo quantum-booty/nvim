@@ -3,11 +3,11 @@ local opts = { noremap=true, silent=true }
 
  vim.g.ale_disable_lsp = 1
 
-map('n', 'gp', ':ALEPrevious<cr>', opts)
-map('n', 'gn', ':ALENext<cr>', opts)
+map('n', 'g)', ':ALENext<cr>', opts)
+map('n', 'g(', ':ALEPrevious<cr>', opts)
 
-map('n', 'g)', ':lua vim.diagnostic.goto_next()<CR>', opts)
-map('n', 'g(', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
+map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
 
 map('n', '<leader>f', ':ALEFix<CR>', opts)
 
@@ -25,6 +25,7 @@ vim.g.ale_virtualtext_cursor = 1
 -- vim.g.ale_python_auto_pipenv = 1
 vim.g.ale_fix_on_save = 0
 -- vim.g.ale_lint_delay = 0
+vim.g.ale_enabled = 0
 
 
 

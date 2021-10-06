@@ -1,7 +1,16 @@
+local map = require('utils').map
+local opts = { noremap=true, silent=true }
+
+map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
+map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+
+
 vim.opt.updatetime = 50
 vim.opt.completeopt:append({'menuone','noselect','noinsert'})
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
+
+
 
 
 
@@ -122,8 +131,6 @@ settings = {
 
 
 
-local map = require('utils').map
-local opts = { noremap=true, silent=true }
 
 -- -------------------------------------------------------------------------------
 -- -- lsp saga
