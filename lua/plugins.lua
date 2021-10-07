@@ -174,6 +174,10 @@ return require('packer').startup({function()
     --     cond = not_windows,
     --     config = [[require('config.nnn')]]
     -- }
+    use {
+	"luukvbaal/nnn.nvim",
+	config = function() require("nnn").setup() end
+}
 
 
     -- Git
