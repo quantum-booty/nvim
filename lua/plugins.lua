@@ -28,8 +28,8 @@ return require('packer').startup({function()
     -- https://github.com/dccsillag/magma-nvim
 
     -- colour schemes
-    use { 'srcery-colors/srcery-vim',
-        -- 'gruvbox-community/gruvbox',
+    use { 
+        'srcery-colors/srcery-vim',
         {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}},
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
@@ -37,33 +37,32 @@ return require('packer').startup({function()
         "projekt0n/github-nvim-theme",
     }
     -- cosmetics
+    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use 'lukas-reineke/indent-blankline.nvim'
     use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]] }
-    use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
+    -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
-    -- use { 'glepnir/galaxyline.nvim', config = [[require('config.galaxyline')]] }
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]] }
-    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]] }
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
 
-    use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
-    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
-    use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
+    -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
+    -- use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
 
 
     -- Consoles for interactive development
-    use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
-    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]] }
+    -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
+    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]], disable = true }
 
 
     -- SQL
     -- use 'tpope/vim-dadbod'
     -- use 'kristijanhusak/vim-dadbod-ui'
-    use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
+    -- use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
 
     -- --- Motion and textobjects
     use {'b3nj5m1n/kommentary',
@@ -90,7 +89,7 @@ return require('packer').startup({function()
         end
     }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
-    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter' }
+    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter', disable = true}
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
     use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
@@ -111,7 +110,7 @@ return require('packer').startup({function()
     }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
-    -- use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
+    use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
 
 
     -- snippets
@@ -131,7 +130,8 @@ return require('packer').startup({function()
             'theHamsta/nvim-dap-virtual-text',
             'rcarriga/nvim-dap-ui',
             'nvim-telescope/telescope-dap.nvim',
-        }
+        },
+        disable = true,
     }
 
     use {
@@ -145,22 +145,22 @@ return require('packer').startup({function()
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
-    use {
-        'ahmedkhalf/project.nvim',
-        after = 'telescope.nvim',
-        config = function()
-            require('telescope').load_extension('projects')
-            require("project_nvim").setup {}
-        end
-    }
-    use {
-        "nvim-telescope/telescope-frecency.nvim",
-        after = 'telescope.nvim',
-        config = function()
-            require"telescope".load_extension("frecency")
-        end,
-        requires = {"tami5/sqlite.lua"},
-    }
+    -- use {
+    --     'ahmedkhalf/project.nvim',
+    --     after = 'telescope.nvim',
+    --     config = function()
+    --         require('telescope').load_extension('projects')
+    --         require("project_nvim").setup {}
+    --     end
+    -- }
+    -- use {
+    --     "nvim-telescope/telescope-frecency.nvim",
+    --     after = 'telescope.nvim',
+    --     config = function()
+    --         require"telescope".load_extension("frecency")
+    --     end,
+    --     requires = {"tami5/sqlite.lua"},
+    -- }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
@@ -168,16 +168,17 @@ return require('packer').startup({function()
         cond = not_windows,
     }
 
-    use { 'ms-jpq/chadtree', branch = 'chad', run = 'python -m chadtree deps', config = [[require('config.chadtree')]] }
-    -- use {
-    --     'mcchrish/nnn.vim',
-    --     cond = not_windows,
-    --     config = [[require('config.nnn')]]
-    -- }
     use {
-	"luukvbaal/nnn.nvim",
-	config = function() require("nnn").setup() end
-}
+        'ms-jpq/chadtree',
+        branch = 'chad',
+        run = 'python -m chadtree deps',
+        config = [[require('config.chadtree')]],
+    }
+    -- use {
+    --     'kyazdani42/nvim-tree.lua',
+    --     config = [[require('config.nvim_tree')]]
+    -- }
+    -- use { "luukvbaal/nnn.nvim", config = [[require('config.nnn')]] }
 
 
     -- Git
@@ -210,23 +211,23 @@ return require('packer').startup({function()
         },
         'p00f/nvim-ts-rainbow',
     }
-    use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
+    -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
 
-    -- document generator
-    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
+    -- -- document generator
+    -- use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
 
 
     -- --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
-    use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]] }
-    use {
-        'tpope/vim-obsession',
-        config = function()
-            vim.api.nvim_set_keymap('n', '<leader>ss', ':Obsession<cr>', {noremap=true})
-            vim.api.nvim_set_keymap('n', '<leader>SS', ':source Session.vim<cr>', {noremap=true})
-        end
-    }
+    use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
+    -- use {
+    --     'tpope/vim-obsession',
+    --     config = function()
+    --         vim.api.nvim_set_keymap('n', '<leader>ss', ':Obsession<cr>', {noremap=true})
+    --         vim.api.nvim_set_keymap('n', '<leader>SS', ':source Session.vim<cr>', {noremap=true})
+    --     end
+    -- }
     -- use 'rmagatti/auto-session'
 
     -- shows marks in sign column, not working with neovim

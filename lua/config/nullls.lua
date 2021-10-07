@@ -26,7 +26,7 @@ null_ls.config({
         --     }
         -- }),
         -- null_ls.builtins.diagnostics.flake8.with({
-        --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E203,F405,F403' }
+        --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E303,E203,F405,F403,B007,W291' }
         -- }),
 
     }
