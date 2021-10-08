@@ -85,7 +85,8 @@ return require('packer').startup({function()
     use {
         'folke/lsp-trouble.nvim',
         config = function()
-            vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
+            vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleDocumentToggle<cr>', { noremap = true })
+            vim.api.nvim_set_keymap('n', '<leader>Z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
         end
     }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
@@ -167,6 +168,9 @@ return require('packer').startup({function()
         config = [[require('telescope').load_extension('fzf')]],
         cond = not_windows,
     }
+
+    use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
+
 
     use {
         'ms-jpq/chadtree',
