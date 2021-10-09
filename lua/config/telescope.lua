@@ -1,7 +1,29 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-require("telescope").setup {}
+
+require('telescope').setup{
+  pickers = {
+    git_files = { theme = "dropdown" },
+    find_files = { theme = "dropdown" },
+    live_grep = { theme = "dropdown" },
+    colorscheme = { theme = "dropdown" },
+    lsp_references = { theme = "dropdown" },
+    lsp_code_actions = { initial_mode='normal' },
+                                 
+  }
+}
+
+
+
+    -- layout_config = {
+    --   width = 80,
+    --   height = 9,
+    -- },
+
+-- vim.g.teleleader = '_'
+map('n', '_', '<leader>p', { noremap=false, silent=true })
+-- map("n", "<teleleader<teleleader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
 
 
 -- search recent files
@@ -45,22 +67,23 @@ map('n', '<leader>pk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]], 
 -- " --- LSP Pickers
 -- " References under cursor
 map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+map('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
 -- " workspace symbol
 map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
 -- " document symbol using treesitter
 -- map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
 map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 -- " Code actions
-map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]], opts)
+map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({layout_config = {height = 15}}))<CR>]], opts)
 
 
--- " " --- git pickers
--- " " commits
-map('n', '<leader>pgc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
--- " " buffer git commits
-map('n', '<leader>pgbc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], opts)
--- " " branches
-map('n', '<leader>pgb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], opts)
--- " " status
-map('n', '<leader>pgs', [[<cmd>lua require('telescope.builtin').git_status()<CR>]], opts)
--- "
+-- -- " " --- git pickers
+-- -- " " commits
+-- map('n', '<leader>pgc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)
+-- -- " " buffer git commits
+-- map('n', '<leader>pgbc', [[<cmd>lua require('telescope.builtin').git_bcommits()<CR>]], opts)
+-- -- " " branches
+-- map('n', '<leader>pgb', [[<cmd>lua require('telescope.builtin').git_branches()<CR>]], opts)
+-- -- " " status
+-- map('n', '<leader>pgs', [[<cmd>lua require('telescope.builtin').git_status()<CR>]], opts)
+-- -- "

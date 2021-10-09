@@ -38,7 +38,6 @@ null_ls.config({
 --     end
 -- end
 --
-map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
 
 -- require('lspconfig')['null-ls'].setup({on_attach = on_attach})

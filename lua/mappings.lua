@@ -39,8 +39,8 @@ nnoremap <Leader>N ?\d\+<CR>
 -- sourcing the vimrc
 
 -- map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>rc', ':e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>rp', ':e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
+map('n', '<Leader>rc', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
+map('n', '<Leader>rp', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
 
 -- Redo with U
 map('n', 'U', '<C-R>', opts)
@@ -82,6 +82,9 @@ map('n', '-', '<C-x>', opts)
 -- " use ( and ) for moving half page up and down
 map('n', '(', '<C-u>', {noremap=false, silent=true})
 map('n', ')', '<C-d>', {noremap=false, silent=true})
+
+-- cd to file path
+map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', opts)
 
 -- " quote args in list, sets, tuples
 -- map('n', '<leader>q]', [[':s/\([ a-zA-Z0-9]\+\)\(,\\|\]\)/"\1"\2/g<CR>']], opts)

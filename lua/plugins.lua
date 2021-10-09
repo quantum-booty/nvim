@@ -30,7 +30,7 @@ return require('packer').startup({function()
     -- colour schemes
     use { 
         'srcery-colors/srcery-vim',
-        {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}},
+        {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
         'Pocco81/Catppuccino.nvim',
@@ -38,7 +38,7 @@ return require('packer').startup({function()
     }
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
-    use 'lukas-reineke/indent-blankline.nvim'
+    use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]] }
     -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
@@ -90,7 +90,7 @@ return require('packer').startup({function()
         end
     }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
-    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter', disable = true}
+    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter', disable = false}
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
     use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
@@ -146,27 +146,27 @@ return require('packer').startup({function()
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
-    -- use {
-    --     'ahmedkhalf/project.nvim',
-    --     after = 'telescope.nvim',
-    --     config = function()
-    --         require('telescope').load_extension('projects')
-    --         require("project_nvim").setup {}
-    --     end
-    -- }
-    -- use {
-    --     "nvim-telescope/telescope-frecency.nvim",
-    --     after = 'telescope.nvim',
-    --     config = function()
-    --         require"telescope".load_extension("frecency")
-    --     end,
-    --     requires = {"tami5/sqlite.lua"},
-    -- }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
         config = [[require('telescope').load_extension('fzf')]],
         cond = not_windows,
+    }
+    use {
+        'ahmedkhalf/project.nvim',
+        after = 'telescope.nvim',
+        config = function()
+            require('telescope').load_extension('projects')
+            require("project_nvim").setup {}
+        end
+    }
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        after = 'telescope.nvim',
+        config = function()
+            require"telescope".load_extension("frecency")
+        end,
+        requires = {"tami5/sqlite.lua"},
     }
 
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
@@ -210,9 +210,9 @@ return require('packer').startup({function()
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/completion-treesitter',
         -- treesitter context don't yet work on windows
-        {'romgrk/nvim-treesitter-context',
-            cond = not_windows
-        },
+        -- {'romgrk/nvim-treesitter-context',
+        --     cond = not_windows
+        -- },
         'p00f/nvim-ts-rainbow',
     }
     -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }

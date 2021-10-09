@@ -27,19 +27,19 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 ]])
 
 
- -- =============================================================================
- -- # lsp-config settings
- -- =============================================================================
+-- =============================================================================
+-- # lsp-config settings
+-- =============================================================================
 -- vim.lsp.set_log_level('debug')
- -- log_path: ~/.cache/nvim/lsp.log
+-- log_path: ~/.cache/nvim/lsp.log
 
 
 vim.g.coq_settings = {
-  ["auto_start"] = 'shut-up',
-  ["keymap.bigger_preview"] = "<c-b>",
-  -- ["clients.buffers.enabled"] = false,
-  ["clients.snippets.enabled"] = false,
-  ["clients.tree_sitter.enabled"] = true,
+    ["auto_start"] = 'shut-up',
+    ["keymap.bigger_preview"] = "<c-b>",
+    -- ["clients.buffers.enabled"] = false,
+    ["clients.snippets.enabled"] = false,
+    ["clients.tree_sitter.enabled"] = true,
 }
 
 local coq = require "coq"
@@ -85,27 +85,27 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- Enable completion triggered by <c-x><c-o>
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  -- because of this <tab> mapping, <C-i> has to be mapped to something else.
-  buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    -- because of this <tab> mapping, <C-i> has to be mapped to something else.
+    map('n', '<tab>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    map('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    map('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
+    -- map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    -- map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
 end
 
@@ -114,18 +114,29 @@ end
 -- nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
 nvim_lsp.pyright.setup({ on_attach = on_attach})
 -- nvim_lsp.pylsp.setup { capabilities = capabilities, on_attach = on_attach}
-nvim_lsp.texlab.setup { capabilities = capabilities, on_attach = on_attach}
-nvim_lsp.julials.setup { capabilities = capabilities, on_attach = on_attach}
-nvim_lsp.html.setup{}
-nvim_lsp.r_language_server.setup { capabilities = capabilities, on_attach = on_attach,
-settings = {
-    r = {
-        lsp = {
-            diagnostics = 0
-            }
-        }
-    }
+
+local pid = vim.fn.getpid()
+-- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
+local omnisharp_bin = "/home/henryw/omnisharp/run"
+-- on Windows
+-- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
+require'lspconfig'.omnisharp.setup{
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+    on_attach = on_attach,
 }
+
+-- nvim_lsp.texlab.setup { capabilities = capabilities, on_attach = on_attach}
+-- nvim_lsp.julials.setup { capabilities = capabilities, on_attach = on_attach}
+-- nvim_lsp.html.setup{}
+-- nvim_lsp.r_language_server.setup { capabilities = capabilities, on_attach = on_attach,
+-- settings = {
+--     r = {
+--         lsp = {
+--             diagnostics = 0
+--             }
+--         }
+--     }
+-- }
 
 
 
