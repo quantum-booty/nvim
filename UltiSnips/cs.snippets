@@ -9,6 +9,28 @@ priority -50
 #  My own shits  #
 ##################
 
+
+# snippet "([a-z0-9\?]+) " "auto ;" bAr
+# `!p snip.rv = match.group(1)` $1;
+# endsnippet
+
+
+# snippet "void " "auto ;" bAr
+# void $0;
+# endsnippet
+
+# snippet "var " "auto ;" bAr
+# var $0;
+# endsnippet
+
+# snippet "int(\??) " "auto ;" bAr
+# int`!p snip.rv = match.group(1)` $0;
+# endsnippet
+
+# snippet "string\?? " "auto ;" bAr
+# string $0;
+# endsnippet
+
 #########################
 #  classes and structs  #
 #########################

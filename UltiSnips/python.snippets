@@ -1,12 +1,13 @@
 priority -50
 
-###########################################################################
-#                            TEXTMATE SNIPPETS                            #
-###########################################################################
+
+
+#############
+#  IMPORTS  #
+#############
 snippet "import pandas " "" Ar
 import pandas as pd
 endsnippet
-
 
 snippet "import numpy " "" Ar
 import numpy as np
@@ -20,6 +21,9 @@ snippet "from ([._a-z0-9]+) " "" ibAr
 from `!p snip.rv = match.group(1)` import $1
 endsnippet
 
+###########################################################################
+#                            TEXTMATE SNIPPETS                            #
+###########################################################################
 
 #! header
 snippet #! "#!/usr/bin/env python" b
@@ -44,7 +48,13 @@ $0
 endsnippet
 
 snippet 'for ' "for loop" bAr
-for ${1:}:
+for $1:
+	$2
+endsnippet
+
+snippet forr "for in range" b
+for $1 in range($2):
+	$3
 endsnippet
 
 ##########
@@ -293,6 +303,7 @@ endglobal
 
 snippet "class " bAr
 class $1:
+	$2
 endsnippet
 
 # snippet "class ([a-zA-Z0-9]+) " "" ibAr
@@ -362,12 +373,13 @@ endsnippet
 
 snippet "def " "function or class method" bAr
 def $1:
+	$2
 endsnippet
 
-snippet def "function or class method" b
-def ${1:fname}(`!p snip.rv = "self, " if snip.indent else ""`$2):
-	$0
-endsnippet
+# snippet def "function or class method" b
+# def ${1:fname}(`!p snip.rv = "self, " if snip.indent else ""`$2):
+# 	$0
+# endsnippet
 
 snippet deff "function with docstrings" b
 def ${1:function}(`!p
@@ -456,7 +468,7 @@ endsnippet
 snippet prop "Make a Property" b
 @property
 def ${1:name}(self):
-	${2:return self._$1}$0
+	${2:return self.$1}$0
 endsnippet
 
 snippet propset "Make a property with a setter"
@@ -503,6 +515,7 @@ endsnippet
 ####################
 snippet 'if ' "" bAr
 if $1:
+	$2
 endsnippet
 
 snippet elif "" bA
@@ -613,7 +626,6 @@ endsnippet
 
 
 
-## I don't use unittest
 ########################
 ### Assertions & Tests #
 ########################

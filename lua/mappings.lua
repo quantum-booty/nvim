@@ -5,6 +5,11 @@ map('n', '<space>', '<nop>', opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ','
 
+
+-- this is smooth as fuck haha
+map('i', '<Del>', '<C-o>A;<C-o>o', opts)
+
+
  -- Search results centered
 map('n', 'n', 'nzzzv', opts)
 map('n', 'N', 'Nzzzv', opts)

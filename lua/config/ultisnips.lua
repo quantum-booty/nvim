@@ -1,6 +1,6 @@
 local map = require('utils').map
 
-map('i', '<Del>', '<nop>', { noremap=true, silent=true })
+-- map('i', '<Del>', '<nop>', { noremap=true, silent=true })
 vim.g.UltiSnipsExpandTrigger = '<F33>'
 vim.g.UltiSnipsJumpForwardTrigger = '<F33>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<Del>'
