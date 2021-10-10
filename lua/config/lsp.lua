@@ -12,6 +12,18 @@ vim.opt.shortmess:append('c')
 
 
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+        -- Use a sharp border with `FloatBorder` highlights
+        border = "single"
+    }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, {
+        -- Use a sharp border with `FloatBorder` highlights
+        border = "single"
+    }
+)
 
 
 vim.cmd([[
@@ -91,13 +103,11 @@ local on_attach = function(client, bufnr)
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = { noremap=true, silent=true }
-
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
-    map('n', '<tab>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    map('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     map('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     map('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
