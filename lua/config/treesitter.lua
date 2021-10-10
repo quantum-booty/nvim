@@ -1,5 +1,3 @@
-
-
 -- this tells treesitter where to download the .norg parser
 -- run :TSInstall norg
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
@@ -24,7 +22,6 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true,
     },
-
 
     incremental_selection = {
         enable = true,

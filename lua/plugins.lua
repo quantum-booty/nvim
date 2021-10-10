@@ -34,7 +34,7 @@ return require('packer').startup({function()
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
         'Pocco81/Catppuccino.nvim',
-        "projekt0n/github-nvim-theme",
+        'projekt0n/github-nvim-theme',
     }
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
@@ -90,7 +90,7 @@ return require('packer').startup({function()
         end
     }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
-    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter', disable = false}
+    use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter' }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
 
     use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
@@ -104,7 +104,7 @@ return require('packer').startup({function()
     -- }
 
     -- linter, fixer, formatter
-    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]], disable = false }
+    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
     use { 'w0rp/ale',
         setup = [[require('config.ale')]],
         disable = true
@@ -210,9 +210,9 @@ return require('packer').startup({function()
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/completion-treesitter',
         -- treesitter context don't yet work on windows
-        -- {'romgrk/nvim-treesitter-context',
-        --     cond = not_windows
-        -- },
+        {'romgrk/nvim-treesitter-context',
+            cond = not_windows
+        },
         'p00f/nvim-ts-rainbow',
     }
     -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }

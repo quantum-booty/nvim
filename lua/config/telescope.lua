@@ -5,6 +5,7 @@ local opts = { noremap=true, silent=true }
 require('telescope').setup{
   pickers = {
     git_files = { theme = "dropdown" },
+    buffers = { theme = "dropdown" },
     find_files = { theme = "dropdown" },
     live_grep = { theme = "dropdown" },
     colorscheme = { theme = "dropdown" },
@@ -27,7 +28,7 @@ map('n', '_', '<leader>p', { noremap=false, silent=true })
 
 
 -- search recent files
-map("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
+-- map("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
 
 -- " project_nvim
 map('n', '<leader>pp', ':Telescope projects<CR>', opts)
@@ -48,7 +49,7 @@ map('n', '<leader>ps', [[<cmd>lua require('telescope.builtin').grep_string({ sea
 
 -- " --- Vim Pickers
 -- " Opened buffer files
-map('n', '<leader>pb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
+map('n', '<leader><leader>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
 -- " show help for cursor word
 map('n', '<leader>pH', ':tab help <C-R>=expand("<cword>")<CR><CR>', opts)
 map('n', '<leader>ph', [[<cmd>Telescope help_tags<cr>]], opts)

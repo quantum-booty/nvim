@@ -54,8 +54,8 @@ map('i', '?', '?<c-g>u', opts)
 
 -- jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
 -- ignores wrapping
-map('n', 'j', [[(v:count ? (v:count > 5 ? "m'" . v:count : "") . "j" : "gj")]], {expr=true, silent=true, noremap=true})
-map('n', 'k', [[(v:count ? (v:count > 5 ? "m'" . v:count : "") . "k" : "gk")]], {expr=true, silent=true, noremap=true})
+map('n', 'j', [[(v:count > 5 ? "m'" . v:count : "") . "gj"]], {expr=true, silent=true, noremap=true})
+map('n', 'k', [[(v:count > 5 ? "m'" . v:count : "") . "gk"]], {expr=true, silent=true, noremap=true})
 
 -- moving text
 map('v', 'J', ":m '>+1<cr>gv=gv", opts)

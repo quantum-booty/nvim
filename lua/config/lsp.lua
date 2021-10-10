@@ -5,7 +5,7 @@ map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
 
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 vim.opt.completeopt:append({'menuone','noselect','noinsert'})
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
@@ -39,7 +39,7 @@ vim.g.coq_settings = {
     ["keymap.bigger_preview"] = "<c-b>",
     -- ["clients.buffers.enabled"] = false,
     ["clients.snippets.enabled"] = false,
-    ["clients.tree_sitter.enabled"] = true,
+    ["clients.tree_sitter.enabled"] = false,
 }
 
 local coq = require "coq"
@@ -103,7 +103,7 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    map('n', '<leader>f', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
+    map('n', '<leader>=', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
     -- map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     -- map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 

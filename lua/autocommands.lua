@@ -14,8 +14,8 @@ autocmd(
         'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE',
         -- make split brighther
         'ColorScheme * highlight VertSplit guibg=bg guifg=lightcyan',
-        -- preserve diagnostic highlights when colorscheme changes 
-        'ColorScheme * runtime plugin/diagnostic.vim',
+        -- -- preserve diagnostic highlights when colorscheme changes 
+        -- 'ColorScheme * runtime plugin/diagnostic.vim',
     },
     true
 )

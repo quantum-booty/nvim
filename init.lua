@@ -11,6 +11,3 @@ require('packer_compiled')
 
 
 vim.cmd([[source $NVIM_CONFIG_PATH/config/wilder.vim]])
-
-
-

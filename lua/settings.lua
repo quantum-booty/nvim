@@ -46,6 +46,8 @@ vim.o.colorcolumn = '80'
 vim.o.cmdheight = 1
 vim.o.termguicolors = true
 vim.o.background = 'dark'
+vim.o.cursorline = true
+-- vim.o.breakindent = true
 vim.cmd([[let &fcs='eob: ']]) -- Hide ~ for empty buffer line
 
 vim.o.smartindent = true
