@@ -7,7 +7,8 @@ vim.g.maplocalleader = ','
 
 
 -- this is smooth as fuck haha
-map('i', '<Del>', '<C-o>A;<C-o>o', opts)
+map('i', '<Del>', '<C-o>A;<C-o>o', {noremap=false, silent=true})
+
 
 
  -- Search results centered
