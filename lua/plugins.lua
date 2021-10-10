@@ -82,13 +82,7 @@ return require('packer').startup({function()
     -- use 'kabouzeid/nvim-lspinstall'
 
     -- use { 'tami5/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]] }
-    use {
-        'folke/lsp-trouble.nvim',
-        config = function()
-            vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>LspTroubleDocumentToggle<cr>', { noremap = true })
-            vim.api.nvim_set_keymap('n', '<leader>Z', '<cmd>LspTroubleToggle<cr>', { noremap = true })
-        end
-    }
+    use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
     use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter' }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
