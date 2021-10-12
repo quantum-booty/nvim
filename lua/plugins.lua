@@ -204,9 +204,9 @@ return require('packer').startup({function()
         'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/completion-treesitter',
         -- treesitter context don't yet work on windows
-        {'romgrk/nvim-treesitter-context',
-            cond = not_windows
-        },
+        -- {'romgrk/nvim-treesitter-context',
+        --     cond = not_windows
+        -- },
         'p00f/nvim-ts-rainbow',
     }
     -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
