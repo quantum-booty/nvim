@@ -1,18 +1,29 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
+local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
 
-require('telescope').setup{
-  pickers = {
-    git_files = { theme = "dropdown" },
-    buffers = { theme = "dropdown" },
-    find_files = { theme = "dropdown" },
-    live_grep = { theme = "dropdown" },
-    colorscheme = { theme = "dropdown" },
-    lsp_references = { theme = "dropdown" },
-    lsp_code_actions = { initial_mode='normal' },
-                                 
-  }
+local telescope = require("telescope")
+
+
+telescope.setup{
+    defaults = {
+        mappings = {
+            i = { ["<c-t>"] = trouble.open_with_trouble },
+            n = { ["<c-t>"] = trouble.open_with_trouble },
+        },
+    },
+    pickers = {
+        git_files = { theme = "dropdown" },
+        buffers = { theme = "dropdown" },
+        find_files = { theme = "dropdown" },
+        live_grep = { theme = "dropdown" },
+        colorscheme = { theme = "dropdown" },
+        lsp_references = { theme = "dropdown" },
+        lsp_code_actions = { initial_mode='normal' },
+
+    }
 }
 
 
