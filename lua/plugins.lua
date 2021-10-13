@@ -2,7 +2,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    os.execute(string.format("git clone --depth 1 https://github.com/wbthomason/packer.nvim %s", install_path))
+    os.execute(string.format('git clone --depth 1 https://github.com/wbthomason/packer.nvim %s', install_path))
     vim.cmd 'packadd packer.nvim'
 end
 
@@ -39,24 +39,24 @@ return require('packer').startup({function()
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
-    use { 'folke/todo-comments.nvim', config = [[require("todo-comments").setup{}]] }
+    use { 'folke/todo-comments.nvim', config = [[require('todo-comments').setup{}]] }
     -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
-    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.eviline")]] }
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require("galaxyline.themes.spaceline")]] }
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.eviline')]] }
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.spaceline')]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
 
     -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
-    -- use { "kwkarlwang/bufresize.nvim", config = function() require("bufresize").setup({ resize = { keys = {}, trigger_events = { "VimResized" }, }, }) end }
+    -- use { 'kwkarlwang/bufresize.nvim', config = function() require('bufresize').setup({ resize = { keys = {}, trigger_events = { 'VimResized' }, }, }) end }
 
 
     -- Consoles for interactive development
     -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
-    use { "akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]], disable = true }
+    use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], disable = true }
 
 
     -- SQL
@@ -92,9 +92,9 @@ return require('packer').startup({function()
     -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
     -- use {
-    --     {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]},
-    --     "hrsh7th/cmp-nvim-lsp",
-    --     "hrsh7th/cmp-buffer",
+    --     {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
+    --     'hrsh7th/cmp-nvim-lsp',
+    --     'hrsh7th/cmp-buffer',
     -- }
 
     -- linter, fixer, formatter
@@ -151,16 +151,16 @@ return require('packer').startup({function()
         after = 'telescope.nvim',
         config = function()
             require('telescope').load_extension('projects')
-            require("project_nvim").setup {}
+            require('project_nvim').setup {}
         end
     }
     use {
-        "nvim-telescope/telescope-frecency.nvim",
+        'nvim-telescope/telescope-frecency.nvim',
         after = 'telescope.nvim',
         config = function()
-            require"telescope".load_extension("frecency")
+            require'telescope'.load_extension('frecency')
         end,
-        requires = {"tami5/sqlite.lua"},
+        requires = {'tami5/sqlite.lua'},
     }
 
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
@@ -176,7 +176,7 @@ return require('packer').startup({function()
     --     'kyazdani42/nvim-tree.lua',
     --     config = [[require('config.nvim_tree')]]
     -- }
-    -- use { "luukvbaal/nnn.nvim", config = [[require('config.nnn')]] }
+    -- use { 'luukvbaal/nnn.nvim', config = [[require('config.nnn')]] }
 
 
     -- Git
@@ -230,6 +230,7 @@ return require('packer').startup({function()
 
     -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
+    use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]], event = 'InsertEnter' }
     -- use {
