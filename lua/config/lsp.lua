@@ -131,7 +131,7 @@ local omnisharp_bin = "/home/henryw/omnisharp/run"
 -- on Windows
 -- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
 require'lspconfig'.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid)};
     on_attach = on_attach,
 }
 

@@ -46,8 +46,33 @@ snippet class "class" w
 ${1:public} class ${2:`!p snip.rv = snip.basename`}
 {
 	$0
+	${3:public} $2($4)
+	{
+		$5
+	}
 }
 endsnippet
+
+
+snippet classi "class inheritance" w
+${1:public} class ${2:`!p snip.rv = snip.basename`} : ${3:ParentClass}
+{
+	$0
+	${4:public} $2($5)
+	{
+		$6
+	}
+}
+endsnippet
+
+
+snippet classa "abstract class" w
+${1:public} abstract class ${2:`!p snip.rv = snip.basename`}
+{
+	$0
+}
+endsnippet
+
 
 snippet struct "struct" w
 struct ${1:`!p snip.rv = snip.basename`}
@@ -90,6 +115,10 @@ endsnippet
 ################
 #  properties  #
 ################
+
+snippet const "constant" b
+const ${1:int} ${2:Constant} = $3;
+endsnippet
 
 snippet prop "Simple property declaration" b
 public ${1:int} ${2:MyProperty} { get; set; }
@@ -311,11 +340,11 @@ snippet da "Debug.Assert" b
 Debug.Assert(${1:true});
 endsnippet
 
-snippet cw "Console.WriteLine" b
+snippet cw "Console.WriteLine"
 Console.WriteLine($1);
 endsnippet
 
-snippet cr "Console.ReadLine" b
+snippet cr "Console.ReadLine"
 Console.ReadLine();
 endsnippet
 
@@ -372,6 +401,26 @@ ${1:public} static ${2:void} ${3:MyMethod}(${4})
 {
 	$0
 }
+endsnippet
+
+
+snippet mtha "abstract method" b
+${1:public} abstract ${2:void} ${3:MyMethod}(${4});
+endsnippet
+
+snippet mtho "override method" b
+${1:public} override ${2:void} ${3:MyMethod}(${4})
+{
+	$0
+}
+endsnippet
+
+snippet lambda "lambda method" b
+${1:public} ${2:void} ${3:MyMethod}(${4}) => $5;
+endsnippet
+
+snippet lambdas "lambda method" b
+${1:public} static ${2:void} ${3:MyMethod}(${4}) => $5;
 endsnippet
 
 ###############

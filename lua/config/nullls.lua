@@ -9,6 +9,7 @@ null_ls.config({
     debounce = 1000,
     default_timeout = 5000,
     sources = { 
+        -- null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.black.with({
             args = {
                  "--quiet", "--fast", "-" ,

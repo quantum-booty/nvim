@@ -36,6 +36,8 @@ return require('packer').startup({function()
         'Pocco81/Catppuccino.nvim',
         'projekt0n/github-nvim-theme',
     }
+
+
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
@@ -230,7 +232,7 @@ return require('packer').startup({function()
 
     -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
-    use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
+    -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]], event = 'InsertEnter' }
     -- use {
@@ -247,7 +249,7 @@ return require('packer').startup({function()
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
     -- use 'lervag/vimtex'
     -- use 'KeitaNakamura/tex-conceal.vim'
-    -- use { 'vhyrro/neorg', branch = 'unstable' }
+    -- use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
 end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
