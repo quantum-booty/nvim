@@ -116,10 +116,10 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>=', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
     -- map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     -- map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
+    
+    map('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
+    map('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 end
-
-
 -- nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
 --

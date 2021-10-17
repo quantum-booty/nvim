@@ -48,7 +48,7 @@ return require('packer').startup({function()
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.spaceline')]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
-    use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
+    use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]], event = 'BufWinEnter' }
 
     -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
     -- use { 'kwkarlwang/bufresize.nvim', config = function() require('bufresize').setup({ resize = { keys = {}, trigger_events = { 'VimResized' }, }, }) end }
@@ -58,7 +58,7 @@ return require('packer').startup({function()
     use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
-    -- use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], disable = true }
+    -- use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], event = 'BufWinEnter', disable = true }
 
 
     -- SQL
@@ -70,7 +70,7 @@ return require('packer').startup({function()
     use {'b3nj5m1n/kommentary',
         setup = [[vim.g.kommentary_create_default_mappings = false]],
         config = [[require('config.kommentary')]],
-        keys = 'gc',
+        event = 'BufRead',
     }
     use { 'tpope/vim-repeat', event = 'InsertEnter'}
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
@@ -194,7 +194,7 @@ return require('packer').startup({function()
     }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     -- use { 'pwntester/octo.nvim' }
-    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
+    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]], event = 'BufRead' }
 
 
     -- language support / syntax highlighting
