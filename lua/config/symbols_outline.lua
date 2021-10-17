@@ -9,7 +9,7 @@ map('n', '<leader>T', "<cmd>SymbolsOutline<CR>", opts)
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     position = 'left',
-    width = 25,
+    width = 20,
     show_numbers = true,
     show_relative_numbers = true,
     show_symbol_details = true,

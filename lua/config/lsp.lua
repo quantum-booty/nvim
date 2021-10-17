@@ -122,7 +122,41 @@ end
 
 -- nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({ on_attach = on_attach}))
-nvim_lsp.pyright.setup({ on_attach = on_attach})
+--
+--
+--
+
+------ATTEMPTING TO ADD VIRTUAL ENV PATH TO PYRIGHT BEFORE OPENING THIS SHIT----
+-- local path = nvim_lsp.util.path
+
+-- local function get_python_path(workspace)
+--   -- Use activated virtualenv.
+--   if vim.env.VIRTUAL_ENV then
+--     return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+--   end
+
+--   -- Find and use virtualenv in workspace directory.
+--   for _, pattern in ipairs({'*', '.*'}) do
+--     local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+--     if match ~= '' then
+--       return path.join(path.dirname(match), 'bin', 'python')
+--     end
+--   end
+
+--   -- Fallback to system Python.
+--   return exepath('python3') or exepath('python') or 'python'
+-- end
+nvim_lsp.pyright.setup({
+    on_attach = on_attach,
+    -- before_init = function(_, config)
+    --     config.settings.python.pythonPath = get_python_path(config.root_dir)
+    -- end
+
+})
+------ATTEMPTING TO ADD VIRTUAL ENV PATH TO PYRIGHT BEFORE OPENING THIS SHIT----
+--
+--
+-- nvim_lsp.pyright.setup({ on_attach = on_attach })
 -- nvim_lsp.pylsp.setup { capabilities = capabilities, on_attach = on_attach}
 
 local pid = vim.fn.getpid()
@@ -130,7 +164,7 @@ local pid = vim.fn.getpid()
 local omnisharp_bin = "/home/henryw/omnisharp/run"
 -- on Windows
 -- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
-require'lspconfig'.omnisharp.setup{
+nvim_lsp.omnisharp.setup{
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid)};
     on_attach = on_attach,
 }

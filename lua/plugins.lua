@@ -55,10 +55,10 @@ return require('packer').startup({function()
 
 
     -- Consoles for interactive development
-    -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
+    use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
-    use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], disable = true }
+    -- use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], disable = true }
 
 
     -- SQL
@@ -88,6 +88,7 @@ return require('packer').startup({function()
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
     use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter' }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
+    -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
     use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
     use { 'ms-jpq/coq.artifacts', branch= 'artifacts' }

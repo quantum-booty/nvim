@@ -86,7 +86,7 @@ map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_sym
 -- map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
 map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 -- " Code actions
-map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({layout_config = {height = 15}}))<CR>]], opts)
+map('n', 'ca', [[<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({layout_config = {height = 15}}))<CR>]], opts)
 
 
 -- -- " " --- git pickers
