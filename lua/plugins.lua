@@ -90,15 +90,16 @@ return require('packer').startup({function()
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
-    use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
-    use { 'ms-jpq/coq.artifacts', branch= 'artifacts' }
+    -- use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
+    -- use { 'ms-jpq/coq.artifacts', branch= 'artifacts' }
     -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
-    -- use {
-    --     {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
-    --     'hrsh7th/cmp-nvim-lsp',
-    --     'hrsh7th/cmp-buffer',
-    -- }
+    use {
+        {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'quangnguyen30192/cmp-nvim-ultisnips'
+    }
 
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
@@ -187,7 +188,6 @@ return require('packer').startup({function()
         'TimUntersberger/neogit',
         config = [[require('config.neogit')]],
         requires = {
-            'nvim-lua/plenary.nvim',
             'sindrets/diffview.nvim'
         },
         keys='<leader>gs'
@@ -250,7 +250,7 @@ return require('packer').startup({function()
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
     -- use 'lervag/vimtex'
     -- use 'KeitaNakamura/tex-conceal.vim'
-    -- use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
+    use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
 end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
