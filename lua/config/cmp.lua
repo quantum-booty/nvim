@@ -44,7 +44,6 @@ cmp.setup({
         { name = 'path' },
         { name = 'neorg' },
     },
-
     documentation = {
         maxwidth = 75,
     },
