@@ -84,9 +84,10 @@ vim.cmd(
     " colorscheme srcery
     " colorscheme nightfox
     " colorscheme nordfox
-    colorscheme tokyonight
+    " colorscheme duskfox
+    " colorscheme tokyonight
     " colorscheme gruvbox
-    " colorscheme catppuccino
+    colorscheme catppuccino
     " colorscheme github_dimmed
     ]]
 )

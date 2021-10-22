@@ -41,7 +41,7 @@ return require('packer').startup({function()
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
-    use { 'folke/todo-comments.nvim', config = [[require('todo-comments').setup{}]] }
+    use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.eviline')]] }
@@ -84,6 +84,7 @@ return require('packer').startup({function()
     -- use 'kabouzeid/nvim-lspinstall'
 
     -- use { 'tami5/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]] }
+    use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
     use { 'ray-x/lsp_signature.nvim', config = [[require('config.lspsignature')]], event = 'InsertEnter' }
@@ -98,6 +99,7 @@ return require('packer').startup({function()
         {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
+        "hrsh7th/cmp-nvim-lua",
         'quangnguyen30192/cmp-nvim-ultisnips'
     }
 

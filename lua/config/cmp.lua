@@ -2,6 +2,7 @@
 -- " # nvim-cmp settings
 -- " =============================================================================
 local cmp = require'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup({
     snippet = {
@@ -22,14 +23,28 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true }),
 
-        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' })
+        ["<Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
+        ["<S-Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
     },
     sources = {
+        { name = 'neorg' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
 
         -- For vsnip user.
         -- { name = 'vsnip' },
@@ -39,50 +54,41 @@ cmp.setup({
 
         -- For ultisnips user.
         { name = 'ultisnips' },
-
-        { name = 'buffer' },
+        { name = 'buffer', keyword_length = 3 },
         { name = 'path' },
-        { name = 'neorg' },
     },
+    -- snippet = {
+    --     expand = function(args)
+    --         require("luasnip").lsp_expand(args.body)
+    --     end,
+    -- },
     documentation = {
         maxwidth = 75,
     },
     experimental = {
+        native_menu = false,
         ghost_text = true
+    },
+    formatting = {
+        format = lspkind.cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                ultisnips = "[snip]",
+            },
+        })
     }
 
 })
 
 
-
--- vim.lsp.protocol.CompletionItemKind = {
---     '', -- Text          = 1;
---     '', -- Method        = 2;
---     'ƒ', -- Function      = 3;
---     '', -- Constructor   = 4;
---     '⌘', -- Field         = 5;
---     '', -- Variable      = 6;
---     '', -- Class         = 7;
---     'ﰮ', -- Interface     = 8;
---     '', -- Module        = 9;
---     '', -- Property      = 10;
---     '', -- Unit          = 11;
---     '', -- Value         = 12;
---     '了', -- Enum          = 13;
---     '', -- Keyword       = 14;
---     '﬌', -- Snippet       = 15;
---     '', -- Color         = 16;
---     '', -- File          = 17;
---     '', -- Reference     = 18;
---     '', -- Folder        = 19;
---     '', -- EnumMember    = 20;
---     '', -- Constant      = 21;
---     '', -- Struct        = 22;
---     '', -- Event         = 23;
---     '', -- Operator      = 24;
---     '', -- TypeParameter = 25;
--- }
-
--- for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do
---     cmp.lsp.CompletionItemKind[index] = value
--- end
+vim.cmd([[
+hi CmpItemAbbrMatch guifg=#FF4A4A guibg=NONE
+hi CmpItemAbbrMatchFzzy guifg=Purple guibg=NONE
+hi CmpItemKind guifg=#AA82E0 guibg=NONE
+hi CmpItemMenu guifg=#82E0AA guibg=NONE
+]])
