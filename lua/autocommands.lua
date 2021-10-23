@@ -1,7 +1,7 @@
 local autocmd = require('utils').autocmd
 
 -- " highlight yank
-autocmd('highlight_yank', 'TextYankPost * silent! lua require"vim.highlight".on_yank({timeout = 200})', true)
+autocmd('highlight_yank', 'TextYankPost * silent! lua require"vim.highlight".on_yank({timeout = 200, on_macro = true})', true)
 
 -- " restore place in file from previous session
 autocmd('restore_cursor_pos', [[BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]], true)

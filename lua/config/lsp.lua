@@ -1,15 +1,10 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
-map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
-
-
 vim.opt.updatetime = 250
 vim.opt.completeopt:append({'menuone','noselect','noinsert'})
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
-
 
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
@@ -26,6 +21,12 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 )
 
 
+-------------------------------------------------------------------------------
+-- Diagnostic settings
+-------------------------------------------------------------------------------
+map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
+map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+-- diagnostic colours
 vim.cmd([[
 sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
@@ -46,7 +47,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- log_path: ~/.cache/nvim/lsp.log
 
 -------------------------------------------------------------------------------
--- Language server settings
+-- lsp on attach settings
 -------------------------------------------------------------------------------
 local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
@@ -102,16 +103,14 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 -------------------------------------------------------------------------------
 nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup({ on_attach = on_attach })
--- nvim_lsp.pylsp.setup { capabilities = capabilities, on_attach = on_attach}
 
-local pid = vim.fn.getpid()
 -- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
 local omnisharp_bin = "/home/henryw/omnisharp/run"
 -- on Windows
 -- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
 nvim_lsp.omnisharp.setup{
     capabilities = capabilities,
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid)};
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(vim.fn.getpid())};
     on_attach = on_attach,
 }
 
