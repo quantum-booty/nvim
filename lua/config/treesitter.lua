@@ -9,6 +9,12 @@ parser_configs.norg = {
     },
 }
 
+-- vim.cmd([[
+-- set foldmethod=expr
+-- set foldexpr=nvim_treesitter#foldexpr()
+-- set foldnestmax=2
+-- set foldlevelstart=999
+-- ]])
 
 
 require'nvim-treesitter.configs'.setup {

@@ -10,6 +10,8 @@ vim.g.maplocalleader = ','
 map('i', '<Del>', '<C-o>A;', {noremap=true, silent=true})
 
 
+map('n', '<cr>', 'zo', opts)
+-- map('n', '<cr>', ':%foldo<cr>', opts)
 
  -- Search results centered
 map('n', 'n', 'nzzzv', opts)
@@ -78,8 +80,8 @@ map('n', 'X', '"_d', opts)
 map('n', 'Y', 'v$y', opts)
 
 -- " No pinkies please!
-map('n', '<leader>a', '<S-a>', opts)
-map('n', '<leader>i', '<S-i>', opts)
+-- map('n', '<leader>a', '<S-a>', opts)
+-- map('n', '<leader>i', '<S-i>', opts)
 
 -- " use + and - to increment and decrement number
 map('n', '+', '<C-a>', opts)

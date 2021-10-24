@@ -88,7 +88,9 @@ return require('packer').startup({function()
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
     use { 'ray-x/lsp_signature.nvim', event = 'InsertEnter' }
-    use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
+    -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
+    -- use {'liuchengxu/vista.vim'}
+    use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
     -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
     -- use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }

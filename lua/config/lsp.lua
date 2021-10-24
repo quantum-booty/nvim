@@ -47,6 +47,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- lsp on attach settings
 -------------------------------------------------------------------------------
 local nvim_lsp = require('lspconfig')
+local aerial = require'aerial'
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -72,6 +73,11 @@ local on_attach = function(client, bufnr)
 
     map('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     map('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
+
+    aerial.on_attach(client)
+    vim.api.nvim_buf_set_keymap(0, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+
 end
 
 
