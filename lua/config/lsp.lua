@@ -9,23 +9,23 @@ vim.opt.shortmess:append('c')
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-        -- Use a sharp border with `FloatBorder` highlights
         border = "single"
     }
 )
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-        -- Use a sharp border with `FloatBorder` highlights
         border = "single"
     }
 )
 
-
 -------------------------------------------------------------------------------
 -- Diagnostic settings
 -------------------------------------------------------------------------------
+vim.diagnostic.config({float = { border = 'single', show_header = false}})
+
 map('n', 'gn', ':lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', 'gp', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+
 -- diagnostic colours
 vim.cmd([[
 sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
@@ -33,9 +33,6 @@ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 
-" sign define DiagnosticSignWarn text=🌊 texthl=DiagnosticSignWarn linehl= numhl=
-" sign define DiagnosticSignWarn text=🎃 texthl=DiagnosticSignWarn linehl= numhl=
-" sign define DiagnosticSignInfo text=🌲 texthl=DiagnosticSignInfo linehl= numhl=
 " sign define DiagnosticSignHint text=💡 texthl=DiagnosticSignHint linehl= numhl=
 ]])
 
