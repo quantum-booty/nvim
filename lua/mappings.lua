@@ -1,3 +1,4 @@
+local autocmd = require('utils').autocmd
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
@@ -10,8 +11,10 @@ vim.g.maplocalleader = ','
 map('i', '<Del>', '<C-o>A;', {noremap=true, silent=true})
 
 
-map('n', '<cr>', 'zo', opts)
+-- map('n', '<cr>', 'zo', opts)
 -- map('n', '<cr>', ':%foldo<cr>', opts)
+autocmd('filetype_help_mapping', [[ FileType help nnoremap <buffer> <CR> <c-]> ]], true)
+
 
  -- Search results centered
 map('n', 'n', 'nzzzv', opts)

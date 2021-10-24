@@ -56,8 +56,8 @@ local options = {
     termguicolors = true,
     background = 'dark',
     cursorline = true,
-    -- breakindent = true,
 
+    autoindent = true,
     smartindent = true,
     fileformat = 'unix',
     fileencodings = "utf-8",
