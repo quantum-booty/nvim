@@ -64,7 +64,7 @@ return require('packer').startup({function()
     -- use 'tpope/vim-dadbod'
     -- use 'kristijanhusak/vim-dadbod-ui'
     -- use 'kristijanhusak/vim-dadbod-completion'
-    -- use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
+    use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
 
     -- --- Motion and textobjects
     use {'b3nj5m1n/kommentary',
