@@ -36,7 +36,7 @@ return require('packer').startup({function()
         'Pocco81/Catppuccino.nvim',
         'projekt0n/github-nvim-theme',
     }
-
+    use 'NTBBloodbath/doom-one.nvim' 
 
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
@@ -53,7 +53,6 @@ return require('packer').startup({function()
     -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
     -- use { 'kwkarlwang/bufresize.nvim', config = function() require('bufresize').setup({ resize = { keys = {}, trigger_events = { 'VimResized' }, }, }) end }
 
-
     -- Consoles for interactive development
     use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
@@ -64,6 +63,7 @@ return require('packer').startup({function()
     -- SQL
     -- use 'tpope/vim-dadbod'
     -- use 'kristijanhusak/vim-dadbod-ui'
+    -- use 'kristijanhusak/vim-dadbod-completion'
     -- use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
 
     -- --- Motion and textobjects
@@ -99,7 +99,8 @@ return require('packer').startup({function()
         {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
-        "hrsh7th/cmp-nvim-lua",
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-path',
         'quangnguyen30192/cmp-nvim-ultisnips'
     }
 
@@ -253,6 +254,8 @@ return require('packer').startup({function()
     -- use 'lervag/vimtex'
     -- use 'KeitaNakamura/tex-conceal.vim'
     use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
+    use { 'nvim-neorg/neorg-telescope' }
+    -- use { '/home/henryw/dev/neorg-trouble' }
 end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it

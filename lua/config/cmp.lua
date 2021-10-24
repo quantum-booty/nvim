@@ -4,64 +4,59 @@
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 
+
+local is_prior_char_whitespace = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
 cmp.setup({
     snippet = {
         expand = function(args)
-            -- For `vsnip` user.
-            -- vim.fn["vsnip#anonymous"](args.body)
-
-            -- For `luasnip` user.
-            -- require('luasnip').lsp_expand(args.body)
-
-            -- For `ultisnips` user.
-            vim.fn["UltiSnips#Anon"](args.body)
+            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
     mapping = {
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
+        -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        -- ['<C-Space>'] = cmp.mapping.complete(),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true }),
 
-        ["<Tab>"] = function(fallback)
+        ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             else
                 fallback()
             end
         end,
-        ["<S-Tab>"] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
+
+        ["<S-Tab>"] = function(fallback) if cmp.visible() then
+            cmp.select_prev_item()
+        else
+            fallback()
+        end
         end,
     },
     sources = {
         { name = 'neorg' },
-        { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
 
-        -- For vsnip user.
-        -- { name = 'vsnip' },
+        { name = 'nvim_lsp' },
 
-        -- For luasnip user.
-        -- { name = 'luasnip' },
-
-        -- For ultisnips user.
-        { name = 'ultisnips' },
+        -- { name = 'vsnip' }, -- For vsnip user.
+        -- { name = 'luasnip' }, -- For luasnip user.
+        { name = 'ultisnips' }, -- For ultisnips user.
         { name = 'buffer', keyword_length = 3 },
         { name = 'path' },
     },
-    -- snippet = {
-    --     expand = function(args)
-    --         require("luasnip").lsp_expand(args.body)
-    --     end,
-    -- },
     documentation = {
         maxwidth = 75,
     },
@@ -94,12 +89,12 @@ hi CmpItemMenu guifg=#82E0AA guibg=NONE
 ]])
 
 require("nvim-autopairs.completion.cmp").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-  auto_select = true, -- automatically select the first item
-  insert = false, -- use insert confirm behavior instead of replace
-  map_char = { -- modifies the function or method delimiter by filetypes
-    all = '(',
-    tex = '{'
-  }
+    map_cr = true, --  map <CR> on insert mode
+    map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
+    auto_select = true, -- automatically select the first item
+    insert = false, -- use insert confirm behavior instead of replace
+    map_char = { -- modifies the function or method delimiter by filetypes
+        all = '(',
+        tex = '{'
+    }
 })

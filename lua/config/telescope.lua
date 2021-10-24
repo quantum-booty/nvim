@@ -22,6 +22,7 @@ telescope.setup{
         colorscheme = { theme = "dropdown" },
         lsp_references = { theme = "dropdown" },
         lsp_code_actions = { initial_mode='normal' },
+        help_tags = { jump_type = 'tab'},
 
     }
 }
