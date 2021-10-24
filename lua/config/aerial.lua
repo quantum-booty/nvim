@@ -7,6 +7,13 @@ vim.g.aerial = {
   --   global  - same as 'persist', and will always show symbols for the current buffer
   close_behavior = "persist",
 
+  -- The maximum width of the aerial window
+  max_width = 50,
+
+  -- The minimum width of the aerial window.
+  -- To disable dynamic resizing, set this to be equal to max_width
+  min_width = 30,
+
   -- Enum: prefer_right, prefer_left, right, left
   -- Determines the default direction to open the aerial window. The 'prefer'
   -- options will open the window in the other direction *if* there is a
