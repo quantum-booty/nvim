@@ -35,8 +35,8 @@ return require('packer').startup({function()
         'EdenEast/nightfox.nvim',
         'Pocco81/Catppuccino.nvim',
         'projekt0n/github-nvim-theme',
+        'NTBBloodbath/doom-one.nvim',
     }
-    use 'NTBBloodbath/doom-one.nvim' 
 
     -- cosmetics
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
@@ -45,7 +45,7 @@ return require('packer').startup({function()
     -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.eviline')]] }
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require('galaxyline.themes.spaceline')]] }
+    use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]], event = 'BufWinEnter' }
@@ -256,6 +256,7 @@ return require('packer').startup({function()
     use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
     -- use { '/home/henryw/dev/neorg-trouble' }
+
 end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
