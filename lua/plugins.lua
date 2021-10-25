@@ -87,7 +87,7 @@ return require('packer').startup({function()
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native' }
-    use { 'ray-x/lsp_signature.nvim', event = 'InsertEnter' }
+    use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
     -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use {'liuchengxu/vista.vim'}
     use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
