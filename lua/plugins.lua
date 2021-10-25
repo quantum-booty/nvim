@@ -170,7 +170,7 @@ return require('packer').startup({function()
         end,
         requires = {'tami5/sqlite.lua'},
     }
-    use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
+    -- use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
 
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
