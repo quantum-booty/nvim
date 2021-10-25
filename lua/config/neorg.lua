@@ -10,9 +10,9 @@ require('neorg').setup {
         -- ['core.norg.qol.todo_items'] = {},
         ['core.defaults'] = {},	-- Tells neorg to load the module called core.defaults with no extra data
         ['core.norg.concealer'] = {
-            -- config = {
-            --     icon_preset = 'diamond',
-            -- }
+            config = {
+                icon_preset = 'diamond',
+            }
         },
         ['core.norg.dirman'] = {}, -- Loads the directory manager with no configuration
 		["core.keybinds"] = {

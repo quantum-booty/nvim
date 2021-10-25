@@ -78,7 +78,6 @@ return require('packer').startup({function()
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
     use { 'ggandor/lightspeed.nvim' }
 
-
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     -- use 'kabouzeid/nvim-lspinstall'
@@ -171,6 +170,7 @@ return require('packer').startup({function()
         end,
         requires = {'tami5/sqlite.lua'},
     }
+    use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
 
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
