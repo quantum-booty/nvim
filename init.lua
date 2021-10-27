@@ -9,4 +9,4 @@ require('autocommands')
 require('packer_compiled')
 
 
-vim.cmd([[source $NVIM_CONFIG_PATH/config/wilder.vim]])
+-- vim.cmd([[source $NVIM_CONFIG_PATH/config/wilder.vim]])

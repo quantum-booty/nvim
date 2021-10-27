@@ -38,7 +38,8 @@ cmp.setup({
             end
         end,
 
-        ["<S-Tab>"] = function(fallback) if cmp.visible() then
+        ["<S-Tab>"] = function(fallback) 
+        if cmp.visible() then
             cmp.select_prev_item()
         else
             fallback()
@@ -76,9 +77,26 @@ cmp.setup({
                 ultisnips = "[snip]",
             },
         })
-    }
-
+    },
 })
+
+
+ -- Use buffer source for `/`.
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':'.
+  cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
 
 
 vim.cmd([[
