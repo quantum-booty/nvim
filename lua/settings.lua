@@ -1,3 +1,5 @@
+vim.env.NVIM_CONFIG_PATH = vim.fn.stdpath('config')
+
 if vim.fn.has('win32') == 1 then
     USERPROFILE = vim.env.USERPROFILE
     if USERPROFILE then

@@ -1,5 +1,3 @@
-vim.env.NVIM_CONFIG_PATH = vim.fn.stdpath('config')
-
 require('impatient')
 require('settings')
 require('plugins')
