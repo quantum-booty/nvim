@@ -113,14 +113,14 @@ catppuccino.setup(
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 
--- nightfox.load('nightfox')
+nightfox.load('nightfox')
 -- nightfox.load('nordfox')
 -- nightfox.load('duskfox')
 -- nightfox.load('palefox')
 -- nightfox.load('dayfox')
 -- nightfox.load('dawnfox')
 
-catppuccino.load()
+-- catppuccino.load()
 -- catppuccino.load('soft_manilo')
 -- catppuccino.load('neon_latte')
 -- catppuccino.load('light_melya')
