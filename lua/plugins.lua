@@ -109,10 +109,7 @@ return require('packer').startup({function()
 
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
-    use { 'w0rp/ale',
-        setup = [[require('config.ale')]],
-        disable = true
-    }
+    -- use { 'w0rp/ale', setup = [[require('config.ale')]], }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
@@ -177,16 +174,13 @@ return require('packer').startup({function()
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
 
-    use {
-        'ms-jpq/chadtree',
-        branch = 'chad',
-        run = 'python -m chadtree deps',
-        config = [[require('config.chadtree')]],
-    }
     -- use {
-    --     'kyazdani42/nvim-tree.lua',
-    --     config = [[require('config.nvim_tree')]]
+    --     'ms-jpq/chadtree',
+    --     branch = 'chad',
+    --     run = 'python -m chadtree deps',
+    --     config = [[require('config.chadtree')]],
     -- }
+    use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
     -- use { 'luukvbaal/nnn.nvim', config = [[require('config.nnn')]] }
 
 

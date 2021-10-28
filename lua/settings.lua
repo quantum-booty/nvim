@@ -58,6 +58,7 @@ local options = {
     termguicolors = true,
     background = 'dark',
     cursorline = true,
+    pumheight = 15, -- max number of popup or completion items
 
     autoindent = true,
     smartindent = true,

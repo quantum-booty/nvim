@@ -13,7 +13,7 @@ null_ls.config({
         null_ls.builtins.formatting.black.with({
             args = {
                  "--quiet", "--fast", "-" ,
-                '--line-length', '120',
+                '--line-length', '200',
                 '--skip-string-normalization',
             }
         }),
