@@ -49,7 +49,6 @@ return require('packer').startup({function()
     use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
     -- use { 'glepnir/dashboard-nvim', setup = [[require('config.dashboard')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]], event = 'BufWinEnter' }
-
     -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
     -- use { 'kwkarlwang/bufresize.nvim', config = function() require('bufresize').setup({ resize = { keys = {}, trigger_events = { 'VimResized' }, }, }) end }
 
@@ -57,7 +56,7 @@ return require('packer').startup({function()
     use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
-    -- use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], event = 'BufWinEnter', disable = true }
+    use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]], event = 'BufWinEnter' }
 
 
     -- SQL
@@ -76,17 +75,16 @@ return require('packer').startup({function()
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
-    use { 'ggandor/lightspeed.nvim' }
+    use { 'ggandor/lightspeed.nvim', event = 'CursorMoved' }
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     -- use 'kabouzeid/nvim-lspinstall'
-
     -- use { 'tami5/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]] }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd([[source $NVIM_CONFIG_PATH/config/wilder.vim]])]] }
-    use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
+    use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]], event = 'CursorMoved' }
     -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use {'liuchengxu/vista.vim'}
     use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
@@ -97,14 +95,14 @@ return require('packer').startup({function()
     -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
     use {
-        {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]]},
+        {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]], event='CursorMoved'},
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'quangnguyen30192/cmp-nvim-ultisnips'
-
+        'quangnguyen30192/cmp-nvim-ultisnips',
+        'lukas-reineke/cmp-under-comparator',
     }
 
     -- linter, fixer, formatter
@@ -170,7 +168,6 @@ return require('packer').startup({function()
         requires = {'tami5/sqlite.lua'},
     }
     -- use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
-
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
 
@@ -216,8 +213,8 @@ return require('packer').startup({function()
     -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
 
-    -- -- document generator
-    -- use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
+    -- document generator
+    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]],  opt = true, keys='<leader>D' }
 
 
     -- --- Quality of life

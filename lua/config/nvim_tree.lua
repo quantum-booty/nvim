@@ -35,7 +35,7 @@ local map_list = {
   { key = ".",                            cb = tree_cb("toggle_dotfiles") },
   { key = "<c-l>",                            cb = tree_cb("refresh") },
   { key = "a",                            cb = tree_cb("create") },
-  -- { key = "d",                            cb = tree_cb("remove") },
+  { key = "d",                            cb = tree_cb() },
   { key = "x",                            cb = tree_cb("remove") },
   { key = "r",                            cb = tree_cb("rename") },
   { key = "<C-r>",                        cb = tree_cb("full_rename") },

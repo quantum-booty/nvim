@@ -5,15 +5,6 @@ local cmp = require'cmp'
 local lspkind = require('lspkind')
 
 
-local is_prior_char_whitespace = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -77,6 +68,18 @@ cmp.setup({
                 ultisnips = "[snip]",
             },
         })
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            require "cmp-under-comparator".under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
     },
 })
 
