@@ -30,7 +30,7 @@ require'nvim-treesitter.configs'.setup {
     },
 
     incremental_selection = {
-        enable = false,
+        enable = true,
         keymaps = {
             init_selection = "<C-n>",
             node_incremental = "<C-n>",
@@ -55,6 +55,7 @@ require'nvim-treesitter.configs'.setup {
             enable = true,
         },
         select = {
+            lookahead = true,
             enable = true,
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
@@ -78,18 +79,18 @@ require'nvim-treesitter.configs'.setup {
                 ["])"] = "@function.outer",
                 ["]]"] = "@class.outer",
             },
-            -- goto_next_end = {
-            --     ["]M"] = "@function.outer",
-            --     ["]["] = "@class.outer",
-            -- },
+            goto_next_end = {
+                ["]}"] = "@function.outer",
+                ["]["] = "@class.outer",
+            },
             goto_previous_start = {
                 ["[("] = "@function.outer",
                 ["[["] = "@class.outer",
             },
-            -- goto_previous_end = {
-            --     ["[M"] = "@function.outer",
-            --     ["[]"] = "@class.outer",
-            -- },
+            goto_previous_end = {
+                ["[{"] = "@function.outer",
+                ["[]"] = "@class.outer",
+            },
         },
         swap = {
             enable = true,
@@ -110,6 +111,5 @@ require'nvim-treesitter.configs'.setup {
     },
     context_commentstring = {
         enable = true
-    }
-
+    },
 }
