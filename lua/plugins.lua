@@ -159,14 +159,14 @@ return require('packer').startup({function()
             require('project_nvim').setup {}
         end
     }
-    use {
-        'nvim-telescope/telescope-frecency.nvim',
-        after = 'telescope.nvim',
-        config = function()
-            require'telescope'.load_extension('frecency')
-        end,
-        requires = {'tami5/sqlite.lua'},
-    }
+    -- use {
+    --     'nvim-telescope/telescope-frecency.nvim',
+    --     after = 'telescope.nvim',
+    --     config = function()
+    --         require'telescope'.load_extension('frecency')
+    --     end,
+    --     requires = {'tami5/sqlite.lua'},
+    -- }
     -- use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
@@ -220,6 +220,9 @@ return require('packer').startup({function()
     -- --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
+    use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]], event = 'InsertEnter' }
+    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
+    use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
     -- use {
     --     'tpope/vim-obsession',
     --     config = function()
@@ -228,29 +231,24 @@ return require('packer').startup({function()
     --     end
     -- }
     -- use 'rmagatti/auto-session'
-
-    -- shows marks in sign column, not working with neovim
-    -- use { 'kshenoy/vim-signature' }
-    -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
-
-    use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]], event = 'InsertEnter' }
     -- use {
     --     'andweeb/presence.nvim',
     --     config = [[require('config.discord')]],
     --     cond = not_windows,
     -- }
-    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
-    use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
+    -- shows marks in sign column, not working with neovim
+    -- use { 'kshenoy/vim-signature' }
+    -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     -- ---  Note taking, tex, orgmode
+    use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
+    use { 'nvim-neorg/neorg-telescope' }
+    -- use { '/home/henryw/dev/neorg-trouble' }
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
     -- use 'lervag/vimtex'
     -- use 'KeitaNakamura/tex-conceal.vim'
-    use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
-    use { 'nvim-neorg/neorg-telescope' }
-    -- use { '/home/henryw/dev/neorg-trouble' }
 
 end,
     config = {

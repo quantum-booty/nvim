@@ -6,7 +6,7 @@ vim.g.srcery_bold = 1
 vim.g.srcery_inverse_matches = 1
 vim.g.srcery_inverse = 1
 vim.g.srcery_italic_types = 1
-vim.g.srcery_inverse_match_paren = 1
+vim.g.srcery_inverse_match_paren = 0
 
 -- " =============================================================================
 -- " # Tokyo Night
@@ -27,7 +27,7 @@ nightfox.setup({
         functions = "bold" -- styles can be a comma separated list
     },
     inverse = {
-        match_paren = true,
+        match_paren = false,
         search = true,
         visual = true,
     },
@@ -113,7 +113,7 @@ catppuccino.setup(
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 
-nightfox.load('nightfox')
+-- nightfox.load('nightfox')
 -- nightfox.load('nordfox')
 -- nightfox.load('duskfox')
 -- nightfox.load('palefox')
@@ -126,7 +126,7 @@ nightfox.load('nightfox')
 -- catppuccino.load('light_melya')
 --
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
--- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
+vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
 
 -- vim.cmd([[colorscheme github_dimmed]])
