@@ -8,7 +8,7 @@ vim.g.maplocalleader = ','
 
 
 -- this is smooth as fuck haha
-map('i', '<Del>', '<C-o>A;', {noremap=true, silent=true})
+map('i', '<Del>', '<C-o>A;', opts)
 
 
 -- map('n', '<cr>', 'zo', opts)

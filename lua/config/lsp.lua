@@ -52,32 +52,32 @@ local aerial = require'aerial'
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- Enable completion triggered by <c-x><c-o>
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
-    map('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
-    map('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    map('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    map('n', '<leader>=', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
-    -- map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    -- map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
+    buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>=', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
-    map('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
-    map('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+    buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
+    buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
 
     aerial.on_attach(client)
-    vim.api.nvim_buf_set_keymap(0, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
-
+    buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', opts)
 end
 
 
