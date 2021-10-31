@@ -13,7 +13,7 @@ var ${1:name} = new Dictionary<$2>$0;
 endsnippet
 
 snippet arr "array"
-var ${1:name} = new ${2}[$3] { $4};
+${1:type}[$2] ${3:name} = {$4};
 $0
 endsnippet
 
@@ -22,7 +22,12 @@ var ${1:name} = new List<$2>$0;
 endsnippet
 
 snippet new "initializer"
-var ${1:name} = new $0;
+var ${1:name} = new ${0:Constructor};
+endsnippet
+
+snippet newa "array"
+var ${1:name} = new ${2:type}[$3] {$4};
+$0
 endsnippet
 
 snippet delegate "delegate" b

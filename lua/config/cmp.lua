@@ -9,8 +9,8 @@ cmp.setup({
     snippet = {
         expand = function(args)
             -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
     mapping = {
@@ -21,21 +21,21 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true }),
 
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
+        -- ['<Tab>'] = function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_next_item()
+        --     else
+        --         fallback()
+        --     end
+        -- end,
 
-        ["<S-Tab>"] = function(fallback) 
-        if cmp.visible() then
-            cmp.select_prev_item()
-        else
-            fallback()
-        end
-        end,
+        -- ["<S-Tab>"] = function(fallback) 
+        --     if cmp.visible() then
+        --         cmp.select_prev_item()
+        --     else
+        --         fallback()
+        --     end
+        -- end,
     },
     sources = {
         { name = 'neorg' },
