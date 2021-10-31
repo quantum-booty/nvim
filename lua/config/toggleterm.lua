@@ -36,7 +36,3 @@ require('toggleterm').setup{
       background = "Normal",
     }
   }}
-
-local autocmd = require('utils').autocmd
-autocmd('cs_mapping', [[ FileType cs nnoremap <silent> <c-r> <cmd>TermExec cmd="dotnet run"<cr>]], true)
--- map('n', '<c-r>', '<cmd>TermExec cmd="dotnet run"<cr>', opts)
