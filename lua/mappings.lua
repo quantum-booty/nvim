@@ -121,7 +121,7 @@ vim.cmd 'cabbrev ps PackerSync'
 -- " # Terminal
 -- " =============================================================================
 -- " press esc to go to normal mode
-map('t', '<Esc>', [['<C-\><C-n>']], opts)
+map('t', '<Esc>', [[<C-\><C-n>]], opts)
 -- " press enter to enter and exit insert mode
 -- map('t', '<CR>', [['<CR><C-\><C-n>']], opts)
 

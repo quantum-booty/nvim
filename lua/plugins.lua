@@ -76,7 +76,7 @@ return require('packer').startup({function()
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
-    use { 'ggandor/lightspeed.nvim', event = 'CursorMoved' }
+    use { 'ggandor/lightspeed.nvim' }
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
