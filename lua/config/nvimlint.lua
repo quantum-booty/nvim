@@ -4,7 +4,6 @@ local opts = { noremap=true, silent=true }
 
 nvim_lint = require('lint')
 nvim_lint.linters_by_ft = {
-  -- python = {'flake8_test', 'pylint',}
   python = {'pylint','flake8'}
 }
 
@@ -19,7 +18,7 @@ nvim_lint.linters.pylint.args = {
     '-f', 'json',
     '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$',
     '--disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705',
-    '--max-line-length=120',
+    '--max-line-length=300',
   }
 
 

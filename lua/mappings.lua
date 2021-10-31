@@ -65,8 +65,8 @@ map('i', '?', '?<c-g>u', opts)
 
 -- jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
 -- ignores wrapping
-map('n', 'j', [[(v:count > 5 ? "m'" . v:count : "") . "gj"]], {expr=true, silent=true, noremap=true})
-map('n', 'k', [[(v:count > 5 ? "m'" . v:count : "") . "gk"]], {expr=true, silent=true, noremap=true})
+-- map('n', 'j', [[(v:count > 5 ? "m'" . v:count : "") . "gj"]], {expr=true, silent=true, noremap=true})
+-- map('n', 'k', [[(v:count > 5 ? "m'" . v:count : "") . "gk"]], {expr=true, silent=true, noremap=true})
 
 -- moving text
 map('v', 'J', ":m '>+1<cr>gv=gv", opts)
@@ -125,10 +125,10 @@ map('t', '<Esc>', [['<C-\><C-n>']], opts)
 -- " press enter to enter and exit insert mode
 -- map('t', '<CR>', [['<CR><C-\><C-n>']], opts)
 
--- " =============================================================================
--- " # Window Movements
--- " =============================================================================
--- " move between windows, if at the edge of screen, create new split
+-- =============================================================================
+-- # Window Movements
+-- =============================================================================
+-- move between windows, if at the edge of screen, create new split
 
 vim.cmd([[
 function! WinMove(key)
@@ -149,3 +149,5 @@ nnoremap <silent> <down> :call WinMove('j')<CR>
 nnoremap <silent> <up> :call WinMove('k')<CR>
 nnoremap <silent> <right> :call WinMove('l')<CR>
 ]])
+
+

@@ -67,7 +67,7 @@ require'nvim-tree'.setup {
   update_cwd          = true,
   -- show lsp diagnostics in the signcolumn
   diagnostics = {
-    enable = true,
+    enable = false,
     icons = {
       hint = "",
       info = "",

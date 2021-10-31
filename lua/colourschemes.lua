@@ -48,34 +48,34 @@ vim.g.gruvbox_invert_selection=1
 local catppuccino = require("catppuccino")
 
 catppuccino.setup(
-    {
-        colorscheme = "dark_catppuccino",
-        styles = {
-            comments = "italic",
-            functions = "bold",
-            keywords = "italic",
-            strings = "italic",
-            variables = "NONE",
-        },
-        transparency = false,
-        integrations = {
-            treesitter = true,
-            lsp_trouble = true,
-            lsp_saga = true,
-            gitsigns = true,
-            telescope = true,
-            which_key = true,
-            indent_blankline = {
-                enabled = true,
-                colored_indent_levels = true,
-            },
-            dashboard = true,
-            neogit = true,
-            barbar = true,
-            ts_rainbow = true,
-            hop = true,
-        }
-    }
+    -- {
+    --     colorscheme = "dark_catppuccino",
+    --     styles = {
+    --         comments = "italic",
+    --         functions = "bold",
+    --         keywords = "italic",
+    --         strings = "italic",
+    --         variables = "NONE",
+    --     },
+    --     transparency = false,
+    --     integrations = {
+    --         treesitter = true,
+    --         lsp_trouble = true,
+    --         lsp_saga = true,
+    --         gitsigns = true,
+    --         telescope = true,
+    --         which_key = true,
+    --         indent_blankline = {
+    --             enabled = true,
+    --             colored_indent_levels = true,
+    --         },
+    --         dashboard = true,
+    --         neogit = true,
+    --         barbar = true,
+    --         ts_rainbow = true,
+    --         hop = true,
+    --     }
+    -- }
 )
 
 
