@@ -101,7 +101,7 @@ return require('packer').startup({function()
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
+        -- 'hrsh7th/cmp-cmdline',
         'quangnguyen30192/cmp-nvim-ultisnips',
         'lukas-reineke/cmp-under-comparator',
     }
