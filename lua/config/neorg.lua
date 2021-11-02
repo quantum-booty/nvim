@@ -5,6 +5,8 @@ local opts = { noremap=true, silent=true }
 local neorg_leader = "<F12>"
 
 USERPROFILE = vim.env.USERPROFILE
+
+
 require('neorg').setup {
     load = {
         -- ['core.norg.qol.todo_items'] = {},
@@ -58,15 +60,8 @@ require('neorg').setup {
     --     end)
     -- end
 }
-
-
--- autocmd('filetype_help_mapping', [[ FileType help nnoremap <buffer> <CR> <c-]> ]], true)
--- autocmd('neorg', 
---     [[
---         FileType norg lua nnoremap silent <F12>L :Telescope neorg insert_link<cr>
-
-
---     ]], true)
-
-map('n', neorg_leader.."L", ":Telescope neorg insert_link<cr>", opts )
-map('n', neorg_leader.."l", ":Telescope neorg find_linkable<cr>", opts )
+-- /home/henryw/.local/share/nvim/site/pack/packer/start/neorg/lua/neorg/modules/core/keybinds/default_keybinds.lua
+map('n', neorg_leader..'wm', ':Neorg workspace main<CR>', opts)
+map('n', neorg_leader..'wt', ':Neorg workspace gtd<CR>', opts)
+-- map('n', neorg_leader.."L", ":Telescope neorg insert_link<CR>", opts )
+-- map('n', neorg_leader.."l", ":Telescope neorg find_linkable<CR>", opts )

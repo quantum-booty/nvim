@@ -108,10 +108,10 @@ return require('packer').startup({function()
 
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
+    use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
     -- use { 'w0rp/ale', setup = [[require('config.ale')]], }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
-    use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
 
 
     -- snippets
