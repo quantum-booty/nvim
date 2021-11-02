@@ -21,21 +21,21 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true }),
 
-        -- ['<Tab>'] = function(fallback)
-        --     if cmp.visible() then
-        --         cmp.select_next_item()
-        --     else
-        --         fallback()
-        --     end
-        -- end,
+        ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
 
-        -- ["<S-Tab>"] = function(fallback) 
-        --     if cmp.visible() then
-        --         cmp.select_prev_item()
-        --     else
-        --         fallback()
-        --     end
-        -- end,
+        ["<S-Tab>"] = function(fallback) 
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
     },
     sources = {
         { name = 'neorg' },
@@ -46,7 +46,7 @@ cmp.setup({
         -- { name = 'vsnip' }, -- For vsnip user.
         -- { name = 'luasnip' }, -- For luasnip user.
         { name = 'ultisnips' }, -- For ultisnips user.
-        { name = 'buffer', keyword_length = 3 },
+        { name = 'buffer', keyword_length = 4 },
         { name = 'path' },
     },
     documentation = {
@@ -84,21 +84,21 @@ cmp.setup({
 })
 
 
- -- Use buffer source for `/`.
-  cmp.setup.cmdline('/', {
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+ -- -- Use buffer source for `/`.
+ --  cmp.setup.cmdline('/', {
+ --    sources = {
+ --      { name = 'buffer' }
+ --    }
+ --  })
 
-  -- Use cmdline & path source for ':'.
-  cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+ --  -- Use cmdline & path source for ':'.
+ --  cmp.setup.cmdline(':', {
+ --    sources = cmp.config.sources({
+ --      { name = 'path' }
+ --    }, {
+ --      { name = 'cmdline' }
+ --    })
+ --  })
 
 
 
