@@ -20,10 +20,6 @@ return require('packer').startup({function()
     -- TODO: plugins to check out in the future
     -- remote editing
     -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
-    -- code action - although pyright does not support code action
-    -- https://github.com/weilbith/nvim-code-action-menu
-    -- jupyter
-    -- https://github.com/dccsillag/magma-nvim
 
     -- colour schemes
     use { 
@@ -56,7 +52,6 @@ return require('packer').startup({function()
     -- Consoles for interactive development
     use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]] }
-    -- use 'untitled-ai/jupyter_ascending.vim'
     -- use 'jalvesaq/Nvim-R'
 
 
@@ -109,7 +104,6 @@ return require('packer').startup({function()
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
-    -- use { 'w0rp/ale', setup = [[require('config.ale')]], }
     -- use 'sbdchd/neoformat'
     -- use 'neomake/neomake'
 

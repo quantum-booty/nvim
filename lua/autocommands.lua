@@ -12,16 +12,23 @@ autocmd(
     {
         -- set brighter numbers at colorscheme change
         'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE',
-        -- make split brighther
-        'ColorScheme * highlight VertSplit guibg=bg guifg=lightcyan',
-        -- -- preserve diagnostic highlights when colorscheme changes 
-        -- 'ColorScheme * runtime plugin/diagnostic.vim',
+        'ColorScheme * highlight VertSplit guibg=bg guifg=LightBlue',
+
+        'ColorScheme onedark highlight VertSplit guibg=bg guifg=#c678dd',
+        'ColorScheme onedark highlight BufferCurrent guibg=bg guifg=#c678dd',
+        'ColorScheme onedark highlight BufferInactive guibg=#282c34 guifg=fg',
+
+        'ColorScheme onenord highlight BufferCurrent guibg=bg guifg=#D57780',
+        'ColorScheme onenord highlight VertSplit guibg=bg guifg=#D57780',
+
+        'ColorScheme catppuccino highlight BufferCurrent guibg=bg guifg=#e06c75',
+        'ColorScheme catppuccino highlight VertSplit guibg=bg guifg=#e06c75',
+
+        'ColorScheme tokyonight highlight BufferCurrent guibg=bg guifg=#9d7cd8',
+        'ColorScheme tokyonight highlight VertSplit guibg=bg guifg=#9d7cd8',
+
+        'ColorScheme nightfox highlight BufferCurrent guibg=bg guifg=#9d79d6',
+        'ColorScheme nightfox highlight VertSplit guibg=bg guifg=#9d79d6',
     },
     true
 )
--- set colours at vim start
-vim.cmd([[
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight VertSplit guibg=bg guifg=lightcyan
-]])
-

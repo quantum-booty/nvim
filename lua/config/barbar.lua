@@ -18,17 +18,6 @@ map('n', '<m-d>', ':BufferGoto 7<CR>', opts)
 map('n', '<m-n>', ':BufferGoto 8<CR>', opts)
 map('n', '<m-c>', ':BufferGoto 9<CR>', opts)
 map('n', '<m-cr>', ':BufferLast<CR>', opts)
--- map('n', '', ':BufferLast<CR>', opts)
--- map('n', '<BS>m', ':BufferGoto 1<CR>', opts)
--- map('n', '<BS>l', ':BufferGoto 2<CR>', opts)
--- map('n', '<BS>f', ':BufferGoto 3<CR>', opts)
--- map('n', '<BS>t', ':BufferGoto 4<CR>', opts)
--- map('n', '<BS>r', ':BufferGoto 5<CR>', opts)
--- map('n', '<BS>s', ':BufferGoto 6<CR>', opts)
--- map('n', '<BS>d', ':BufferGoto 7<CR>', opts)
--- map('n', '<BS>n', ':BufferGoto 8<CR>', opts)
--- map('n', '<BS>c', ':BufferGoto 9<CR>', opts)
--- map('n', '<BS>0', ':BufferLast<CR>', opts)
 -- Close buffer
 map('n', '<leader>x', ':BufferClose<CR>', opts)
 map('n', '<leader>X', ':BufferCloseAllButCurrent<CR>', opts)
@@ -64,3 +53,4 @@ vim.g.bufferline = {
     -- letters = 'abcdefghijkmlnopqrstuvwxyz',
     -- letters = 'trspkjdncbmlfaeihuoyqwgzxv',
 }
+
