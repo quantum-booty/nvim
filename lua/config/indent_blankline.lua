@@ -4,5 +4,5 @@ require("indent_blankline").setup {
     buftype_exclude = {'terminal', 'nofile'},
     space_char_blankline = " ",
     use_treesitter = true,
-    show_current_context = false,
+    show_current_context = true,
 }

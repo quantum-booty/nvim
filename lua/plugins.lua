@@ -12,12 +12,10 @@ return require('packer').startup({function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
-
-    -- prerequists for lua plugins
+    use { 'nathom/filetype.nvim', config = [[vim.g.did_load_filetypes = 1 -- for nvim 0.5]] }
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
-
 
     -- TODO: plugins to check out in the future
     -- remote editing
@@ -36,6 +34,8 @@ return require('packer').startup({function()
         {'Pocco81/Catppuccino.nvim', branch='main'},
         'projekt0n/github-nvim-theme',
         'NTBBloodbath/doom-one.nvim',
+        {'navarasu/onedark.nvim'},
+        {'rmehri01/onenord.nvim'},
     }
 
     -- cosmetics

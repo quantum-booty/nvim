@@ -82,36 +82,71 @@ catppuccino.setup(
 -- =============================================================================
 -- # doom one
 -- =============================================================================
---
-    config = function()
-        require('doom-one').setup({
-            cursor_coloring = true,
-            terminal_colors = true,
-            italic_comments = true,
-            enable_treesitter = true,
-            transparent_background = false,
-            pumblend = {
-                enable = true,
-                transparency_amount = 20,
-            },
-            plugins_integrations = {
-                neorg = true,
-                barbar = true,
-                gitsigns = true,
-                telescope = true,
-                neogit = true,
-                -- nvim_tree = true,
-                dashboard = true,
-                startify = true,
-                whichkey = true,
-                indent_blankline = true,
-            },
-        })
-    end,
+config = function()
+    require('doom-one').setup({
+        cursor_coloring = true,
+        terminal_colors = true,
+        italic_comments = true,
+        enable_treesitter = true,
+        transparent_background = false,
+        pumblend = {
+            enable = true,
+            transparency_amount = 20,
+        },
+        plugins_integrations = {
+            neorg = true,
+            barbar = true,
+            gitsigns = true,
+            telescope = true,
+            neogit = true,
+            -- nvim_tree = true,
+            dashboard = true,
+            startify = true,
+            whichkey = true,
+            indent_blankline = true,
+        },
+    })
+end
+
+-- =============================================================================
+-- # one dark
+-- =============================================================================
+vim.g.onedark_style = 'darker'
+vim.g.onedark_toggle_style_keymap = '<nop>'
+vim.g.onedark_darker_diagnostics = false
+
+-- =============================================================================
+-- # one nord
+-- =============================================================================
+require('onenord').setup({
+    borders = true, -- Split window borders
+    italics = {
+        comments = true, -- Italic comments
+        strings = true, -- Italic strings
+        keywords = true, -- Italic keywords
+        functions = false, -- Italic functions
+        variables = false, -- Italic variables
+    },
+    bold = {
+        functions = true, -- Bold functions
+    },
+    disable = {
+        background = false, -- Disable setting the background color
+        cursorline = false, -- Disable the cursorline
+        eob_lines = true, -- Hide the end-of-buffer lines
+    },
+    custom_highlights = {}, -- Overwrite default highlight groups
+})
+
+
 
 -- vim.cmd([[colorscheme srcery]])
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
+-- vim.cmd([[colorscheme github_dimmed]])
+-- vim.cmd([[colorscheme doom-one]])
+vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onenord]])
 
 -- nightfox.load('nightfox')
 -- nightfox.load('nordfox')
@@ -126,8 +161,5 @@ catppuccino.setup(
 -- catppuccino.load('light_melya')
 --
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
-vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
+-- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
-
--- vim.cmd([[colorscheme github_dimmed]])
--- vim.cmd([[colorscheme doom-one]])
