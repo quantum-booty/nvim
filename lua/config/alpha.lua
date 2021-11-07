@@ -18,6 +18,8 @@ dashboard.section.header.val = {
    "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
    "                                   ",
 }
+
+
 -- random coloured dragon fuck yeah!!!
 math.randomseed(os.time())
 function random_colours(colours)

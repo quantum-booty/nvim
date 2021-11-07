@@ -75,7 +75,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
-
     aerial.on_attach(client)
     buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', opts)
 end

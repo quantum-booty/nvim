@@ -139,6 +139,11 @@ require('onenord').setup({
 })
 
 
+-- =============================================================================
+-- # rose pine
+-- =============================================================================
+vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
+
 
 -- vim.cmd([[colorscheme srcery]])
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
@@ -147,6 +152,7 @@ require('onenord').setup({
 -- vim.cmd([[colorscheme doom-one]])
 vim.cmd([[colorscheme onedark]])
 -- vim.cmd([[colorscheme onenord]])
+-- vim.cmd([[colorscheme rose-pine]])
 
 -- nightfox.load('nightfox')
 -- nightfox.load('nordfox')

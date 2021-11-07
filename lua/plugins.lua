@@ -30,8 +30,9 @@ return require('packer').startup({function()
         {'Pocco81/Catppuccino.nvim', branch='main'},
         'projekt0n/github-nvim-theme',
         'NTBBloodbath/doom-one.nvim',
-        {'navarasu/onedark.nvim'},
-        {'rmehri01/onenord.nvim'},
+        'navarasu/onedark.nvim',
+        'rmehri01/onenord.nvim',
+        {'rose-pine/neovim', as = 'rose-pine'},
     }
 
     -- cosmetics
@@ -100,6 +101,7 @@ return require('packer').startup({function()
         'quangnguyen30192/cmp-nvim-ultisnips',
         'lukas-reineke/cmp-under-comparator',
     }
+
     use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
@@ -187,7 +189,7 @@ return require('packer').startup({function()
     }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     -- use { 'pwntester/octo.nvim' }
-    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]], event = 'BufRead' }
+    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
 
 
     -- language support / syntax highlighting
