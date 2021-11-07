@@ -240,7 +240,7 @@ return require('packer').startup({function()
     -- ---  Note taking, tex, orgmode
     use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
-    -- use { '/home/henryw/dev/neorg-trouble' }
+    use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }

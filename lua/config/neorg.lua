@@ -63,5 +63,6 @@ require('neorg').setup {
 -- /home/henryw/.local/share/nvim/site/pack/packer/start/neorg/lua/neorg/modules/core/keybinds/default_keybinds.lua
 map('n', neorg_leader..'wm', ':Neorg workspace main<CR>', opts)
 map('n', neorg_leader..'wt', ':Neorg workspace gtd<CR>', opts)
+map('n', neorg_leader..'mh', ':Trouble neorg<CR>', opts)
 -- map('n', neorg_leader.."L", ":Telescope neorg insert_link<CR>", opts )
 -- map('n', neorg_leader.."l", ":Telescope neorg find_linkable<CR>", opts )
