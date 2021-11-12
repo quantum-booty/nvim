@@ -21,8 +21,8 @@ autocmd(
         'ColorScheme onenord highlight BufferCurrent guibg=bg guifg=#D57780',
         'ColorScheme onenord highlight VertSplit guibg=bg guifg=#D57780',
 
-        'ColorScheme catppuccino highlight BufferCurrent guibg=bg guifg=#e06c75',
-        'ColorScheme catppuccino highlight VertSplit guibg=bg guifg=#e06c75',
+        'ColorScheme catppuccin highlight BufferCurrent guibg=bg guifg=#e06c75',
+        'ColorScheme catppuccin highlight VertSplit guibg=bg guifg=#e06c75',
 
         'ColorScheme tokyonight highlight BufferCurrent guibg=bg guifg=#9d7cd8',
         'ColorScheme tokyonight highlight VertSplit guibg=bg guifg=#9d7cd8',

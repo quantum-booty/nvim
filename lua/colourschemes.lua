@@ -43,41 +43,57 @@ vim.g.gruvbox_italic = 1
 vim.g.gruvbox_invert_selection=1
 
 -- " =============================================================================
--- " # Catppuccino
+-- " # Catppuccin
 -- " =============================================================================
-local catppuccino = require("catppuccino")
-
-catppuccino.setup(
-    -- {
-    --     colorscheme = "dark_catppuccino",
-    --     styles = {
-    --         comments = "italic",
-    --         functions = "bold",
-    --         keywords = "italic",
-    --         strings = "italic",
-    --         variables = "NONE",
-    --     },
-    --     transparency = false,
-    --     integrations = {
-    --         treesitter = true,
-    --         lsp_trouble = true,
-    --         lsp_saga = true,
-    --         gitsigns = true,
-    --         telescope = true,
-    --         which_key = true,
-    --         indent_blankline = {
-    --             enabled = true,
-    --             colored_indent_levels = true,
-    --         },
-    --         dashboard = true,
-    --         neogit = true,
-    --         barbar = true,
-    --         ts_rainbow = true,
-    --         hop = true,
-    --     }
-    -- }
+local catppuccin = require("catppuccin")
+catppuccin.setup(
+    {
+		transparent_background = false,
+		term_colors = false,
+		styles = {
+			comments = "italic",
+			functions = "italic",
+			keywords = "italic",
+			strings = "NONE",
+			variables = "NONE",
+		},
+		integrations = {
+			treesitter = true,
+			native_lsp = {
+				enabled = true,
+				virtual_text = {
+					errors = "italic",
+					hints = "italic",
+					warnings = "italic",
+					information = "italic",
+				},
+				underlines = {
+					errors = "underline",
+					hints = "underline",
+					warnings = "underline",
+					information = "underline",
+				},
+			},
+			lsp_trouble = true,
+			gitsigns = true,
+			telescope = true,
+			nvimtree = {
+				enabled = true,
+				show_root = true,
+			},
+			which_key = true,
+			indent_blankline = {
+				enabled = true,
+				colored_indent_levels = true,
+			},
+			neogit = true,
+			barbar = true,
+			markdown = true,
+			lightspeed = true,
+			ts_rainbow = true,
+		},
+	}
 )
-
 
 -- =============================================================================
 -- # doom one
@@ -161,10 +177,10 @@ vim.cmd([[colorscheme onedark]])
 -- nightfox.load('dayfox')
 -- nightfox.load('dawnfox')
 
--- catppuccino.load()
--- catppuccino.load('soft_manilo')
--- catppuccino.load('neon_latte')
--- catppuccino.load('light_melya')
+-- catppuccin.load()
+-- catppuccin.load('soft_manilo')
+-- catppuccin.load('neon_latte')
+-- catppuccin.load('light_melya')
 --
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])

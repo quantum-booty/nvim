@@ -62,7 +62,7 @@ local options = {
 
     autoindent = true,
     smartindent = true,
-    fileformat = 'unix',
+    -- fileformat = 'unix',
     fileencodings = "utf-8",
     wrap = false,
     lazyredraw = true,

@@ -27,7 +27,7 @@ return require('packer').startup({function()
         {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'EdenEast/nightfox.nvim',
-        {'Pocco81/Catppuccino.nvim', branch='main'},
+        'catppuccin/nvim',
         'projekt0n/github-nvim-theme',
         'NTBBloodbath/doom-one.nvim',
         'navarasu/onedark.nvim',
@@ -211,10 +211,10 @@ return require('packer').startup({function()
 
 
     -- document generator
-    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]],  opt = true, keys='<leader>D' }
+    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
 
 
-    -- --- Quality of life
+    --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
@@ -228,11 +228,11 @@ return require('packer').startup({function()
     --     end
     -- }
     -- use 'rmagatti/auto-session'
-    -- use {
-    --     'andweeb/presence.nvim',
-    --     config = [[require('config.discord')]],
-    --     cond = not_windows,
-    -- }
+    use {
+        'andweeb/presence.nvim',
+        config = [[require('config.discord')]],
+        cond = not_windows,
+    }
     -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
     -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }

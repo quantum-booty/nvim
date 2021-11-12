@@ -106,12 +106,17 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup({ on_attach = on_attach })
 
--- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
-local omnisharp_bin = "/home/henryw/omnisharp/run"
--- on Windows
--- local omnisharp_bin = "/path/to/omnisharp/OmniSharp.exe"
+if vim.fn.has('win32') == 1 then
+    USERPROFILE = vim.env.USERPROFILE
+    if USERPROFILE then
+        omnisharp_bin = USERPROFILE.."/omnisharp-win-x64/OmniSharp.exe"
+    end
+else
+    omnisharp_bin = "/home/henryw/omnisharp/run"
+end
 nvim_lsp.omnisharp.setup{
     capabilities = capabilities,
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(vim.fn.getpid())};
     on_attach = on_attach,
 }
+
