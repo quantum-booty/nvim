@@ -256,7 +256,7 @@ def write_init_body_no_super(args, parents, snip):
 	parents = [p for p in parents if p != 'object']
 
 	for arg in filter(lambda arg: not arg.is_vararg(), args):
-		snip += f"self.{arg} = {arg}"
+		snip += f"self._{arg} = {arg}"
 
 
 def write_slots_args(args, snip):

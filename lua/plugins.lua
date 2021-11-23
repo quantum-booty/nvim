@@ -51,13 +51,13 @@ return require('packer').startup({function()
     -- use { 'kwkarlwang/bufresize.nvim', config = function() require('bufresize').setup({ resize = { keys = {}, trigger_events = { 'VimResized' }, }, }) end }
 
     -- Consoles for interactive development
-    use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
+    -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
     use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]] }
     -- use 'jalvesaq/Nvim-R'
 
 
     -- SQL
-    use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
+    -- use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
     -- use 'tpope/vim-dadbod'
     -- use 'kristijanhusak/vim-dadbod-ui'
     -- use 'kristijanhusak/vim-dadbod-completion'
@@ -85,6 +85,7 @@ return require('packer').startup({function()
     -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use {'liuchengxu/vista.vim'}
     use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
+    use { 'ldelossa/calltree.nvim', config = [[require('config.calltree_config')]]}
     -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
     -- use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }
@@ -240,12 +241,12 @@ return require('packer').startup({function()
     -- ---  Note taking, tex, orgmode
     use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
-    use { 'quantum-booty/neorg-trouble' }
+    -- use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
-    -- use 'lervag/vimtex'
-    -- use 'KeitaNakamura/tex-conceal.vim'
+    use 'lervag/vimtex'
+    use 'KeitaNakamura/tex-conceal.vim'
 
 end,
     config = {
