@@ -16,6 +16,9 @@ return require('packer').startup({function()
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
+    use 'MunifTanjim/nui.nvim'
+    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
+
 
     -- TODO: plugins to check out in the future
     -- remote editing
@@ -219,7 +222,6 @@ return require('packer').startup({function()
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
     use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
-    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
     use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
     -- use {
     --     'tpope/vim-obsession',
@@ -229,11 +231,11 @@ return require('packer').startup({function()
     --     end
     -- }
     -- use 'rmagatti/auto-session'
-    use {
-        'andweeb/presence.nvim',
-        config = [[require('config.discord')]],
-        cond = not_windows,
-    }
+    -- use {
+    --     'andweeb/presence.nvim',
+    --     config = [[require('config.discord')]],
+    --     cond = not_windows,
+    -- }
     -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
     -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }

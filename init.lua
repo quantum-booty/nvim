@@ -6,9 +6,9 @@
 --  \___\_\__,_/\__,_/_/ /_/\__/\__,_/_/ /_/ /_/   --
 --                                                 --
 -----------------------------------------------------
-require('impatient')
 require('settings')
 require('plugins')
+require('impatient')
 require('mappings')
 require('autocommands')
 require('colourschemes')
