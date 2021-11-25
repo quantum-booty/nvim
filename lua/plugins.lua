@@ -12,7 +12,7 @@ return require('packer').startup({function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
-    use { 'nathom/filetype.nvim', config = [[vim.g.did_load_filetypes = 1 -- for nvim 0.5]] }
+    use { 'nathom/filetype.nvim', config = [[vim.g.did_load_filetypes = 1 -- for nvim 0.5]], cond = not_windows }
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
