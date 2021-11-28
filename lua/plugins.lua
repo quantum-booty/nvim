@@ -66,10 +66,16 @@ return require('packer').startup({function()
     -- use 'kristijanhusak/vim-dadbod-completion'
 
     -- --- Motion and textobjects
-    use {'b3nj5m1n/kommentary',
-        setup = [[vim.g.kommentary_create_default_mappings = false]],
-        config = [[require('config.kommentary')]],
-        event = 'BufRead',
+    -- use {'b3nj5m1n/kommentary',
+    --     setup = [[vim.g.kommentary_create_default_mappings = false]],
+    --     config = [[require('config.kommentary')]],
+    --     event = 'BufRead',
+    -- }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
     }
     use { 'tpope/vim-repeat', event = 'InsertEnter'}
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
@@ -210,6 +216,7 @@ return require('packer').startup({function()
         -- {'romgrk/nvim-treesitter-context',
         --     cond = not_windows
         -- },
+        -- 'nvim-treesitter/nvim-tree-docs'
     }
     -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
