@@ -17,6 +17,7 @@ return require('packer').startup({function()
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'MunifTanjim/nui.nvim'
+    use 'stevearc/dressing.nvim'
     use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
 
 

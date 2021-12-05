@@ -17,10 +17,7 @@ telescope.setup{
     pickers = {
         git_files = { theme = "dropdown" },
         buffers = { theme = "dropdown" },
-        find_files = { theme = "dropdown" },
-        live_grep = { theme = "dropdown" },
         colorscheme = { theme = "dropdown" },
-        lsp_references = { theme = "dropdown" },
         lsp_code_actions = { initial_mode='normal' },
         help_tags = { jump_type = 'tab'},
 
