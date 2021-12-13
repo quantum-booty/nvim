@@ -4,7 +4,7 @@ local opts = { noremap=true, silent=true }
 
 
 local null_ls = require('null-ls')
-null_ls.config({
+null_ls.setup({
     diagnostics_format = "#{m} (#{s})",
     debounce = 1000,
     default_timeout = 5000,
@@ -42,4 +42,4 @@ null_ls.config({
 
 
 -- require('lspconfig')['null-ls'].setup({on_attach = on_attach})
-require('lspconfig')['null-ls'].setup({})
+-- require('lspconfig')['null-ls'].setup({})

@@ -52,4 +52,3 @@ vim.g.aerial = {
     "Struct",
   },
 }
-

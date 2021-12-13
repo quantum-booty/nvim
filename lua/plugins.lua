@@ -219,7 +219,7 @@ return require('packer').startup({function()
         -- },
         -- 'nvim-treesitter/nvim-tree-docs'
     }
-    -- use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
+    use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
 
 
     -- document generator
@@ -255,7 +255,7 @@ return require('packer').startup({function()
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
-    use 'lervag/vimtex'
+    use { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
     use 'KeitaNakamura/tex-conceal.vim'
 
 end,
