@@ -18,18 +18,19 @@ null_ls.setup({
             }
         }),
         -- null_ls.builtins.diagnostics.pylint.with({
+        --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         --     args = {
         --         '--from-stdin', '$FILENAME',
         --         '-f', 'json',
         --         '--argument-rgx=^[a-z][a-z0-9]*((_[a-z0-9]+)*)?$',
         --         '--disable=C0103,C0114,C0115,C0116,R0903,W0612,R1705',
-        --         '--max-line-length=120',
+        --         '--max-line-length=300',
         --     }
         -- }),
         -- null_ls.builtins.diagnostics.flake8.with({
-        --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E303,E203,F405,F403,B007,W291' }
+        --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+        --     args = { "--stdin-display-name", "$FILENAME", "-", '--ignore=E501,E303,E203,F405,F403,B007,W291,W293' }
         -- }),
-
     }
 })
 

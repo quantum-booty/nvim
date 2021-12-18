@@ -249,7 +249,7 @@ return require('packer').startup({function()
     -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     -- ---  Note taking, tex, orgmode
-    use { 'vhyrro/neorg', branch = 'unstable', config = [[require('config.neorg')]] }
+    use { 'vhyrro/neorg', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
     -- use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
