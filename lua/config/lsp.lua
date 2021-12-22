@@ -70,6 +70,7 @@ local on_attach = function(client, bufnr)
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
     buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
     buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
     -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)

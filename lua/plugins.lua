@@ -30,6 +30,7 @@ return require('packer').startup({function()
         'srcery-colors/srcery-vim',
         {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
+        'rebelot/kanagawa.nvim',
         'EdenEast/nightfox.nvim',
         'catppuccin/nvim',
         'projekt0n/github-nvim-theme',
@@ -82,7 +83,7 @@ return require('packer').startup({function()
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     -- use { 'phaazon/hop.nvim', config = [[require('config.hop')]] }
-    use { 'ggandor/lightspeed.nvim' }
+    use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
@@ -95,7 +96,7 @@ return require('packer').startup({function()
     -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use {'liuchengxu/vista.vim'}
     use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
-    use { 'ldelossa/calltree.nvim', config = [[require('config.calltree_config')]]}
+    -- use { 'ldelossa/calltree.nvim', config = [[require('config.calltree_config')]]}
     -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
     -- use { 'ms-jpq/coq_nvim', branch = 'coq', config = [[require('config.coq')]] }

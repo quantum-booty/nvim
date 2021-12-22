@@ -166,9 +166,10 @@ vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- vim.cmd([[colorscheme github_dimmed]])
 -- vim.cmd([[colorscheme doom-one]])
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])
 -- vim.cmd([[colorscheme onenord]])
--- vim.cmd([[colorscheme rose-pine]])
+vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme kanagawa]])
 
 -- nightfox.load('nightfox')
 -- nightfox.load('nordfox')
