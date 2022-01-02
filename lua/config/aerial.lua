@@ -1,4 +1,4 @@
-vim.g.aerial = {
+require('aerial').setup({
   -- Enum: persist, close, auto, global
   --   persist - aerial window will stay open until closed
   --   close   - aerial window will close when original file is no longer visible
@@ -51,4 +51,4 @@ vim.g.aerial = {
     "Method",
     "Struct",
   },
-}
+})
