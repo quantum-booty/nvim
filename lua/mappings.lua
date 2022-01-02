@@ -50,10 +50,9 @@ nnoremap <Leader>N ?\d\+<CR>
 -- # custom remaps
 -- =============================================================================
 -- sourcing the vimrc
-
 -- map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>rc', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>rp', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
+map('n', '<Leader>crc', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
+map('n', '<Leader>crp', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
 
 -- Redo with U
 map('n', 'U', '<C-R>', opts)
