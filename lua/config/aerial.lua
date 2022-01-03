@@ -31,13 +31,6 @@ require('aerial').setup({
   -- Fold the tree when folding code. Only works when manage_folds is enabled
   link_folds_to_tree = false,
 
-  -- Whether to open aerial automatically when entering a buffer.
-  -- Can also be specified per-filetype as a map (see below)
-  open_automatic = false,
-
-  -- If open_automatic is true, only open aerial if there are at least this many symbols
-  open_automatic_min_symbols = 0,
-
   -- Set to false to not update the symbols when there are LSP errors
   update_when_errors = true,
 

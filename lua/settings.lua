@@ -13,8 +13,16 @@ else
     vim.g.python3_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim3/bin/python'
 end
 
-if vim.fn.exists('g:neovide') then
-    vim.cmd([[ set guifont=FiraCode\ NF:h17 ]])
+-- if vim.fn.exists('g:neovide') then
+--     vim.cmd([[ set guifont=FiraCode\ NF:h17 ]])
+--     print("shitshit")
+-- end
+
+
+if vim.g.nvui then
+    vim.cmd([[
+    set guifont=FiraCode\ Nerd\ Font:h10,JetBrains\ Mono\ Italic:h10
+    ]])
 end
 
 -- disable unused build in plugins to improve start-up time
