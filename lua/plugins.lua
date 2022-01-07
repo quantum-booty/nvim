@@ -73,12 +73,13 @@ return require('packer').startup({function()
     --     config = [[require('config.kommentary')]],
     --     event = 'BufRead',
     -- }
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    --
+    use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
+
+    use { 'kevinhwang91/nvim-hlslens', config = [[require('config.hlslens')]] }
+
+
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'tpope/vim-repeat', event = 'InsertEnter'}
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
