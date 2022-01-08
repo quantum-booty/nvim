@@ -127,33 +127,36 @@ end
 -- =============================================================================
 -- # one dark
 -- =============================================================================
-vim.g.onedark_style = 'darker'
-vim.g.onedark_toggle_style_keymap = '<nop>'
-vim.g.onedark_darker_diagnostics = false
+onedark = require('onedark')
+onedark.setup({
+    style = 'darker',
+    transparent = false,
+    toggle_style_key = '<nop>',
+})
 
 -- =============================================================================
 -- # one nord
 -- =============================================================================
-require('onenord').setup({
-    borders = true, -- Split window borders
-    italics = {
-        comments = true, -- Italic comments
-        strings = true, -- Italic strings
-        keywords = true, -- Italic keywords
-        functions = false, -- Italic functions
-        variables = false, -- Italic variables
-    },
-    bold = {
-        functions = true, -- Bold functions
-    },
-    disable = {
-        background = false, -- Disable setting the background color
-        cursorline = false, -- Disable the cursorline
-        eob_lines = true, -- Hide the end-of-buffer lines
-    },
-    custom_highlights = {}, -- Overwrite default highlight groups
-})
-
+-- require('onenord').setup({
+--     borders = true, -- Split window borders
+--     italics = {
+--         comments = true, -- Italic comments
+--         strings = true, -- Italic strings
+--         keywords = true, -- Italic keywords
+--         functions = false, -- Italic functions
+--         variables = false, -- Italic variables
+--     },
+--     bold = {
+--         functions = true, -- Bold functions
+--     },
+--     disable = {
+--         background = false, -- Disable setting the background color
+--         cursorline = false, -- Disable the cursorline
+--         eob_lines = true, -- Hide the end-of-buffer lines
+--     },
+--     custom_highlights = {}, -- Overwrite default highlight groups
+-- })
+--
 
 -- =============================================================================
 -- # rose pine
@@ -166,7 +169,7 @@ vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- vim.cmd([[colorscheme github_dimmed]])
 -- vim.cmd([[colorscheme doom-one]])
-vim.cmd([[colorscheme onedark]])
+onedark.load()
 -- vim.cmd([[colorscheme onenord]])
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme kanagawa]])
