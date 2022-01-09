@@ -26,11 +26,12 @@ map('n', '<C-s>', ':BufferLinePick<CR>', opts)
 
 require('bufferline').setup {
     options = {
-        numbers = function(opts)
-            return string.format('%s', opts.ordinal)
-        end,
+        -- numbers = function(opts)
+        --     return string.format('%s', opts.ordinal)
+        -- end,
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
         separator_style = "slant",
+        -- tab_size=14,
         groups = {
             options = {
                 toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
@@ -38,6 +39,7 @@ require('bufferline').setup {
             items = {
                 {
                     name = "Tests", -- Mandatory
+                    highlight = {guisp = "#D57780"}, -- Optional
                     priority = 2, -- determines where it will appear relative to other groups (Optional)
                     matcher = function(buf) -- Mandatory%
                         return buf.filename:match('test_.*') or buf.filename:match('%_test')
@@ -45,13 +47,15 @@ require('bufferline').setup {
                 },
                 {
                     name = "Src",
+                    highlight = {guisp = "#1e81b0"}, -- Optional
                     priority=1,
                     matcher = function(buf)
-                        return buf.filename:match('%.py')
+                        return buf.filename:match('%.py') or buf.filename:match('%.lua')
                     end,
                 },
                 {
                     name = "Misc",
+                    highlight = {guisp = "#a4c0a3"}, -- Optional
                     priority=3,
                     matcher = function(buf)
                         return buf.filename:match('.*')
