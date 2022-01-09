@@ -53,8 +53,6 @@ catppuccin.setup(
 		styles = {
 			comments = "italic",
 			functions = "italic",
-
-
 			keywords = "italic",
 			strings = "NONE",
 			variables = "NONE",
@@ -72,7 +70,6 @@ catppuccin.setup(
 				underlines = {
 					errors = "underline",
 					hints = "underline",
-
 					warnings = "underline",
 					information = "underline",
 				},
@@ -80,7 +77,6 @@ catppuccin.setup(
 			lsp_trouble = true,
 			gitsigns = true,
 			telescope = true,
-
 			nvimtree = {
 				enabled = true,
 				show_root = true,

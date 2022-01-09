@@ -31,7 +31,6 @@ require('bufferline').setup {
         end,
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
         separator_style = "slant",
-
         groups = {
             options = {
                 toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
@@ -73,6 +72,20 @@ require('bufferline').setup {
 --     return s
 -- end,p
 
+    },
+    highlights = {
+        buffer_selected = {
+            guifg = '#c678dd'
+        },
+        modified = {
+            guifg = '#D57780',
+        },
+        modified_visible = {
+            guifg = '#D57780',
+        },
+        modified_selected = {
+            guifg = '#D57780',
+        },
     },
 }
 
