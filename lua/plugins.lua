@@ -46,7 +46,8 @@ return require('packer').startup({function()
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
-    use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
+    -- use { 'romgrk/barbar.nvim', config = [[require('config.barbar')]] }
+    use { 'akinsho/bufferline.nvim', config = [[require('config.bufferline')]]  }
     -- use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
     -- use { 'jmckiern/vim-venter', config = function() vim.api.nvim_set_keymap('n', '<leader>go', ':VenterToggle<CR>', {noremap = true}) end, keys='<leader>go' }
     -- use { 'karb94/neoscroll.nvim', config = [[require'neoscroll'.setup{}]] }
