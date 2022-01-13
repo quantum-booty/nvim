@@ -13,8 +13,8 @@ null_ls.setup({
         null_ls.builtins.formatting.black.with({
             args = {
                  "--quiet", "--fast", "-" ,
-                '--line-length', '200',
-                '--skip-string-normalization',
+                -- '--line-length', '200',
+                -- '--skip-string-normalization',
             }
         }),
         -- null_ls.builtins.diagnostics.pylint.with({

@@ -226,8 +226,8 @@ return require('packer').startup({function()
 
 
     -- document generator
-    use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
-
+    -- use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
+    use { 'danymat/neogen', config = [[require('config.neogen')]] }
 
     --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }

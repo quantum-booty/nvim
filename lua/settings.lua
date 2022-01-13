@@ -111,6 +111,9 @@ local options = {
 
     -- magic regex please!
     magic = true,
+
+    -- auto relaoad file
+    autoread = true,
 }
 for i, option in pairs(options) do
     vim.opt[i] = option
