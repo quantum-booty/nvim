@@ -71,7 +71,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
-    buf_set_keymap('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
+    buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
     -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
