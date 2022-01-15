@@ -90,6 +90,8 @@ map('n', 'Y', 'v$y', opts)
 -- " use + and - to increment and decrement number
 map('n', '+', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
+map('x', '+', '<C-a>', opts)
+map('x', '-', '<C-x>', opts)
 
 -- " use ( and ) for moving half page up and down
 map('n', '(', '<C-u>', {noremap=false, silent=true})
