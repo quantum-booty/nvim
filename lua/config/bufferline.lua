@@ -50,7 +50,7 @@ require('bufferline').setup {
                     highlight = {guisp = "#1e81b0"}, -- Optional
                     priority=1,
                     matcher = function(buf)
-                        return buf.filename:match('%.py') or buf.filename:match('%.lua')
+                        return buf.filename:match('%.py') or buf.filename:match('%.lua') or buf.filename:match('%.c#')
                     end,
                 },
                 {

@@ -162,6 +162,7 @@ return require('packer').startup({function()
         config = [[require('telescope').load_extension('fzf')]],
         cond = not_windows,
     }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
         'ahmedkhalf/project.nvim',
         after = 'telescope.nvim',
