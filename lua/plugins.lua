@@ -224,7 +224,7 @@ return require('packer').startup({function()
         -- 'nvim-treesitter/nvim-tree-docs'
     }
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
-
+    use { 'Vimjas/vim-python-pep8-indent' }
 
     -- document generator
     -- use { 'kkoomen/vim-doge', run = ':call doge#install()', config = [[require('config.doge')]] }
