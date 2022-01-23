@@ -147,3 +147,6 @@ map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions(
 -- file_browser
 require("telescope").load_extension "file_browser"
 map('n', '<leader>pv', ':Telescope file_browser<CR>', opts)
+--
+--   local fb = require("telescope").extensions.file_browser.file_browser
+-- path = "%:p:h"
