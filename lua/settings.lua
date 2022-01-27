@@ -77,6 +77,7 @@ local options = {
 
     errorbells = false,
     scrolloff = 8,
+    sidescrolloff = 8,
     showmode = false,
     showmatch = true,
     clipboard = 'unnamedplus', --use the system register
