@@ -12,7 +12,8 @@ return require('packer').startup({function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
-    use { 'nathom/filetype.nvim', config = [[vim.g.did_load_filetypes = 1 -- for nvim 0.5]], cond = not_windows }
+    -- use { 'nathom/filetype.nvim', config = [[vim.g.did_load_filetypes = 1 -- for nvim 0.5]], cond = not_windows }
+    use { 'nathom/filetype.nvim' }
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
@@ -36,6 +37,7 @@ return require('packer').startup({function()
         'srcery-colors/srcery-vim',
         {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
+        'tiagovla/tokyodark.nvim',
         'rebelot/kanagawa.nvim',
         'EdenEast/nightfox.nvim',
         'catppuccin/nvim',
@@ -161,12 +163,19 @@ return require('packer').startup({function()
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
+    -- use {
+    --     'nvim-telescope/telescope-fzf-native.nvim',
+    --     run = 'make',
+    --     config = [[require('telescope').load_extension('fzf')]],
+    --     cond = not_windows,
+    -- }
+
     use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make',
-        config = [[require('telescope').load_extension('fzf')]],
-        cond = not_windows,
+        'natecraddock/telescope-zf-native.nvim',
+        config = [[require('telescope').load_extension('zf-native')]],
     }
+
+
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
         'ahmedkhalf/project.nvim',
@@ -195,6 +204,15 @@ return require('packer').startup({function()
     --     config = [[require('config.chadtree')]],
     -- }
     use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
+    -- use {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     requires = { 
+    --         "nvim-lua/plenary.nvim",
+    --         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim" 
+    --     },
+    --     config = [[require('config.neo_tree')]]
+    -- }
     -- use { 'luukvbaal/nnn.nvim', config = [[require('config.nnn')]] }
 
 
@@ -259,7 +277,7 @@ return require('packer').startup({function()
     -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     -- ---  Note taking, tex, orgmode
-    use { 'vhyrro/neorg', config = [[require('config.neorg')]] }
+    use { 'nvim-neorg/neorg', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
     -- use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
