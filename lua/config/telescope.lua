@@ -1,6 +1,5 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
-local not_windows = require('utils').not_windows
 
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
@@ -9,30 +8,36 @@ local telescope = require("telescope")
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 local open_in_fb = function(prompt_bufnr)
-  local action_state = require "telescope.actions.state"
-  local Path = require "plenary.path"
-  local actions = require "telescope.actions"
-  local fb = require("telescope").extensions.file_browser.file_browser
-
-  local entry = action_state.get_selected_entry()[1]
-  local entry_path = Path:new(entry):parent():absolute()
-  actions._close(prompt_bufnr, true)
-  fb { path = entry_path }
+    local action_state = require "telescope.actions.state"
+    local Path = require "plenary.path"
+    local actions = require "telescope.actions"
+    local fb = require("telescope").extensions.file_browser.file_browser
+    local entry = action_state.get_selected_entry()[1]
+    local entry_path = Path:new(entry):parent():absolute()
+    actions._close(prompt_bufnr, true)
+    fb { path = entry_path }
 end
 
 local open_in_nvim_tree = function(prompt_bufnr)
-  local action_state = require "telescope.actions.state"
-  local Path = require "plenary.path"
-  local actions = require "telescope.actions"
+    local action_state = require "telescope.actions.state"
+    local Path = require "plenary.path"
+    local actions = require "telescope.actions"
 
-  local entry = action_state.get_selected_entry()[1]
-  local entry_path = Path:new(entry):parent():absolute()
-  actions._close(prompt_bufnr, true)
-  entry_path = Path:new(entry):parent():absolute() 
-  entry_path = entry_path and not_windows() or entry_path:gsub("\\", "\\\\")
+    local entry = action_state.get_selected_entry()[1]
+    local entry_path = Path:new(entry):parent():absolute()
+    actions._close(prompt_bufnr, true)
+    entry_path = Path:new(entry):parent():absolute() 
+    entry_path = entry_path:gsub("\\", "\\\\")
 
-  vim.cmd("NvimTreeClose")
-  vim.cmd("NvimTreeOpen " .. entry_path)
+    vim.cmd("NvimTreeClose")
+    vim.cmd("NvimTreeOpen " .. entry_path)
+
+    file_name = nil
+    for s in string.gmatch(entry, "[^/]+") do
+        file_name = s
+    end
+
+    vim.cmd("/" .. file_name)
 end
 
 
