@@ -1,5 +1,9 @@
 local autocmd = require('utils').autocmd
 
+
+autocmd('fsharp', 'BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp', true)
+
+
 -- " highlight yank
 autocmd('highlight_yank', 'TextYankPost * silent! lua require"vim.highlight".on_yank({timeout = 200, on_macro = true})', true)
 

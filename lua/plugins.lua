@@ -83,10 +83,8 @@ return require('packer').startup({function()
     --     event = 'BufRead',
     -- }
     --
-    use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
-
+    -- use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
     use { 'kevinhwang91/nvim-hlslens', config = [[require('config.hlslens')]] }
-
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'tpope/vim-repeat', event = 'InsertEnter'}
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
@@ -96,6 +94,7 @@ return require('packer').startup({function()
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
+    use { 'ionide/Ionide-vim' }
     -- use 'kabouzeid/nvim-lspinstall'
     -- use { 'tami5/lspsaga.nvim', config = [[require'lspsaga'.init_lsp_saga()]] }
     use { 'onsails/lspkind-nvim' }

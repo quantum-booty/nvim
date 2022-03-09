@@ -114,6 +114,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 -------------------------------------------------------------------------------
 nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup({ on_attach = on_attach })
+nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach}
 
 if vim.fn.has('win32') == 1 then
     USERPROFILE = vim.env.USERPROFILE
