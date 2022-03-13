@@ -6,19 +6,17 @@ vim.opt.completeopt:append({'menuone','noselect','noinsert'})
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
 
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-        border = "single"
+        border = "single",  focusable = false 
     }
 )
+
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
         border = "single"
     }
 )
-
-
 
 -------------------------------------------------------------------------------
 -- Diagnostic settings
@@ -47,7 +45,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- lsp on attach settings
 -------------------------------------------------------------------------------
 local nvim_lsp = require('lspconfig')
-local aerial = require'aerial'
+-- local aerial = require'aerial'
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -84,9 +82,11 @@ local on_attach = function(client, bufnr)
 
 
 
-    aerial.on_attach(client)
-    buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', opts)
+    -- aerial.on_attach(client)
+    -- buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', opts)
 end
+
+
 
 
 -- =============================================================================
@@ -114,7 +114,13 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 -------------------------------------------------------------------------------
 nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.pyright.setup({ on_attach = on_attach })
-nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach}
+-- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
+vim.cmd([[
+let g:fsharp#lsp_auto_setup = 0
+let g:fsharp#exclude_project_directories = ['paket-files']
+]])
+require'ionide'.setup{ capabilities = capabilities, on_attach = on_attach }
+
 
 if vim.fn.has('win32') == 1 then
     USERPROFILE = vim.env.USERPROFILE
@@ -129,4 +135,3 @@ nvim_lsp.omnisharp.setup{
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(vim.fn.getpid())};
     on_attach = on_attach,
 }
-

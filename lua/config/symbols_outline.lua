@@ -4,7 +4,7 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-map('n', '<leader>T', "<cmd>SymbolsOutline<CR>", opts)
+map('n', '<leader>a', "<cmd>SymbolsOutline<CR>", opts)
 
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
@@ -13,7 +13,6 @@ vim.g.symbols_outline = {
     show_numbers = true,
     show_relative_numbers = true,
     show_symbol_details = true,
-    preview_bg_highlight = 'Pmenu',
     keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = {"<Esc>", "q"},
         goto_location = "<Cr>",
@@ -24,5 +23,5 @@ vim.g.symbols_outline = {
         code_actions = "a",
     },
     lsp_blacklist = {},
-    symbol_blacklist = {},
+    symbol_blacklist = {"Variable"},
 }

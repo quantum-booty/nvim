@@ -83,7 +83,7 @@ return require('packer').startup({function()
     --     event = 'BufRead',
     -- }
     --
-    -- use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
+    use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
     use { 'kevinhwang91/nvim-hlslens', config = [[require('config.hlslens')]] }
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'tpope/vim-repeat', event = 'InsertEnter'}
@@ -101,9 +101,9 @@ return require('packer').startup({function()
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/wilder.vim')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
-    -- use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
+    use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     -- use {'liuchengxu/vista.vim'}
-    use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
+    -- use {'stevearc/aerial.nvim', config = [[require('config.aerial')]]}
     -- use { 'ldelossa/calltree.nvim', config = [[require('config.calltree_config')]]}
     -- use { 'weilbith/nvim-code-action-menu', config = [[require('config.nvim_code_action_menu')]], cmd = 'CodeActionMenu' }
 
@@ -241,9 +241,9 @@ return require('packer').startup({function()
         'nvim-treesitter/completion-treesitter',
         'p00f/nvim-ts-rainbow',
         -- treesitter context don't yet work on windows
-        -- {'romgrk/nvim-treesitter-context',
-        --     cond = not_windows
-        -- },
+        {'romgrk/nvim-treesitter-context',
+            cond = not_windows
+        },
         -- 'nvim-treesitter/nvim-tree-docs'
     }
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
