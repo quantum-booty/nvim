@@ -18,7 +18,7 @@ vim.g.srcery_inverse_match_paren = 0
 local nightfox = require('nightfox')
 
 nightfox.setup({
-    fox = "nightfox", -- change the colorscheme to use nordfox
+    options = {
     transparent = false,
     terminal_colors=true,
     styles = {
@@ -31,6 +31,7 @@ nightfox.setup({
         search = true,
         visual = true,
     },
+    }
 })
 
 -- " =============================================================================
@@ -174,12 +175,11 @@ vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
 -- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme kanagawa]])
 
-nightfox.load('nightfox')
--- nightfox.load('nordfox')
--- nightfox.load('duskfox')
--- nightfox.load('palefox')
--- nightfox.load('dayfox')
--- nightfox.load('dawnfox')
+-- vim.cmd([[colorscheme nightfox]])
+-- vim.cmd([[colorscheme nordfox]])
+vim.cmd([[colorscheme duskfox]])
+-- vim.cmd([[colorscheme dayfox]])
+-- vim.cmd([[colorscheme dawnfox]])
 
 -- catppuccin.load()
 -- catppuccin.load('soft_manilo')
