@@ -177,11 +177,11 @@ vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
 
 -- vim.cmd([[colorscheme nightfox]])
 -- vim.cmd([[colorscheme nordfox]])
-vim.cmd([[colorscheme duskfox]])
+-- vim.cmd([[colorscheme duskfox]])
 -- vim.cmd([[colorscheme dayfox]])
 -- vim.cmd([[colorscheme dawnfox]])
 
--- catppuccin.load()
+catppuccin.load()
 -- catppuccin.load('soft_manilo')
 -- catppuccin.load('neon_latte')
 -- catppuccin.load('light_melya')

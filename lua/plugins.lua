@@ -202,16 +202,16 @@ return require('packer').startup({function()
     --     run = 'python -m chadtree deps',
     --     config = [[require('config.chadtree')]],
     -- }
-    use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
-    -- use {
-    --     "nvim-neo-tree/neo-tree.nvim",
-    --     requires = { 
-    --         "nvim-lua/plenary.nvim",
-    --         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-    --         "MunifTanjim/nui.nvim" 
-    --     },
-    --     config = [[require('config.neo_tree')]]
-    -- }
+    -- use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim"
+        },
+        config = [[require('config.neo_tree')]]
+    }
     -- use { 'luukvbaal/nnn.nvim', config = [[require('config.nnn')]] }
 
 
@@ -266,11 +266,11 @@ return require('packer').startup({function()
     --     end
     -- }
     -- use 'rmagatti/auto-session'
-    -- use {
-    --     'andweeb/presence.nvim',
-    --     config = [[require('config.discord')]],
-    --     cond = not_windows,
-    -- }
+    use {
+        'andweeb/presence.nvim',
+        config = [[require('config.discord')]],
+        cond = not_windows,
+    }
     -- shows marks in sign column, not working with neovim
     -- use { 'kshenoy/vim-signature' }
     -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
@@ -282,8 +282,9 @@ return require('packer').startup({function()
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
-    use { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
-    use 'KeitaNakamura/tex-conceal.vim'
+    -- use { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
+    -- use 'KeitaNakamura/tex-conceal.vim'
+    -- https://github.com/tiagovla/zotex.nvim
 
 end,
     config = {
@@ -293,8 +294,8 @@ end,
         --     enable = true,
         --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
         -- },
-        display = {
-            open_fn = require('packer.util').float,
-        }
+        -- display = {
+        --     open_fn = require('packer.util').float,
+        -- }
     }
 })
