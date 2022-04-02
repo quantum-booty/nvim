@@ -5,7 +5,7 @@ local config = {
     use_popups_for_input = true, -- If false, inputs will use vim.ui.input() instead of custom floats.
     window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
-        position = "float", -- left, right, float, current
+        -- position = "float", -- left, right, float, current
         width = 40, -- applies to left and right positions
         popup = { -- settings that apply to float position only
             size = {
