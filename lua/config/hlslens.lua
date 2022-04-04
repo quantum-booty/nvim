@@ -8,3 +8,4 @@ require('hlslens').setup({
 -- vim.api.nvim_set_keymap('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], {})
 -- vim.api.nvim_set_keymap('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], {})
 -- -- nnoremap <silent> <leader>l :noh<CR>
+--

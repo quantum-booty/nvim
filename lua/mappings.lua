@@ -79,14 +79,6 @@ map('n', '<leader>k', '<esc>:m .-2<CR>==', opts)
 -- " Blackhole regster
 map('n', 'X', '"_d', opts)
 
-
--- " " Yank to end of line (merged to 0.6 masters)
-map('n', 'Y', 'v$y', opts)
-
--- " No pinkies please!
--- map('n', '<leader>a', '<S-a>', opts)
--- map('n', '<leader>i', '<S-i>', opts)
-
 -- " use + and - to increment and decrement number
 map('n', '+', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
@@ -99,12 +91,6 @@ map('n', ')', '<C-d>', {noremap=false, silent=true})
 
 -- cd to file path
 map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', opts)
-
--- " quote args in list, sets, tuples
--- map('n', '<leader>q]', [[':s/\([ a-zA-Z0-9]\+\)\(,\\|\]\)/"\1"\2/g<CR>']], opts)
--- map('n', '<leader>q)', [[':s/\([ a-zA-Z0-9]\+\)\(,\\|\\)\)/"\1"\2/g<CR>']], opts)
--- map('n', '<leader>q}', [[':s/\([ a-zA-Z0-9]\+\)\(,\\|\}\)/"\1"\2/g<CR>']], opts)
-
 
 -- " lsp hover tab is the same as C-i", so remap C-y to C-i
 map('n', '<C-y>', '<C-i>', opts)
