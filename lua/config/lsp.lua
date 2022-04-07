@@ -81,27 +81,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
-
-
-    -- aerial.on_attach(client)
-    -- buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', opts)
 end
 
 
 
 
--- =============================================================================
--- coq settings
--- =============================================================================
--- vim.g.coq_settings = {
---     ["auto_start"] = 'shut-up',
---     ["keymap.bigger_preview"] = "<c-b>",
---     -- ["clients.buffers.enabled"] = false,
---     ["clients.snippets.enabled"] = false,
---     ["clients.tree_sitter.enabled"] = false,
--- }
-
--- local coq = require "coq"
 
 -------------------------------------------------------------------------------
 -- nvim-cmp settings
@@ -113,8 +97,6 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 -------------------------------------------------------------------------------
 -- language server setup
 -------------------------------------------------------------------------------
-nvim_lsp.pyright.setup { capabilities = capabilities, on_attach = on_attach}
--- nvim_lsp.pyright.setup({ on_attach = on_attach })
 -- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
 vim.cmd([[
 let g:fsharp#lsp_auto_setup = 0
@@ -136,3 +118,59 @@ nvim_lsp.omnisharp.setup{
     cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(vim.fn.getpid())};
     on_attach = on_attach,
 }
+
+
+
+-------------------------------------------------------------------------------
+-- python auto-virtual environment activation
+-------------------------------------------------------------------------------
+local util = require('lspconfig/util')
+local path = util.path
+
+local function find_virtual_environment(workspace)
+    for _, dir in pairs({'venv', 'venv1', 'venv2'}) do
+        local match = vim.fn.glob(path.join(workspace, dir))
+        if match ~= '' then
+            return path.dirname(match)
+        end
+    end
+    return nil
+end
+
+local function get_python_path(virtual_env_path)
+    if virtual_env_path then
+        if vim.fn.has('win32') == 1 then
+            python_path = virtual_env_path .. "\\Scripts" .. "\\python"
+        else
+            python_path = path.join(virtual_env_path, 'bin', 'python')
+        end
+            return python_path
+    end
+    return exepath('python3') or exepath('python') or 'python'
+end
+
+
+local function setup_virtual_env(virtual_env_path)
+    vim.env.VIRTUAL_ENV = virtual_env_path
+
+    if vim.fn.has('win32') == 1 then
+        new_path = virtual_env_path..'\\Scripts'..';'..vim.env.Path
+        vim.env.PATH = new_path
+    else
+        vim.env.PATH = path.join(virtual_env_path, "/bin:", vim.env.PATH)
+    end
+end
+
+
+nvim_lsp.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    before_init = function(_, config)
+        if not vim.env.VIRTUAL_ENV then
+            virtual_env_path = find_virtual_environment(config.root_dir)
+            setup_virtual_env(virtual_env_path)
+            python_path = get_python_path(virtual_env_path)
+            config.settings.python.pythonPath = python_path
+        end
+    end
+})
