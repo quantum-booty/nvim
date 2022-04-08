@@ -17,9 +17,6 @@ map('n', '<m-s>', ':BufferLineGoToBuffer 6<CR>', opts)
 map('n', '<m-d>', ':BufferLineGoToBuffer 7<CR>', opts)
 map('n', '<m-n>', ':BufferLineGoToBuffer 8<CR>', opts)
 map('n', '<m-c>', ':BufferLineGoToBuffer 9<CR>', opts)
--- delete buffers
-map('n', '<leader>x', ':bd<CR>', opts)
-map('n', '<leader>X', [[<Cmd>%bd|e#|bd#<Cr>|'"<Cr>]], opts) -- close all except current
 -- pick buffer
 map('n', '<C-s>', ':BufferLinePick<CR>', opts)
 
@@ -95,5 +92,3 @@ require('bufferline').setup {
         },
     },
 }
-
-

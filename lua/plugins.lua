@@ -47,8 +47,8 @@ return require('packer').startup({function()
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
-    use { 'akinsho/bufferline.nvim', config = [[require('config.bufferline')]]  }
-    -- use { 'GustavoKatel/sidebar.nvim', config = [[require('config.sidebar')]] }
+    use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]]  }
+    use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
 
     -- Consoles for interactive development
     -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
@@ -145,16 +145,16 @@ return require('packer').startup({function()
     use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
 
 
-    -- use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim"
-        },
-        config = [[require('config.neo_tree')]]
-    }
+    use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
+    -- use {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim",
+    --         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim"
+    --     },
+    --     config = [[require('config.neo_tree')]]
+    -- }
 
 
     -- Git

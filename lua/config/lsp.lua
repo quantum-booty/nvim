@@ -97,7 +97,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make
 -------------------------------------------------------------------------------
 -- language server setup
 -------------------------------------------------------------------------------
-vim.api.nvim_command [[autocmd FileType haskell autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
+-- vim.api.nvim_command [[autocmd FileType haskell autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
 nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach}
 -- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
 vim.cmd([[

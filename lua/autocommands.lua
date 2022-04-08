@@ -17,23 +17,23 @@ autocmd(
     {
         -- set brighter numbers at colorscheme change
         'ColorScheme * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE',
-        'ColorScheme * highlight VertSplit guibg=bg guifg=LightBlue',
+        'ColorScheme * highlight WinSeparator guibg=bg guifg=LightBlue',
 
-        'ColorScheme onedark highlight VertSplit guibg=bg guifg=#c678dd',
+        'ColorScheme onedark highlight WinSeparator guibg=bg guifg=#c678dd',
         'ColorScheme onedark highlight BufferCurrent guibg=bg guifg=#c678dd',
         'ColorScheme onedark highlight BufferInactive guibg=#282c34 guifg=fg',
 
         'ColorScheme onenord highlight BufferCurrent guibg=bg guifg=#D57780',
-        'ColorScheme onenord highlight VertSplit guibg=bg guifg=#D57780',
+        'ColorScheme onenord highlight WinSeparator guibg=bg guifg=#D57780',
 
         'ColorScheme catppuccin highlight BufferCurrent guibg=bg guifg=#e06c75',
-        'ColorScheme catppuccin highlight VertSplit guibg=bg guifg=#e06c75',
+        'ColorScheme catppuccin highlight WinSeparator guibg=bg guifg=#e06c75',
 
         'ColorScheme tokyonight highlight BufferCurrent guibg=bg guifg=#9d7cd8',
-        'ColorScheme tokyonight highlight VertSplit guibg=bg guifg=#9d7cd8',
+        'ColorScheme tokyonight highlight WinSeparator guibg=bg guifg=#9d7cd8',
 
         'ColorScheme nightfox highlight BufferCurrent guibg=bg guifg=#9d79d6',
-        'ColorScheme nightfox highlight VertSplit guibg=bg guifg=#9d79d6',
+        'ColorScheme nightfox highlight WinSeparator guibg=bg guifg=#9d79d6',
     },
     true
 )

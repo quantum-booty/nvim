@@ -137,7 +137,6 @@ map('n', '<leader>pg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]]
 map('n', '<leader>pw', [[<cmd>lua require('telescope.builtin').grep_string({search = vim.fn.expand("<cword>")})<CR>]], opts)
 -- " grep line
 map('n', '<leader>pl', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], opts)
-map('n', '<leader>ps', [[<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>]], opts)
 
 
 -- " --- Vim Pickers

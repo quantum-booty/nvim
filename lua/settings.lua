@@ -59,6 +59,8 @@ vim.cmd([[
 ]])
 
 local options = {
+    laststatus=3, -- global statusline
+
     relativenumber = true,
     number = true,
     colorcolumn = '80',
