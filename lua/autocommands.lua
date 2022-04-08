@@ -2,6 +2,7 @@ local autocmd = require('utils').autocmd
 
 
 autocmd('fsharp', 'BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp', true)
+autocmd('haskell', 'BufNewFile,BufRead *.hs set filetype=haskell', true)
 
 
 -- " highlight yank
