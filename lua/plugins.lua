@@ -49,6 +49,7 @@ return require('packer').startup({function()
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]]  }
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
+    -- use { 'b0o/incline.nvim', config = [[require('incline').setup()]] }
 
     -- Consoles for interactive development
     -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }

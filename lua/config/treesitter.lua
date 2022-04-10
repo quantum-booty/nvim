@@ -17,7 +17,7 @@ set foldlevelstart=999
 ]])
  
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"norg", "python", "lua", "vim", "html", "json"},
+    ensure_installed = {"norg", "python", "lua", "vim", "html", "json", "c_sharp", "markdown", "haskell"},
 
     highlight = {
         enable = true,
