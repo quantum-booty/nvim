@@ -2,7 +2,6 @@ local autocmd = require('utils').autocmd
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-vim.g.nvim_tree_indent_markers = 1 --0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_git_hl = 1 --0 by default, will enable file highlight for git attributes (can be used without the icons).
 vim.g.nvim_tree_highlight_opened_files = 1
 -- vim.g.nvim_tree_window_picker_exclude = {
@@ -93,7 +92,11 @@ require'nvim-tree'.setup {
     -- the command arguments as a list
     args = {}
   },
-
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+  },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
     width = 35,
