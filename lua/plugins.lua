@@ -167,6 +167,7 @@ return require('packer').startup({function()
         },
         keys='<leader>gs'
     }
+    use 'kdheepak/lazygit.nvim'
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
 
