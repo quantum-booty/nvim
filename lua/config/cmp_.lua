@@ -49,11 +49,11 @@ cmp.setup({
         { name = 'buffer', keyword_length = 4 },
         { name = 'path' },
     },
-    documentation = {
-        maxwidth = 75,
-    },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
     experimental = {
-        native_menu = false,
         ghost_text = true
     },
     formatting = {
