@@ -27,17 +27,16 @@ return require('packer').startup({function()
 
     -- colour schemes
     use { 
+        'navarasu/onedark.nvim',
+        'rebelot/kanagawa.nvim',
+        'rmehri01/onenord.nvim',
         'srcery-colors/srcery-vim',
         {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
-        'rebelot/kanagawa.nvim',
         'EdenEast/nightfox.nvim',
         'catppuccin/nvim',
-        'projekt0n/github-nvim-theme',
         'NTBBloodbath/doom-one.nvim',
-        'navarasu/onedark.nvim',
-        'rmehri01/onenord.nvim',
         {'rose-pine/neovim', as = 'rose-pine'},
     }
 
