@@ -164,6 +164,18 @@ onedark.setup({
 -- =============================================================================
 vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
 
+-- =============================================================================
+-- # kanagawa
+-- =============================================================================
+require('kanagawa').setup({
+    commentStyle = "NONE",
+    functionStyle = "NONE",
+    keywordStyle = "NONE",
+    variablebuiltinStyle = "NONE",
+    dimInactive = true,        -- dim inactive window `:h hl-NormalNC`
+    globalStatus = true,       -- adjust window separators highlight for laststatus=3
+})
+
 
 -- vim.cmd([[colorscheme srcery]])
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
