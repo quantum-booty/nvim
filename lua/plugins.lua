@@ -36,7 +36,6 @@ return require('packer').startup({function()
         'tiagovla/tokyodark.nvim',
         'EdenEast/nightfox.nvim',
         'catppuccin/nvim',
-        'NTBBloodbath/doom-one.nvim',
         {'rose-pine/neovim', as = 'rose-pine'},
     }
 
@@ -92,8 +91,6 @@ return require('packer').startup({function()
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
-    -- use 'sbdchd/neoformat'
-    -- use 'neomake/neomake'
 
 
     -- snippets
@@ -102,27 +99,28 @@ return require('packer').startup({function()
     -- use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]]}
 
     -- Debugger
-    use {
-        'mfussenegger/nvim-dap',
-        config = [[require('config.dap')]],
-        ft = {'python'},
-        keys = '<F5>',
-        requires = {
-            'mfussenegger/nvim-dap-python',
-            'theHamsta/nvim-dap-virtual-text',
-            'rcarriga/nvim-dap-ui',
-            'nvim-telescope/telescope-dap.nvim',
-        },
-        disable = true,
-    }
+    -- use {
+    --     'mfussenegger/nvim-dap',
+    --     config = [[require('config.dap')]],
+    --     ft = {'python'},
+    --     keys = '<F5>',
+    --     requires = {
+    --         'mfussenegger/nvim-dap-python',
+    --         'theHamsta/nvim-dap-virtual-text',
+    --         'rcarriga/nvim-dap-ui',
+    --         'nvim-telescope/telescope-dap.nvim',
+    --     },
+    --     disable = true,
+    -- }
 
-    use {
-        'szw/vim-maximizer',
-        config = function()
-            vim.g.maximizer_set_default_mapping = 0
-            vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
-        end,
-    }
+    -- use {
+    --     'szw/vim-maximizer',
+    --     config = function()
+    --         vim.g.maximizer_set_default_mapping = 0
+    --         vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
+    --     end,
+    -- }
+    use { "beauwilliams/focus.nvim", config = [[require('config.focus')]] }
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
@@ -130,8 +128,6 @@ return require('packer').startup({function()
         'natecraddock/telescope-zf-native.nvim',
         config = [[require('telescope').load_extension('zf-native')]],
     }
-
-
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
         'ahmedkhalf/project.nvim',
@@ -164,9 +160,9 @@ return require('packer').startup({function()
         requires = {
             'sindrets/diffview.nvim'
         },
-        keys='<leader>gs'
+        keys='<leader>gs',
+        cond = not_windows,
     }
-    use 'kdheepak/lazygit.nvim'
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
 
