@@ -10,7 +10,7 @@ end
 
 local function autocmd_multi(group, cmds, clear)
     local clear = (clear == nil) and true or clear
-    local group = vim.api.nvim_create_augroup('group', { clear = clear })
+    local group = vim.api.nvim_create_augroup(group, { clear = clear })
     for _, c in ipairs(cmds) do
         local opts = c[2]
         opts.group = group
