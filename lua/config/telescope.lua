@@ -78,6 +78,7 @@ telescope.setup{
         colorscheme = { theme = "dropdown" },
         lsp_code_actions = { initial_mode='normal' },
         help_tags = { jump_type = 'tab'},
+        current_buffer_fuzzy_find = { theme = "dropdown" },
 
     },
     extensions = {
@@ -110,25 +111,14 @@ telescope.setup{
 }
 
 
-    -- layout_config = {
-    --   width = 80,
-    --   height = 9,
-    -- },
-
--- vim.g.teleleader = '_'
 map('n', '_', '<leader>p', { noremap=false, silent=true })
--- map("n", "<teleleader<teleleader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
-
-
--- search recent files
--- map("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", opts)
 
 -- " project_nvim
 map('n', '<leader>pp', ':Telescope projects<CR>', opts)
 
 -- " --- File Pickers
 -- " Fuzzy find over git files in your directory
-map('n', '<C-p>', [[<cmd>lua require('telescope.builtin').git_files()<CR>]], opts)
+vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, opts)
 -- " Search over files in your cwd current working directory.
 map('n', '<leader>pf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
 -- " grep typed string
@@ -137,6 +127,10 @@ map('n', '<leader>pg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]]
 map('n', '<leader>pw', [[<cmd>lua require('telescope.builtin').grep_string({search = vim.fn.expand("<cword>")})<CR>]], opts)
 -- " grep line
 map('n', '<leader>pl', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], opts)
+
+vim.keymap.set('n', '<leader>pb', require('telescope.builtin').current_buffer_fuzzy_find, opts)
+vim.keymap.set('n', '<leader>po', require('telescope.builtin').oldfiles, opts)
+
 
 
 -- " --- Vim Pickers

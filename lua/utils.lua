@@ -8,13 +8,21 @@ local function opt(o, v, scopes)
     for _, s in ipairs(scopes) do s[o] = v end
 end
 
-local function autocmd(group, cmds, clear)
-    clear = clear == nil and false or clear
-    if type(cmds) == 'string' then cmds = {cmds} end
-    cmd('augroup ' .. group)
-    if clear then cmd [[au!]] end
-    for _, c in ipairs(cmds) do cmd('autocmd ' .. c) end
-    cmd [[augroup END]]
+local function autocmd_multi(group, cmds, clear)
+    local clear = (clear == nil) and true or clear
+    local group = vim.api.nvim_create_augroup('group', { clear = clear })
+    for _, c in ipairs(cmds) do
+        local opts = c[2]
+        opts.group = group
+        vim.api.nvim_create_autocmd(c[1], opts)
+    end
+end
+
+local function autocmd(group, events, opts, clear)
+    local clear = (clear == nil) and true or clear
+    local group = vim.api.nvim_create_augroup('group', { clear = clear })
+    opts.group = group
+    vim.api.nvim_create_autocmd(events, opts)
 end
 
 local function map(modes, lhs, rhs, opts)
@@ -38,4 +46,4 @@ local function not_windows()
     return vim.fn.has 'win32' ~= 1
 end
 
-return {opt = opt, autocmd = autocmd, map = map, not_windows = not_windows, buf_map = buf_map}
+return {opt = opt, autocmd = autocmd, autocmd_multi=autocmd_multi, map = map, not_windows = not_windows, buf_map = buf_map}

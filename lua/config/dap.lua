@@ -1,5 +1,5 @@
 local map = require('utils').map
-local autocmd = require('utils').autocmd
+local autocmd_multi = require('utils').autocmd_multi
 local opts = { noremap=true, silent=true }
 
 
@@ -12,13 +12,13 @@ vim.g.dap_virtual_text = true -- recommended
 
 
 vim.cmd([[highlight NvimDapVirtualText guifg=#82E0AA]])
-autocmd(
-    'dap', 
+autocmd_multi(
+    'DAP', 
     {
         -- brighter dap virtual text
-        'ColorScheme * highlight NvimDapVirtualText guifg=#82E0AA',
+        {'ColorScheme', {pattern='*', command='highlight NvimDapVirtualText guifg=#82E0AA'}},
         -- add autocompletion to dap REPL
-        'FileType dap-repl lua require("dap.ext.autocompl").attach()'
+        {'FileType ', {pattern='dap-repl', callback=require("dap.ext.autocompl").attach}},
     },
     true
 )

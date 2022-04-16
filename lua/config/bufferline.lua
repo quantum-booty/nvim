@@ -78,6 +78,9 @@ require('bufferline').setup {
         buffer_selected = {
             guifg = '#c678dd'
         },
+        numbers_selected = {
+            guifg = '#c678dd'
+        },
         buffer = {
             guifg = 'LightBlue'
         },

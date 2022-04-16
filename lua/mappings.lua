@@ -15,7 +15,7 @@ map('i', '<Del>', '<C-o>A;', opts)
 
 -- map('n', '<cr>', 'zo', opts)
 -- map('n', '<cr>', ':%foldo<cr>', opts)
-autocmd('filetype_help_mapping', [[ FileType help nnoremap <buffer> <CR> <c-]> ]], true)
+autocmd('filetype_help_mapping', 'FileType', {pattern='help', command=[[nnoremap <buffer> <CR> <c-]>]]})
 
 
  -- Search results centered
@@ -99,6 +99,9 @@ map('n', 'gj', 'g;', opts)
 map('n', 'gk', 'g,', opts)
 -- " scroll up and down
 map('n', '<C-a>', '<C-y>', opts)
+
+-- packer
+vim.api.nvim_create_user_command("PS", function() vim.cmd'PackerSync' end, {})
 
 
 -- " =============================================================================

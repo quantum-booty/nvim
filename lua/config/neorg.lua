@@ -1,4 +1,3 @@
-local autocmd = require('utils').autocmd
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 

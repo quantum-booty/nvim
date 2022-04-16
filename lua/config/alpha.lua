@@ -1,5 +1,6 @@
 local alpha = require'alpha'
 local dashboard = require'alpha.themes.dashboard'
+local autocmd_multi = require('utils').autocmd_multi
 
 dashboard.section.header.val = {
    "                                   ",
@@ -44,7 +45,14 @@ dashboard.section.buttons.val = {
 
 
 -- disable bufferline
-vim.cmd([[ autocmd FileType alpha set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2 ]])
+autocmd_multi(
+    "Alpha",
+    {
+        {'FileType', {pattern='alpha', command='set showtabline=0'}},
+        {'BufUnload', {pattern='<buffer>', command='set showtabline=2'}},
+    }
+
+)
 
 alpha.setup(dashboard.opts)
 

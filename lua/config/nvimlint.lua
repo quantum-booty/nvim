@@ -1,4 +1,3 @@
--- local autocmd = require('utils').autocmd
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
@@ -6,9 +5,6 @@ nvim_lint = require('lint')
 nvim_lint.linters_by_ft = {
   python = {'pylint','flake8'}
 }
-
--- autocmd('lint', "BufWritePost <buffer> lua require('lint').try_lint()", true)
-
 
 map('n', '<leader>l', ':lua require("lint").try_lint()<CR>', opts)
 
