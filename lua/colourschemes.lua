@@ -104,7 +104,13 @@ onedark.setup({
     style = 'darker',
     transparent = false,
     toggle_style_key = '<nop>',
-})
+    highlights = {
+        TSDefinitionUsage = {fg = 'BLACK', bg='#DCD9CD'},
+    }
+}
+)
+
+
 
 -- =============================================================================
 -- # one nord
@@ -145,6 +151,9 @@ require('kanagawa').setup({
     variablebuiltinStyle = "NONE",
     dimInactive = true,        -- dim inactive window `:h hl-NormalNC`
     globalStatus = true,       -- adjust window separators highlight for laststatus=3
+    overrides = {
+        TSDefinitionUsage = {fg = 'BLACK', bg='#DCD9CD'},
+    }
 })
 
 

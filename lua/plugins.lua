@@ -70,6 +70,7 @@ return require('packer').startup({function()
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     use { 'ionide/Ionide-vim' }
+    -- use { 'scalameta/nvim-metals' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/wilder.vim')]] }
@@ -181,7 +182,9 @@ return require('packer').startup({function()
         -- treesitter context don't yet work on windows
         'romgrk/nvim-treesitter-context',
         -- 'nvim-treesitter/nvim-tree-docs'
+        -- 'nvim-treesitter/playground'
     }
+
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
     use { 'Vimjas/vim-python-pep8-indent' }
 
