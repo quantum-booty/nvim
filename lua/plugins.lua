@@ -207,6 +207,7 @@ return require('packer').startup({function()
     -- ---  Note taking, tex, orgmode
     use { 'nvim-neorg/neorg', config = [[require('config.neorg')]] }
     use { 'nvim-neorg/neorg-telescope' }
+    use { 'max397574/neorg-kanban' }
     -- use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'

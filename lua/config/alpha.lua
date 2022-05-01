@@ -33,11 +33,13 @@ vim.cmd(string.format('highlight dashboard guifg=%s guibg=bg', random_colours(co
 dashboard.section.header.opts.hl = 'dashboard'
 
 dashboard.section.buttons.val = {
-    dashboard.button( "n", "  New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button( "f", "  Find File", ":Telescope find_files<CR>"),
-    dashboard.button( "r", "  Recents", ":Telescope frecency<CR>"),
-    dashboard.button( "w", "  Find Word", ":Telescope live_grep<CR>"),
-    dashboard.button( "b", "  Bookmarks", ":Telescope marks<CR>"),
+    -- dashboard.button( "n", "  New file", ":ene <BAR> startinsert <CR>"),
+    -- dashboard.button( "f", "  Find File", ":Telescope find_files<CR>"),
+    -- dashboard.button( "r", "  Recents", ":Telescope frecency<CR>"),
+    -- dashboard.button( "w", "  Find Word", ":Telescope live_grep<CR>"),
+    dashboard.button( "n", "  Neorg", ":NeorgStart<CR>"),
+    dashboard.button( "p", "  Projects", ":Telescope projects<CR>"),
+    -- dashboard.button( "b", "  Bookmarks", ":Telescope marks<CR>"),
     -- dashboard.button( "s", "  Load Last Session", ":SessionLoad<CR>"),
     dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
     }
