@@ -17,6 +17,7 @@ null_ls.setup({
                 '--skip-string-normalization',
             }
         }),
+        null_ls.builtins.formatting.uncrustify,
         -- null_ls.builtins.diagnostics.pylint.with({
         --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         --     args = {

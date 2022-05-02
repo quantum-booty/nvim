@@ -166,6 +166,7 @@ return require('packer').startup({function()
     }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
+    use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
 
 
     -- language support / syntax highlighting
