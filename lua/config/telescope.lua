@@ -79,7 +79,8 @@ telescope.setup{
         -- lsp_code_actions = { initial_mode='normal' },
         help_tags = { jump_type = 'tab'},
         current_buffer_fuzzy_find = { theme = "dropdown" },
-
+        lsp_definitions = { theme = "ivy" },
+        lsp_references = { theme = "ivy" },
     },
     extensions = {
         file_browser = {
@@ -140,10 +141,6 @@ map('n', '<leader><leader>', [[<cmd>lua require('telescope.builtin').buffers()<C
 map('n', '<leader>pH', ':tab help <C-R>=expand("<cword>")<CR><CR>', opts)
 map('n', '<leader>ph', [[<cmd>Telescope help_tags<cr>]], opts)
 
--- -- " Convert currently quickfixlist to telescope
--- map('n', '<leader>qf', [[<cmd>lua require('telescope.builtin').quickfix()<CR>]], opts)
--- -- " Convert currently loclist to telescope
--- map('n', '<leader>L', [[<cmd>lua require('telescope.builtin').loclist()<CR>]], opts)
 -- " Colour schemes
 map('n', '<leader>pc', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], opts)
 -- " Key maps
@@ -153,6 +150,9 @@ map('n', '<leader>pk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]], 
 
 -- " --- LSP Pickers
 -- " References under cursor
+map('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+map('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]], opts)
 map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
 map('n', '<leader>pR', [[<cmd>lua require('telescope.builtin').resume({initial_mode='normal'})<CR>]], opts)
 map('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
