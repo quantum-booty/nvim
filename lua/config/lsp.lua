@@ -62,7 +62,17 @@ local on_attach = function(client, bufnr)
 
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
     buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
-    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    
+    local function not_nullls(servers)
+        for k, v in ipairs(servers) do
+            if v.name == 'null-ls' then
+                table.remove(servers, k)
+            end
+        end
+        return servers
+    end
+
+    vim.keymap.set('n', '<leader>rn', function() vim.lsp.buf.rename(nil, {filter=not_nullls}) end, { noremap=true, silent = true, buffer = bufnr })
     buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
     buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
 
@@ -72,9 +82,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
 end
-
-
-
 
 
 -------------------------------------------------------------------------------
