@@ -44,7 +44,6 @@ require('neorg').setup {
         ["core.integrations.telescope"] = {},
         -- ["core.integrations.trouble"] = {},
 
-        ['external.kanban'] = {},
     },
     -- hook = function()
     --     local neorg_callbacks = require('neorg.callbacks')
