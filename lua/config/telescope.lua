@@ -29,16 +29,16 @@ local open_in_nvim_tree = function(prompt_bufnr)
     entry_path = Path:new(entry):parent():absolute() 
     entry_path = entry_path:gsub("\\", "\\\\")
 
-    -- vim.cmd("NvimTreeClose")
-    -- vim.cmd("NvimTreeOpen " .. entry_path)
-    vim.cmd("Neotree dir=" .. entry_path)
+    vim.cmd("NvimTreeClose")
+    vim.cmd("NvimTreeOpen " .. entry_path)
+    -- vim.cmd("Neotree dir=" .. entry_path)
 
-    -- file_name = nil
-    -- for s in string.gmatch(entry, "[^/]+") do
-    --     file_name = s
-    -- end
-    --
-    -- vim.cmd("?" .. file_name)
+    file_name = nil
+    for s in string.gmatch(entry, "[^/]+") do
+        file_name = s
+    end
+
+    vim.cmd("?" .. file_name)
 end
 
 

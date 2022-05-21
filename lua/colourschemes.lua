@@ -130,7 +130,11 @@ require('onenord').setup({
 -- =============================================================================
 -- # rose pine
 -- =============================================================================
-vim.g.rose_pine_variant = 'moon' -- base, moon, dawn
+require('rose-pine').setup({
+	dark_variant = 'moon',
+	disable_italics = true,
+})
+
 
 -- =============================================================================
 -- # kanagawa
@@ -152,9 +156,10 @@ require('kanagawa').setup({
 -- vim.cmd([[set background=dark | colorscheme gruvbox]])
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- onedark.load()
-vim.cmd([[colorscheme onenord]])
--- vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme onenord]])
+vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme kanagawa]])
+-- vim.cmd([[colorscheme tokyodark]])
 
 -- vim.cmd([[colorscheme nightfox]])
 -- vim.cmd([[colorscheme terafox]])

@@ -1,30 +1,5 @@
 vim.env.NVIM_CONFIG_PATH = vim.fn.stdpath('config')
 
-if vim.fn.has('win32') == 1 then
-    USERPROFILE = vim.env.USERPROFILE
-    if USERPROFILE then
-        vim.g.python_host_prog = USERPROFILE..'/virtualenvs/neovim2/Scripts/python.exe'
-        vim.g.python3_host_prog = USERPROFILE..'/virtualenvs/neovim3/Scripts/python.exe'
-        -- for the telescope recency plugin
-        vim.g.sqlite_clib_path = vim.env.NVIM_CONFIG_PATH..'/sqlite3.dll'
-    end
-else
-    vim.g.python_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim2/bin/python'
-    vim.g.python3_host_prog = os.getenv('PYENV_ROOT')..'/versions/neovim3/bin/python'
-end
-
--- if vim.fn.exists('g:neovide') then
---     vim.cmd([[ set guifont=FiraCode\ NF:h17 ]])
---     print("shitshit")
--- end
-
-
-if vim.g.nvui then
-    vim.cmd([[
-    set guifont=FiraCode\ Nerd\ Font:h10,JetBrains\ Mono\ Italic:h10
-    ]])
-end
-
 -- disable unused build in plugins to improve start-up time
 local disabled_built_ins = {
     "netrw",
@@ -56,9 +31,12 @@ vim.cmd([[
     " Hide ~ for empty buffer line
     let &fcs='eob: '
     filetype plugin on
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 ]])
 
 local options = {
+    -- laststatus=0, -- global statusline
     laststatus=3, -- global statusline
 
     relativenumber = true,

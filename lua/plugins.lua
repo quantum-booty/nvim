@@ -181,7 +181,7 @@ return require('packer').startup({function()
         'nvim-treesitter/completion-treesitter',
         'p00f/nvim-ts-rainbow',
         -- treesitter context don't yet work on windows
-        'romgrk/nvim-treesitter-context',
+        'nvim-treesitter/nvim-treesitter-context',
         -- 'nvim-treesitter/nvim-tree-docs'
         -- 'nvim-treesitter/playground'
     }
