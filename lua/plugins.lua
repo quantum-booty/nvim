@@ -70,7 +70,7 @@ return require('packer').startup({function()
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     use { 'ionide/Ionide-vim' }
-    -- use { 'scalameta/nvim-metals' }
+    use { 'scalameta/nvim-metals' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/wilder.vim')]] }
