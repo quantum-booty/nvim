@@ -16,8 +16,7 @@ dashboard.section.header.val = {
    " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
    " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
    "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
-   "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
-   "                                   ",
+   "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ", "                                   ",
 }
 
 
@@ -39,6 +38,8 @@ dashboard.section.buttons.val = {
     -- dashboard.button( "w", "  Find Word", ":Telescope live_grep<CR>"),
     dashboard.button( "n", "  Neorg", ":NeorgStart<CR>"),
     dashboard.button( "p", "  Projects", ":Telescope projects<CR>"),
+    dashboard.button( "rc", "  init.lua", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>"),
+    dashboard.button( "rp", "  plugins", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>"),
     -- dashboard.button( "b", "  Bookmarks", ":Telescope marks<CR>"),
     -- dashboard.button( "s", "  Load Last Session", ":SessionLoad<CR>"),
     dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
