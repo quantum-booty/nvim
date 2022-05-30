@@ -181,12 +181,8 @@ return require('packer').startup({function()
         },
         'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-refactor',
-        'nvim-treesitter/completion-treesitter',
         'p00f/nvim-ts-rainbow',
-        -- treesitter context don't yet work on windows
         'nvim-treesitter/nvim-treesitter-context',
-        -- 'nvim-treesitter/nvim-tree-docs'
-        -- 'nvim-treesitter/playground'
     }
 
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
