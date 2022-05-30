@@ -5,18 +5,18 @@ local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
 local telescope = require("telescope")
-local fb_actions = require "telescope".extensions.file_browser.actions
-
-local open_in_fb = function(prompt_bufnr)
-    local action_state = require "telescope.actions.state"
-    local Path = require "plenary.path"
-    local actions = require "telescope.actions"
-    local fb = require("telescope").extensions.file_browser.file_browser
-    local entry = action_state.get_selected_entry()[1]
-    local entry_path = Path:new(entry):parent():absolute()
-    actions._close(prompt_bufnr, true)
-    fb { path = entry_path }
-end
+-- local fb_actions = require "telescope".extensions.file_browser.actions
+-- 
+-- local open_in_fb = function(prompt_bufnr)
+--     local action_state = require "telescope.actions.state"
+--     local Path = require "plenary.path"
+--     local actions = require "telescope.actions"
+--     local fb = require("telescope").extensions.file_browser.file_browser
+--     local entry = action_state.get_selected_entry()[1]
+--     local entry_path = Path:new(entry):parent():absolute()
+--     actions._close(prompt_bufnr, true)
+--     fb { path = entry_path }
+-- end
 
 local open_in_nvim_tree = function(prompt_bufnr)
     local action_state = require "telescope.actions.state"
@@ -45,6 +45,7 @@ end
 
 telescope.setup{
     defaults = {
+        path_display={"smart"},
         sorting_strategy = "ascending",
         layout_config = {
             horizontal = {
@@ -83,31 +84,31 @@ telescope.setup{
         lsp_references = { theme = "ivy" },
     },
     extensions = {
-        file_browser = {
-            -- initial_mode='normal',
-            -- files = false,
-            theme = "ivy",
-            mappings = {
-                ["i"] = {
-                    -- your custom insert mode mappings
-                },
-                ["n"] = {
-                    ["n"] = fb_actions.create,
-                    ["r"] = fb_actions.rename,
-                    ["v"] = fb_actions.move,
-                    ["y"] = fb_actions.copy,
-                    ["x"] = fb_actions.remove,
-                    ["o"] = fb_actions.open,
-                    ["h"] = fb_actions.goto_parent_dir,
-                    ["~"] = fb_actions.goto_home_dir,
-                    ["w"] = fb_actions.goto_cwd,
-                    ["t"] = fb_actions.change_cwd,
-                    ["f"] = fb_actions.toggle_browser,
-                    ["."] = fb_actions.toggle_hidden,
-                    ["m"] = fb_actions.toggle_all,
-                },
-            },
-        },
+        -- file_browser = {
+        --     -- initial_mode='normal',
+        --     -- files = false,
+        --     theme = "ivy",
+        --     mappings = {
+        --         ["i"] = {
+        --             -- your custom insert mode mappings
+        --         },
+        --         ["n"] = {
+        --             ["n"] = fb_actions.create,
+        --             ["r"] = fb_actions.rename,
+        --             ["v"] = fb_actions.move,
+        --             ["y"] = fb_actions.copy,
+        --             ["x"] = fb_actions.remove,
+        --             ["o"] = fb_actions.open,
+        --             ["h"] = fb_actions.goto_parent_dir,
+        --             ["~"] = fb_actions.goto_home_dir,
+        --             ["w"] = fb_actions.goto_cwd,
+        --             ["t"] = fb_actions.change_cwd,
+        --             ["f"] = fb_actions.toggle_browser,
+        --             ["."] = fb_actions.toggle_hidden,
+        --             ["m"] = fb_actions.toggle_all,
+        --         },
+        --     },
+        -- },
     },
 }
 
@@ -177,8 +178,8 @@ map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symb
 -- -- "
 
 -- file_browser
-require("telescope").load_extension "file_browser"
-map('n', '<leader>pv', ':Telescope file_browser<CR>', opts)
+-- require("telescope").load_extension "file_browser"
+-- map('n', '<leader>pv', ':Telescope file_browser<CR>', opts)
 --
 --   local fb = require("telescope").extensions.file_browser.file_browser
 -- path = "%:p:h"

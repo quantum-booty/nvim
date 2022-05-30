@@ -31,7 +31,7 @@ return require('packer').startup({function()
         'rebelot/kanagawa.nvim',
         'rmehri01/onenord.nvim',
         'srcery-colors/srcery-vim',
-        {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
+        -- {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
         'EdenEast/nightfox.nvim',
@@ -43,7 +43,7 @@ return require('packer').startup({function()
     use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]]  }
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
@@ -85,20 +85,22 @@ return require('packer').startup({function()
         'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'quangnguyen30192/cmp-nvim-ultisnips',
+        -- 'quangnguyen30192/cmp-nvim-ultisnips',
+        'saadparwaiz1/cmp_luasnip',
         'lukas-reineke/cmp-under-comparator',
     }
 
-    use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
+    -- use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
 
 
     -- snippets
-    use {'sirver/ultisnips', config = [[require('config.ultisnips')]] }
+    -- use {'sirver/ultisnips', config = [[require('config.ultisnips')]] }
     -- use 'honza/vim-snippets'
-    -- use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]]}
+    use { 'rafamadriz/friendly-snippets' }
+    use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]]}
 
     -- Debugger
     -- use {
@@ -130,7 +132,7 @@ return require('packer').startup({function()
         'natecraddock/telescope-zf-native.nvim',
         config = [[require('telescope').load_extension('zf-native')]],
     }
-    use { "nvim-telescope/telescope-file-browser.nvim" }
+    -- use { "nvim-telescope/telescope-file-browser.nvim" }
     use {
         'ahmedkhalf/project.nvim',
         after = 'telescope.nvim',
@@ -167,7 +169,7 @@ return require('packer').startup({function()
     }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
-    use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
+    -- use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
 
 
     -- language support / syntax highlighting
@@ -195,9 +197,9 @@ return require('packer').startup({function()
 
     --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
-    use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
+    -- use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
-    use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
+    -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
     use {
         'andweeb/presence.nvim',
         config = [[require('config.discord')]],
@@ -208,7 +210,7 @@ return require('packer').startup({function()
 
     -- ---  Note taking, tex, orgmode
     use { 'nvim-neorg/neorg', config = [[require('config.neorg')]] }
-    use { 'nvim-neorg/neorg-telescope' }
+    -- use { 'nvim-neorg/neorg-telescope' }
     -- use { 'quantum-booty/neorg-trouble' }
     -- use 'godlygeek/tabular'
     -- use 'plasticboy/vim-markdown'
