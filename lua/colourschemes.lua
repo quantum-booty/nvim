@@ -1,12 +1,12 @@
 -- " =============================================================================
 -- " # Srcery
 -- " =============================================================================
-vim.g.srcery_italic = 1
-vim.g.srcery_bold = 1
-vim.g.srcery_inverse_matches = 1
-vim.g.srcery_inverse = 1
-vim.g.srcery_italic_types = 1
-vim.g.srcery_inverse_match_paren = 0
+-- vim.g.srcery_italic = 1
+-- vim.g.srcery_bold = 1
+-- vim.g.srcery_inverse_matches = 1
+-- vim.g.srcery_inverse = 1
+-- vim.g.srcery_italic_types = 1
+-- vim.g.srcery_inverse_match_paren = 0
 
 -- " =============================================================================
 -- " # Tokyo Night
@@ -46,56 +46,56 @@ vim.g.gruvbox_invert_selection=1
 -- " =============================================================================
 -- " # Catppuccin
 -- " =============================================================================
-local catppuccin = require("catppuccin")
-catppuccin.setup(
-    {
-		transparent_background = false,
-		term_colors = false,
-		styles = {
-			comments = "italic",
-			functions = "italic",
-			keywords = "italic",
-			strings = "NONE",
-			variables = "NONE",
-		},
-		integrations = {
-			treesitter = true,
-			native_lsp = {
-				enabled = true,
-				virtual_text = {
-					errors = "italic",
-					hints = "italic",
-					warnings = "italic",
-					information = "italic",
-				},
-				underlines = {
-					errors = "underline",
-					hints = "underline",
-					warnings = "underline",
-					information = "underline",
-				},
-			},
-			lsp_trouble = true,
-			gitsigns = true,
-			telescope = true,
-			nvimtree = {
-				enabled = true,
-				show_root = true,
-			},
-			which_key = true,
-			indent_blankline = {
-				enabled = true,
-				colored_indent_levels = true,
-			},
-			neogit = true,
-			barbar = true,
-			markdown = true,
-			lightspeed = true,
-			ts_rainbow = true,
-		},
-	}
-)
-
+-- local catppuccin = require("catppuccin")
+-- catppuccin.setup(
+--     {
+-- 		transparent_background = false,
+-- 		term_colors = false,
+-- 		styles = {
+-- 			comments = "italic",
+-- 			functions = "italic",
+-- 			keywords = "italic",
+-- 			strings = "NONE",
+-- 			variables = "NONE",
+-- 		},
+-- 		integrations = {
+-- 			treesitter = true,
+-- 			native_lsp = {
+-- 				enabled = true,
+-- 				virtual_text = {
+-- 					errors = "italic",
+-- 					hints = "italic",
+-- 					warnings = "italic",
+-- 					information = "italic",
+-- 				},
+-- 				underlines = {
+-- 					errors = "underline",
+-- 					hints = "underline",
+-- 					warnings = "underline",
+-- 					information = "underline",
+-- 				},
+-- 			},
+-- 			lsp_trouble = true,
+-- 			gitsigns = true,
+-- 			telescope = true,
+-- 			nvimtree = {
+-- 				enabled = true,
+-- 				show_root = true,
+-- 			},
+-- 			which_key = true,
+-- 			indent_blankline = {
+-- 				enabled = true,
+-- 				colored_indent_levels = true,
+-- 			},
+-- 			neogit = true,
+-- 			barbar = true,
+-- 			markdown = true,
+-- 			lightspeed = true,
+-- 			ts_rainbow = true,
+-- 		},
+-- 	}
+-- )
+--
 -- =============================================================================
 -- # one dark
 -- =============================================================================

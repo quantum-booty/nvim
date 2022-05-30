@@ -30,12 +30,12 @@ return require('packer').startup({function()
         'navarasu/onedark.nvim',
         'rebelot/kanagawa.nvim',
         'rmehri01/onenord.nvim',
-        'srcery-colors/srcery-vim',
+        -- 'srcery-colors/srcery-vim',
         -- {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
         'EdenEast/nightfox.nvim',
-        'catppuccin/nvim',
+        -- 'catppuccin/nvim',
         {'rose-pine/neovim', as = 'rose-pine'},
     }
 
@@ -193,10 +193,10 @@ return require('packer').startup({function()
     use { 'Vimjas/vim-python-pep8-indent' }
 
     -- document generator
-    use { 'danymat/neogen', config = [[require('config.neogen')]] }
+    use { 'danymat/neogen', config = [[require('config.neogen')]], cmd = 'Neogen' }
 
     --- Quality of life
-    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]] }
+    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]], cmd = 'UndotreeToggle' }
     -- use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
     -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
