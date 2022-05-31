@@ -6,9 +6,6 @@ map('n', '<space>', '<nop>', opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ','
 
--- repeat macro
-map('n', 'Q', '@@', opts)
-
 -- this is smooth as fuck haha
 map('i', '<Del>', '<C-o>A;', opts)
 
