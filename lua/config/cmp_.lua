@@ -37,6 +37,7 @@ cmp.setup({
             end
         end,
     },
+    preselect = cmp.PreselectMode.None,
     sources = {
         { name = 'luasnip' }, -- For luasnip user.
         { name = 'neorg' },
@@ -66,6 +67,7 @@ cmp.setup({
                 nvim_lua = "[api]",
                 path = "[path]",
                 ultisnips = "[snip]",
+                luasnip = "[snip]",
             },
         })
     },
@@ -84,21 +86,23 @@ cmp.setup({
 })
 
 
- -- Use buffer source for `/`.
-  cmp.setup.cmdline('/', {
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+        { name = 'buffer' }
     }
-  })
+})
 
-  -- Use cmdline & path source for ':'.
-  cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
   })
+})
 
 
 

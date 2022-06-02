@@ -19,18 +19,19 @@ local nightfox = require('nightfox')
 
 nightfox.setup({
     options = {
-    transparent = false,
-    terminal_colors=true,
-    styles = {
-        comments = "italic", -- change style of comments to be italic
-        keywords = "italic", -- change style of keywords to be bold
-        functions = "bold" -- styles can be a comma separated list
-    },
-    inverse = {
-        match_paren = false,
-        search = true,
-        visual = true,
-    },
+        dim_inactive=true,
+        transparent = false,
+        terminal_colors=true,
+        styles = {
+            comments = "italic", -- change style of comments to be italic
+            keywords = "italic", -- change style of keywords to be bold
+            functions = "bold" -- styles can be a comma separated list
+        },
+        inverse = {
+            match_paren = false,
+            search = true,
+            visual = true,
+        },
     }
 })
 
@@ -157,11 +158,11 @@ require('kanagawa').setup({
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- onedark.load()
 -- vim.cmd([[colorscheme onenord]])
-vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme kanagawa]])
 -- vim.cmd([[colorscheme tokyodark]])
 
--- vim.cmd([[colorscheme nightfox]])
+vim.cmd([[colorscheme nightfox]])
 -- vim.cmd([[colorscheme terafox]])
 -- vim.cmd([[colorscheme nordfox]])
 -- vim.cmd([[colorscheme duskfox]])
