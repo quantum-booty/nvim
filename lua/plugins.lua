@@ -167,7 +167,7 @@ return require('packer').startup({function()
         keys='<leader>gs',
         cond = not_windows,
     }
-    use { 'kdheepak/lazygit.nvim' }
+    use { 'kdheepak/lazygit.nvim', config = [[vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true })]] }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
     -- use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
