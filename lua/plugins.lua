@@ -169,7 +169,7 @@ return require('packer').startup({function()
     }
     use { 'kdheepak/lazygit.nvim', config = [[vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true })]] }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
-    use { 'lewis6991/gitsigns.nvim', config = [[require('gitsigns').setup()]] }
+    use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
     -- use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
 
 
