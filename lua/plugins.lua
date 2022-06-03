@@ -158,15 +158,16 @@ return require('packer').startup({function()
 
 
     -- Git
-    use {
-        'TimUntersberger/neogit',
-        config = [[require('config.neogit')]],
-        requires = {
-            'sindrets/diffview.nvim'
-        },
-        keys='<leader>gs',
-        cond = not_windows,
-    }
+    -- use {
+    --     'TimUntersberger/neogit',
+    --     config = [[require('config.neogit')]],
+    --     requires = {
+    --         'sindrets/diffview.nvim'
+    --     },
+    --     keys='<leader>gs',
+    --     cond = not_windows,
+    -- }
+    use { 'sindrets/diffview.nvim' }
     use { 'kdheepak/lazygit.nvim', config = [[vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true })]] }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
