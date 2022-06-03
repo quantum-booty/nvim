@@ -105,7 +105,7 @@ vim.api.nvim_create_user_command("PS", function() vim.cmd'PackerSync' end, {})
 -- " # Terminal
 -- " =============================================================================
 -- " press esc to go to normal mode
-map('t', '<Esc>', [[<C-\><C-n>]], opts)
+-- map('t', '<Esc>', [[<C-\><C-n>]], opts)
 -- " press enter to enter and exit insert mode
 -- map('t', '<CR>', [['<CR><C-\><C-n>']], opts)
 
