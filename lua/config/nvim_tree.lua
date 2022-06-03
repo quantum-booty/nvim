@@ -89,6 +89,7 @@ require'nvim-tree'.setup {
         },
     },
     view = {
+        adaptive_size = true,
         -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
         width = 35,
         -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
