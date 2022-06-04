@@ -88,7 +88,7 @@ return require('packer').startup({function()
         'hrsh7th/cmp-cmdline',
         -- 'quangnguyen30192/cmp-nvim-ultisnips',
         'saadparwaiz1/cmp_luasnip',
-        'lukas-reineke/cmp-under-comparator',
+        -- 'lukas-reineke/cmp-under-comparator',
     }
 
     -- use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
