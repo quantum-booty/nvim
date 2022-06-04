@@ -47,7 +47,7 @@ cmp.setup({
 
         -- { name = 'vsnip' }, -- For vsnip user.
         -- { name = 'ultisnips' }, -- For ultisnips user.
-        { name = 'buffer', keyword_length = 4 },
+        -- { name = 'buffer', keyword_length = 4 },
         { name = 'path' },
     },
   window = {
@@ -73,14 +73,17 @@ cmp.setup({
     },
     sorting = {
         comparators = {
-            cmp.config.compare.offset,
             cmp.config.compare.exact,
-            cmp.config.compare.score,
-            require "cmp-under-comparator".under,
-            cmp.config.compare.kind,
             cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
+            cmp.config.compare.recently_used,
+            -- cmp.config.compare.locality,
+            -- cmp.config.compare.scopes,
+            -- cmp.config.compare.score,
+            -- cmp.config.compare.offset,
+            -- cmp.config.compare.kind,
+            -- cmp.config.compare.length,
+            -- cmp.config.compare.order,
+            -- require "cmp-under-comparator".under,
         },
     },
 })
