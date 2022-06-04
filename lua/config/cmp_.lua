@@ -1,7 +1,7 @@
 -- " =============================================================================
 -- " # nvim-cmp settings
 -- " =============================================================================
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 
@@ -50,10 +50,10 @@ cmp.setup({
         -- { name = 'buffer', keyword_length = 4 },
         { name = 'path' },
     },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
     experimental = {
         ghost_text = true
     },
@@ -99,12 +99,12 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
 })
 
 
@@ -124,4 +124,4 @@ highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 ]])
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
