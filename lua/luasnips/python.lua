@@ -17,16 +17,15 @@ local lambda = require("luasnip.extras").l
 -- see latex infinite list for the idea. Allows to keep adding arguments via choice nodes.
 local function py_init()
   return
-    c(1, {
+    sn(nil, c(1, {
       t(""),
       sn(1, {
         t(", "),
         i(1),
         d(2, py_init)
       })
-    })
+    }))
 end
-
 
 -- splits the string of the comma separated argument list into the arguments
 -- and returns the text-/insert- or restore-nodes
@@ -39,7 +38,7 @@ local function to_init_assign(args)
     local cnt = 1
     for e in string.gmatch(a, " ?([^,]*) ?") do
       if #e > 0 then
-        table.insert(tab, t({"","\tself."}))
+        table.insert(tab, t({"","\tself._"}))
         -- use a restore-node to be able to keep the possibly changed attribute name
         -- (otherwise this function would always restore the default, even if the user
         -- changed the name)
