@@ -196,3 +196,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
     group = nvim_metals_group,
 })
+
+-- lua
+local luadev = require("lua-dev").setup({
+    lspconfig = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
+})
+
+nvim_lsp.sumneko_lua.setup(luadev)

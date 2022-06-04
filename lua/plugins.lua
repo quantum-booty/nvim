@@ -77,6 +77,7 @@ return require('packer').startup({function()
     -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/wilder.vim')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
+    use "folke/lua-dev.nvim"
 
     use {
         {'hrsh7th/nvim-cmp', config = [[require('config.cmp_')]] },
