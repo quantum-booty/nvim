@@ -1,28 +1,28 @@
 local map = require('utils').map
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 local autocmd = require('utils').autocmd
 
 vim.opt.updatetime = 250
-vim.opt.completeopt:append({'menuone','noselect','noinsert'})
+vim.opt.completeopt:append({ 'menuone', 'noselect', 'noinsert' })
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-        border = "single",  focusable = false 
-    }
+    border = "single", focusable = false
+}
 )
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-        border = "single"
-    }
+    border = "single"
+}
 )
 
 -------------------------------------------------------------------------------
 -- Diagnostic settings
 -------------------------------------------------------------------------------
-vim.diagnostic.config({float = { border = 'single', show_header = false}})
+vim.diagnostic.config({ float = { border = 'single', show_header = false } })
 
 
 -- diagnostic colours
@@ -51,6 +51,7 @@ local nvim_lsp = require('lspconfig')
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- Mappings.
@@ -61,7 +62,7 @@ local on_attach = function(client, bufnr)
 
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
     buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
-    
+
     local function not_nullls(servers)
         for k, v in ipairs(servers) do
             if v.name == 'null-ls' then
@@ -71,7 +72,7 @@ local on_attach = function(client, bufnr)
         return servers
     end
 
-    vim.keymap.set('n', '<leader>rn', function() vim.lsp.buf.rename(nil, {filter=not_nullls}) end, { noremap=true, silent = true, buffer = bufnr })
+    vim.keymap.set('n', '<leader>rn', function() vim.lsp.buf.rename(nil, { filter = not_nullls }) end, { noremap = true, silent = true, buffer = bufnr })
     buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
     buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
 
@@ -88,38 +89,38 @@ end
 -------------------------------------------------------------------------------
 -- nvim-cmp settings
 -------------------------------------------------------------------------------
-capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 
 
 -------------------------------------------------------------------------------
 -- language server setup
 -------------------------------------------------------------------------------
-autocmd('haskell', 'FileType', {pattern='haskell', command=[[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]})
-nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach}
+autocmd('haskell', 'FileType', { pattern = 'haskell', command = [[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]] })
+nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach }
 -- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
 vim.cmd([[
 let g:fsharp#lsp_auto_setup = 0
 let g:fsharp#exclude_project_directories = ['paket-files']
 ]])
-require'ionide'.setup{ capabilities = capabilities, on_attach = on_attach }
+require 'ionide'.setup { capabilities = capabilities, on_attach = on_attach }
 
-nvim_lsp.dockerls.setup{ capabilities = capabilities, on_attach = on_attach }
-nvim_lsp.yamlls.setup{}
-require('rust-tools').setup{ server = {capabilities = capabilities, on_attach = on_attach }}
+nvim_lsp.dockerls.setup { capabilities = capabilities, on_attach = on_attach }
+nvim_lsp.yamlls.setup {}
+require('rust-tools').setup { server = { capabilities = capabilities, on_attach = on_attach } }
 
 
 if vim.fn.has('win32') == 1 then
     USERPROFILE = vim.env.USERPROFILE
     if USERPROFILE then
-        omnisharp_bin = USERPROFILE.."/omnisharp-win-x64/OmniSharp.exe"
+        local omnisharp_bin = USERPROFILE .. "/omnisharp-win-x64/OmniSharp.exe"
     end
 else
-    omnisharp_bin = "/home/henryw/omnisharp/run"
+    local omnisharp_bin = "/home/henryw/omnisharp/run"
 end
-nvim_lsp.omnisharp.setup{
+nvim_lsp.omnisharp.setup {
     capabilities = capabilities,
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(vim.fn.getpid())};
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) };
     on_attach = on_attach,
 }
 
@@ -132,7 +133,7 @@ local util = require('lspconfig/util')
 local path = util.path
 
 local function find_virtual_environment(workspace)
-    for _, dir in pairs({'venv', 'venv1', 'venv2'}) do
+    for _, dir in pairs({ 'venv', 'venv1', 'venv2' }) do
         local match = vim.fn.glob(path.join(workspace, dir))
         if match ~= '' then
             return path.dirname(match)
@@ -144,36 +145,33 @@ end
 local function get_python_path(virtual_env_path)
     if virtual_env_path then
         if vim.fn.has('win32') == 1 then
-            python_path = virtual_env_path .. "\\Scripts" .. "\\python"
+            return virtual_env_path .. "\\Scripts" .. "\\python"
         else
-            python_path = path.join(virtual_env_path, 'bin', 'python')
+            return path.join(virtual_env_path, 'bin', 'python')
         end
-            return python_path
     end
     return exepath('python3') or exepath('python') or 'python'
 end
-
 
 local function setup_virtual_env(virtual_env_path)
     vim.env.VIRTUAL_ENV = virtual_env_path
 
     if vim.fn.has('win32') == 1 then
-        new_path = virtual_env_path..'\\Scripts'..';'..vim.env.Path
+        local new_path = virtual_env_path .. '\\Scripts' .. ';' .. vim.env.Path
         vim.env.PATH = new_path
     else
         vim.env.PATH = path.join(virtual_env_path, "/bin:", vim.env.PATH)
     end
 end
 
-
 nvim_lsp.pyright.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     before_init = function(_, config)
         if not vim.env.VIRTUAL_ENV then
-            virtual_env_path = find_virtual_environment(config.root_dir)
+            local virtual_env_path = find_virtual_environment(config.root_dir)
             setup_virtual_env(virtual_env_path)
-            python_path = get_python_path(virtual_env_path)
+            local python_path = get_python_path(virtual_env_path)
             config.settings.python.pythonPath = python_path
         end
     end
@@ -181,8 +179,8 @@ nvim_lsp.pyright.setup({
 
 local metals_config = require("metals").bare_config()
 metals_config.settings = {
-  showImplicitArguments = true,
-  -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+    showImplicitArguments = true,
+    -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 }
 metals_config.init_options.statusBarProvider = "on"
 metals_config.capabilities = capabilities
