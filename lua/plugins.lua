@@ -1,6 +1,6 @@
 -- install packer if not found
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     os.execute(string.format('git clone --depth 1 https://github.com/wbthomason/packer.nvim %s', install_path))
     vim.cmd 'packadd packer.nvim'
@@ -8,7 +8,7 @@ end
 
 local not_windows = require('utils').not_windows
 
-return require('packer').startup({function()
+return require('packer').startup({ function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
@@ -26,7 +26,7 @@ return require('packer').startup({function()
     -- http://neovimcraft.com/plugin/chipsenkbeil/distant.nvim/index.html
 
     -- colour schemes
-    use { 
+    use {
         'navarasu/onedark.nvim',
         'rebelot/kanagawa.nvim',
         'rmehri01/onenord.nvim',
@@ -36,7 +36,7 @@ return require('packer').startup({function()
         'tiagovla/tokyodark.nvim',
         'EdenEast/nightfox.nvim',
         -- 'catppuccin/nvim',
-        {'rose-pine/neovim', as = 'rose-pine'},
+        { 'rose-pine/neovim', as = 'rose-pine' },
     }
 
     -- cosmetics
@@ -45,7 +45,7 @@ return require('packer').startup({function()
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
-    use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]]  }
+    use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
     -- use { 'b0o/incline.nvim', config = [[require('config.incline')]] }
 
@@ -62,7 +62,7 @@ return require('packer').startup({function()
     use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
     -- use { 'kevinhwang91/nvim-hlslens', config = [[require('config.hlslens')]] }
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-    use { 'tpope/vim-repeat', event = 'InsertEnter'}
+    use { 'tpope/vim-repeat', event = 'InsertEnter' }
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
@@ -74,34 +74,28 @@ return require('packer').startup({function()
     use { 'scalameta/nvim-metals' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
-    -- use { 'gelguy/wilder.nvim', run = ':UpdateRemotePlugins', requires='romgrk/fzy-lua-native', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/wilder.vim')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     use "folke/lua-dev.nvim"
 
     use {
-        {'hrsh7th/nvim-cmp', config = [[require('config.cmp_')]] },
+        { 'hrsh7th/nvim-cmp', config = [[require('config.cmp_')]] },
         'hrsh7th/cmp-nvim-lsp',
-        -- 'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        -- 'quangnguyen30192/cmp-nvim-ultisnips',
         'saadparwaiz1/cmp_luasnip',
-        -- 'lukas-reineke/cmp-under-comparator',
     }
 
     -- use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
     -- linter, fixer, formatter
     use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
-    use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]]}
+    use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]] }
 
 
     -- snippets
-    -- use {'sirver/ultisnips', config = [[require('config.ultisnips')]] }
-    -- use 'honza/vim-snippets'
     use { 'rafamadriz/friendly-snippets' }
-    use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]]}
+    use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]] }
 
     -- Debugger
     -- use {
@@ -169,7 +163,7 @@ return require('packer').startup({function()
     --     cond = not_windows,
     -- }
     use { 'sindrets/diffview.nvim' }
-    use { 'kdheepak/lazygit.nvim', config = function ()
+    use { 'kdheepak/lazygit.nvim', config = function()
         vim.api.nvim_set_keymap('n', '<leader>g', ':LazyGit<CR>', { noremap = true })
         vim.cmd('let g:lazygit_floating_window_scaling_factor = 1.0')
     end }
@@ -222,15 +216,15 @@ return require('packer').startup({function()
     -- https://github.com/tiagovla/zotex.nvim
 
 end,
-    config = {
-        -- Move to lua dir so impatient.nvim can cache it
-        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
-        -- profile = {
-        --     enable = true,
-        --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-        -- },
-        -- display = {
-        --     open_fn = require('packer.util').float,
-        -- }
-    }
+config = {
+    -- Move to lua dir so impatient.nvim can cache it
+    compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua',
+    -- profile = {
+    --     enable = true,
+    --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+    -- },
+    -- display = {
+    --     open_fn = require('packer.util').float,
+    -- }
+}
 })
