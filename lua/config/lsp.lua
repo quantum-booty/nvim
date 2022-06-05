@@ -110,13 +110,14 @@ nvim_lsp.yamlls.setup {}
 require('rust-tools').setup { server = { capabilities = capabilities, on_attach = on_attach } }
 
 
+local omnisharp_bin = nil
 if vim.fn.has('win32') == 1 then
     USERPROFILE = vim.env.USERPROFILE
     if USERPROFILE then
-        local omnisharp_bin = USERPROFILE .. "/omnisharp-win-x64/OmniSharp.exe"
+        omnisharp_bin = USERPROFILE .. "/omnisharp-win-x64/OmniSharp.exe"
     end
 else
-    local omnisharp_bin = "/home/henryw/omnisharp/run"
+    omnisharp_bin = "/home/henryw/omnisharp/run"
 end
 nvim_lsp.omnisharp.setup {
     capabilities = capabilities,

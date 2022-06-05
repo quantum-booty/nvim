@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- lsp signature
 -------------------------------------------------------------------------------
-cfg = {
+local cfg = {
     bind = true, -- mandatory
     -- doc_lines = 60,
     floating_window = true, -- show hint in a floating window, set to false for virtual text only mode

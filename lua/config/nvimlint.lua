@@ -1,7 +1,7 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
-nvim_lint = require('lint')
+local nvim_lint = require('lint')
 nvim_lint.linters_by_ft = {
   python = {'pylint','flake8'}
 }

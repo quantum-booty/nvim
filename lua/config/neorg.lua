@@ -15,7 +15,6 @@ require('neorg').setup {
                 icon_preset = 'diamond',
             }
         },
-        ['core.norg.dirman'] = {}, -- Loads the directory manager with no configuration
 		["core.keybinds"] = {
 			config = {
 				default_keybinds = true,

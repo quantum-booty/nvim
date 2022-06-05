@@ -100,7 +100,7 @@ vim.g.gruvbox_invert_selection=1
 -- =============================================================================
 -- # one dark
 -- =============================================================================
-onedark = require('onedark')
+local onedark = require('onedark')
 onedark.setup({
     style = 'darker',
     transparent = false,
