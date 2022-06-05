@@ -31,6 +31,13 @@ local match_result = s(
     }))
 
 
-local self_dot = s({trig=" %.", regTrig=true}, { t(" self.") } )
+local self_dot = s(".", {
+    t("self."),
+}, {
+    condition = function(line_to_cursor)
+        local char = string.sub(line_to_cursor, -2, -2)
+        return char == ' ' or char == '('
+    end,
+})
 
 return { match_result }, { self_dot }
