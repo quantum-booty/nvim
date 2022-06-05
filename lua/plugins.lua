@@ -94,7 +94,7 @@ return require('packer').startup({ function(use)
 
 
     -- snippets
-    use { 'rafamadriz/friendly-snippets' }
+    use { 'quantum-booty/friendly-snippets' }
     use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]] }
 
     -- Debugger
