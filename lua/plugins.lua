@@ -8,7 +8,7 @@ end
 
 local not_windows = require('utils').not_windows
 
-return require('packer').startup({ function()
+return require('packer').startup({ function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'lewis6991/impatient.nvim'
