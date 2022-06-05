@@ -61,6 +61,6 @@ local def_init = s("defi", fmt(
     d(2, to_init_assign, {1})
   }))
 
-local py_self = s('.', {t("self.")}, {condition = conds.line_begin})
+local self_dot = s({trig=" %.", regTrig=true}, { t(" self.") } )
 
-return {def_init}, {py_self}
+return {def_init}, {self_dot}

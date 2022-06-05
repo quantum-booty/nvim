@@ -31,4 +31,6 @@ local match_result = s(
     }))
 
 
-return { match_result }
+local self_dot = s({trig=" %.", regTrig=true}, { t(" self.") } )
+
+return { match_result }, { self_dot }
