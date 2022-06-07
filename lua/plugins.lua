@@ -60,7 +60,6 @@ return require('packer').startup({ function(use)
     -- use 'kristijanhusak/vim-dadbod-completion'
     --
     use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
-    -- use { 'kevinhwang91/nvim-hlslens', config = [[require('config.hlslens')]] }
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'tpope/vim-repeat', event = 'InsertEnter' }
     use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
@@ -141,36 +140,10 @@ return require('packer').startup({ function(use)
 
 
     use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
-    -- use {
-    --     "nvim-neo-tree/neo-tree.nvim",
-    --     requires = {
-    --         "nvim-lua/plenary.nvim",
-    --         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-    --         "MunifTanjim/nui.nvim"
-    --     },
-    --     config = [[require('config.neo_tree')]]
-    -- }
 
-
-    -- Git
-    -- use {
-    --     'TimUntersberger/neogit',
-    --     config = [[require('config.neogit')]],
-    --     requires = {
-    --         'sindrets/diffview.nvim'
-    --     },
-    --     keys='<leader>gs',
-    --     cond = not_windows,
-    -- }
     use { 'sindrets/diffview.nvim' }
-    -- use { 'kdheepak/lazygit.nvim', config = function()
-    --     vim.api.nvim_set_keymap('n', '<leader>g', ':LazyGit<CR>', { noremap = true })
-    --     vim.cmd('let g:lazygit_floating_window_scaling_factor = 1.0')
-    -- end }
-    -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
-    -- use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
-    use {"akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
+    use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]] }
 
 
     -- language support / syntax highlighting
@@ -194,16 +167,12 @@ return require('packer').startup({ function(use)
 
     --- Quality of life
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]], cmd = 'UndotreeToggle' }
-    -- use { 'folke/which-key.nvim', config = [[require'which-key'.setup{}]], cmd = 'WhichKey' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
-    -- use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
     use {
         'andweeb/presence.nvim',
         config = [[require('config.discord')]],
         cond = not_windows,
     }
-    -- shows marks in sign column
-    -- use { 'chentau/marks.nvim', config = [[require('config.marks')]] }
 
     -- ---  Note taking, tex, orgmode
     use { 'nvim-neorg/neorg', config = [[require('config.neorg')]] }
