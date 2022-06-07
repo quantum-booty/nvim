@@ -18,7 +18,7 @@ return require('packer').startup({ function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'MunifTanjim/nui.nvim'
     use 'stevearc/dressing.nvim'
-    use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
+    -- use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
 
 
     -- TODO: plugins to check out in the future
@@ -163,13 +163,14 @@ return require('packer').startup({ function(use)
     --     cond = not_windows,
     -- }
     use { 'sindrets/diffview.nvim' }
-    use { 'kdheepak/lazygit.nvim', config = function()
-        vim.api.nvim_set_keymap('n', '<leader>g', ':LazyGit<CR>', { noremap = true })
-        vim.cmd('let g:lazygit_floating_window_scaling_factor = 1.0')
-    end }
+    -- use { 'kdheepak/lazygit.nvim', config = function()
+    --     vim.api.nvim_set_keymap('n', '<leader>g', ':LazyGit<CR>', { noremap = true })
+    --     vim.cmd('let g:lazygit_floating_window_scaling_factor = 1.0')
+    -- end }
     -- use { 'tpope/vim-fugitive', config = [[require('config.fugitive')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
     -- use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
+    use {"akinsho/toggleterm.nvim", config = [[require('config.toggleterm')]]}
 
 
     -- language support / syntax highlighting
