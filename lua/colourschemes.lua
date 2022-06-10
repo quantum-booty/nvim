@@ -141,10 +141,10 @@ require('rose-pine').setup({
 -- # kanagawa
 -- =============================================================================
 require('kanagawa').setup({
-    commentStyle = "NONE",
-    functionStyle = "NONE",
-    keywordStyle = "NONE",
-    variablebuiltinStyle = "NONE",
+    commentStyle = { italic = false },
+    functionStyle = { italic = false },
+    keywordStyle = { italic = false },
+    variablebuiltinStyle = { italic = false },
     dimInactive = true,        -- dim inactive window `:h hl-NormalNC`
     globalStatus = true,       -- adjust window separators highlight for laststatus=3
     overrides = {
