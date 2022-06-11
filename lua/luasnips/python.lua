@@ -70,4 +70,4 @@ local self_dot = s(".", {
     end,
 })
 
-return {def_init}, {self_dot}
+return {def_init, self_dot}, {}

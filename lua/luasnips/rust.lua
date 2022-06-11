@@ -40,4 +40,4 @@ local self_dot = s(".", {
     end,
 })
 
-return { match_result }, { self_dot }
+return { match_result, self_dot }, { }
