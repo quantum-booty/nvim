@@ -158,8 +158,8 @@ require('kanagawa').setup({
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- onedark.load()
 -- vim.cmd([[colorscheme onenord]])
--- vim.cmd([[colorscheme rose-pine]])
-vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme kanagawa]])
 -- vim.cmd([[colorscheme tokyodark]])
 
 -- vim.cmd([[colorscheme nightfox]])
