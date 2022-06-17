@@ -88,7 +88,7 @@ return require('packer').startup({ function(use)
 
     -- use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
     -- linter, fixer, formatter
-    use { 'jose-elias-alvarez/null-ls.nvim', config = [[require('config.nullls')]] }
+    use { 'sbdchd/neoformat' }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]] }
 
 
