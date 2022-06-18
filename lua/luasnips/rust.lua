@@ -31,6 +31,24 @@ local match_result = s(
     }))
 
 
+local modtest = s(
+    "modtest",
+    fmt([[
+    #[cfg(test)]
+    mod tests {{
+        use super::*;
+
+        #[test]
+        fn {1}() {{
+            {2}
+        }} 
+    }}
+    ]], {
+        i(1, "name"),
+        i(2, " "),
+    }))
+
+
 local self_dot = s(".", {
     t("self."),
 }, {
@@ -40,4 +58,4 @@ local self_dot = s(".", {
     end,
 })
 
-return { match_result, self_dot }, { }
+return { match_result, self_dot, modtest }, { }
