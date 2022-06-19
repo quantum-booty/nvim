@@ -1,10 +1,16 @@
 local autocmd = require('utils').autocmd
 local map = require('utils').map
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 map('n', '<space>', '<nop>', opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = ','
+
+-- user commands
+vim.api.nvim_create_user_command("PS", function() vim.cmd 'PackerSync' end, {})
+vim.api.nvim_create_user_command("RC", function() vim.cmd 'cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua' end, {})
+vim.api.nvim_create_user_command("RP", function() vim.cmd 'cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua' end, {})
+vim.api.nvim_create_user_command("CD", function() vim.cmd 'cd %:p:h' end, {})
 
 -- this is smooth as fuck haha
 map('i', '<Del>', '<C-o>A;', opts)
@@ -12,10 +18,10 @@ map('i', '<Del>', '<C-o>A;', opts)
 
 -- map('n', '<cr>', 'zo', opts)
 -- map('n', '<cr>', ':%foldo<cr>', opts)
-autocmd('filetype_help_mapping', 'FileType', {pattern='help', command=[[nnoremap <buffer> <CR> <c-]>]]})
+autocmd('filetype_help_mapping', 'FileType', { pattern = 'help', command = [[nnoremap <buffer> <CR> <c-]>]] })
 
 
- -- Search results centered
+-- Search results centered
 map('n', 'n', 'nzzzv', opts)
 map('n', 'N', 'Nzzzv', opts)
 map('n', 'J', 'mzJ`z', opts)
@@ -46,11 +52,6 @@ nnoremap <Leader>N ?\d\+<CR>
 -- =============================================================================
 -- # custom remaps
 -- =============================================================================
--- sourcing the vimrc
--- map('n', '<Leader>so', ':source $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>crc', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>', opts)
-map('n', '<Leader>crp', ':cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>', opts)
-
 -- Redo with U
 map('n', 'U', '<C-R>', opts)
 
@@ -83,11 +84,8 @@ map('x', '+', '<C-a>', opts)
 map('x', '-', '<C-x>', opts)
 
 -- " use ( and ) for moving half page up and down
-map('n', '(', '<C-u>', {noremap=false, silent=true})
-map('n', ')', '<C-d>', {noremap=false, silent=true})
-
--- cd to file path
-map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', opts)
+map('n', '(', '<C-u>', { noremap = false, silent = true })
+map('n', ')', '<C-d>', { noremap = false, silent = true })
 
 -- " lsp hover tab is the same as C-i", so remap C-y to C-i
 map('n', '<C-y>', '<C-i>', opts)
@@ -96,10 +94,6 @@ map('n', 'gj', 'g;', opts)
 map('n', 'gk', 'g,', opts)
 -- " scroll up and down
 map('n', '<C-a>', '<C-y>', opts)
-
--- packer
-vim.api.nvim_create_user_command("PS", function() vim.cmd'PackerSync' end, {})
-
 
 -- " =============================================================================
 -- " # Terminal
@@ -133,5 +127,3 @@ nnoremap <silent> <down> :call WinMove('j')<CR>
 nnoremap <silent> <up> :call WinMove('k')<CR>
 nnoremap <silent> <right> :call WinMove('l')<CR>
 ]])
-
-
