@@ -51,6 +51,7 @@ local nvim_lsp = require('lspconfig')
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     if client.name == 'pyright' then
@@ -58,7 +59,7 @@ local on_attach = function(client, bufnr)
     else
         buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
     end
-    
+
     -- Mappings.
     buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
@@ -91,7 +92,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -------------------------------------------------------------------------------
 -- language server setup
 -------------------------------------------------------------------------------
-autocmd('haskell', 'FileType', { pattern = 'haskell', command = [[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]] })
+autocmd('haskell', 'FileType',
+    { pattern = 'haskell',
+        command = [[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]] })
 nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach }
 -- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
 vim.cmd([[
@@ -102,7 +105,15 @@ require 'ionide'.setup { capabilities = capabilities, on_attach = on_attach }
 
 nvim_lsp.dockerls.setup { capabilities = capabilities, on_attach = on_attach }
 nvim_lsp.yamlls.setup {}
-require('rust-tools').setup { server = { capabilities = capabilities, on_attach = on_attach } }
+require('rust-tools').setup {
+    server = { capabilities = capabilities, on_attach = on_attach },
+    settings = {
+        cargo = {
+            -- load generated code like protobuf
+            runBuildScripts = true
+        }
+    }
+}
 
 
 local omnisharp_bin = nil
