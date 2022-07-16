@@ -60,8 +60,8 @@ return require('packer').startup({ function(use)
     --
     use { "petertriho/nvim-scrollbar", config = [[require('config.scrollbar')]] }
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-    use { 'tpope/vim-repeat', event = 'InsertEnter' }
-    use { 'tpope/vim-surround', config = [[require('config.surround')]], event = 'CursorMoved' }
+    use { 'tpope/vim-repeat' }
+    use { 'kylechui/nvim-surround', config = [[require('config.surround')]] }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
     use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
 
