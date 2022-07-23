@@ -165,6 +165,7 @@ return require('packer').startup({ function(use)
     use { 'danymat/neogen', config = [[require('config.neogen')]], cmd = 'Neogen' }
 
     --- Quality of life
+    use { 'anuvyklack/hydra.nvim', config = [[require('config.hydra')]] }
     use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]], cmd = 'UndotreeToggle' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
     use {
