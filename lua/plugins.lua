@@ -75,6 +75,7 @@ return require('packer').startup({ function(use)
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
     use "folke/lua-dev.nvim"
+    use { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' }
 
     use {
         { 'hrsh7th/nvim-cmp', config = [[require('config.cmp_')]] },

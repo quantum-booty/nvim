@@ -22,7 +22,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 -------------------------------------------------------------------------------
 -- Diagnostic settings
 -------------------------------------------------------------------------------
-vim.diagnostic.config({ float = { border = 'single', show_header = false } })
 
 
 -- diagnostic colours
@@ -61,7 +60,7 @@ local on_attach = function(client, bufnr)
     end
 
     -- Mappings.
-    buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
     buf_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -211,3 +210,16 @@ local luadev = require("lua-dev").setup({
 })
 
 nvim_lsp.sumneko_lua.setup(luadev)
+
+
+local function toggle_lsp_lines()
+  local new_value = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_value, virtual_text = not new_value })
+  return new_value
+end
+
+
+vim.diagnostic.config({virtual_text = false, float = { border = 'single', show_header = false } })
+require("lsp_lines").setup()
+vim.keymap.set("n", "<Leader>d", toggle_lsp_lines, { desc = "Toggle lsp_lines"})
+
