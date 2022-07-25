@@ -62,8 +62,8 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
-    buf_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    -- buf_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    -- buf_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
     buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
@@ -195,7 +195,6 @@ local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = t
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "scala", "sbt" },
     callback = function()
-        print('shit')
         require("metals").initialize_or_attach(metals_config)
     end,
     group = nvim_metals_group,
@@ -211,15 +210,25 @@ local luadev = require("lua-dev").setup({
 
 nvim_lsp.sumneko_lua.setup(luadev)
 
+local function toggle_diagnostic_mappings()
+    if vim.diagnostic.config().virtual_lines then
+        vim.keymap.set('n', 'gn', function() vim.diagnostic.goto_next({ float = false }) end, opts)
+        vim.keymap.set('n', 'gp', function() vim.diagnostic.goto_prev({ float = false }) end, opts)
+    else
+        vim.keymap.set('n', 'gn', function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set('n', 'gp', function() vim.diagnostic.goto_prev() end, opts)
+    end
+end
 
 local function toggle_lsp_lines()
-  local new_value = not vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config({ virtual_lines = new_value, virtual_text = not new_value })
-  return new_value
+    local new_value = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = new_value, virtual_text = not new_value })
+    toggle_diagnostic_mappings()
+    return new_value
 end
 
 
-vim.diagnostic.config({virtual_text = false, float = { border = 'single', show_header = false } })
+vim.diagnostic.config({ virtual_text = false, float = { border = 'single', show_header = false } })
 require("lsp_lines").setup()
-vim.keymap.set("n", "<Leader>d", toggle_lsp_lines, { desc = "Toggle lsp_lines"})
-
+toggle_diagnostic_mappings()
+vim.keymap.set("n", "<Leader>d", toggle_lsp_lines, { desc = "Toggle lsp_lines" })

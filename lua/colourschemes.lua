@@ -158,7 +158,7 @@ require('kanagawa').setup({
 -- vim.cmd([[set background=light | colorscheme gruvbox]])
 -- onedark.load()
 -- vim.cmd([[colorscheme onenord]])
-vim.cmd([[colorscheme rose-pine]])
+-- vim.cmd([[colorscheme rose-pine]])
 -- vim.cmd([[colorscheme kanagawa]])
 -- vim.cmd([[colorscheme tokyodark]])
 
@@ -174,6 +174,6 @@ vim.cmd([[colorscheme rose-pine]])
 -- catppuccin.load('neon_latte')
 -- catppuccin.load('light_melya')
 --
--- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
+vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
