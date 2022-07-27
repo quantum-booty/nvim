@@ -120,6 +120,7 @@ map('n', '<leader>pp', ':Telescope projects<CR>', opts)
 -- " --- File Pickers
 -- " Fuzzy find over git files in your directory
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, opts)
+vim.keymap.set('n', '<leader>ps', require('telescope.builtin').git_status, opts)
 -- " Search over files in your cwd current working directory.
 map('n', '<leader>pf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
 -- " grep typed string

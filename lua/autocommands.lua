@@ -4,6 +4,7 @@ local autocmd_multi = require('utils').autocmd_multi
 -- autocmd("fsharp", {'BufNewFile','BufRead'}, { pattern = {'*.fs','*.fsx','*.fsi'}, command = 'set filetype=fsharp'})
 autocmd("haskell", {'BufNewFile','BufRead'}, { pattern = '*.hs', command = 'set filetype=haskell'})
 vim.cmd([[autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp]])
+vim.cmd([[autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile]])
 
 autocmd_multi("misc",
     {

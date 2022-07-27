@@ -40,7 +40,7 @@ require('neorg').setup {
         },
         ["core.ui"] = {}, -- REQUIRED FOR GTD
         -- ["core.norg.qol.toc"] = {},
-        ["core.integrations.telescope"] = {},
+        -- ["core.integrations.telescope"] = {},
         -- ["core.integrations.trouble"] = {},
 
     },

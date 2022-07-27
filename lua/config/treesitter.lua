@@ -15,6 +15,8 @@ set foldexpr=nvim_treesitter#foldexpr()
 set foldnestmax=2
 set foldlevelstart=999
 ]])
+
+require 'nvim-treesitter.install'.compilers = { "clang" }
  
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"norg", "python", "lua", "vim", "json", "c_sharp", "markdown", "haskell", "rust", "dockerfile", "yaml", "scala"},
