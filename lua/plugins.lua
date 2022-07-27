@@ -187,15 +187,17 @@ return require('packer').startup({ function(use)
     -- https://github.com/tiagovla/zotex.nvim
 
 end,
-config = {
-    -- Move to lua dir so impatient.nvim can cache it
-    compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua',
-    -- profile = {
-    --     enable = true,
-    --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-    -- },
-    -- display = {
-    --     open_fn = require('packer.util').float,
-    -- }
-}
+    config = {
+        -- Move to lua dir so impatient.nvim can cache it
+        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
+
+        max_jobs = nil and not_windows() or 10,
+        -- profile = {
+        --     enable = true,
+        --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
+        -- },
+        -- display = {
+        --     open_fn = require('packer.util').float,
+        -- }
+    }
 })
