@@ -4,6 +4,11 @@ local lazygit = Terminal:new(
         cmd = "lazygit",
         hidden = true,
         direction = "float",
+        on_open = function()
+            if vim.fn.has 'win32' == 1 then
+                vim.cmd([[startinsert]])
+            end
+        end,
         float_opts = {
             width = function()
                 return vim.o.columns
