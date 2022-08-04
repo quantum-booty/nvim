@@ -136,7 +136,7 @@ return require('packer').startup({ function(use)
         end
     }
     use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
-    use { 'windwp/nvim-spectre', config = [[require('config.spectre')]] }
+    use { 'nvim-pack/nvim-spectre', config = [[require('config.spectre')]] }
 
 
     use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
