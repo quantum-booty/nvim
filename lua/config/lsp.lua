@@ -77,6 +77,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
+
+    local rt = require("rust-tools")
+    if client.name == 'rust_analyzer' then
+        vim.keymap.set("n", "<tab>", rt.hover_actions.hover_actions, { buffer = bufnr })
+    end
 end
 
 
