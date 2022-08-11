@@ -76,6 +76,7 @@ map('n', '<leader>k', '<esc>:m .-2<CR>==', opts)
 
 -- " Blackhole regster
 map('n', 'X', '"_d', opts)
+map('x', '<leader>p', '\"_dP')
 
 -- " use + and - to increment and decrement number
 map('n', '+', '<C-a>', opts)

@@ -168,12 +168,13 @@ require('kanagawa').setup({
 -- vim.cmd([[colorscheme duskfox]])
 -- vim.cmd([[colorscheme dayfox]])
 -- vim.cmd([[colorscheme dawnfox]])
+vim.cmd([[colorscheme carbonfox]])
 
 -- catppuccin.load()
 -- catppuccin.load('soft_manilo')
 -- catppuccin.load('neon_latte')
 -- catppuccin.load('light_melya')
 --
-vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
+-- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
