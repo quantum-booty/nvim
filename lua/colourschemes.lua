@@ -47,56 +47,71 @@ vim.g.gruvbox_invert_selection=1
 -- " =============================================================================
 -- " # Catppuccin
 -- " =============================================================================
--- local catppuccin = require("catppuccin")
--- catppuccin.setup(
---     {
--- 		transparent_background = false,
--- 		term_colors = false,
--- 		styles = {
--- 			comments = "italic",
--- 			functions = "italic",
--- 			keywords = "italic",
--- 			strings = "NONE",
--- 			variables = "NONE",
--- 		},
--- 		integrations = {
--- 			treesitter = true,
--- 			native_lsp = {
--- 				enabled = true,
--- 				virtual_text = {
--- 					errors = "italic",
--- 					hints = "italic",
--- 					warnings = "italic",
--- 					information = "italic",
--- 				},
--- 				underlines = {
--- 					errors = "underline",
--- 					hints = "underline",
--- 					warnings = "underline",
--- 					information = "underline",
--- 				},
--- 			},
--- 			lsp_trouble = true,
--- 			gitsigns = true,
--- 			telescope = true,
--- 			nvimtree = {
--- 				enabled = true,
--- 				show_root = true,
--- 			},
--- 			which_key = true,
--- 			indent_blankline = {
--- 				enabled = true,
--- 				colored_indent_levels = true,
--- 			},
--- 			neogit = true,
--- 			barbar = true,
--- 			markdown = true,
--- 			lightspeed = true,
--- 			ts_rainbow = true,
--- 		},
--- 	}
--- )
---
+require("catppuccin").setup({
+	transparent_background = false,
+	term_colors = true,
+	compile = {
+		enabled = true,
+		path = vim.fn.stdpath "cache" .. "/catppuccin",
+	},
+	styles = {
+		comments = {},
+		conditionals = {},
+		loops = {},
+		functions = {},
+		keywords = {},
+		strings = {},
+		variables = {},
+		numbers = {},
+		booleans = {},
+		properties = {},
+		types = {},
+		operators = {},
+	},
+	integrations = {
+		treesitter = true,
+		native_lsp = {
+			enabled = true,
+			virtual_text = {
+				errors = {},
+				hints = {},
+				warnings = {},
+				information = {},
+			},
+			underlines = {
+				errors = { "underline" },
+				hints = { "underline" },
+				warnings = { "underline" },
+				information = { "underline" },
+			},
+		},
+		lsp_trouble = true,
+		cmp = true,
+		gitsigns = true,
+		telescope = true,
+		nvimtree = {
+			enabled = true,
+			show_root = true,
+			transparent_panel = false,
+		},
+		dap = {
+			enabled = false,
+			enable_ui = false,
+		},
+		indent_blankline = {
+			enabled = true,
+			colored_indent_levels = true,
+		},
+		neogit = false,
+		bufferline = true,
+		lightspeed = true,
+		ts_rainbow = true,
+		symbols_outline = true,
+	},
+	color_overrides = {},
+	highlight_overrides = {},
+})
+
 -- =============================================================================
 -- # one dark
 -- =============================================================================
@@ -116,16 +131,16 @@ onedark.setup({
 -- =============================================================================
 -- # one nord
 -- =============================================================================
-require('onenord').setup({
-    borders = true, -- Split window borders
-    bold = {
-        functions = true, -- Bold functions
-    },
-    custom_highlights = {
-        TSDefinitionUsage = { style = "reverse" },
-        Visual = { style = "reverse" },
-    },
-})
+-- require('onenord').setup({
+--     borders = true, -- Split window borders
+--     bold = {
+--         functions = true, -- Bold functions
+--     },
+--     custom_highlights = {
+--         TSDefinitionUsage = { style = "reverse" },
+--         Visual = { style = "reverse" },
+--     },
+-- })
 
 
 -- =============================================================================
@@ -168,13 +183,14 @@ require('kanagawa').setup({
 -- vim.cmd([[colorscheme duskfox]])
 -- vim.cmd([[colorscheme dayfox]])
 -- vim.cmd([[colorscheme dawnfox]])
-vim.cmd([[colorscheme carbonfox]])
+-- vim.cmd([[colorscheme carbonfox]])
 
--- catppuccin.load()
--- catppuccin.load('soft_manilo')
--- catppuccin.load('neon_latte')
--- catppuccin.load('light_melya')
---
+vim.g.catppuccin_flavour = "macchiato" -- default
+-- vim.g.catppuccin_flavour = "latte" -- light
+-- vim.g.catppuccin_flavour = "frappe" -- nord
+-- vim.g.catppuccin_flavour = "mocha" -- deep
+vim.cmd([[colorscheme catppuccin]])
+
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])

@@ -34,8 +34,12 @@ return require('packer').startup({ function(use)
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
         'EdenEast/nightfox.nvim',
-        -- 'catppuccin/nvim',
         { 'rose-pine/neovim', as = 'rose-pine' },
+    }
+    use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        run = ":CatppuccinCompile"
     }
 
     -- cosmetics
