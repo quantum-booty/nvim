@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-
 -- Move to previous/next
 map('n', '<C-j>', ':BufferLineCyclePrev<CR>', opts)
 map('n', '<C-k>', ':BufferLineCycleNext<CR>', opts)
@@ -76,22 +75,22 @@ require('bufferline').setup {
     },
     highlights = {
         buffer_selected = {
-            guifg = '#c678dd'
+            fg = '#c678dd'
         },
         numbers_selected = {
-            guifg = '#c678dd'
+            fg = '#c678dd'
         },
         buffer = {
-            guifg = 'LightBlue'
+            fg = 'LightBlue'
         },
         modified = {
-            guifg = '#D57780',
+            fg = '#D57780',
         },
         modified_visible = {
-            guifg = '#D57780',
+            fg = '#D57780',
         },
         modified_selected = {
-            guifg = '#D57780',
+            fg = '#D57780',
         },
     },
 }
