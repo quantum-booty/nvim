@@ -73,6 +73,14 @@ return require('packer').startup({ function(use)
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     use { 'ionide/Ionide-vim' }
     use { 'simrat39/rust-tools.nvim' }
+    use {
+        'saecki/crates.nvim',
+        event = { "BufRead Cargo.toml" },
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = function()
+            require('crates').setup()
+        end,
+    }
     use { 'scalameta/nvim-metals' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
