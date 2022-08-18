@@ -6,7 +6,7 @@ local opts = { noremap=true, silent=true }
 
 map('n', '<leader>a', "<cmd>SymbolsOutline<CR>", opts)
 
-vim.g.symbols_outline = {
+local symbol_outline_opts = {
     highlight_hovered_item = true,
     position = 'left',
     width = 20,
@@ -25,3 +25,5 @@ vim.g.symbols_outline = {
     lsp_blacklist = {},
     symbol_blacklist = {"Variable"},
 }
+
+require("symbols-outline").setup(symbol_outline_opts)
