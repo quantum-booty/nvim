@@ -2,11 +2,11 @@ local Hydra = require("hydra")
 local gitsigns = require('gitsigns')
 
 local hint = [[
- _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
- _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
+ _j_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
+ _k_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
  ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file
  ^
- ^ ^              _<Enter>_: Neogit              _q_: exit
+ ^ ^              _<Enter>_: Neogit              _<esc>_: exit
 ]]
 
 Hydra({
@@ -34,14 +34,14 @@ Hydra({
    mode = {'n','x'},
    body = '<leader>g',
    heads = {
-      { 'J',
+      { 'j',
          function()
             if vim.wo.diff then return ']c' end
             vim.schedule(function() gitsigns.next_hunk() end)
             return '<Ignore>'
          end,
          { expr = true, desc = 'next hunk' } },
-      { 'K',
+      { 'k',
          function()
             if vim.wo.diff then return '[c' end
             vim.schedule(function() gitsigns.prev_hunk() end)
@@ -57,6 +57,6 @@ Hydra({
       { 'B', function() gitsigns.blame_line{ full = true } end, { desc = 'blame show full' } },
       { '/', gitsigns.show, { exit = true, desc = 'show base file' } }, -- show the base of the file
       { '<Enter>', '<Cmd>Neogit<CR>', { exit = true, desc = 'Neogit' } },
-      { 'q', nil, { exit = true, nowait = true, desc = 'exit' } },
+      { '<esc>', nil, { exit = true, nowait = true, desc = 'exit' } },
    }
 })
