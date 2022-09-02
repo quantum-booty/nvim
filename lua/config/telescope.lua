@@ -124,7 +124,7 @@ vim.keymap.set('n', '<leader>ps', require('telescope.builtin').git_status, opts)
 -- " Search over files in your cwd current working directory.
 map('n', '<leader>pf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
 -- " grep typed string
-map('n', '<leader>pg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+map('n', '<leader>pg', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]], opts)
 -- " grep cursor word
 map('n', '<leader>pw', [[<cmd>lua require('telescope.builtin').grep_string({search = vim.fn.expand("<cword>")})<CR>]], opts)
 -- " grep line

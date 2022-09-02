@@ -134,6 +134,7 @@ return require('packer').startup({ function(use)
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
+    use { 'nvim-telescope/telescope-live-grep-args.nvim' }
     use {
         'natecraddock/telescope-zf-native.nvim',
         config = [[require('telescope').load_extension('zf-native')]],
