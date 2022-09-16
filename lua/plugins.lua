@@ -43,7 +43,7 @@ return require('packer').startup({ function(use)
     }
 
     -- cosmetics
-    use { 'norcalli/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
+    use { 'NvChad/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
