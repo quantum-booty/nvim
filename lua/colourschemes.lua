@@ -174,7 +174,7 @@ require('kanagawa').setup({
 -- onedark.load()
 -- vim.cmd.colorscheme('onenord')
 -- vim.cmd.colorscheme('rose-pine')
-vim.cmd.colorscheme('kanagawa')
+-- vim.cmd.colorscheme('kanagawa')
 -- vim.cmd.colorscheme('tokyodark')
 
 -- vim.cmd.colorscheme('nightfox')
@@ -183,7 +183,7 @@ vim.cmd.colorscheme('kanagawa')
 -- vim.cmd.colorscheme('duskfox')
 -- vim.cmd.colorscheme('dayfox')
 -- vim.cmd.colorscheme('dawnfox')
--- vim.cmd.colorscheme('carbonfox')
+vim.cmd.colorscheme('carbonfox')
 
 -- vim.g.catppuccin_flavour = "macchiato" -- default
 -- vim.g.catppuccin_flavour = "latte" -- light
