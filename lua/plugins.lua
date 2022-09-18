@@ -170,7 +170,7 @@ return require('packer').startup({ function(use)
         'nvim-treesitter/nvim-treesitter-refactor',
         'p00f/nvim-ts-rainbow',
         'nvim-treesitter/nvim-treesitter-context',
-        'David-Kunz/markid',
+        -- 'David-Kunz/markid',
     }
 
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
