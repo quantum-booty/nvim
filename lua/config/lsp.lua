@@ -185,7 +185,17 @@ nvim_lsp.pyright.setup({
             local python_path = get_python_path(virtual_env_path)
             config.settings.python.pythonPath = python_path
         end
-    end
+    end,
+    -- settings = {
+    --     python = {
+    --         analysis = {
+    --             autoSearchPaths = true,
+    --             diagnosticMode = "workspace",
+    --             useLibraryCodeForTypes = true,
+    --             typeCheckingMode = "strict", 
+    --         }
+    --     }
+    -- }
 })
 
 local metals_config = require("metals").bare_config()
