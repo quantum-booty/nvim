@@ -234,6 +234,6 @@ end
 
 
 require("lsp_lines").setup()
-toggle_diagnostic_mappings()
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false, float = { border = 'single', show_header = false } })
+toggle_diagnostic_mappings()
 vim.keymap.set("n", "<Leader>d", toggle_lsp_lines, { desc = "Toggle lsp_lines" })
