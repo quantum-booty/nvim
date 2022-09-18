@@ -130,7 +130,11 @@ return require('packer').startup({ function(use)
     --         vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
     --     end,
     -- }
-    use { "beauwilliams/focus.nvim", config = [[require('config.focus')]] }
+    -- use { "beauwilliams/focus.nvim", config = [[require('config.focus')]] }
+    use {
+        'nyngwang/NeoZoom.lua',
+        config = [[require('config.neozoom')]]
+    }
 
     -- Fuzzy finder & project navigation
     use { 'nvim-telescope/telescope.nvim', config = [[require('config.telescope')]] }
