@@ -72,7 +72,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
 
     buf_set_keymap('n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('v', '<leader>c', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+    buf_set_keymap('v', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
     buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
     buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
