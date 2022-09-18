@@ -130,6 +130,9 @@ else
     omnisharp_bin = "/home/henryw/omnisharp/run"
 end
 nvim_lsp.omnisharp.setup {
+    handlers = {
+        ["textDocument/definition"] = require('omnisharp_extended').handler,
+    },
     capabilities = capabilities,
     cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) };
     on_attach = on_attach,

@@ -72,6 +72,7 @@ return require('packer').startup({ function(use)
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
     use { 'ionide/Ionide-vim' }
+    use { 'Hoffs/omnisharp-extended-lsp.nvim' }
     use { 'simrat39/rust-tools.nvim' }
     use {
         'saecki/crates.nvim',
