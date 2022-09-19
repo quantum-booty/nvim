@@ -149,23 +149,6 @@ map('n', '<leader>pc', [[<cmd>lua require('telescope.builtin').colorscheme()<CR>
 map('n', '<leader>pk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]], opts)
 
 
-
--- " --- LSP Pickers
--- " References under cursor
-map('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
-map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
-map('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]], opts)
-map('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
-
--- " workspace symbol
-map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
--- " document symbol using treesitter
--- map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
-map('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
--- " Code actions
--- map('n', '<leader>pa', [[<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({layout_config = {height = 15}}))<CR>]], opts)
-
-
 -- -- " " --- git pickers
 -- -- " " commits
 -- map('n', '<leader>pgc', [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], opts)

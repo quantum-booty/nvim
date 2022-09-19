@@ -71,6 +71,29 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true, buffer = bufnr })
     buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
 
+
+
+    -- " --- LSP Pickers
+    buf_set_keymap('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
+    buf_set_keymap('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+    buf_set_keymap('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+
+    if client.name == 'omnisharp' then
+        buf_set_keymap('n', 'gd', [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]], opts)
+    else
+        buf_set_keymap('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]], opts)
+    end
+
+
+    -- " workspace symbol
+    buf_set_keymap('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
+    -- " document symbol using treesitter
+    -- buf_set_keymap('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
+    buf_set_keymap('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
+
+
+
+
     buf_set_keymap('n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('v', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
