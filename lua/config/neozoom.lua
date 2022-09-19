@@ -2,8 +2,8 @@ require('neo-zoom').setup { -- use the defaults or UNCOMMENT and change any one 
     -- left_ratio = 0.0,
     -- top_ratio = 0.0,
     width_ratio = 0.8,
-    -- height_ratio = 0.9,
-    border = 'single',
+    height_ratio = 1.,
+    border = 'none',
     -- exclude_filetype = {
     --   'fzf', 'qf', 'dashboard'
     -- }
