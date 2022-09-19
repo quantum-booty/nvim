@@ -80,6 +80,7 @@ telescope.setup{
         help_tags = { jump_type = 'tab'},
         current_buffer_fuzzy_find = { theme = "dropdown" },
         lsp_definitions = { theme = "ivy", show_line = false },
+        lsp_implementations = { theme = "ivy", show_line = false },
         lsp_references = { theme = "ivy", show_line = false },
     },
     extensions = {
