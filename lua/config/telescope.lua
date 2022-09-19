@@ -80,7 +80,7 @@ telescope.setup{
         help_tags = { jump_type = 'tab'},
         current_buffer_fuzzy_find = { theme = "dropdown" },
         lsp_definitions = { theme = "ivy" },
-        lsp_references = { theme = "ivy" },
+        -- lsp_references = { theme = "ivy" },
     },
     extensions = {
         -- file_browser = {
@@ -136,6 +136,7 @@ vim.keymap.set('n', '<leader>po', require('telescope.builtin').oldfiles, opts)
 
 
 -- " --- Vim Pickers
+map('n', '<leader>pR', [[<cmd>lua require('telescope.builtin').resume({initial_mode='normal'})<CR>]], opts)
 -- " Opened buffer files
 map('n', '<leader><leader>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
 -- " show help for cursor word
@@ -154,9 +155,8 @@ map('n', '<leader>pk', [[<cmd>lua require('telescope.builtin').keymaps()<CR>]], 
 map('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
 map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
 map('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]], opts)
-map('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
-map('n', '<leader>pR', [[<cmd>lua require('telescope.builtin').resume({initial_mode='normal'})<CR>]], opts)
 map('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
+
 -- " workspace symbol
 map('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
 -- " document symbol using treesitter
