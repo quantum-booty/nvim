@@ -159,6 +159,8 @@ nvim_lsp.omnisharp.setup {
     capabilities = capabilities,
     cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) };
     on_attach = on_attach,
+    enable_roslyn_analyzers = false,
+    enable_import_completion = true,
 }
 
 
