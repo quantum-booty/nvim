@@ -23,8 +23,8 @@ nightfox.setup({
         transparent = false,
         terminal_colors=true,
         styles = {
-            comments = "italic", -- change style of comments to be italic
-            keywords = "italic", -- change style of keywords to be bold
+            comments = "", -- change style of comments to be italic
+            keywords = "", -- change style of keywords to be bold
             functions = "bold" -- styles can be a comma separated list
         },
         inverse = {
