@@ -16,7 +16,7 @@ return require('packer').startup({ function(use)
     use 'nvim-lua/popup.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'MunifTanjim/nui.nvim'
-    use { 'stevearc/dressing.nvim', config = [[require('config.dressing')]]}
+    use { 'stevearc/dressing.nvim', config = [[require('config.dressing')]] }
     -- use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
 
 
@@ -47,7 +47,8 @@ return require('packer').startup({ function(use)
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
-    use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]], config = [[require('config.alpha')]] }
+    use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]],
+        config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
     -- use { 'b0o/incline.nvim', config = [[require('config.incline')]] }
@@ -98,6 +99,7 @@ return require('packer').startup({ function(use)
         'hrsh7th/cmp-cmdline',
         'saadparwaiz1/cmp_luasnip',
     }
+    use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
 
     -- use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
     -- linter, fixer, formatter
@@ -187,7 +189,9 @@ return require('packer').startup({ function(use)
     --- Quality of life
     use { 'antoinemadec/FixCursorHold.nvim' }
     use { 'anuvyklack/hydra.nvim', config = [[require('config.hydra')]] }
-    use { 'mbbill/undotree', config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]], cmd = 'UndotreeToggle' }
+    use { 'mbbill/undotree',
+        config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]],
+        cmd = 'UndotreeToggle' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
     use {
         'andweeb/presence.nvim',
@@ -209,7 +213,7 @@ return require('packer').startup({ function(use)
 end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
-        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
+        compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua',
 
         max_jobs = nil and not_windows() or 10,
         -- profile = {
