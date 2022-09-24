@@ -156,7 +156,7 @@ return require('packer').startup({ function(use)
         end
     }
     use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
-    use { 'nvim-pack/nvim-spectre', config = [[require('config.spectre')]] }
+    use { 'nvim-pack/nvim-spectre', config = [[require('config.spectre')]], run = "./build.sh" }
 
 
     use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }

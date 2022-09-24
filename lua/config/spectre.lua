@@ -9,3 +9,13 @@ map('v', '<leader>SR', ':lua require("spectre").open_visual()<CR>', opts)
 -- vnoremap <leader>s :lua require('spectre').open_visual()<CR>
 -- "  search in current file
 -- nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+--
+
+require('spectre').setup({
+    default = {
+        replace = {
+            cmd = "oxi"
+       }
+    }
+}
+  )
