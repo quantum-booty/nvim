@@ -19,9 +19,9 @@ local nightfox = require('nightfox')
 
 nightfox.setup({
     options = {
-        dim_inactive=true,
+        dim_inactive = true,
         transparent = false,
-        terminal_colors=true,
+        terminal_colors = true,
         styles = {
             comments = "", -- change style of comments to be italic
             keywords = "", -- change style of keywords to be bold
@@ -32,7 +32,37 @@ nightfox.setup({
             search = true,
             visual = true,
         },
-    }
+    },
+    specs = {
+        all = {
+            telescope = {
+                bg_alt = "bg2",
+                bg = "bg1",
+                fg = "fg1",
+                green = "green",
+                red = "red",
+            },
+        },
+    },
+    groups = {
+        all = {
+            WinBar = { fg = "fg2", bg = "bg1" },
+            WinBarNC = { fg = "fg3", bg = "bg0" },
+            HighlightURL = { style = "underline" },
+            MiniIndentscopeSymbol = { link = "PreProc" },
+            NormalFloat = { link = "Normal" },
+            TelescopeBorder = { fg = "telescope.bg_alt", bg = "telescope.bg" },
+            TelescopeNormal = { bg = "telescope.bg" },
+            TelescopePreviewBorder = { fg = "telescope.bg", bg = "telescope.bg" },
+            TelescopePreviewTitle = { fg = "telescope.bg", bg = "telescope.green" },
+            TelescopePromptBorder = { fg = "telescope.bg_alt", bg = "telescope.bg_alt" },
+            TelescopePromptNormal = { fg = "telescope.fg", bg = "telescope.bg_alt" },
+            TelescopePromptPrefix = { fg = "telescope.red", bg = "telescope.bg_alt" },
+            TelescopePromptTitle = { fg = "telescope.bg", bg = "telescope.red" },
+            TelescopeResultsBorder = { fg = "telescope.bg", bg = "telescope.bg" },
+            TelescopeResultsTitle = { fg = "telescope.bg", bg = "telescope.bg" },
+        },
+    },
 })
 
 -- " =============================================================================
@@ -42,74 +72,74 @@ vim.g.airline_theme = 'gruvbox'
 vim.g.gruvbox_contrast_dark = 'soft'
 vim.g.gruvbox_contrast_light = 'soft'
 vim.g.gruvbox_italic = 1
-vim.g.gruvbox_invert_selection=1
+vim.g.gruvbox_invert_selection = 1
 
 -- " =============================================================================
 -- " # Catppuccin
 -- " =============================================================================
 require("catppuccin").setup({
-	transparent_background = false,
-	term_colors = true,
-	compile = {
-		enabled = true,
-		path = vim.fn.stdpath "cache" .. "/catppuccin",
-	},
-	styles = {
-		comments = {},
-		conditionals = {},
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-		operators = {},
-	},
-	integrations = {
-		treesitter = true,
-		native_lsp = {
-			enabled = true,
-			virtual_text = {
-				errors = {},
-				hints = {},
-				warnings = {},
-				information = {},
-			},
-			underlines = {
-				errors = { "underline" },
-				hints = { "underline" },
-				warnings = { "underline" },
-				information = { "underline" },
-			},
-		},
-		lsp_trouble = true,
-		cmp = true,
-		gitsigns = true,
-		telescope = true,
-		nvimtree = {
-			enabled = true,
-			show_root = true,
-			transparent_panel = false,
-		},
-		dap = {
-			enabled = false,
-			enable_ui = false,
-		},
-		indent_blankline = {
-			enabled = true,
-			colored_indent_levels = true,
-		},
-		neogit = false,
-		bufferline = true,
-		lightspeed = true,
-		ts_rainbow = true,
-		symbols_outline = true,
-	},
-	color_overrides = {},
-	highlight_overrides = {},
+    transparent_background = false,
+    term_colors = true,
+    compile = {
+        enabled = true,
+        path = vim.fn.stdpath "cache" .. "/catppuccin",
+    },
+    styles = {
+        comments = {},
+        conditionals = {},
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+    },
+    integrations = {
+        treesitter = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = {},
+                hints = {},
+                warnings = {},
+                information = {},
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+            },
+        },
+        lsp_trouble = true,
+        cmp = true,
+        gitsigns = true,
+        telescope = true,
+        nvimtree = {
+            enabled = true,
+            show_root = true,
+            transparent_panel = false,
+        },
+        dap = {
+            enabled = false,
+            enable_ui = false,
+        },
+        indent_blankline = {
+            enabled = true,
+            colored_indent_levels = true,
+        },
+        neogit = false,
+        bufferline = true,
+        lightspeed = true,
+        ts_rainbow = true,
+        symbols_outline = true,
+    },
+    color_overrides = {},
+    highlight_overrides = {},
 })
 
 -- =============================================================================
@@ -121,7 +151,7 @@ onedark.setup({
     transparent = false,
     toggle_style_key = '<nop>',
     highlights = {
-        TSDefinitionUsage = {fg = 'BLACK', bg='#DCD9CD'},
+        TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
     }
 }
 )
@@ -147,8 +177,8 @@ onedark.setup({
 -- # rose pine
 -- =============================================================================
 require('rose-pine').setup({
-	dark_variant = 'moon',
-	disable_italics = true,
+    dark_variant = 'moon',
+    disable_italics = true,
 })
 
 
@@ -160,10 +190,10 @@ require('kanagawa').setup({
     functionStyle = { italic = false },
     keywordStyle = { italic = false },
     variablebuiltinStyle = { italic = false },
-    dimInactive = true,        -- dim inactive window `:h hl-NormalNC`
-    globalStatus = true,       -- adjust window separators highlight for laststatus=3
+    dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+    globalStatus = true, -- adjust window separators highlight for laststatus=3
     overrides = {
-        TSDefinitionUsage = {fg = 'BLACK', bg='#DCD9CD'},
+        TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
     }
 })
 
@@ -184,6 +214,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('dayfox')
 -- vim.cmd.colorscheme('dawnfox')
 vim.cmd.colorscheme('carbonfox')
+-- vim.cmd.colorscheme('oxocarbon-lua')
 
 -- vim.g.catppuccin_flavour = "macchiato" -- default
 -- vim.g.catppuccin_flavour = "latte" -- light
