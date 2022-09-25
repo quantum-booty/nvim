@@ -79,8 +79,6 @@ local options = {
     -- Permanent undo
     undodir = vim.fn.stdpath('data').."/undodir",
     undofile = true,
-    backupdir = "~/.vim/tmp//",
-    directory = "~/.vim/tmp//",
     swapfile = false,
 
     -- tabs
