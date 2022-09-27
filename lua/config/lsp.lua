@@ -55,8 +55,10 @@ local on_attach = function(client, bufnr)
 
     if client.name == 'pyright' then
         buf_set_keymap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>', opts)
+        buf_set_keymap('v', '<leader>=', '<cmd>silent! Neoformat black<CR>', opts)
     else
         buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+        buf_set_keymap('v', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
     end
 
     -- Mappings.
