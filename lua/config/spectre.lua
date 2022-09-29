@@ -1,5 +1,6 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
+local not_windows = require('utils').not_windows
 
 map('n', '<leader>SS', ':lua require("spectre").open()<CR>', opts)
 
@@ -14,8 +15,7 @@ map('v', '<leader>SR', ':lua require("spectre").open_visual()<CR>', opts)
 require('spectre').setup({
     default = {
         replace = {
-            cmd = "oxi"
+            cmd = not_windows() and "oxi" or "sed"
        }
     }
-}
-  )
+})
