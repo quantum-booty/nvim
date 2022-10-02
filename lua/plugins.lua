@@ -33,7 +33,7 @@ return require('packer').startup({ function(use)
         -- {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
-        'EdenEast/nightfox.nvim',
+        { 'EdenEast/nightfox.nvim', run = ':NightfoxCompile',},
         { 'rose-pine/neovim', as = 'rose-pine' },
     }
     use {
