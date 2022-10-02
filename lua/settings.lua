@@ -47,13 +47,14 @@ vim.cmd([[
 ]])
 
 local options = {
-    -- laststatus=0, -- global statusline
-    laststatus=3, -- global statusline
+    -- laststatus = 0, -- no status
+    laststatus = 3, -- global statusline
+    cmdheight = 1,
+    ruler = false,
 
     relativenumber = true,
     number = true,
     colorcolumn = '80',
-    cmdheight = 1,
     termguicolors = true,
     background = 'dark',
     cursorline = true,

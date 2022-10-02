@@ -46,12 +46,12 @@ return require('packer').startup({ function(use)
     use { 'NvChad/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
-    use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
+    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]],
         config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
-    -- use { 'b0o/incline.nvim', config = [[require('config.incline')]] }
+    use { 'b0o/incline.nvim', config = [[require('config.incline')]] }
 
     -- Consoles for interactive development
     -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
