@@ -76,14 +76,18 @@ local on_attach = function(client, bufnr)
 
 
     -- " --- LSP Pickers
-    buf_set_keymap('n', '<leader>pi', [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
+    buf_set_keymap('n', '<leader>pi',
+        [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
     buf_set_keymap('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
-    buf_set_keymap('n', '<leader>pr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+    buf_set_keymap('n', '<leader>pr',
+        [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
 
     if client.name == 'omnisharp' then
-        buf_set_keymap('n', 'gd', [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]], opts)
+        buf_set_keymap('n', 'gd',
+            [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]], opts)
     else
-        buf_set_keymap('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]], opts)
+        buf_set_keymap('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]]
+            , opts)
     end
 
 
@@ -135,7 +139,16 @@ require 'ionide'.setup { capabilities = capabilities, on_attach = on_attach }
 nvim_lsp.dockerls.setup { capabilities = capabilities, on_attach = on_attach }
 nvim_lsp.yamlls.setup {}
 require('rust-tools').setup {
-    server = { capabilities = capabilities, on_attach = on_attach },
+    server = {
+        capabilities = capabilities, on_attach = on_attach,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                }
+            }
+        }
+    },
     settings = {
         cargo = {
             -- load generated code like protobuf
@@ -222,7 +235,7 @@ nvim_lsp.pyright.setup({
     --             autoSearchPaths = true,
     --             diagnosticMode = "workspace",
     --             useLibraryCodeForTypes = true,
-    --             typeCheckingMode = "strict", 
+    --             typeCheckingMode = "strict",
     --         }
     --     }
     -- }
@@ -271,7 +284,6 @@ local function toggle_lsp_lines()
     toggle_diagnostic_mappings()
     return new_value
 end
-
 
 require("lsp_lines").setup()
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false, float = { border = 'single', show_header = false } })
