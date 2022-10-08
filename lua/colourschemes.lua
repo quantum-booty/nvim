@@ -161,16 +161,16 @@ onedark.setup({
 -- =============================================================================
 -- # one nord
 -- =============================================================================
--- require('onenord').setup({
---     borders = true, -- Split window borders
---     bold = {
---         functions = true, -- Bold functions
---     },
---     custom_highlights = {
---         TSDefinitionUsage = { style = "reverse" },
---         Visual = { style = "reverse" },
---     },
--- })
+require('onenord').setup({
+    borders = true, -- Split window borders
+    bold = {
+        functions = true, -- Bold functions
+    },
+    custom_highlights = {
+        TSDefinitionUsage = { style = "reverse" },
+        Visual = { style = "reverse" },
+    },
+})
 
 
 -- =============================================================================
@@ -213,7 +213,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('duskfox')
 -- vim.cmd.colorscheme('dayfox')
 -- vim.cmd.colorscheme('dawnfox')
-vim.cmd.colorscheme('carbonfox')
+-- vim.cmd.colorscheme('carbonfox')
 
 -- vim.g.catppuccin_flavour = "macchiato" -- default
 -- vim.g.catppuccin_flavour = "latte" -- light
