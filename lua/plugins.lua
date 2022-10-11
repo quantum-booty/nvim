@@ -161,7 +161,7 @@ return require('packer').startup({ function(use)
 
     use { 'kyazdani42/nvim-tree.lua', config = [[require('config.nvim_tree')]] }
 
-    use { 'sindrets/diffview.nvim' }
+    use { 'sindrets/diffview.nvim', config = [[require('config.diffview_config')]] }
     use { 'lewis6991/gitsigns.nvim', config = [[require('config.gitsigns')]] }
     use { 'akinsho/toggleterm.nvim', config = [[require('config.toggleterm')]] }
 
