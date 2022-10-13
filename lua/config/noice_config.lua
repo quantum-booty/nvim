@@ -14,7 +14,7 @@ require("noice").setup(
             -- NOTE: If you enable noice messages UI, noice cmdline UI is enabled
             -- automatically. You cannot enable noice messages UI only.
             -- It is current neovim implementation limitation.  It may be fixed later.
-            enabled = true, -- disable if you use native messages UI
+            enabled = false, -- disable if you use native messages UI
         },
         popupmenu = {
             enabled = false, -- disable if you use something like cmp-cmdline
@@ -34,7 +34,7 @@ require("noice").setup(
             -- event is always "notify" and kind can be any log level as a string
             -- The default routes will forward notifications to nvim-notify
             -- Benefit of using Noice for this is the routing and consistent history view
-            enabled = true,
+            enabled = false,
         },
         hacks = {
             -- due to https://github.com/neovim/neovim/issues/20416
