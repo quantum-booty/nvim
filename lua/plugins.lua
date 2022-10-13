@@ -18,7 +18,17 @@ return require('packer').startup({ function(use)
     use 'MunifTanjim/nui.nvim'
     use { 'stevearc/dressing.nvim', config = [[require('config.dressing')]] }
     -- use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
-
+    use({
+        "folke/noice.nvim",
+        event = "VimEnter",
+        config = function()
+            require('config.noice_config')
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    })
 
     -- TODO: plugins to check out in the future
     -- remote editing
@@ -101,7 +111,7 @@ return require('packer').startup({ function(use)
     }
     use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
 
-    use { 'github/copilot.vim', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/copilot.vim')]]  }
+    use { 'github/copilot.vim', config = [[require('config.copilot')]]  }
     -- linter, fixer, formatter
     use { 'sbdchd/neoformat', config = [[require('config.neoformat')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]] }

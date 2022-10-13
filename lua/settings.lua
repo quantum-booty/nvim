@@ -67,7 +67,7 @@ local options = {
     endofline = false,
     fileencodings = "utf-8",
     wrap = false,
-    lazyredraw = true,
+    lazyredraw = false,
 
     errorbells = false,
     scrolloff = 8,
