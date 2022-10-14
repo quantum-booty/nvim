@@ -41,6 +41,10 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- vim.lsp.set_log_level('debug')
 -- log_path: ~/.cache/nvim/lsp.log
 
+
+local neodev = require("neodev").setup()
+
+
 -------------------------------------------------------------------------------
 -- lsp on attach settings
 -------------------------------------------------------------------------------
@@ -259,14 +263,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- lua
-local luadev = require("lua-dev").setup({
-    lspconfig = {
+nvim_lsp.sumneko_lua.setup(
+    {
         on_attach = on_attach,
         capabilities = capabilities,
     }
-})
-
-nvim_lsp.sumneko_lua.setup(luadev)
+)
 
 local function toggle_diagnostic_mappings()
     if vim.diagnostic.config().virtual_lines then

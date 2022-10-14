@@ -98,7 +98,7 @@ return require('packer').startup({ function(use)
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
     use { 'simrat39/symbols-outline.nvim', config = [[require('config.symbols_outline')]] }
-    use "folke/lua-dev.nvim"
+    use "folke/neodev.nvim"
     use { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' }
 
     use {
@@ -136,14 +136,6 @@ return require('packer').startup({ function(use)
     --     disable = true,
     -- }
 
-    -- use {
-    --     'szw/vim-maximizer',
-    --     config = function()
-    --         vim.g.maximizer_set_default_mapping = 0
-    --         vim.api.nvim_set_keymap('n', '<Del>', ':MaximizerToggle<CR>', { noremap=true, silent=true })
-    --     end,
-    -- }
-    -- use { "beauwilliams/focus.nvim", config = [[require('config.focus')]] }
     use {
         'nyngwang/NeoZoom.lua',
         config = [[require('config.neozoom')]]
@@ -187,7 +179,6 @@ return require('packer').startup({ function(use)
         'nvim-treesitter/nvim-treesitter-refactor',
         'p00f/nvim-ts-rainbow',
         'nvim-treesitter/nvim-treesitter-context',
-        -- 'David-Kunz/markid',
     }
 
     use { 'ThePrimeagen/refactoring.nvim', config = [[require('config.refactor')]] }
@@ -218,7 +209,6 @@ return require('packer').startup({ function(use)
     -- use { 'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install' }
     -- use { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
     -- use 'KeitaNakamura/tex-conceal.vim'
-    -- https://github.com/tiagovla/zotex.nvim
 
 end,
     config = {
@@ -226,12 +216,5 @@ end,
         compile_path = vim.fn.stdpath('config') .. '/lua/packer_compiled.lua',
 
         max_jobs = nil and not_windows() or 10,
-        -- profile = {
-        --     enable = true,
-        --     threshold = 1, -- integer in milliseconds, plugins which load faster than this won't be shown in profile output
-        -- },
-        -- display = {
-        --     open_fn = require('packer.util').float,
-        -- }
     }
 })
