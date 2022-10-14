@@ -145,16 +145,16 @@ require("catppuccin").setup({
 -- =============================================================================
 -- # one dark
 -- =============================================================================
-local onedark = require('onedark')
-onedark.setup({
-    style = 'darker',
-    transparent = false,
-    toggle_style_key = '<nop>',
-    highlights = {
-        TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
-    }
-}
-)
+-- local onedark = require('onedark')
+-- onedark.setup({
+--     style = 'darker',
+--     transparent = false,
+--     toggle_style_key = '<nop>',
+--     highlights = {
+--         TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
+--     }
+-- }
+-- )
 
 
 
@@ -213,7 +213,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('duskfox')
 -- vim.cmd.colorscheme('dayfox')
 -- vim.cmd.colorscheme('dawnfox')
--- vim.cmd.colorscheme('carbonfox')
+vim.cmd.colorscheme('carbonfox')
 
 -- vim.g.catppuccin_flavour = "macchiato" -- default
 -- vim.g.catppuccin_flavour = "latte" -- light
