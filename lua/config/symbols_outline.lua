@@ -9,7 +9,7 @@ map('n', '<leader>a', "<cmd>SymbolsOutline<CR>", opts)
 local symbol_outline_opts = {
     highlight_hovered_item = true,
     position = 'left',
-    width = 20,
+    -- width = 20,
     show_numbers = true,
     show_relative_numbers = true,
     show_symbol_details = true,
