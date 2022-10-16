@@ -8,7 +8,7 @@ require("noice").setup(
             -- NOTE: If you enable noice messages UI, noice cmdline UI is enabled
             -- automatically. You cannot enable noice messages UI only.
             -- It is current neovim implementation limitation.  It may be fixed later.
-            enabled = false, -- disable if you use native messages UI
+            enabled = true, -- disable if you use native messages UI
         },
         popupmenu = {
             enabled = false, -- disable if you use something like cmp-cmdline
@@ -39,13 +39,62 @@ require("noice").setup(
             skip_duplicate_messages = false,
         },
         -- throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
-        ---@type table<string, NoiceViewOptions>
-        views = {}, -- @see the section on views below
-        ---@type NoiceRouteConfig[]
-        routes = {}, -- @see the section on routes below
-        ---@type table<string, NoiceFilter>
-        status = {}, --@see the section on statusline components below
-        ---@type NoiceFormatOptions
-        format = {}, -- @see section on formatting
+        -- ---@type table<string, NoiceViewOptions>
+        -- views = {}, -- @see the section on views below
+        -- ---@type NoiceRouteConfig[]
+        routes = {
+            -- {
+            --     filter = { event = "msg_show", kind = "confirm_sub" },
+            --     opts = { skip = true },
+            -- },
+            {
+                filter = { event = "msg_show", kind = "emsg" },
+                opts = { skip = true },
+            },
+            {
+                filter = { event = "msg_show", kind = "echo" },
+                opts = { skip = true },
+            },
+            {
+                filter = { event = "msg_show", kind = "echomsg" },
+                opts = { skip = true },
+            },
+            {
+                filter = { event = "msg_show", kind = "echoerr" },
+                opts = { skip = true },
+            },
+            -- {
+            --     filter = { event = "msg_show", kind = "lua_error" },
+            --     opts = { skip = true },
+            -- },
+            -- {
+            --     filter = { event = "msg_show", kind = "rpc_error" },
+            --     opts = { skip = true },
+            -- },
+            -- {
+            --     filter = { event = "msg_show", kind = "return_prompt" },
+            --     opts = { skip = true },
+            -- },
+            -- {
+            --     filter = { event = "msg_show", kind = "quickfix" },
+            --     opts = { skip = true },
+            -- },
+            -- {
+            --     filter = { event = "msg_show", kind = "search_count" },
+            --     opts = { skip = true },
+            -- },
+            {
+                filter = { event = "msg_show", kind = "wmsg" },
+                opts = { skip = true },
+            },
+            -- {
+            --     filter = { event = "msg_show", kind = "" },
+            --     opts = { skip = true },
+            -- },
+        }
+        -- ---@type table<string, NoiceFilter>
+        -- status = {}, --@see the section on statusline components below
+        -- ---@type NoiceFormatOptions
+        -- format = {}, -- @see section on formatting
     }
 )

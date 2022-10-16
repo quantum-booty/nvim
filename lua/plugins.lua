@@ -56,8 +56,8 @@ return require('packer').startup({ function(use)
     use { 'NvChad/nvim-colorizer.lua', config = [[require'colorizer'.setup()]] }
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
-    -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
-    use 'nvim-lualine/lualine.nvim'
+    -- use { 'NTBBloodbath/galaxyline.nvim', after = 'noice.nvim', config = [[require('config.galaxyline.spaceline')]] }
+    use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]],
         config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
