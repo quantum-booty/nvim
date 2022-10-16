@@ -41,7 +41,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- log_path: ~/.cache/nvim/lsp.log
 
 
-require("neodev").setup()
+require("neodev").setup({})
 
 
 -------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ local on_attach = function(client, bufnr)
     -- bufmap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
-    bufmap('n', '<tab>', function() vim.lsp.buf.hover({ border = "single" }) end)
+    bufmap('n', '<tab>', function() vim.lsp.buf.hover() end)
 
     bufmap('n', '<leader>rn', vim.lsp.buf.rename)
     bufmap('n', '<leader>rr', '<cmd>LspRestart<CR>')
@@ -311,8 +311,8 @@ local function toggle_diagnostic_mappings()
         vim.keymap.set('n', 'gn', function() vim.diagnostic.goto_next({ float = false }) end, opts)
         vim.keymap.set('n', 'gp', function() vim.diagnostic.goto_prev({ float = false }) end, opts)
     else
-        vim.keymap.set('n', 'gn', function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set('n', 'gp', function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set('n', 'gn', function() vim.diagnostic.goto_next({}) end, opts)
+        vim.keymap.set('n', 'gp', function() vim.diagnostic.goto_prev({}) end, opts)
     end
 end
 
