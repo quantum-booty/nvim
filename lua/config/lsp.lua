@@ -202,10 +202,7 @@ require('rust-tools').setup {
 
 local omnisharp_bin = nil
 if vim.fn.has('win32') == 1 then
-    USERPROFILE = vim.env.USERPROFILE
-    if USERPROFILE then
-        omnisharp_bin = USERPROFILE .. "/omnisharp-win-x64/OmniSharp.exe"
-    end
+    omnisharp_bin = "C:/Users/henry/AppData/Local/nvim-data/mason/packages/omnisharp/OmniSharp.exe"
 else
     omnisharp_bin = "/home/henryw/omnisharp/run"
 end
