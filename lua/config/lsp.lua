@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-local autocmd = require('utils').autocmd
 
 vim.opt.updatetime = 250
 vim.opt.completeopt:append({ 'menuone', 'noselect', 'noinsert' })
