@@ -30,6 +30,7 @@ return require('packer').startup({ function(use)
         },
         cond = not_windows,
     })
+    use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]], cond = not_windows }
 
     -- TODO: plugins to check out in the future
     -- remote editing
@@ -58,7 +59,6 @@ return require('packer').startup({ function(use)
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     -- use { 'NTBBloodbath/galaxyline.nvim', after = 'noice.nvim', config = [[require('config.galaxyline.spaceline')]] }
-    use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]] }
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]],
         config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
