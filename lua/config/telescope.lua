@@ -76,12 +76,11 @@ telescope.setup{
         git_files = { theme = "dropdown" },
         buffers = { theme = "dropdown" },
         colorscheme = { theme = "dropdown" },
-        -- lsp_code_actions = { initial_mode='normal' },
         help_tags = { jump_type = 'tab'},
         current_buffer_fuzzy_find = { theme = "dropdown" },
-        lsp_definitions = { theme = "ivy", show_line = false },
-        lsp_implementations = { theme = "ivy", show_line = false },
-        lsp_references = { theme = "ivy", show_line = false },
+        lsp_definitions = { initial_mode='normal', theme = "ivy", show_line = false },
+        lsp_implementations = { initial_mode='normal',  theme = "ivy", show_line = false },
+        lsp_references = { initial_mode='normal', theme = "ivy", show_line = false },
     },
     extensions = {
         -- file_browser = {

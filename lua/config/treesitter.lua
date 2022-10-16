@@ -18,8 +18,9 @@ set foldlevelstart=999
 
 require 'nvim-treesitter.install'.compilers = { "clang" }
 
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"norg", "python", "lua", "vim", "json", "c_sharp", "markdown", "haskell", "rust", "dockerfile", "yaml", "scala"},
+require 'nvim-treesitter.configs'.setup {
+    ensure_installed = { "norg", "python", "lua", "vim", "json", "c_sharp", "markdown", "haskell", "rust", "dockerfile",
+        "yaml", "scala" },
 
     highlight = {
         enable = true,
@@ -28,7 +29,7 @@ require'nvim-treesitter.configs'.setup {
 
     indent = {
         enable = true,
-        disable = {"python"}
+        disable = { "python" }
     },
 
     incremental_selection = {

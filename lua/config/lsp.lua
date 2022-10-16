@@ -1,4 +1,3 @@
-local map = require('utils').map
 local opts = { noremap = true, silent = true }
 local autocmd = require('utils').autocmd
 
@@ -42,7 +41,7 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 -- log_path: ~/.cache/nvim/lsp.log
 
 
-local neodev = require("neodev").setup()
+require("neodev").setup()
 
 
 -------------------------------------------------------------------------------
@@ -53,67 +52,67 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local bufmap = function(mode, keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+        vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc, noremap = true, silent = true })
+    end
 
     if client.name == 'pyright' then
-        buf_set_keymap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>', opts)
-        buf_set_keymap('v', '<leader>=', '<cmd>silent! Neoformat black<CR>', opts)
+        bufmap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>')
+        bufmap('v', '<leader>=', '<cmd>silent! Neoformat black<CR>')
     else
-        buf_set_keymap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
-        buf_set_keymap('v', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>', opts)
+        bufmap('n', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>')
+        bufmap('v', '<leader>=', '<cmd>set ff=unix<cr><cmd>lua vim.lsp.buf.format({async=true})<CR>')
     end
 
     -- Mappings.
-    buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    bufmap('n', 'gt', vim.lsp.buf.type_definition)
 
-    -- buf_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    -- buf_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    -- bufmap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+    -- bufmap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
     -- because of this <tab> mapping, <C-i> has to be mapped to something else.
-    buf_set_keymap('n', '<tab>', '<cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
+    bufmap('n', '<tab>', function() vim.lsp.buf.hover({ border = "single" }) end)
 
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true, buffer = bufnr })
-    buf_set_keymap('n', '<leader>rr', '<cmd>LspRestart<CR>', opts)
+    bufmap('n', '<leader>rn', vim.lsp.buf.rename)
+    bufmap('n', '<leader>rr', '<cmd>LspRestart<CR>')
 
 
 
     -- " --- LSP Pickers
-    buf_set_keymap('n', '<leader>pi',
-        [[<cmd>lua require('telescope.builtin').lsp_implementations({initial_mode='normal'})<CR>]], opts)
-    buf_set_keymap('n', 'gr', [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
-    buf_set_keymap('n', '<leader>pr',
-        [[<cmd>lua require('telescope.builtin').lsp_references({initial_mode='normal'})<CR>]], opts)
+    bufmap('n', '<leader>pi', require('telescope.builtin').lsp_implementations)
+    bufmap('n', 'gr', require('telescope.builtin').lsp_references)
+    bufmap('n', '<leader>pr', require('telescope.builtin').lsp_references)
 
     if client.name == 'omnisharp' then
-        buf_set_keymap('n', 'gd',
-            [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]], opts)
+        bufmap('n', 'gd',
+            [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]])
     else
-        buf_set_keymap('n', 'gd', [[<cmd>lua require('telescope.builtin').lsp_definitions({initial_mode='normal'})<CR>]]
-            , opts)
+        bufmap('n', 'gd', require('telescope.builtin').lsp_definitions)
     end
 
 
     -- " workspace symbol
-    buf_set_keymap('n', '<leader>pW', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]], opts)
+    bufmap('n', '<leader>pW', require('telescope.builtin').lsp_workspace_symbols)
     -- " document symbol using treesitter
-    -- buf_set_keymap('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]], opts)
-    buf_set_keymap('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
+    -- bufmap('n', '<leader>pd', [[<cmd>lua require('telescope.builtin').treesitter()<CR>]])
+    bufmap('n', '<leader>pd', require('telescope.builtin').lsp_document_symbols)
 
 
 
 
-    buf_set_keymap('n', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('v', '<leader>c', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    bufmap('n', '<leader>c', vim.lsp.buf.code_action)
+    bufmap('v', '<leader>c', vim.lsp.buf.code_action)
 
-    buf_set_keymap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', opts)
-    buf_set_keymap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    bufmap('n', '<LeftMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>')
+    bufmap('n', '<RightMouse>', '<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>')
 
 
     local rt = require("rust-tools")
     if client.name == 'rust_analyzer' then
-        vim.keymap.set("n", "<tab>", rt.hover_actions.hover_actions, { buffer = bufnr })
+        bufmap("n", "<tab>", rt.hover_actions.hover_actions)
     end
 end
 
@@ -263,12 +262,30 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- lua
-nvim_lsp.sumneko_lua.setup(
-    {
-        on_attach = on_attach,
-        capabilities = capabilities,
-    }
-)
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+require('lspconfig').sumneko_lua.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = { enable = false },
+    },
+  },
+}
 
 local function toggle_diagnostic_mappings()
     if vim.diagnostic.config().virtual_lines then
