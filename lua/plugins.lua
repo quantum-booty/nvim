@@ -1,7 +1,7 @@
 -- install packer if not found
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path, nil, nil)) > 0 then
+if fn.empty(fn.glob(install_path, nil)) > 0 then
     os.execute(string.format('git clone --depth 1 https://github.com/wbthomason/packer.nvim %s', install_path))
     vim.cmd 'packadd packer.nvim'
 end
@@ -57,6 +57,7 @@ return require('packer').startup({ function(use)
     use { 'lukas-reineke/indent-blankline.nvim', config = [[require('config.indent_blankline')]] }
     use { 'folke/todo-comments.nvim', config = [[require('config.todo_comments')]] }
     -- use { 'NTBBloodbath/galaxyline.nvim', config = [[require('config.galaxyline.spaceline')]] }
+    use 'nvim-lualine/lualine.nvim'
     use { 'goolord/alpha-nvim', setup = [[vim.g.indentLine_fileTypeExclude = {'alpha'}]],
         config = [[require('config.alpha')]] }
     use { 'akinsho/bufferline.nvim', tag = "*", config = [[require('config.bufferline')]] }
@@ -82,7 +83,10 @@ return require('packer').startup({ function(use)
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
-    use { 'ionide/Ionide-vim' }
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    -- use { 'ionide/Ionide-vim' }
+    -- use { 'scalameta/nvim-metals' }
     use { 'Hoffs/omnisharp-extended-lsp.nvim' }
     use { 'simrat39/rust-tools.nvim' }
     use {
@@ -93,7 +97,6 @@ return require('packer').startup({ function(use)
             require('crates').setup()
         end,
     }
-    use { 'scalameta/nvim-metals' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }

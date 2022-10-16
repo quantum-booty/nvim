@@ -123,24 +123,63 @@ end
 -------------------------------------------------------------------------------
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-------------------------------------------------------------------------------
+-- Mason
+-------------------------------------------------------------------------------
+-- Setup mason so it can manage external tooling
+require('mason').setup()
 
+-- Enable the following language servers
+local servers = { 'rust_analyzer', 'pyright', 'omnisharp', 'sumneko_lua', 'dockerls', 'yamlls' }
+
+-- Ensure the servers above are installed
+require('mason-lspconfig').setup {
+  ensure_installed = servers,
+}
 
 -------------------------------------------------------------------------------
 -- language server setup
 -------------------------------------------------------------------------------
-autocmd('haskell', 'FileType',
-    { pattern = 'haskell',
-        command = [[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]] })
-nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach }
+
+-------------------------------------------------------------------------------
+-- haskell
+-------------------------------------------------------------------------------
+-- autocmd('haskell', 'FileType',
+--     { pattern = 'haskell',
+--         command = [[autocmd CursorHold,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]] })
+-- nvim_lsp.hls.setup { capabilities = capabilities, on_attach = on_attach }
+-------------------------------------------------------------------------------
+-- fsharp
+-------------------------------------------------------------------------------
 -- nvim_lsp.fsautocomplete.setup{ capabilities = capabilities, on_attach = on_attach }
-vim.cmd([[
-let g:fsharp#lsp_auto_setup = 0
-let g:fsharp#exclude_project_directories = ['paket-files']
-]])
-require 'ionide'.setup { capabilities = capabilities, on_attach = on_attach }
+-- vim.cmd([[
+-- let g:fsharp#lsp_auto_setup = 0
+-- let g:fsharp#exclude_project_directories = ['paket-files']
+-- ]])
+-- require 'ionide'.setup { capabilities = capabilities, on_attach = on_attach }
+-------------------------------------------------------------------------------
+-- scala
+-------------------------------------------------------------------------------
+-- local metals_config = require("metals").bare_config()
+-- metals_config.settings = {
+--     showImplicitArguments = true,
+--     -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+-- }
+-- metals_config.init_options.statusBarProvider = "on"
+-- metals_config.capabilities = capabilities
+-- metals_config.on_attach = on_attach
+-- local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = { "scala", "sbt" },
+--     callback = function()
+--         require("metals").initialize_or_attach(metals_config)
+--     end,
+--     group = nvim_metals_group,
+-- })
+
 
 nvim_lsp.dockerls.setup { capabilities = capabilities, on_attach = on_attach }
-nvim_lsp.yamlls.setup {}
+nvim_lsp.yamlls.setup { capabilities = capabilities, on_attach = on_attach }
 require('rust-tools').setup {
     server = {
         capabilities = capabilities, on_attach = on_attach,
@@ -244,29 +283,12 @@ nvim_lsp.pyright.setup({
     -- }
 })
 
-local metals_config = require("metals").bare_config()
-metals_config.settings = {
-    showImplicitArguments = true,
-    -- excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
-}
-metals_config.init_options.statusBarProvider = "on"
-metals_config.capabilities = capabilities
-metals_config.on_attach = on_attach
-local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "scala", "sbt" },
-    callback = function()
-        require("metals").initialize_or_attach(metals_config)
-    end,
-    group = nvim_metals_group,
-})
-
 -- lua
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
-require('lspconfig').sumneko_lua.setup {
+nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
