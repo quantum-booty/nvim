@@ -27,7 +27,8 @@ return require('packer').startup({ function(use)
         requires = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
-        }
+        },
+        cond = not_windows,
     })
 
     -- TODO: plugins to check out in the future
