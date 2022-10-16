@@ -87,10 +87,10 @@ require("noice").setup(
                 filter = { event = "msg_show", kind = "wmsg" },
                 opts = { skip = true },
             },
-            -- {
-            --     filter = { event = "msg_show", kind = "" },
-            --     opts = { skip = true },
-            -- },
+            {
+                filter = { event = "msg_show", kind = "" },
+                opts = { skip = true },
+            },
         }
         -- ---@type table<string, NoiceFilter>
         -- status = {}, --@see the section on statusline components below
