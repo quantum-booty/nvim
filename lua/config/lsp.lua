@@ -199,11 +199,12 @@ require('rust-tools').setup {
 }
 
 
+local path = require('path')
 local omnisharp_bin = nil
 if vim.fn.has('win32') == 1 then
-    omnisharp_bin = "C:/Users/henry/AppData/Local/nvim-data/mason/packages/omnisharp/OmniSharp.exe"
+    omnisharp_bin = path.concat { vim.fn.stdpath "data", "mason", "packages", "omnisharp", "OmniSharp.exe" }
 else
-    omnisharp_bin = "/home/henryw/omnisharp/run"
+    omnisharp_bin = path.concat { vim.fn.stdpath "data", "mason", "packages", "omnisharp", "omnisharp" }
 end
 nvim_lsp.omnisharp.setup {
     handlers = {
