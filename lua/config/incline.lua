@@ -3,11 +3,11 @@ require('incline').setup {
         groups = {
             InclineNormal = {
                 default = true,
-                group = "TSKeywordFunction"
+                group = "@keyword.function"
             },
             InclineNormalNC = {
                 default = true,
-                group = "TSKeywordFunction"
+                group = "@keyword.function"
             }
         }
     },
