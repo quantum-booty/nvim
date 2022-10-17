@@ -40,79 +40,17 @@ if not_windows() then
                 -- Enable this option to simply skip duplicate messages instead.
                 skip_duplicate_messages = true,
             },
-            -- throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
-            -- ---@type table<string, NoiceViewOptions>
-            -- views = {}, -- @see the section on views below
-            -- ---@type NoiceRouteConfig[]
             routes = {
-                -- {
-                --     filter = { event = "msg_show", kind = "confirm_sub" },
-                --     opts = { skip = true },
-                -- },
                 {
-                    view = "mini",
-                    filter = { event = "msg_show", kind = "emsg" },
-                    -- opts = { skip = true },
-                },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "echo" },
-                --     opts = { skip = true },
-                -- },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "echomsg" },
-                --     opts = { skip = true },
-                -- },
-                {
-                    view = "mini",
-                    filter = { event = "msg_show", kind = "echoerr" },
-                    -- opts = { skip = true },
-                },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "lua_error" },
-                --     opts = { skip = true },
-                -- },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "rpc_error" },
-                --     opts = { skip = true },
-                -- },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "return_prompt" },
-                --     opts = { skip = true },
-                -- },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "quickfix" },
-                --     opts = { skip = true },
-                -- },
-                -- {
-                    -- view = "mini",
-                --     filter = { event = "msg_show", kind = "search_count" },
-                --     opts = { skip = true },
-                -- },
-                {
-                    view = "mini",
-                    filter = { event = "msg_show", kind = "wmsg" },
-                    -- opts = { skip = true },
+                    view = "split",
+                    filter = { event = "msg_show", min_height = 2 },
                 },
                 {
                     view = "mini",
-                    filter = { event = "msg_show", kind = "" },
-                    -- opts = { skip = true },
+                    filter = { event = "msg_show", kind = { "echoerr", "wmsg", "", "emsg" } },
                 },
-                -- {
-                --     view = "cmdline",
-                --     filter = { event = "msg_show", min_height = 10 },
-                -- },
+                -- echo, echomsg, lua_error, rpc_error, return_prompt, quickfix, search_count, confirm_sub
             }
-            -- ---@type table<string, NoiceFilter>
-            -- status = {}, --@see the section on statusline components below
-            -- ---@type NoiceFormatOptions
-            -- format = {}, -- @see section on formatting
         }
     )
 end
