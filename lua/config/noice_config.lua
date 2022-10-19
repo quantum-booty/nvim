@@ -45,10 +45,10 @@ if not_windows() then
                     view = "split",
                     filter = { event = "msg_show", min_height = 2 },
                 },
-                {
-                    view = "mini",
-                    filter = { event = "msg_show", kind = { "echoerr", "wmsg", "", "emsg" } },
-                },
+                -- {
+                --     view = "mini",
+                --     filter = { event = "msg_show", kind = { "echoerr", "wmsg", "", "emsg", "echo", "echomsg" } },
+                -- },
                 -- echo, echomsg, lua_error, rpc_error, return_prompt, quickfix, search_count, confirm_sub
             }
         }

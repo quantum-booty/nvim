@@ -157,10 +157,10 @@ if not_windows() then
         cond = conditions.hide_in_width,
     }
 
-    -- ins_left {
-    --     require("noice").api.statusline.message.get_hl,
-    --     cond = require("noice").api.statusline.message.has,
-    -- }
+    ins_left {
+        require("noice").api.status.message.get_hl,
+        cond = require("noice").api.status.message.has,
+    }
     -- ins_left {
     --     require("noice").api.statusline.command.get,
     --     cond = require("noice").api.statusline.command.has,
