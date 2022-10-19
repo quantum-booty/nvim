@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring
 require("telescope").load_extension("refactoring")
 vim.api.nvim_set_keymap(
 	"v",
-	"<leader>rr",
+	"<leader>C",
 	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
 	{ noremap = true }
 )
