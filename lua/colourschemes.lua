@@ -213,7 +213,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('duskfox')
 -- vim.cmd.colorscheme('dayfox')
 -- vim.cmd.colorscheme('dawnfox')
--- vim.cmd.colorscheme('carbonfox')
+vim.cmd.colorscheme('carbonfox')
 
 -- vim.g.catppuccin_flavour = "macchiato" -- default
 -- vim.g.catppuccin_flavour = "latte" -- light
@@ -221,6 +221,6 @@ require('kanagawa').setup({
 -- vim.g.catppuccin_flavour = "mocha" -- deep
 -- vim.cmd.colorscheme('catppuccin')
 
-vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
+-- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
