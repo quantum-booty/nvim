@@ -19,20 +19,20 @@ Hydra({
       hint = {
          border = 'rounded'
       },
-      on_enter = function()
-         vim.cmd('silent! %foldopen!')
-         vim.bo.modifiable = false
-         gitsigns.toggle_signs(true)
-         gitsigns.toggle_linehl(true)
-      end,
-      on_exit = function()
-         gitsigns.toggle_signs(false)
-         gitsigns.toggle_linehl(false)
-         gitsigns.toggle_deleted(false)
-      end,
+      -- on_enter = function()
+      --    vim.cmd('silent! %foldopen!')
+      --    vim.bo.modifiable = false
+      --    gitsigns.toggle_signs(true)
+      --    gitsigns.toggle_linehl(true)
+      -- end,
+      -- on_exit = function()
+      --    gitsigns.toggle_signs(false)
+      --    gitsigns.toggle_linehl(false)
+      --    gitsigns.toggle_deleted(false)
+      -- end,
    },
    mode = {'n','x'},
-   body = '<leader>g',
+   body = '<leader>gg',
    heads = {
       { 'J',
          function()
@@ -50,6 +50,7 @@ Hydra({
          { expr = true, desc = 'prev hunk' } },
       { 's', ':Gitsigns stage_hunk<CR>', { silent = true, desc = 'stage hunk' } },
       { 'u', gitsigns.undo_stage_hunk, { desc = 'undo last stage' } },
+      { 'r', gitsigns.reset_hunk, { desc = 'reset stage' } },
       { 'S', gitsigns.stage_buffer, { desc = 'stage buffer' } },
       { 'p', gitsigns.preview_hunk, { desc = 'preview hunk' } },
       { 'd', gitsigns.toggle_deleted, { nowait = true, desc = 'toggle deleted' } },

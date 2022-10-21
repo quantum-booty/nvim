@@ -2,6 +2,9 @@ local not_windows = require('utils').not_windows
 if not_windows() then
     require("noice").setup(
         {
+            lsp_progress = {
+                enabled = true,
+            },
             cmdline = {
                 enabled = true, -- disable if you use native command line UI
                 view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom

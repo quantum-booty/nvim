@@ -28,7 +28,7 @@ return require('packer').startup({ function(use)
             "MunifTanjim/nui.nvim",
             -- "rcarriga/nvim-notify",
         },
-        cond = not_windows,
+        -- cond = not_windows,
     })
     use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]], cond = not_windows }
 
@@ -113,7 +113,7 @@ return require('packer').startup({ function(use)
         'hrsh7th/cmp-cmdline',
         'saadparwaiz1/cmp_luasnip',
     }
-    use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
+    -- use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
 
     use { 'github/copilot.vim', config = [[require('config.copilot')]], cond = not_windows }
     -- linter, fixer, formatter
@@ -126,19 +126,18 @@ return require('packer').startup({ function(use)
     use { 'L3MON4D3/LuaSnip', config = [[require('config.luasnips')]] }
 
     -- Debugger
-    -- use {
-    --     'mfussenegger/nvim-dap',
-    --     config = [[require('config.dap')]],
-    --     ft = {'python'},
-    --     keys = '<F5>',
-    --     requires = {
-    --         'mfussenegger/nvim-dap-python',
-    --         'theHamsta/nvim-dap-virtual-text',
-    --         'rcarriga/nvim-dap-ui',
-    --         'nvim-telescope/telescope-dap.nvim',
-    --     },
-    --     disable = true,
-    -- }
+    use {
+        'mfussenegger/nvim-dap',
+        config = [[require('config.dap')]],
+        ft = {'rust'},
+        requires = {
+            'mfussenegger/nvim-dap-python',
+            'theHamsta/nvim-dap-virtual-text',
+            'rcarriga/nvim-dap-ui',
+            'nvim-telescope/telescope-dap.nvim',
+        },
+        cond = not_windows,
+    }
 
     use {
         'nyngwang/NeoZoom.lua',

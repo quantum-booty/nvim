@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local path = require('path')
 
 vim.opt.updatetime = 250
 vim.opt.completeopt:append({ 'menuone', 'noselect', 'noinsert' })
@@ -133,7 +133,7 @@ local servers = { 'rust_analyzer', 'pyright', 'omnisharp', 'sumneko_lua', 'docke
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
-  ensure_installed = servers,
+    ensure_installed = servers,
 }
 
 -------------------------------------------------------------------------------
@@ -179,6 +179,11 @@ require('mason-lspconfig').setup {
 
 nvim_lsp.dockerls.setup { capabilities = capabilities, on_attach = on_attach }
 nvim_lsp.yamlls.setup { capabilities = capabilities, on_attach = on_attach }
+
+local extension_path = path.concat { vim.fn.stdpath 'data', 'mason', 'packages', 'codelldb', 'extension' }
+local codelldb_path = path.concat { extension_path, 'adapter', 'codelldb' }
+local liblldb_path = path.concat { extension_path, 'lldb', 'lib', 'liblldb.so' }
+
 require('rust-tools').setup {
     server = {
         capabilities = capabilities, on_attach = on_attach,
@@ -195,11 +200,14 @@ require('rust-tools').setup {
             -- load generated code like protobuf
             runBuildScripts = true
         }
+    },
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
     }
 }
 
 
-local path = require('path')
 local omnisharp_bin = nil
 if vim.fn.has('win32') == 1 then
     omnisharp_bin = path.concat { vim.fn.stdpath "data", "mason", "packages", "omnisharp", "OmniSharp.exe" }
@@ -222,9 +230,6 @@ nvim_lsp.omnisharp.setup {
 -------------------------------------------------------------------------------
 -- python auto-virtual environment activation
 -------------------------------------------------------------------------------
-local util = require('lspconfig/util')
-local path = util.path
-
 local function find_virtual_environment(workspace)
     for _, dir in pairs({ 'venv', 'venv1', 'venv2' }) do
         local match = vim.fn.glob(path.join(workspace, dir))
@@ -286,24 +291,24 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = { enable = false },
+        },
     },
-  },
 }
 
 local function toggle_diagnostic_mappings()

@@ -1,4 +1,4 @@
-colors = require("tokyonight.colors").setup()
+local colors = require("tokyonight.colors").setup()
 require("scrollbar").setup({
     handle = {
         color = colors.purple,

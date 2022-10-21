@@ -6,17 +6,6 @@ local trouble = require("trouble.providers.telescope")
 
 local telescope = require("telescope")
 -- local fb_actions = require "telescope".extensions.file_browser.actions
---
--- local open_in_fb = function(prompt_bufnr)
---     local action_state = require "telescope.actions.state"
---     local Path = require "plenary.path"
---     local actions = require "telescope.actions"
---     local fb = require("telescope").extensions.file_browser.file_browser
---     local entry = action_state.get_selected_entry()[1]
---     local entry_path = Path:new(entry):parent():absolute()
---     actions._close(prompt_bufnr, true)
---     fb { path = entry_path }
--- end
 
 local open_in_nvim_tree = function(prompt_bufnr)
     local action_state = require "telescope.actions.state"
@@ -62,12 +51,10 @@ telescope.setup{
         mappings = {
             i = {
                 ["<c-t>"] = trouble.open_with_trouble,
-                ["<c-r>"] = open_in_fb,
                 ["<c-s>"] = open_in_nvim_tree,
             },
             n = {
                 ["<c-t>"] = trouble.open_with_trouble,
-                ["<c-r>"] = open_in_fb,
                 ["<c-s>"] = open_in_nvim_tree,
             },
         },
