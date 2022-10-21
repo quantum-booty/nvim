@@ -115,7 +115,7 @@ return require('packer').startup({ function(use)
     }
     use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
 
-    use { 'github/copilot.vim', config = [[require('config.copilot')]]  }
+    use { 'github/copilot.vim', config = [[require('config.copilot')]], cond = not_windows }
     -- linter, fixer, formatter
     use { 'sbdchd/neoformat', config = [[require('config.neoformat')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]] }
