@@ -80,7 +80,11 @@ return require('packer').startup({ function(use)
     use { 'tpope/vim-repeat' }
     use { 'kylechui/nvim-surround', config = [[require('config.surround')]] }
     use { 'wellle/targets.vim', event = 'CursorMoved' }
-    use { 'ggandor/lightspeed.nvim', config = [[require('config.lightspeed')]] }
+    use {
+        'ggandor/leap.nvim',
+        config = [[require('config.leap')]],
+        requires = 'ggandor/flit.nvim',
+    }
 
     -- --- lsp, autocompletion
     use { 'neovim/nvim-lspconfig', config = [[require('config.lsp')]] }
