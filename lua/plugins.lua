@@ -45,7 +45,7 @@ return require('packer').startup({ function(use)
         -- {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}},
         'folke/tokyonight.nvim',
         'tiagovla/tokyodark.nvim',
-        { 'EdenEast/nightfox.nvim', run = ':NightfoxCompile',},
+        { 'EdenEast/nightfox.nvim', run = ':NightfoxCompile', },
         { 'rose-pine/neovim', as = 'rose-pine' },
     }
     use {
@@ -119,7 +119,9 @@ return require('packer').startup({ function(use)
     }
     -- use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
 
-    use { 'github/copilot.vim', config = [[require('config.copilot')]], cond = not_windows }
+    -- use { 'github/copilot.vim', config = [[require('config.copilot')]], cond = not_windows }
+    use { "zbirenbaum/copilot.lua", event = "VimEnter", config = [[require('config.copilot')]], cond = not_windows }
+
     -- linter, fixer, formatter
     use { 'sbdchd/neoformat', config = [[require('config.neoformat')]] }
     use { 'mfussenegger/nvim-lint', config = [[require('config.nvimlint')]] }
@@ -133,7 +135,7 @@ return require('packer').startup({ function(use)
     use {
         'mfussenegger/nvim-dap',
         config = [[require('config.dap')]],
-        ft = {'rust'},
+        ft = { 'rust' },
         requires = {
             'mfussenegger/nvim-dap-python',
             'theHamsta/nvim-dap-virtual-text',
