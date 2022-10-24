@@ -7,6 +7,7 @@ if fn.empty(fn.glob(install_path, nil)) > 0 then
 end
 
 local not_windows = require('utils').not_windows
+local is_windows = require('utils').is_windows
 
 return require('packer').startup({ function(use)
     -- Packer can manage itself
@@ -17,7 +18,6 @@ return require('packer').startup({ function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'MunifTanjim/nui.nvim'
     use { 'stevearc/dressing.nvim', config = [[require('config.dressing')]] }
-    -- use { 'rcarriga/nvim-notify', config = [[vim.notify = require('notify')]] }
     use({
         "folke/noice.nvim",
         event = "VimEnter",
@@ -26,9 +26,8 @@ return require('packer').startup({ function(use)
         end,
         requires = {
             "MunifTanjim/nui.nvim",
-            -- "rcarriga/nvim-notify",
         },
-        -- cond = not_windows,
+        cond = not_windows,
     })
     use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]], cond = not_windows }
 
@@ -117,9 +116,8 @@ return require('packer').startup({ function(use)
         'hrsh7th/cmp-cmdline',
         'saadparwaiz1/cmp_luasnip',
     }
-    -- use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]] }
+    use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]], cond = is_windows}
 
-    -- use { 'github/copilot.vim', config = [[require('config.copilot')]], cond = not_windows }
     use { "zbirenbaum/copilot.lua", event = "VimEnter", config = [[require('config.copilot')]], cond = not_windows }
 
     -- linter, fixer, formatter

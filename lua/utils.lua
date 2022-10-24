@@ -45,4 +45,8 @@ local function not_windows()
     return vim.fn.has 'win32' ~= 1
 end
 
-return { opt = opt, autocmd = autocmd, autocmd_multi = autocmd_multi, map = map, not_windows = not_windows, buf_map = buf_map }
+local function is_windows()
+    return vim.fn.has 'win32' == 1
+end
+
+return { opt = opt, autocmd = autocmd, autocmd_multi = autocmd_multi, map = map, not_windows = not_windows, buf_map = buf_map, is_windows = is_windows }
