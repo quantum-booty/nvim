@@ -138,8 +138,27 @@ require("catppuccin").setup({
         ts_rainbow = true,
         symbols_outline = true,
     },
-    color_overrides = {},
-    highlight_overrides = {},
+	color_overrides = {
+		latte = {
+			base = "#E1EEF5",
+		},
+		mocha = {
+			base = "#000000",
+		},
+	},
+	highlight_overrides = {
+		latte = function(latte)
+			return {
+				NvimTreeNormal = { bg = "#D1E5F0" },
+			}
+		end,
+		mocha = function(mocha)
+			return {
+				NvimTreeNormal = { bg = mocha.none },
+				CmpBorder = { fg = mocha.surface2 },
+			}
+		end,
+	},
 })
 
 -- =============================================================================
@@ -161,16 +180,16 @@ require("catppuccin").setup({
 -- =============================================================================
 -- # one nord
 -- =============================================================================
-require('onenord').setup({
-    borders = true, -- Split window borders
-    bold = {
-        functions = true, -- Bold functions
-    },
-    custom_highlights = {
-        TSDefinitionUsage = { style = "reverse" },
-        Visual = { style = "reverse" },
-    },
-})
+-- require('onenord').setup({
+--     borders = true, -- Split window borders
+--     bold = {
+--         functions = true, -- Bold functions
+--     },
+--     custom_highlights = {
+--         TSDefinitionUsage = { style = "reverse" },
+--         Visual = { style = "reverse" },
+--     },
+-- })
 
 
 -- =============================================================================
@@ -204,7 +223,9 @@ require('kanagawa').setup({
 -- onedark.load()
 -- vim.cmd.colorscheme('onenord')
 -- vim.cmd.colorscheme('rose-pine')
--- vim.cmd.colorscheme('kanagawa')
+-- vim.o.background = "light"; vim.cmd.colorscheme('kanagawa')
+-- vim.o.background = "dark"; vim.cmd.colorscheme('kanagawa')
+-- vim.o.background = ""; require('kanagawa').setup({theme = "dragon"}); vim.cmd.colorscheme('kanagawa')
 -- vim.cmd.colorscheme('tokyodark')
 
 -- vim.cmd.colorscheme('nightfox')
@@ -215,13 +236,12 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('dawnfox')
 -- vim.cmd.colorscheme('carbonfox')
 
--- vim.g.catppuccin_flavour = "macchiato" -- default
--- vim.g.catppuccin_flavour = "latte" -- light
--- vim.g.catppuccin_flavour = "frappe" -- nord
--- vim.g.catppuccin_flavour = "mocha" -- deep
--- vim.cmd.colorscheme('catppuccin')
+-- vim.cmd.colorscheme('catppuccin-macchiato') -- default
+-- vim.cmd.colorscheme('catppuccin-latte') -- light
+-- vim.cmd.colorscheme('catppuccin-frappe') -- nord
+vim.cmd.colorscheme('catppuccin-mocha') -- deep
 
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
-vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
+-- vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
