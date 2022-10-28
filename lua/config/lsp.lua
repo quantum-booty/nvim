@@ -112,6 +112,17 @@ local on_attach = function(client, bufnr)
     local rt = require("rust-tools")
     if client.name == 'rust_analyzer' then
         bufmap("n", "<tab>", rt.hover_actions.hover_actions)
+
+        local dap_continue = function()
+            if (require("dap").session() == nil) then
+                vim.cmd("RustDebuggables")
+            else
+                require("dap").continue()
+            end
+        end
+
+        bufmap('n', '<F5>', dap_continue)
+
     end
 end
 
