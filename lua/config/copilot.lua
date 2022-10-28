@@ -5,10 +5,10 @@ vim.defer_fn(function()
         panel = { enabled = false },
         suggestion = {
             enabled = true,
-            auto_trigger = true,
+            auto_trigger = false,
             debounce = 75,
             keymap = {
-                accept = "<right>",
+                accept = "<M-CR>",
                 next = "<M-]>",
                 prev = "<M-[>",
                 dismiss = "<C-]>",
