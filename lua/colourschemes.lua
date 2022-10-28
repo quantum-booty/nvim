@@ -125,8 +125,8 @@ require("catppuccin").setup({
             transparent_panel = false,
         },
         dap = {
-            enabled = false,
-            enable_ui = false,
+            enabled = true,
+            enable_ui = true,
         },
         indent_blankline = {
             enabled = true,
