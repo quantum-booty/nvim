@@ -7,7 +7,7 @@ vim.opt.shortmess:append('c')
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-    border = "single", focusable = false
+    border = "single", focusable = true
 }
 )
 

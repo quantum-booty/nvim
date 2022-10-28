@@ -1,7 +1,15 @@
 require("noice").setup(
     {
-        lsp_progress = {
-            enabled = true,
+        lsp = {
+            progress = {
+                enabled = true,
+            },
+            hover = {
+                enabled = false,
+            },
+            signature = {
+                enabled = false,
+            },
         },
         cmdline = {
             enabled = true, -- disable if you use native command line UI
