@@ -23,6 +23,7 @@ local cfg = {
     },
     move_cursor_key = "<tab>",
     select_signature_key = "<C-n>",
+    -- noice = true,
 }
 
 require'lsp_signature'.setup(cfg)

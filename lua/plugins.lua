@@ -30,6 +30,13 @@ return require('packer').startup({ function(use)
         cond = not_windows,
     })
     use { 'nvim-lualine/lualine.nvim', config = [[require('config.lualine')]], cond = not_windows }
+    use({
+        "folke/drop.nvim",
+        event = "VimEnter",
+        config = function()
+            require("drop").setup({theme="leaves"})
+        end,
+    })
 
     -- TODO: plugins to check out in the future
     -- remote editing
@@ -116,7 +123,7 @@ return require('packer').startup({ function(use)
         'hrsh7th/cmp-cmdline',
         'saadparwaiz1/cmp_luasnip',
     }
-    use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]], cond = is_windows}
+    use { 'j-hui/fidget.nvim', config = [[require"fidget".setup{}]], cond = is_windows }
 
     use { "zbirenbaum/copilot.lua", event = "VimEnter", config = [[require('config.copilot')]], cond = not_windows }
 
