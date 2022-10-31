@@ -36,6 +36,7 @@ return require('packer').startup({ function(use)
         config = function()
             require("drop").setup({theme="leaves"})
         end,
+        cond = not_windows,
     })
 
     -- TODO: plugins to check out in the future
