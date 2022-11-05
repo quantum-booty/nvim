@@ -46,6 +46,8 @@ vim.cmd([[
     let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 ]])
 
+vim.opt.diffopt:append({ 'linematch:60' })
+
 local options = {
     -- laststatus = 0, -- no status
     laststatus = 3, -- global statusline
