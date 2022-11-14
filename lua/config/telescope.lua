@@ -97,6 +97,8 @@ telescope.setup {
         -- },
     },
 }
+require('telescope').load_extension('zf-native')
+
 
 local project_files = function()
     local _, ret, _ = require('telescope.utils').get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
