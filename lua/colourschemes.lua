@@ -225,7 +225,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('rose-pine')
 -- vim.o.background = "light"; vim.cmd.colorscheme('kanagawa')
 -- vim.o.background = "dark"; vim.cmd.colorscheme('kanagawa')
--- vim.o.background = ""; require('kanagawa').setup({theme = "dragon"}); vim.cmd.colorscheme('kanagawa')
+vim.o.background = ""; require('kanagawa').setup({theme = "dragon"}); vim.cmd.colorscheme('kanagawa')
 -- vim.cmd.colorscheme('tokyodark')
 
 -- vim.cmd.colorscheme('nightfox')
@@ -239,7 +239,7 @@ require('kanagawa').setup({
 -- vim.cmd.colorscheme('catppuccin-macchiato') -- default
 -- vim.cmd.colorscheme('catppuccin-latte') -- light
 -- vim.cmd.colorscheme('catppuccin-frappe') -- nord
-vim.cmd.colorscheme('catppuccin-mocha') -- deep
+-- vim.cmd.colorscheme('catppuccin-mocha') -- deep
 
 -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
 -- vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
