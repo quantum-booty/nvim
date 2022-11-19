@@ -78,7 +78,6 @@ vim.g.gruvbox_invert_selection = 1
 -- " =============================================================================
 -- " # Catppuccin
 -- " =============================================================================
-print(is_windows)
 require("catppuccin").setup({
     transparent_background = false,
     term_colors = true,
