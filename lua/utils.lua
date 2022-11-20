@@ -20,7 +20,7 @@ end
 
 local function autocmd(group, events, opts, clear)
     local clear = (clear == nil) and true or clear
-    local group = vim.api.nvim_create_augroup('group', { clear = clear })
+    local group = vim.api.nvim_create_augroup(group, { clear = clear })
     opts.group = group
     vim.api.nvim_create_autocmd(events, opts)
 end

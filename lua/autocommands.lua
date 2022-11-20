@@ -50,3 +50,32 @@ autocmd_multi(
         {'FileChangedShellPost ', {pattern='*', command = [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]]}},
     }
 )
+
+local function disable_syntax()
+    print("Big file, disabling syntax, treesitter and folding")
+    vim.cmd [[
+    TSBufDisable autotag
+    TSBufDisable highlight
+    syntax clear
+    syntax off
+    filetype off
+    ]]
+    local options = {
+        foldmethod = "manual",
+        undofile = false,
+        swapfile = false,
+        loadplugins = false,
+    }
+    for i, option in pairs(options) do
+        vim.opt[i] = option
+    end
+end
+
+vim.api.nvim_create_autocmd(
+    {'BufReadPre','FileReadPre'},
+    {
+        group = vim.api.nvim_create_augroup('BigFileDisable', {}),
+        pattern = '*',
+        callback = function() if vim.fn.getfsize(vim.fn.expand('%')) > 512 * 1024 then disable_syntax() end end
+    }
+)
