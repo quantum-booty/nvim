@@ -1,10 +1,9 @@
 local autocmd = require('utils').autocmd
 local autocmd_multi = require('utils').autocmd_multi
 
+-- autocmd("haskell", {'BufNewFile','BufRead'}, { pattern = '*.hs', command = 'set filetype=haskell'})
 -- autocmd("fsharp", {'BufNewFile','BufRead'}, { pattern = {'*.fs','*.fsx','*.fsi'}, command = 'set filetype=fsharp'})
-autocmd("haskell", {'BufNewFile','BufRead'}, { pattern = '*.hs', command = 'set filetype=haskell'})
-vim.cmd([[autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp]])
-vim.cmd([[autocmd BufNewFile,BufRead *Dockerfile* set filetype=dockerfile]])
+autocmd("dockerfile", {'BufNewFile','BufRead'}, { pattern = {'*Dockerfile*'}, command = 'set filetype=dockerfile'})
 
 autocmd_multi("misc",
     {
@@ -14,7 +13,6 @@ autocmd_multi("misc",
         {'BufReadPost', { pattern = '*', command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] }},
     }
 )
-
 
 autocmd_multi(
     'MyColors',
@@ -71,11 +69,9 @@ local function disable_syntax()
     end
 end
 
-vim.api.nvim_create_autocmd(
-    {'BufReadPre','FileReadPre'},
+autocmd_multi(
+    'BigFileDisableSyntax',
     {
-        group = vim.api.nvim_create_augroup('BigFileDisable', {}),
-        pattern = '*',
-        callback = function() if vim.fn.getfsize(vim.fn.expand('%')) > 512 * 1024 then disable_syntax() end end
+        {{'BufReadPre','FileReadPre'}, { pattern = '*', callback = function() if vim.fn.getfsize(vim.fn.expand('%')) > 512 * 1024 then disable_syntax() end end }},
     }
 )

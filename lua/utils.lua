@@ -9,19 +9,17 @@ local function opt(o, v, scopes)
 end
 
 local function autocmd_multi(group, cmds, clear)
-    local clear = (clear == nil) and true or clear
-    local group = vim.api.nvim_create_augroup(group, { clear = clear })
+    local group_id = vim.api.nvim_create_augroup(group, { clear = (clear == nil) and true or clear })
     for _, c in ipairs(cmds) do
         local opts = c[2]
-        opts.group = group
+        opts.group = group_id
         vim.api.nvim_create_autocmd(c[1], opts)
     end
 end
 
 local function autocmd(group, events, opts, clear)
-    local clear = (clear == nil) and true or clear
-    local group = vim.api.nvim_create_augroup(group, { clear = clear })
-    opts.group = group
+    local group_id = vim.api.nvim_create_augroup(group, { clear = (clear == nil) and true or clear })
+    opts.group = group_id
     vim.api.nvim_create_autocmd(events, opts)
 end
 
