@@ -85,8 +85,8 @@ map('x', '+', '<C-a>', opts)
 map('x', '-', '<C-x>', opts)
 
 -- " use ( and ) for moving half page up and down
-map('n', '(', '<C-u>', { noremap = false, silent = true })
-map('n', ')', '<C-d>', { noremap = false, silent = true })
+map('n', '(', '<C-u>zz', { noremap = false, silent = true })
+map('n', ')', '<C-d>zz', { noremap = false, silent = true })
 
 -- " lsp hover tab is the same as C-i", so remap C-y to C-i
 map('n', '<C-y>', '<C-i>', opts)
