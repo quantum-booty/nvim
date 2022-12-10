@@ -46,6 +46,7 @@ return require('packer').startup({ function(use)
         'tiagovla/tokyodark.nvim',
         { 'EdenEast/nightfox.nvim', run = ':NightfoxCompile', },
         { 'rose-pine/neovim', as = 'rose-pine' },
+        'nyoom-engineering/oxocarbon.nvim',
     }
     use {
         "catppuccin/nvim",
