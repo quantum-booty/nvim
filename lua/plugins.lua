@@ -102,6 +102,7 @@ return require('packer').startup({ function(use)
             require('crates').setup()
         end,
     }
+    use { 'jose-elias-alvarez/typescript.nvim' }
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = [[require('config.trouble')]] }
     use { 'ray-x/lsp_signature.nvim', after = 'nvim-lspconfig', config = [[require('config.lspsignature')]] }
