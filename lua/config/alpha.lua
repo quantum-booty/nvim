@@ -36,7 +36,7 @@ dashboard.section.buttons.val = {
     -- dashboard.button( "f", "  Find File", ":Telescope find_files<CR>"),
     -- dashboard.button( "r", "  Recents", ":Telescope frecency<CR>"),
     -- dashboard.button( "w", "  Find Word", ":Telescope live_grep<CR>"),
-    dashboard.button( "n", "  Neorg", ":NeorgStart<CR>", {}),
+    -- dashboard.button( "n", "  Neorg", ":NeorgStart<CR>", {}),
     dashboard.button( "pp", "  Projects", ":Telescope projects<CR>", {}),
     dashboard.button( "rc", "  init.lua", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>", {}),
     dashboard.button( "rp", "  plugins", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins.lua<CR>", {}),
