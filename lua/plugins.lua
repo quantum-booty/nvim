@@ -65,9 +65,6 @@ return require('packer').startup({ function(use)
     use { 'ojroques/nvim-bufdel', config = [[require('config.nvim_bufdel')]] }
     use { 'b0o/incline.nvim', config = [[require('config.incline')]] }
 
-    -- Consoles for interactive development
-    -- use { 'jupyter-vim/jupyter-vim', opt=true, ft='python' }
-
 
     -- SQL
     -- use { 'jsborjesson/vim-uppercase-sql', ft='sql' }
@@ -200,11 +197,11 @@ return require('packer').startup({ function(use)
         config = [[vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true })]],
         cmd = 'UndotreeToggle' }
     use { 'windwp/nvim-autopairs', config = [[require('nvim-autopairs').setup()]] }
-    use {
-        'andweeb/presence.nvim',
-        config = [[require('config.discord')]],
-        cond = not_windows,
-    }
+    -- use {
+    --     'andweeb/presence.nvim',
+    --     config = [[require('config.discord')]],
+    --     cond = not_windows,
+    -- }
 
     -- ---  Note taking, tex, orgmode
     use { 'nvim-neorg/neorg', config = [[require('config.neorg')]] }
