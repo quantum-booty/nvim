@@ -2,10 +2,6 @@ local autocmd = require('utils').autocmd
 local map = require('utils').map
 local opts = { noremap = true, silent = true }
 
-map('n', '<space>', '<nop>', opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = ','
-
 -- user commands
 vim.api.nvim_create_user_command("PS", function() vim.cmd 'PackerSync' end, {})
 vim.api.nvim_create_user_command("RC", function() vim.cmd 'cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua' end, {})
