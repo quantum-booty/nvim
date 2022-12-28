@@ -42,7 +42,7 @@ dashboard.section.buttons.val = {
     dashboard.button( "pp", "  Projects", ":Telescope projects<CR>", {}),
     dashboard.button( "rc", "  init.lua", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua<CR>", {}),
     dashboard.button( "rp", "  plugins", ":cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins/init.lua<CR>", {}),
-    dashboard.button( "ps", "  PackerSync", ":PackerSync<CR>", {}),
+    dashboard.button( "ls", "  Lazy sync", ":Lazy sync<CR>", {}),
     -- dashboard.button( "b", "  Bookmarks", ":Telescope marks<CR>"),
     -- dashboard.button( "s", "  Load Last Session", ":SessionLoad<CR>"),
     dashboard.button( "q", "  Quit NVIM", ":qa<CR>", {}),
