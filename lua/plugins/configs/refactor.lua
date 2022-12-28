@@ -14,8 +14,6 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 
-
-
 -- You can also use below = true here to to change the position of the printf
 -- statement (or set two remaps for either one). This remap must be made in normal mode.
 vim.api.nvim_set_keymap(
