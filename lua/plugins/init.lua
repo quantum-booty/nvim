@@ -2,8 +2,6 @@ local not_windows = true
 local is_windows = false
 
 return {
-    -- Packer can manage itself
-    'wbthomason/packer.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     'kyazdani42/nvim-web-devicons',
