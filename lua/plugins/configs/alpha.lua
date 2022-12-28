@@ -2,6 +2,8 @@ local alpha = require'alpha'
 local dashboard = require'alpha.themes.dashboard'
 local autocmd_multi = require('utils').autocmd_multi
 
+vim.g.indentLine_fileTypeExclude = { 'alpha' }
+
 dashboard.section.header.val = {
    "                                   ",
    "                                   ",

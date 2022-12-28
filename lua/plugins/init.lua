@@ -8,7 +8,7 @@ return {
     'nvim-lua/popup.nvim',
     'kyazdani42/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
-    { 'stevearc/dressing.nvim', config = function() require('plugins.configs.dressing') end,
+    { 'stevearc/dressing.nvim', event = 'VeryLazy',
         dependencies = 'nvim-telescope/telescope.nvim' },
     { 'nvim-lualine/lualine.nvim', config = function() require('plugins.configs.lualine') end },
 
@@ -34,14 +34,7 @@ return {
     { 'lukas-reineke/indent-blankline.nvim', config = function() require 'plugins.configs.indent_blankline' end,
         dependencies = 'nvim-treesitter/nvim-treesitter' },
     { 'folke/todo-comments.nvim', config = true },
-    {
-        'goolord/alpha-nvim',
-        lazy = false,
-        config = function()
-            vim.g.indentLine_fileTypeExclude = { 'alpha' };
-            require('plugins.configs.alpha')
-        end
-    },
+    { 'goolord/alpha-nvim', config = function() require('plugins.configs.alpha') end },
     { 'akinsho/bufferline.nvim', event = "BufReadPre", version = "*",
         config = function() require('plugins.configs.bufferline') end },
     { 'ojroques/nvim-bufdel', config = function() require('plugins.configs.bufdel') end },
@@ -103,7 +96,7 @@ return {
             'onsails/lspkind-nvim',
         },
     },
-    { 'j-hui/fidget.nvim', config = true, cond = is_windows },
+    { 'j-hui/fidget.nvim', config = true, enabled = is_windows },
     { 'sbdchd/neoformat', config = function() require('plugins.configs.neoformat') end },
     { 'mfussenegger/nvim-lint', config = function() require('plugins.configs.nvimlint') end },
 
@@ -124,7 +117,7 @@ return {
             'nvim-telescope/telescope-dap.nvim',
         },
         config = function() require('plugins.configs.dap') end,
-        cond = not_windows,
+        enabled = not_windows,
     },
 
     { 'nyngwang/NeoZoom.lua', event = "BufReadPre", config = function() require('plugins.configs.neozoom') end },
@@ -144,7 +137,7 @@ return {
     {
         'nvim-pack/nvim-spectre',
         lazy = true,
-        config = function() require('spectre').setup({ default = { replace = { cmd = not_windows() and "oxi" or "sed" } } }) end,
+        config = { default = { replace = { cmd = not_windows and "oxi" or "sed" } } },
         build = not_windows and "./build.sh" or ""
     },
 
@@ -191,7 +184,7 @@ return {
     -- {
     --     'andweeb/presence.nvim',
     --     config = function() require('plugins.config.discord') end,
-    --     cond = not_windows,
+    --     enabled = not_windows,
     -- }
 
     -- ---  Note taking, tex, orgmode
