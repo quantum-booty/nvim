@@ -6,10 +6,10 @@
 --  \___\_\__,_/\__,_/_/ /_/\__/\__,_/_/ /_/ /_/   --
 --                                                 --
 -----------------------------------------------------
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 require('settings')
-require('plugins')
-require('impatient')
+require('lazy_config')
 require('mappings')
 require('autocommands')
 require('colourschemes')
-require('packer_compiled')
