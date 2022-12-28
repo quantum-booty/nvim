@@ -1,17 +1,6 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
 
--- vim.g.nvim_tree_window_picker_exclude = {
---     \   'filetype': [
---     \     'notify',
---     \     'packer',
---     \     'qf'
---     \   ],
---     \   'buftype': [
---     \     'terminal'
---     \   ]
---     \ }
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 -- default mappings
 local map_list = {

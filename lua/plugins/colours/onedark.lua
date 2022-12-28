@@ -8,3 +8,4 @@ onedark.setup({
     }
 }
 )
+onedark.load()
