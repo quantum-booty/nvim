@@ -13,21 +13,30 @@ return {
     { 'nvim-lualine/lualine.nvim', config = function() require('plugins.configs.lualine') end },
 
     -- colour schemes
-    'navarasu/onedark.nvim',
-    'rebelot/kanagawa.nvim',
-    'rmehri01/onenord.nvim',
-    -- 'srcery-colors/srcery-vim',
-    -- {'ellisonleao/gruvbox.nvim', dependencies = {'rktjmp/lush.nvim'}},
-    'folke/tokyonight.nvim',
-    'tiagovla/tokyodark.nvim',
-    { 'EdenEast/nightfox.nvim', build = ':NightfoxCompile', },
-    { 'rose-pine/neovim', name = 'rose-pine' },
-    'nyoom-engineering/oxocarbon.nvim',
+    { 'navarasu/onedark.nvim', lazy = true,
+        config = function() require('plugins.configs.colours.onedark') end },
+    { 'rebelot/kanagawa.nvim', lazy = true,
+        config = function() require('plugins.configs.colours.kanagawa') end },
+    { 'rmehri01/onenord.nvim', lazy = true,
+        config = function() require('plugins.configs.colours.onenord') end },
+    {
+        'EdenEast/nightfox.nvim',
+        lazy = true,
+        config = function() require('plugins.configs.colours.nightfox') end,
+        build = ':NightfoxCompile',
+    },
     {
         "catppuccin/nvim",
+        lazy = true,
         name = "catppuccin",
-        build = ":CatppuccinCompile"
+        build = ":CatppuccinCompile",
+        config = function() require('plugins.configs.colours.catppuccin') end,
     },
+    { 'rose-pine/neovim', lazy = true, name = 'rose-pine',
+        config = { dark_variant = 'moon', disable_italics = true } },
+    { 'folke/tokyonight.nvim', lazy = true },
+    { 'tiagovla/tokyodark.nvim', lazy = true },
+    { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
 
     -- cosmetics
     { 'NvChad/nvim-colorizer.lua', config = true },
