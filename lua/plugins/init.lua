@@ -1,4 +1,5 @@
 local not_windows = true
+local is_windows = false
 
 return {
     -- Packer can manage itself
@@ -84,33 +85,37 @@ return {
         config = true,
     },
     { 'folke/lsp-trouble.nvim', event = "BufReadPre", config = function() require 'plugins.configs.trouble' end },
-    { 'ray-x/lsp_signature.nvim', dependencies = 'neovim/nvim-lspconfig',
+    { 'ray-x/lsp_signature.nvim', event = "BufReadPre", dependencies = 'neovim/nvim-lspconfig',
         config = function() require('plugins.configs.lspsignature') end },
     { 'simrat39/symbols-outline.nvim', config = function() require('plugins.configs.symbols_outline') end },
     { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim', name = 'lsp_lines' },
 
     {
         'hrsh7th/nvim-cmp',
-        event = "InsertEnter",
+        event = "BufReadPre",
         config = function() require('plugins.configs.cmp') end,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-nvim-lua',
             'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'saadparwaiz1/cmp_luasnip',
             'onsails/lspkind-nvim',
         },
     },
+    { 'j-hui/fidget.nvim', config = true, cond = is_windows },
     { 'sbdchd/neoformat', config = function() require('plugins.configs.neoformat') end },
     { 'mfussenegger/nvim-lint', config = function() require('plugins.configs.nvimlint') end },
 
 
     -- snippets
     'quantum-booty/friendly-snippets',
-    'L3MON4D3/LuaSnip',
+    { 'L3MON4D3/LuaSnip', event = "BufReadPre" },
 
     -- Debugger
     {
         'mfussenegger/nvim-dap',
+        event = "BufReadPre",
         ft = { 'rust' },
         dependencies = {
             'mfussenegger/nvim-dap-python',
@@ -122,31 +127,33 @@ return {
         cond = not_windows,
     },
 
-    { 'nyngwang/NeoZoom.lua', config = function() require('plugins.configs.neozoom') end },
+    { 'nyngwang/NeoZoom.lua', event = "BufReadPre", config = function() require('plugins.configs.neozoom') end },
 
     -- Fuzzy finder & project navigation
-    { 'nvim-telescope/telescope.nvim', config = function() require('plugins.configs.telescope') end,
-        dependencies = 'folke/lsp-trouble.nvim' },
-    'nvim-telescope/telescope-live-grep-args.nvim',
-    'natecraddock/telescope-zf-native.nvim',
     {
-        'ahmedkhalf/project.nvim',
-        dependencies = 'telescope.nvim',
-        config = function()
-            require('telescope').load_extension('projects')
-            require('project_nvim').setup {}
-        end
+        'nvim-telescope/telescope.nvim',
+        config = function() require('plugins.configs.telescope') end,
+        dependencies = {
+            'folke/lsp-trouble.nvim',
+            'nvim-telescope/telescope-live-grep-args.nvim',
+            'natecraddock/telescope-zf-native.nvim',
+            'ahmedkhalf/project.nvim',
+        }
     },
     { 'ThePrimeagen/harpoon', config = function() require('plugins.configs.harpoon') end, },
-    { 'nvim-pack/nvim-spectre', config = function() require('plugins.configs.spectre') end,
-        build = not_windows and "./build.sh" or "" },
+    {
+        'nvim-pack/nvim-spectre',
+        lazy = true,
+        config = function() require('spectre').setup({ default = { replace = { cmd = not_windows() and "oxi" or "sed" } } }) end,
+        build = not_windows and "./build.sh" or ""
+    },
 
 
-    { 'kyazdani42/nvim-tree.lua', lazy = false, config = function() require('plugins.configs.nvim_tree') end },
+    { 'kyazdani42/nvim-tree.lua', config = function() require('plugins.configs.nvim_tree') end },
 
     { 'sindrets/diffview.nvim', event = "BufReadPre", config = function() require 'plugins.configs.diffview' end },
     { 'lewis6991/gitsigns.nvim', event = "BufReadPre", config = function() require 'plugins.configs.gitsigns' end },
-    { 'akinsho/toggleterm.nvim', event = "BufReadPre", config = function() require 'plugins.configs.toggleterm' end },
+    { 'akinsho/toggleterm.nvim', config = function() require 'plugins.configs.toggleterm' end },
 
 
     -- language support / syntax highlighting
@@ -154,15 +161,23 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         config = function() require('plugins.configs.treesitter') end,
-    },
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    'nvim-treesitter/nvim-treesitter-refactor',
-    'p00f/nvim-ts-rainbow',
-    { 'nvim-treesitter/nvim-treesitter-context', config = true},
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'nvim-treesitter/nvim-treesitter-refactor',
+            'p00f/nvim-ts-rainbow',
+            { 'nvim-treesitter/nvim-treesitter-context', config = true },
 
-    { 'ThePrimeagen/refactoring.nvim', config = function() require('plugins.configs.refactor') end,
-        dependencies = 'nvim-telescope/telescope.nvim' },
-    'Vimjas/vim-python-pep8-indent',
+        }
+    },
+    { 'windwp/nvim-autopairs', event = "BufReadPre", config = true },
+
+    {
+        'ThePrimeagen/refactoring.nvim',
+        event = "BufReadPre",
+        config = function() require('plugins.configs.refactor') end,
+        dependencies = 'nvim-telescope/telescope.nvim'
+    },
+    { 'Vimjas/vim-python-pep8-indent', ft = { 'python' } },
 
     -- document generator
     { 'danymat/neogen', config = function() require('plugins.configs.neogen') end },
@@ -173,7 +188,6 @@ return {
     { 'mbbill/undotree',
         config = function() vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true }) end,
         cmd = 'UndotreeToggle' },
-    { 'windwp/nvim-autopairs', config = true },
     -- {
     --     'andweeb/presence.nvim',
     --     config = function() require('plugins.config.discord') end,
