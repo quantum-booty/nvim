@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.env.NVIM_CONFIG_PATH = vim.fn.stdpath('config')
 
 if vim.fn.has('win32') == 1 then
