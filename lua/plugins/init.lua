@@ -1,5 +1,5 @@
-local not_windows = true
-local is_windows = false
+local not_windows = require('utils').not_windows()
+local is_windows = require('utils').is_windows()
 
 return {
     'nvim-lua/plenary.nvim',
@@ -8,29 +8,6 @@ return {
     'MunifTanjim/nui.nvim',
     { 'stevearc/dressing.nvim', event = 'VeryLazy', dependencies = 'nvim-telescope/telescope.nvim' },
     { 'nvim-lualine/lualine.nvim', config = function() require('plugins.configs.lualine') end },
-
-    -- colour schemes
-    { 'navarasu/onedark.nvim', lazy = true, config = function() require('plugins.configs.colours.onedark') end },
-    { 'rebelot/kanagawa.nvim', lazy = true, config = function() require('plugins.configs.colours.kanagawa') end },
-    { 'rmehri01/onenord.nvim', lazy = true, config = function() require('plugins.configs.colours.onenord') end },
-    { 'rose-pine/neovim', lazy = true, name = 'rose-pine', config = { dark_variant = 'moon', disable_italics = true } },
-    {
-        'EdenEast/nightfox.nvim',
-        lazy = true,
-        config = function() require('plugins.configs.colours.nightfox') end,
-        build = ':NightfoxCompile',
-    },
-    {
-        "catppuccin/nvim",
-        lazy = false,
-        priority = 1000,
-        name = "catppuccin",
-        build = ":CatppuccinCompile",
-        config = function() require('plugins.configs.colours.catppuccin') end,
-    },
-    { 'folke/tokyonight.nvim', lazy = true },
-    { 'tiagovla/tokyodark.nvim', lazy = true },
-    { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
 
     -- cosmetics
     { 'NvChad/nvim-colorizer.lua', event = 'BufReadPre', config = true },
@@ -81,7 +58,7 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = true,
     },
-    { 'folke/lsp-trouble.nvim', event = "BufReadPre", config = function() require 'plugins.configs.trouble' end },
+    { 'folke/trouble.nvim', event = "BufReadPre", config = function() require 'plugins.configs.trouble' end },
     { 'ray-x/lsp_signature.nvim', event = "BufReadPre", dependencies = 'neovim/nvim-lspconfig',
         config = function() require('plugins.configs.lspsignature') end },
     { 'simrat39/symbols-outline.nvim', event = "BufReadPre",

@@ -8,3 +8,4 @@ require('onenord').setup({
         Visual = { style = "reverse" },
     },
 })
+vim.cmd.colorscheme('onenord')
