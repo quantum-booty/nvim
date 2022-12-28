@@ -24,7 +24,8 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
+        priority = 1000,
         name = "catppuccin",
         build = ":CatppuccinCompile",
         config = function() require('plugins.configs.colours.catppuccin') end,
