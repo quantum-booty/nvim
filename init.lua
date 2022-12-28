@@ -6,8 +6,6 @@
 --  \___\_\__,_/\__,_/_/ /_/\__/\__,_/_/ /_/ /_/   --
 --                                                 --
 -----------------------------------------------------
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 require('settings')
 require('lazy_config')
 require('mappings')
