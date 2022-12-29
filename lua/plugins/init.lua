@@ -1,5 +1,5 @@
-local not_windows = require('utils').not_windows()
-local is_windows = require('utils').is_windows()
+local not_windows = require('utils').not_windows
+local is_windows = require('utils').is_windows
 
 return {
     'nvim-lua/plenary.nvim',

@@ -15,7 +15,7 @@ vim.opt.runtimepath:prepend(lazypath)
 require("lazy").setup("plugins", {
   -- defaults = { lazy = true },
   install = { missing = false },
-  checker = { enabled = true },
+  checker = { enabled = require('utils').not_windows },
   diff = {
     cmd = "terminal_git",
   },

@@ -1,4 +1,3 @@
-local is_windows = require('utils').is_windows
 -- " =============================================================================
 -- " # Catppuccin
 -- " =============================================================================
@@ -9,7 +8,7 @@ require("catppuccin").setup({
         enabled = true,
         path = vim.fn.stdpath "cache" .. "/catppuccin",
     },
-    no_italic = is_windows(),
+    no_italic = require('utils').is_windows,
     styles = {
         comments = {},
         conditionals = {},
