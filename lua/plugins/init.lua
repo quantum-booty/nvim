@@ -5,8 +5,9 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     'kyazdani42/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-    { 'stevearc/dressing.nvim', event = 'VeryLazy', dependencies = 'nvim-telescope/telescope.nvim' },
+    { 'MunifTanjim/nui.nvim', event = 'VeryLazy' },
+    { 'stevearc/dressing.nvim', event = 'VeryLazy', dependencies = 'nvim-telescope/telescope.nvim',
+        config = function() require('plugins.configs.dressing') end },
     { 'nvim-lualine/lualine.nvim', event = 'VeryLazy', config = function() require('plugins.configs.lualine') end },
 
     -- cosmetics
