@@ -50,7 +50,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         name = "catppuccin",
         build = ":CatppuccinCompile",
@@ -64,11 +64,11 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
             -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
-            -- vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
+            vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
             -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
             -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
         end
