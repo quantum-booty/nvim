@@ -67,10 +67,11 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            -- vim.cmd([[ let g:tokyonight_style = 'storm' | colorscheme tokyonight ]])
-            vim.cmd([[ let g:tokyonight_style = 'moon' | colorscheme tokyonight ]])
-            -- vim.cmd([[ let g:tokyonight_style = 'night' | colorscheme tokyonight ]])
-            -- vim.cmd([[ let g:tokyonight_style = 'day' | colorscheme tokyonight ]])
+            -- vim.cmd.colorscheme('tokyonight')
+            -- vim.cmd.colorscheme('tokyonight-storm')
+            -- vim.cmd.colorscheme('tokyonight-moon')
+            vim.cmd.colorscheme('tokyonight-night')
+            -- vim.cmd.colorscheme('tokyonight-day')
         end
     },
     {
