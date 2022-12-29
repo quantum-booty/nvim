@@ -23,7 +23,6 @@
   "kanagawa.nvim": { "branch": "master", "commit": "c9fc16815fc9b195882e40c881fb590eda4e8ecf" },
   "lazy.nvim": { "branch": "main", "commit": "5a78451c309b245aa5d02c11fa2651a95fe2f9e1" },
   "leap.nvim": { "branch": "main", "commit": "e0145906c5f004b23eb6ec876fad55ffd3382ec9" },
-  "lsp-trouble.nvim": { "branch": "main", "commit": "897542f90050c3230856bc6e45de58b94c700bbf" },
   "lsp_lines.nvim": { "branch": "main", "commit": "ec98b45c8280e5ef8c84028d4f38aa447276c002" },
   "lsp_signature.nvim": { "branch": "master", "commit": "1979f1118e2b38084e7c148f279eed6e9300a342" },
   "lspkind-nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
