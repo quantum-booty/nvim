@@ -200,9 +200,8 @@ require('rust-tools').setup {
         capabilities = capabilities, on_attach = on_attach,
         settings = {
             ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy"
-                }
+                checkOnSave = { command = "clippy" },
+                inlayHints = { locationLinks = false },
             }
         }
     },
