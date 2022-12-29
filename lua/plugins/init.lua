@@ -7,7 +7,7 @@ return {
     'kyazdani42/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
     { 'stevearc/dressing.nvim', event = 'VeryLazy', dependencies = 'nvim-telescope/telescope.nvim' },
-    { 'nvim-lualine/lualine.nvim', config = function() require('plugins.configs.lualine') end },
+    { 'nvim-lualine/lualine.nvim', event = 'VeryLazy', config = function() require('plugins.configs.lualine') end },
 
     -- cosmetics
     { 'NvChad/nvim-colorizer.lua', event = 'BufReadPre', config = true },
@@ -20,7 +20,7 @@ return {
         config = function() require('plugins.configs.bufferline') end },
     { 'ojroques/nvim-bufdel', event = 'BufReadPre', config = function() require('plugins.configs.bufdel') end },
     { 'b0o/incline.nvim', event = 'BufReadPre', config = function() require('plugins.configs.incline') end },
-    { 'petertriho/nvim-scrollbar', config = function() require('plugins.configs.scrollbar') end },
+    { 'petertriho/nvim-scrollbar', event = 'BufReadPre', config = function() require('plugins.configs.scrollbar') end },
 
     -- motion
     { 'numToStr/Comment.nvim', event = 'BufReadPre', config = true },
@@ -29,7 +29,9 @@ return {
     { 'wellle/targets.vim', event = 'CursorMoved' },
     {
         'ggandor/leap.nvim',
+        event = 'VeryLazy',
         dependencies = 'ggandor/flit.nvim',
+        config = function() require('plugins.configs.leap') end,
     },
 
     -- lsp, autocompletion
@@ -67,7 +69,7 @@ return {
 
     {
         'hrsh7th/nvim-cmp',
-        event = "BufReadPre",
+        event = {'InsertEnter', 'CmdLineEnter'},
         config = function() require('plugins.configs.cmp') end,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
@@ -132,6 +134,7 @@ return {
     -- language support / syntax highlighting
     {
         'nvim-treesitter/nvim-treesitter',
+        event = 'BufReadPost',
         build = ':TSUpdate',
         config = function() require('plugins.configs.treesitter') end,
         dependencies = {
@@ -146,7 +149,7 @@ return {
 
     {
         'ThePrimeagen/refactoring.nvim',
-        event = "BufReadPre",
+        event = 'BufReadPre',
         config = function() require('plugins.configs.refactor') end,
         dependencies = 'nvim-telescope/telescope.nvim'
     },

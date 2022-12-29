@@ -44,7 +44,7 @@ return {
             -- vim.cmd.colorscheme('duskfox')
             -- vim.cmd.colorscheme('dayfox')
             -- vim.cmd.colorscheme('dawnfox')
-            -- vim.cmd.colorscheme('carbonfox')
+            vim.cmd.colorscheme('carbonfox')
         end,
         build = ':NightfoxCompile',
     },
