@@ -97,5 +97,4 @@ require'nvim-tree'.setup {
 
 require'nvim-tree.view'.View.winopts.relativenumber = true
 
-map('n', '<leader>V', ':NvimTreeToggle<CR>', opts)
 map('n', '<leader>v', ':NvimTreeFindFileToggle<CR>', opts)

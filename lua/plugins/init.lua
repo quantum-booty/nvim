@@ -112,7 +112,7 @@ return {
         'nvim-telescope/telescope.nvim',
         config = function() require('plugins.configs.telescope') end,
         dependencies = {
-            'folke/lsp-trouble.nvim',
+            'folke/trouble.nvim',
             'nvim-telescope/telescope-live-grep-args.nvim',
             'natecraddock/telescope-zf-native.nvim',
             'ahmedkhalf/project.nvim',
@@ -127,7 +127,11 @@ return {
     },
 
 
-    { 'kyazdani42/nvim-tree.lua', config = function() require('plugins.configs.nvim_tree') end },
+    {
+        'kyazdani42/nvim-tree.lua',
+        keys = { { '<leader>v' } },
+        config = function() require('plugins.configs.nvim_tree') end
+    },
 
     { 'sindrets/diffview.nvim', event = "BufReadPre", config = function() require 'plugins.configs.diffview' end },
     { 'lewis6991/gitsigns.nvim', event = "BufReadPre", config = function() require 'plugins.configs.gitsigns' end },
