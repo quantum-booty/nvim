@@ -9,17 +9,21 @@
 --     },
 -- }
 
-vim.cmd([[
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldnestmax=2
-set foldlevelstart=999
-]])
+-- vim.cmd([[
+-- set foldmethod=expr
+-- set foldexpr=nvim_treesitter#foldexpr()
+-- set foldnestmax=2
+-- set foldlevelstart=999
+-- ]])
 
 require 'nvim-treesitter.install'.compilers = { "clang" }
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "norg", "python", "lua", "vim", "json", "c_sharp", "markdown", "markdown_inline", "rust", "dockerfile", "yaml"},
+    ensure_installed = {
+        "norg", "python", "lua", "vim", "json", "c_sharp",
+        "markdown", "markdown_inline", "rust", "dockerfile", "yaml", "toml",
+        "diff", "sql", "typescript"
+    },
 
     highlight = {
         enable = true,
