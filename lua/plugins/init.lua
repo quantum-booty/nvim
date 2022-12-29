@@ -87,7 +87,7 @@ return {
     { 'mfussenegger/nvim-lint', event = "BufReadPre", config = function() require('plugins.configs.nvimlint') end },
 
     -- snippets
-    { 'L3MON4D3/LuaSnip', event = "BufReadPre", dependencies = 'quantum-booty/friendly-snippets',
+    { 'L3MON4D3/LuaSnip', event = "InsertEnter", dependencies = 'quantum-booty/friendly-snippets',
         config = function() require('plugins.configs.luasnips') end },
 
     -- Debugger
