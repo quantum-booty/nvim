@@ -65,7 +65,7 @@ return {
         config = function() require('plugins.configs.lspsignature') end },
     { 'simrat39/symbols-outline.nvim', event = "BufReadPre",
         config = function() require('plugins.configs.symbols_outline') end },
-    { url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim', event = "BufReadPre", name = 'lsp_lines' },
+    { 'quantum-booty/lsp_lines.nvim', event = "BufReadPre" },
 
     {
         'hrsh7th/nvim-cmp',
