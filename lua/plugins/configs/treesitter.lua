@@ -22,7 +22,7 @@ require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
         "norg", "python", "lua", "vim", "json", "c_sharp",
         "markdown", "markdown_inline", "rust", "dockerfile", "yaml", "toml",
-        "diff", "sql", "typescript"
+        "diff", "typescript"
     },
 
     highlight = {

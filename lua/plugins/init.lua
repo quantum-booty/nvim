@@ -41,7 +41,7 @@ return {
         config = function() require('plugins.configs.lsp') end,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
-            'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+            'quantum-booty/lsp_lines.nvim',
             'folke/neodev.nvim',
             'mfussenegger/nvim-dap',
             'williamboman/mason.nvim',
