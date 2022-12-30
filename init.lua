@@ -7,6 +7,6 @@
 --                                                 --
 -----------------------------------------------------
 require('settings')
-require('lazy_config')
-require('mappings')
 require('autocommands')
+require('mappings')
+require('lazy_config')

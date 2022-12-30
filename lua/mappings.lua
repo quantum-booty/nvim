@@ -13,8 +13,6 @@ vim.api.nvim_create_user_command("JF", function() vim.cmd ':%!python -m json.too
 map('i', '<Del>', '<C-o>A;', opts)
 
 
--- map('n', '<cr>', 'zo', opts)
--- map('n', '<cr>', ':%foldo<cr>', opts)
 autocmd('filetype_help_mapping', 'FileType', { pattern = 'help', command = [[nnoremap <buffer> <CR> <c-]>]] })
 
 
@@ -30,21 +28,11 @@ vim.cmd([[
 " search replace
 nnoremap <Leader>sr :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>sr :s/\<\>//g<left><left><left><left><left>
-" nnoremap <Leader>sR :%s///g<Left><Left><Left>
 
-" " search number
-" nnoremap <leader>d :call search('\d\+')<CR>
-" nnoremap <leader>D :call search('\d\+', 'b')<CR>
+" search number
 nnoremap <Leader>n /\d\+<CR>
 nnoremap <Leader>N ?\d\+<CR>
 ]])
-
--- map('n', '<Leader>sr', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts)
--- map('v', '<Leader>sr', [[:s/\<\>//g<left><left><left><left><left>]], opts)
-
--- -- search number
--- map('n', '<leader>d', [[':call search("\d\+")<CR>']], opts)
--- map('n', '<leader>D', [[':call search("\d\+", "b")<CR>']], opts)
 
 -- =============================================================================
 -- # custom remaps
@@ -58,18 +46,11 @@ map('i', '.', '.<c-g>u', opts)
 map('i', '!', '!<c-g>u', opts)
 map('i', '?', '?<c-g>u', opts)
 
-
--- jumplist mutations (adding j and k to jumplist), and gj and gk ensures they
--- ignores wrapping
--- map('n', 'j', [[(v:count > 5 ? "m'" . v:count : "") . "gj"]], {expr=true, silent=true, noremap=true})
--- map('n', 'k', [[(v:count > 5 ? "m'" . v:count : "") . "gk"]], {expr=true, silent=true, noremap=true})
-
 -- moving text
 map('v', 'J', ":m '>+1<cr>gv=gv", opts)
 map('v', 'K', ":m '<-2<cr>gv=gv", opts)
 map('n', '<leader>j', '<esc>:m .+1<CR>==', opts)
 map('n', '<leader>k', '<esc>:m .-2<CR>==', opts)
-
 
 -- " Blackhole regster
 map('n', 'X', '"_d', opts)
