@@ -177,7 +177,7 @@ return {
     -- }
 
     -- ---  Note taking, tex, orgmode
-    { 'nvim-neorg/neorg', events = 'BufWinEnter', ft = 'norg', config = function() require('plugins.configs.neorg') end },
+    { 'nvim-neorg/neorg', event = 'BufWinEnter', ft = 'norg', config = function() require('plugins.configs.neorg') end },
     -- { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
     -- 'KeitaNakamura/tex-conceal.vim'
 }
