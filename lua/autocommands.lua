@@ -28,14 +28,14 @@ autocmd_multi(
         {'ColorScheme', {pattern='onenord', command = 'highlight BufferCurrent guibg=bg guifg=#D57780'}},
         {'ColorScheme', {pattern='onenord', command = 'highlight WinSeparator guibg=bg guifg=#D57780'}},
 
-        {'ColorScheme', {pattern='catppuccin', command = 'highlight BufferCurrent guibg=bg guifg=#e06c75'}},
-        {'ColorScheme', {pattern='catppuccin', command = 'highlight WinSeparator guibg=bg guifg=#e06c75'}},
+        {'ColorScheme', {pattern='catppuccin*', command = 'highlight BufferCurrent guibg=bg guifg=#e06c75'}},
+        {'ColorScheme', {pattern='catppuccin*', command = 'highlight WinSeparator guibg=bg guifg=#e06c75'}},
 
-        {'ColorScheme', {pattern='tokyonight', command = 'highlight BufferCurrent guibg=bg guifg=#9d7cd8'}},
-        {'ColorScheme', {pattern='tokyonight', command = 'highlight WinSeparator guibg=bg guifg=#9d7cd8'}},
+        {'ColorScheme', {pattern='tokyonight*', command = 'highlight BufferCurrent guibg=bg guifg=#9d7cd8'}},
+        {'ColorScheme', {pattern='tokyonight*', command = 'highlight WinSeparator guibg=bg guifg=#9d7cd8'}},
 
-        {'ColorScheme', {pattern='nightfox', command = 'highlight BufferCurrent guibg=bg guifg=#9d79d6'}},
-        {'ColorScheme', {pattern='nightfox', command = 'highlight WinSeparator guibg=bg guifg=#9d79d6'}},
+        {'ColorScheme', {pattern='*fox*', command = 'highlight BufferCurrent guibg=bg guifg=#9d79d6'}},
+        {'ColorScheme', {pattern='*fox*', command = 'highlight WinSeparator guibg=bg guifg=#9d79d6'}},
     }
 )
 
