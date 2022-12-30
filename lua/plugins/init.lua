@@ -18,7 +18,7 @@ return {
         dependencies = 'nvim-treesitter/nvim-treesitter' },
     { 'folke/todo-comments.nvim', event = 'BufReadPre', config = true },
     { 'goolord/alpha-nvim', config = function() require('plugins.configs.alpha') end },
-    { 'akinsho/bufferline.nvim', event = "BufReadPre", version = "*",
+    { 'akinsho/bufferline.nvim', event = 'BufReadPre', version = '*',
         config = function() require('plugins.configs.bufferline') end },
     { 'ojroques/nvim-bufdel', event = 'BufReadPre', config = function() require('plugins.configs.bufdel') end },
     { 'b0o/incline.nvim', event = 'BufReadPre', config = function() require('plugins.configs.incline') end },
@@ -39,7 +39,7 @@ return {
     -- lsp, autocompletion
     {
         'neovim/nvim-lspconfig',
-        event = "BufReadPre",
+        event = 'BufReadPre',
         config = function() require('plugins.configs.lsp') end,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
@@ -58,16 +58,16 @@ return {
     },
     {
         'saecki/crates.nvim',
-        event = { "BufRead Cargo.toml" },
+        event = { 'BufRead Cargo.toml' },
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = true,
     },
-    { 'folke/trouble.nvim', event = "BufReadPre", config = function() require 'plugins.configs.trouble' end },
-    { 'ray-x/lsp_signature.nvim', event = "BufReadPre", dependencies = 'neovim/nvim-lspconfig',
+    { 'folke/trouble.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.trouble' end },
+    { 'ray-x/lsp_signature.nvim', event = 'BufReadPre', dependencies = 'neovim/nvim-lspconfig',
         config = function() require('plugins.configs.lspsignature') end },
-    { 'simrat39/symbols-outline.nvim', event = "BufReadPre",
+    { 'simrat39/symbols-outline.nvim', event = 'BufReadPre',
         config = function() require('plugins.configs.symbols_outline') end },
-    { 'quantum-booty/lsp_lines.nvim', event = "BufReadPre" },
+    { 'quantum-booty/lsp_lines.nvim', event = 'BufReadPre' },
 
     {
         'hrsh7th/nvim-cmp',
@@ -82,18 +82,18 @@ return {
             'onsails/lspkind-nvim',
         },
     },
-    { 'j-hui/fidget.nvim', event = "BufReadPre", config = true, enabled = is_windows },
-    { 'sbdchd/neoformat', event = "BufReadPre", config = function() require('plugins.configs.neoformat') end },
-    { 'mfussenegger/nvim-lint', event = "BufReadPre", config = function() require('plugins.configs.nvimlint') end },
+    { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true, enabled = is_windows },
+    { 'sbdchd/neoformat', event = 'BufReadPre', config = function() require('plugins.configs.neoformat') end },
+    { 'mfussenegger/nvim-lint', event = 'BufReadPre', config = function() require('plugins.configs.nvimlint') end },
 
     -- snippets
-    { 'L3MON4D3/LuaSnip', event = "InsertEnter", dependencies = 'quantum-booty/friendly-snippets',
+    { 'L3MON4D3/LuaSnip', event = 'InsertEnter', dependencies = 'quantum-booty/friendly-snippets',
         config = function() require('plugins.configs.luasnips') end },
 
     -- Debugger
     {
         'mfussenegger/nvim-dap',
-        event = "BufReadPre",
+        event = 'BufReadPre',
         ft = { 'rust' },
         dependencies = {
             'mfussenegger/nvim-dap-python',
@@ -105,7 +105,7 @@ return {
         enabled = not_windows,
     },
 
-    { 'nyngwang/NeoZoom.lua', event = "BufReadPre", config = function() require('plugins.configs.neozoom') end },
+    { 'nyngwang/NeoZoom.lua', event = 'BufReadPre', config = function() require('plugins.configs.neozoom') end },
 
     -- Fuzzy finder & project navigation
     {
@@ -122,8 +122,8 @@ return {
     {
         'nvim-pack/nvim-spectre',
         cmd = 'Spectre',
-        config = { default = { replace = { cmd = not_windows and "oxi" or "sed" } } },
-        build = not_windows and "./build.sh" or ""
+        config = { default = { replace = { cmd = not_windows and 'oxi' or 'sed' } } },
+        build = not_windows and './build.sh' or ''
     },
 
 
@@ -133,8 +133,8 @@ return {
         config = function() require('plugins.configs.nvim_tree') end
     },
 
-    { 'sindrets/diffview.nvim', event = "BufReadPre", config = function() require 'plugins.configs.diffview' end },
-    { 'lewis6991/gitsigns.nvim', event = "BufReadPre", config = function() require 'plugins.configs.gitsigns' end },
+    { 'sindrets/diffview.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.diffview' end },
+    { 'lewis6991/gitsigns.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.gitsigns' end },
     { 'akinsho/toggleterm.nvim', config = function() require 'plugins.configs.toggleterm' end },
 
 
@@ -152,7 +152,7 @@ return {
 
         }
     },
-    { 'windwp/nvim-autopairs', event = "BufReadPre", config = true },
+    { 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
 
     {
         'ThePrimeagen/refactoring.nvim',
@@ -178,7 +178,7 @@ return {
     -- }
 
     -- ---  Note taking, tex, orgmode
-    { 'nvim-neorg/neorg', events = 'VeryLazy', ft = 'norg', config = function() require('plugins.configs.neorg') end },
+    { 'nvim-neorg/neorg', events = 'BufWinEnter', ft = 'norg', config = function() require('plugins.configs.neorg') end },
     -- { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
     -- 'KeitaNakamura/tex-conceal.vim'
 }

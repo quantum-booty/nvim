@@ -20,7 +20,7 @@ require 'nvim-treesitter.install'.compilers = { "clang" }
 
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "norg", "python", "lua", "vim", "json", "c_sharp",
+        "python", "lua", "vim", "json", "c_sharp",
         "markdown", "markdown_inline", "rust", "dockerfile", "yaml", "toml",
         "diff", "typescript"
     },
