@@ -9,12 +9,13 @@
 --     },
 -- }
 
--- vim.cmd([[
--- set foldmethod=expr
--- set foldexpr=nvim_treesitter#foldexpr()
--- set foldnestmax=2
--- set foldlevelstart=999
--- ]])
+vim.cmd([[
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
+" set foldnestmax=2
+set foldlevelstart=99
+set foldlevel=99
+]])
 
 require 'nvim-treesitter.install'.compilers = { "clang" }
 
