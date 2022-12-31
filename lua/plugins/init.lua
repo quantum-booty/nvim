@@ -2,7 +2,7 @@ local not_windows = require('utils').not_windows
 local is_windows = require('utils').is_windows
 
 return {
-    { 'folke/lazy.nvim', tag = 'stable' },
+    'folke/lazy.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     'kyazdani42/nvim-web-devicons',
