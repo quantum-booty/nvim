@@ -108,20 +108,5 @@ cmp.setup.cmdline(':', {
 })
 
 
-
-vim.cmd([[
-" hi CmpItemAbbrMatch guifg=#FF4A4A guibg=NONE
-" hi CmpItemAbbrMatchFzzy guifg=Purple guibg=NONE
-" hi CmpItemKind guifg=#AA82E0 guibg=NONE
-" hi CmpItemMenu guifg=#82E0AA guibg=NONE
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-
-]])
-
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
