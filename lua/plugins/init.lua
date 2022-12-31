@@ -50,7 +50,6 @@ return {
             'simrat39/rust-tools.nvim',
             'Hoffs/omnisharp-extended-lsp.nvim',
             'jose-elias-alvarez/typescript.nvim',
-            'folke/neodev.nvim',
             -- 'ionide/Ionide-vim',
             -- 'scalameta/nvim-metals',
         }
