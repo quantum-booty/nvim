@@ -78,7 +78,7 @@ require'nvim-tree'.setup {
         },
     },
     view = {
-        adaptive_size = true,
+        adaptive_size = false,
         -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
         width = 35,
         -- Hide the root path of the current folder on top of the tree 

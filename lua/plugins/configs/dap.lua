@@ -60,6 +60,7 @@ map('n', '<F7>', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint cond
 map('n', '<F8>', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 map('n', '<F9>', ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 map('n', '<F1>', ":lua require'dapui'.toggle()<CR>", opts)
+map('n', '<F2>', ":lua require'dap'.terminate()<CR>", opts)
 
 map('n', '<leader>tm', ":lua require('dap-python').test_method()<CR>", opts)
 map('n', '<leader>tc', ":lua require('dap-python').test_class()<CR>", opts)
