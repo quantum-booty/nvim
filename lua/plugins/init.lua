@@ -114,7 +114,9 @@ return {
             'nvim-telescope/telescope-live-grep-args.nvim',
             'natecraddock/telescope-zf-native.nvim',
             'ahmedkhalf/project.nvim',
-        }
+        },
+        keys = { { '<leader>p' }, { '_' }, { '<C-p>' } },
+        cmd = 'Telescope',
     },
     { 'ThePrimeagen/harpoon', config = function() require('plugins.configs.harpoon') end, },
     {
