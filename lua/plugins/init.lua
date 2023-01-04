@@ -14,7 +14,7 @@ return {
     { 'NvChad/nvim-colorizer.lua', event = 'BufReadPre', config = true },
     { 'lukas-reineke/indent-blankline.nvim', event = 'BufReadPre',
         config = function() require 'plugins.configs.indent_blankline' end,
-        dependencies = 'nvim-treesitter/nvim-treesitter' },
+    },
     { 'folke/todo-comments.nvim', event = 'BufReadPre', config = true },
     { 'goolord/alpha-nvim', config = function() require('plugins.configs.alpha') end },
     { 'akinsho/bufferline.nvim', event = 'BufReadPre', version = '*',
