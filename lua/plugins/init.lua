@@ -82,7 +82,7 @@ return {
             'onsails/lspkind-nvim',
         },
     },
-    { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true },
+    { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true, enabled = is_windows },
     { 'sbdchd/neoformat', event = 'BufReadPre', config = function() require('plugins.configs.neoformat') end },
     { 'mfussenegger/nvim-lint', event = 'BufReadPre', config = function() require('plugins.configs.nvimlint') end },
 
