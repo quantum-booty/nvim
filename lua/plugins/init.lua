@@ -60,11 +60,13 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = true,
     },
-    { 'folke/trouble.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.trouble' end },
-    { 'ray-x/lsp_signature.nvim', event = 'BufReadPre', dependencies = 'neovim/nvim-lspconfig',
+    { 'folke/trouble.nvim', event = 'CursorMoved', config = function() require 'plugins.configs.trouble' end },
+    { 'ray-x/lsp_signature.nvim', event = 'InsertEnter', dependencies = 'neovim/nvim-lspconfig',
         config = function() require('plugins.configs.lspsignature') end },
-    { 'simrat39/symbols-outline.nvim', event = 'BufReadPre',
-        config = function() require('plugins.configs.symbols_outline') end },
+    { 'simrat39/symbols-outline.nvim',
+        config = function() require('plugins.configs.symbols_outline') end,
+        keys = { { '<leader>a' } },
+    },
     { 'quantum-booty/lsp_lines.nvim', event = 'BufReadPre' },
 
     {
@@ -103,7 +105,7 @@ return {
         enabled = not_windows,
     },
 
-    { 'nyngwang/NeoZoom.lua', event = 'BufReadPre', config = function() require('plugins.configs.neozoom') end },
+    { 'nyngwang/NeoZoom.lua', event = 'CursorMoved', config = function() require('plugins.configs.neozoom') end },
 
     -- Fuzzy finder & project navigation
     {
@@ -156,7 +158,7 @@ return {
 
     {
         'ThePrimeagen/refactoring.nvim',
-        event = 'BufReadPre',
+        event = 'CursorMoved',
         config = function() require('plugins.configs.refactor') end,
         dependencies = 'nvim-telescope/telescope.nvim'
     },
