@@ -67,7 +67,7 @@ return {
         config = function() require('plugins.configs.symbols_outline') end,
         keys = { { '<leader>a' } },
     },
-    { 'quantum-booty/lsp_lines.nvim', event = 'BufReadPre' },
+    { 'quantum-booty/lsp_lines.nvim', event = 'BufReadPre', config = function() require('plugins.configs.lsp_lines') end },
 
     {
         'hrsh7th/nvim-cmp',
@@ -82,7 +82,7 @@ return {
             'onsails/lspkind-nvim',
         },
     },
-    { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true, enabled = is_windows },
+    { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true },
     { 'sbdchd/neoformat', event = 'BufReadPre', config = function() require('plugins.configs.neoformat') end },
     { 'mfussenegger/nvim-lint', event = 'BufReadPre', config = function() require('plugins.configs.nvimlint') end },
 
