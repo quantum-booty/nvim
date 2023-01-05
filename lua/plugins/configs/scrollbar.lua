@@ -17,5 +17,6 @@ require("scrollbar").setup({
         "toggleterm",
         "NvimTree",
         "aerial",
+        "Outline",
     },
 })
