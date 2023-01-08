@@ -48,6 +48,7 @@ cmp.setup({
         -- { name = 'vsnip' }, -- For vsnip user.
         -- { name = 'ultisnips' }, -- For ultisnips user.
         -- { name = 'buffer', keyword_length = 4 },
+        { name = 'buffer' },
         { name = 'path' },
     },
     window = {
