@@ -42,6 +42,7 @@ return {
         config = function() require('plugins.configs.lsp') end,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
             'quantum-booty/lsp_lines.nvim',
             'folke/neodev.nvim',
             'mfussenegger/nvim-dap',
@@ -124,7 +125,7 @@ return {
     {
         'nvim-pack/nvim-spectre',
         cmd = 'Spectre',
-        config = { default = { replace = { cmd = not_windows and 'oxi' or 'sed' } } },
+        opts = { default = { replace = { cmd = not_windows and 'oxi' or 'sed' } } },
         build = not_windows and './build.sh' or ''
     },
 
