@@ -34,17 +34,17 @@ return {
     },
     {
         'EdenEast/nightfox.nvim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
-            require('plugins.colours.nightfox')
-            -- vim.cmd.colorscheme('nightfox')
+            -- require('plugins.colours.nightfox')
+            vim.cmd.colorscheme('nightfox')
             -- vim.cmd.colorscheme('terafox')
             -- vim.cmd.colorscheme('nordfox')
             -- vim.cmd.colorscheme('duskfox')
             -- vim.cmd.colorscheme('dayfox')
             -- vim.cmd.colorscheme('dawnfox')
-            vim.cmd.colorscheme('carbonfox')
+            -- vim.cmd.colorscheme('carbonfox')
         end,
         build = ':NightfoxCompile',
     },
@@ -64,7 +64,7 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             -- vim.cmd.colorscheme('tokyonight')
