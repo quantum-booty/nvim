@@ -4,11 +4,10 @@ nightfox.setup({
     options = {
         dim_inactive = true,
         transparent = false,
-        terminal_colors = true,
         styles = {
             comments = "", -- change style of comments to be italic
             keywords = "", -- change style of keywords to be bold
-            functions = "bold" -- styles can be a comma separated list
+            -- functions = "bold" -- styles can be a comma separated list
         },
         inverse = {
             match_paren = false,
