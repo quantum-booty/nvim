@@ -150,7 +150,7 @@ return {
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
             'nvim-treesitter/nvim-treesitter-refactor',
-            'p00f/nvim-ts-rainbow',
+            'mrjones2014/nvim-ts-rainbow',
             { 'nvim-treesitter/nvim-treesitter-context', config = true },
 
         }
