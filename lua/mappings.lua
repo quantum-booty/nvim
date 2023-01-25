@@ -7,7 +7,8 @@ vim.api.nvim_create_user_command("LS", function() vim.cmd 'Lazy sync' end, {})
 vim.api.nvim_create_user_command("RC", function() vim.cmd 'cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/init.lua' end, {})
 vim.api.nvim_create_user_command("RP", function() vim.cmd 'cd $NVIM_CONFIG_PATH | e $NVIM_CONFIG_PATH/lua/plugins/init.lua' end, {})
 vim.api.nvim_create_user_command("CD", function() vim.cmd 'cd %:p:h' end, {})
-vim.api.nvim_create_user_command("JF", function() vim.cmd ':%!python -m json.tool' end, {})
+vim.api.nvim_create_user_command("JF", function() vim.cmd(':%!' .. vim.g.python3_host_prog ..' -m json.tool') end, {})
+vim.api.nvim_create_user_command("JFNI", function() vim.cmd(':%!' .. vim.g.python3_host_prog ..' -m json.tool --no-indent') end, {})
 
 -- this is smooth as fuck haha
 map('i', '<Del>', '<C-o>A;', opts)
