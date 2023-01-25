@@ -26,6 +26,9 @@ require('bufferline').setup {
             return string.format('%s', opts.ordinal)
         end,
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
+        truncate_names = true,
+        max_name_length = 30,
+
         separator_style = "slant",
         -- tab_size=14,
         -- groups = {
