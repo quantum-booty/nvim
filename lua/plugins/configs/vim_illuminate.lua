@@ -6,4 +6,5 @@ require('illuminate').configure({
         -- 'regex',
     },
     under_cursor = false,
+    large_file_cutoff = 5000,
 })
