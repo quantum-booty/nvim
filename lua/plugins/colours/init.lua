@@ -18,7 +18,7 @@ return {
     },
     {
         'rmehri01/onenord.nvim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function() require('plugins.colours.onenord') end
     },
@@ -34,7 +34,7 @@ return {
     },
     {
         'EdenEast/nightfox.nvim',
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             require('plugins.colours.nightfox')
