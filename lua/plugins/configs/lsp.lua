@@ -1,6 +1,5 @@
 local path = require('path')
 
-vim.opt.updatetime = 50
 vim.opt.completeopt:append({ 'menuone', 'noselect', 'noinsert' })
 vim.opt.completeopt:remove('preview')
 vim.opt.shortmess:append('c')

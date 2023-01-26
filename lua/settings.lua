@@ -25,6 +25,7 @@ vim.cmd([[
 vim.opt.diffopt:append({ 'linematch:60' })
 
 local options = {
+    updatetime = 50,
     -- laststatus = 0, -- no status
     laststatus = 3, -- global statusline
     cmdheight = 1,
