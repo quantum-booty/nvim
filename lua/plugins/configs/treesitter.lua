@@ -46,17 +46,6 @@ require 'nvim-treesitter.configs'.setup {
         },
     },
 
-    refactor = {
-        highlight_definitions = { enable = true },
-        smart_rename = {
-            enable = false,
-            keymaps = {
-                smart_rename = "<leader>RN",
-            },
-        },
-
-    },
-
     textobjects = {
         lsp_interop = {
             enable = true,

@@ -149,12 +149,12 @@ return {
         config = function() require('plugins.configs.treesitter') end,
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/nvim-treesitter-refactor',
             'mrjones2014/nvim-ts-rainbow',
             { 'nvim-treesitter/nvim-treesitter-context', config = true },
 
         }
     },
+    { 'RRethy/vim-illuminate', event = 'CursorMoved', config = function() require('plugins.configs.vim_illuminate') end },
     { 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
 
     {
