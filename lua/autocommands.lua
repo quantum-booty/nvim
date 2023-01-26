@@ -15,6 +15,15 @@ autocmd_multi("misc",
 )
 
 autocmd_multi(
+    'illuminate_augroup',
+    {
+        {'VimEnter', {pattern='*', command = 'hi link IlluminatedWordText TodoBgNOTE'}},
+        {'VimEnter', {pattern='*', command = 'hi link IlluminatedWordRead TodoBgTODO'}},
+        {'VimEnter', {pattern='*', command = 'hi link IlluminatedWordWrite TodoBgWARN'}},
+    }
+)
+
+autocmd_multi(
     'MyColors',
     {
         -- set brighter numbers at colorscheme change
