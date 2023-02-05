@@ -182,6 +182,8 @@ return {
 
     -- ---  Note taking, tex, orgmode
     { 'nvim-neorg/neorg', event = 'BufWinEnter', ft = 'norg', config = function() require('plugins.configs.neorg') end },
+    { 'iamcco/markdown-preview.nvim', event = 'VeryLazy', build = 'cd app && npm install',
+        config = function() vim.g.mkdp_filetypes = { 'markdown' } end, ft = 'markdown', cmd = 'MarkdownPreviewToggle' },
     -- { 'lervag/vimtex', config = [[vim.cmd('source $NVIM_CONFIG_PATH/config/vimtex.vim')]] }
     -- 'KeitaNakamura/tex-conceal.vim'
 }
