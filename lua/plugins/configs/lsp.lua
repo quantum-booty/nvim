@@ -134,7 +134,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 
 -- Enable the following language servers
-local servers = { 'rust_analyzer', 'pyright', 'omnisharp', 'sumneko_lua', 'dockerls', 'yamlls' }
+local servers = { 'rust_analyzer', 'pyright', 'omnisharp', 'dockerls', 'yamlls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
