@@ -125,8 +125,8 @@ return {
     {
         'nvim-pack/nvim-spectre',
         cmd = 'Spectre',
-        opts = { default = { replace = { cmd = not_windows and 'oxi' or 'sed' } } },
-        build = not_windows and './build.sh' or ''
+        opts = true,
+        -- build = not_windows and './build.sh' or ''
     },
 
 
@@ -149,7 +149,7 @@ return {
         config = function() require('plugins.configs.treesitter') end,
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
-            'mrjones2014/nvim-ts-rainbow',
+            'HiPhish/nvim-ts-rainbow2',
             { 'nvim-treesitter/nvim-treesitter-context', config = true },
 
         }
