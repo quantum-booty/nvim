@@ -3,7 +3,7 @@ local opts = { noremap=true, silent=true }
 
 local nvim_lint = require('lint')
 nvim_lint.linters_by_ft = {
-  python = {'pylint','flake8'}
+  python = {'ruff'}
 }
 
 map('n', '<leader>l', ':lua require("lint").try_lint()<CR>', opts)
