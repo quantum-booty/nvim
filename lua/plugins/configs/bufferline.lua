@@ -27,7 +27,7 @@ require('bufferline').setup {
         end,
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}},
         truncate_names = true,
-        max_name_length = 30,
+        max_name_length = 40,
 
         separator_style = "slant",
         -- tab_size=14,
