@@ -86,6 +86,7 @@ return {
     { 'j-hui/fidget.nvim', event = 'BufReadPre', config = true, enabled = is_windows },
     { 'sbdchd/neoformat', event = 'BufReadPre', config = function() require('plugins.configs.neoformat') end },
     { 'mfussenegger/nvim-lint', event = 'BufReadPre', config = function() require('plugins.configs.nvimlint') end },
+    { "zbirenbaum/copilot.lua", config = function() require('plugins.configs.copilot') end, event = 'InsertEnter' },
 
     -- snippets
     { 'L3MON4D3/LuaSnip', event = 'InsertEnter', dependencies = 'quantum-booty/friendly-snippets',
