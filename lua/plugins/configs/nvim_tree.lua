@@ -1,5 +1,6 @@
 local map = require('utils').map
 local opts = { noremap=true, silent=true }
+local not_windows = require('utils').not_windows
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 -- default mappings
@@ -92,6 +93,9 @@ require'nvim-tree'.setup {
             -- list of mappings to set on the tree manually
             list = map_list
         }
+    },
+    git = {
+        enable = not_windows,
     }
 }
 
