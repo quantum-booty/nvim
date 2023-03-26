@@ -62,7 +62,7 @@ return {
         config = true,
     },
     { 'folke/trouble.nvim', event = 'CursorMoved', config = function() require 'plugins.configs.trouble' end },
-    { 'ray-x/lsp_signature.nvim', event = 'InsertEnter', dependencies = 'neovim/nvim-lspconfig',
+    { 'ray-x/lsp_signature.nvim', dependencies = 'neovim/nvim-lspconfig',
         config = function() require('plugins.configs.lspsignature') end },
     { 'simrat39/symbols-outline.nvim',
         config = function() require('plugins.configs.symbols_outline') end,
