@@ -15,7 +15,7 @@ local cfg = {
     hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
     -- max_height = 60, -- max height of signature floating_window, if content is more than max_height, you can scroll down
     -- to view the hiding contents
-    max_width = 140, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+    max_width = 240, -- max_width of signature floating_window, line will be wrapped if exceed max_width
     max_height = 140,
     transpancy = 10, -- set this value if you want the floating windows to be transpant (100 fully transpant), nil to disable(default)
     handler_opts = {
