@@ -30,35 +30,39 @@
 --     })
 -- end, 1000)
 
-require('copilot').setup({
-    panel = { enabled = false },
-    suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        debounce = 75,
-        keymap = {
-            accept = "<Right>",
-            next = "<Up>",
-            prev = "<Down>",
-            dismiss = "<Left>",
+local is_windows = require('utils').is_windows
+
+if is_windows then
+    require('copilot').setup({
+        panel = { enabled = false },
+        suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            debounce = 75,
+            keymap = {
+                accept = "<Right>",
+                next = "<Up>",
+                prev = "<Down>",
+                dismiss = "<Left>",
+            },
         },
-    },
-    filetypes = {
-        python = true,
-        rust = true,
-        cs = true,
-        yaml = false,
-        markdown = false,
-        help = false,
-        gitcommit = false,
-        gitrebase = false,
-        hgcommit = false,
-        svn = false,
-        cvs = false,
-        json = false,
-        csv = false,
-        -- ["."] = false,
-    },
-    copilot_node_command = 'node', -- Node version must be < 18
-    server_opts_overrides = {},
-})
+        filetypes = {
+            python = true,
+            rust = true,
+            cs = true,
+            yaml = false,
+            markdown = false,
+            help = false,
+            gitcommit = false,
+            gitrebase = false,
+            hgcommit = false,
+            svn = false,
+            cvs = false,
+            json = false,
+            csv = false,
+            -- ["."] = false,
+        },
+        copilot_node_command = 'node', -- Node version must be < 18
+        server_opts_overrides = {},
+    })
+end
