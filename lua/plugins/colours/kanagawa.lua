@@ -5,7 +5,7 @@ require('kanagawa').setup({
     variablebuiltinStyle = { italic = false },
     dimInactive = true, -- dim inactive window `:h hl-NormalNC`
     globalStatus = true, -- adjust window separators highlight for laststatus=3
-    overrides = {
-        TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
-    }
+    -- overrides = {
+    --     TSDefinitionUsage = { fg = 'BLACK', bg = '#DCD9CD' },
+    -- }
 })
