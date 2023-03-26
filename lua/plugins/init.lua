@@ -170,7 +170,6 @@ return {
     { 'danymat/neogen', config = function() require('plugins.configs.neogen') end, cmd = 'Neogen' },
 
     --- Quality of life
-    'antoinemadec/FixCursorHold.nvim',
     -- 'anuvyklack/hydra.nvim',
     { 'mbbill/undotree',
         config = function() vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', { noremap = true }) end,
