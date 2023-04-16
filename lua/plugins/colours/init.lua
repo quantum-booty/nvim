@@ -34,7 +34,7 @@ return {
     },
     {
         'EdenEast/nightfox.nvim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
             require('plugins.colours.nightfox')
@@ -50,7 +50,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         name = "catppuccin",
         build = ":CatppuccinCompile",

@@ -77,8 +77,8 @@ return {
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-nvim-lua',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
+            -- 'hrsh7th/cmp-path',
+            -- 'hrsh7th/cmp-cmdline',
             'saadparwaiz1/cmp_luasnip',
             'onsails/lspkind-nvim',
         },
@@ -89,7 +89,7 @@ return {
     { "zbirenbaum/copilot.lua", config = function() require('plugins.configs.copilot') end, event = 'InsertEnter' },
 
     -- snippets
-    { 'L3MON4D3/LuaSnip', event = 'InsertEnter', dependencies = 'quantum-booty/friendly-snippets',
+    { 'L3MON4D3/LuaSnip', event = 'BufReadPre', dependencies = 'quantum-booty/friendly-snippets',
         config = function() require('plugins.configs.luasnips') end },
 
     -- Debugger
