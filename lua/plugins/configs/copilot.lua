@@ -38,7 +38,7 @@ if is_windows then
         suggestion = {
             enabled = true,
             auto_trigger = true,
-            debounce = 75,
+            debounce = 400,
             keymap = {
                 accept = "<Right>",
                 next = "<Up>",
