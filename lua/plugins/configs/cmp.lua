@@ -39,15 +39,9 @@ cmp.setup({
     },
     preselect = cmp.PreselectMode.None,
     sources = {
+        { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip user.
         { name = 'neorg' },
-        { name = 'nvim_lua' },
-
-        { name = 'nvim_lsp' },
-
-        -- { name = 'vsnip' }, -- For vsnip user.
-        -- { name = 'ultisnips' }, -- For ultisnips user.
-        -- { name = 'buffer', keyword_length = 3 },
         { name = 'path' },
     },
     window = {
@@ -64,9 +58,7 @@ cmp.setup({
             menu = {
                 buffer = "[buf]",
                 nvim_lsp = "[LSP]",
-                nvim_lua = "[api]",
                 path = "[path]",
-                ultisnips = "[snip]",
                 luasnip = "[snip]",
             },
         })
@@ -87,26 +79,6 @@ cmp.setup({
         },
     },
 })
-
-
--- -- Use buffer source for `/`.
--- cmp.setup.cmdline('/', {
---     mapping = cmp.mapping.preset.cmdline(),
---     sources = {
---         { name = 'buffer' }
---     }
--- })
---
--- -- Use cmdline & path source for ':'.
--- cmp.setup.cmdline(':', {
---     mapping = cmp.mapping.preset.cmdline(),
---     sources = cmp.config.sources({
---         { name = 'path' }
---     }, {
---         { name = 'cmdline' }
---     })
--- })
---
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
