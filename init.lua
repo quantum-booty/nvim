@@ -6,7 +6,6 @@
 --  \___\_\__,_/\__,_/_/ /_/\__/\__,_/_/ /_/ /_/   --
 --                                                 --
 -----------------------------------------------------
-vim.loader.enable()
 require('settings')
 require('autocommands')
 require('mappings')
