@@ -54,6 +54,7 @@ return {
             -- 'scalameta/nvim-metals',
         }
     },
+    { 'VidocqH/lsp-lens.nvim', config = true },
     {
         'saecki/crates.nvim',
         event = { 'BufRead Cargo.toml' },
