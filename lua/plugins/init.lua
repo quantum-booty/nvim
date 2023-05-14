@@ -138,6 +138,11 @@ return {
     { 'sindrets/diffview.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.diffview' end },
     { 'lewis6991/gitsigns.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.gitsigns' end },
     { 'akinsho/toggleterm.nvim', config = function() require 'plugins.configs.toggleterm' end },
+    {
+        "luukvbaal/statuscol.nvim",
+        event = "VimEnter",
+        config = function() require('plugins.configs.statuscol_config') end
+    },
 
 
     -- language support / syntax highlighting
