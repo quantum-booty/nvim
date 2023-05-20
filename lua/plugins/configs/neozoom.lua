@@ -22,4 +22,4 @@ require('neo-zoom').setup {
         },
     },
 }
-vim.keymap.set('n', '<Del>', require("neo-zoom").neo_zoom, { silent = true, nowait = true })
+vim.keymap.set('n', '<Del>', function() require("neo-zoom").neo_zoom({}) end, { silent = true, nowait = true })
