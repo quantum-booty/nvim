@@ -7,7 +7,7 @@ return {
     },
     {
         'rebelot/kanagawa.nvim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
             require('plugins.colours.kanagawa')
@@ -34,7 +34,7 @@ return {
     },
     {
         'EdenEast/nightfox.nvim',
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             require('plugins.colours.nightfox')
