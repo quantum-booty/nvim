@@ -55,6 +55,8 @@ local on_attach = function(client, bufnr)
         vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc, noremap = true, silent = true })
     end
 
+    require("lsp-inlayhints").on_attach(client, bufnr)
+
     if client.name == 'pyright' then
         bufmap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>')
         bufmap('v', '<leader>=', '<cmd>silent! Neoformat black<CR>')
@@ -195,7 +197,7 @@ require('rust-tools').setup {
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = { command = "clippy" },
-                inlayHints = { locationLinks = false },
+                inlayHints = { auto = false },
             }
         }
     },
@@ -225,9 +227,15 @@ nvim_lsp.omnisharp.setup {
     capabilities = capabilities,
     cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) };
     on_attach = on_attach,
-    enable_roslyn_analyzers = false,
+    enable_roslyn_analyzers = true,
     enable_import_completion = true,
+    analyze_open_documents_only = true,
 }
+
+-- require'lspconfig'.csharp_ls.setup{
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+-- }
 
 
 require("typescript").setup({
