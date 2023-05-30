@@ -85,6 +85,7 @@ local on_attach = function(client, bufnr)
     bufmap('n', '<leader>pr', require('telescope.builtin').lsp_references)
 
     if client.name == 'omnisharp' then
+        client.server_capabilities.semanticTokensProvider = nil
         bufmap('n', 'gd',
             [[<cmd>lua require('omnisharp_extended').telescope_lsp_definitions({initial_mode='normal'})<cr>]])
     else
