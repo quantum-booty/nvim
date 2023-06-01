@@ -7,7 +7,7 @@ return {
     },
     {
         'rebelot/kanagawa.nvim',
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             require('plugins.colours.kanagawa')
@@ -50,7 +50,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
         priority = 1000,
         name = "catppuccin",
         build = ":CatppuccinCompile",
