@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
         vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc, noremap = true, silent = true })
     end
 
-    vim.lsp.buf.inlay_hint(0, true)
+    vim.lsp.buf.inlay_hint(bufnr, true)
 
     if client.name == 'pyright' then
         bufmap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>')
@@ -194,12 +194,9 @@ local liblldb_path = path.concat { extension_path, 'lldb', 'lib', 'liblldb.so' }
 require('rust-tools').setup {
     server = {
         capabilities = capabilities, on_attach = on_attach,
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = { command = "clippy" },
-                inlayHints = { auto = false },
-            }
-        }
+    },
+    tools = {
+        inlay_hints = { auto = false },
     },
     settings = {
         cargo = {
