@@ -52,11 +52,9 @@ return {
             'jose-elias-alvarez/typescript.nvim',
             -- 'ionide/Ionide-vim',
             -- 'scalameta/nvim-metals',
-            'lvimuser/lsp-inlayhints.nvim',
         }
     },
     -- { 'VidocqH/lsp-lens.nvim', event = 'BufReadPre', config = true },
-    { 'lvimuser/lsp-inlayhints.nvim', event = 'BufReadPre', config = true, branch = 'anticonceal' },
     {
         'saecki/crates.nvim',
         event = { 'BufRead Cargo.toml' },
