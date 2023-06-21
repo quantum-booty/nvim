@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
         vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc, noremap = true, silent = true })
     end
 
-    require("lsp-inlayhints").on_attach(client, bufnr)
+    vim.lsp.buf.inlay_hint(0, true)
 
     if client.name == 'pyright' then
         bufmap('n', '<leader>=', '<cmd>silent! Neoformat black<CR>')
@@ -307,6 +307,11 @@ nvim_lsp.pyright.setup({
     --     }
     -- }
 })
+
+-- nvim_lsp.pylyzer.setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- })
 
 -- lua
 -- Make runtime files discoverable to the server
