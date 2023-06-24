@@ -28,13 +28,22 @@ return {
     { 'tpope/vim-repeat', event = 'CursorMoved' },
     { 'kylechui/nvim-surround', config = true, event = 'BufReadPre' },
     { 'wellle/targets.vim', event = 'CursorMoved' },
+    -- {
+    --     'ggandor/leap.nvim',
+    --     event = 'VeryLazy',
+    --     dependencies = 'ggandor/flit.nvim',
+    --     config = function() require('plugins.configs.leap') end,
+    -- },
     {
-        'ggandor/leap.nvim',
-        event = 'VeryLazy',
-        dependencies = 'ggandor/flit.nvim',
-        config = function() require('plugins.configs.leap') end,
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        config = function() require('plugins.configs.flash') end,
+        keys = {
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump({mode = "jump"}) end, desc = "Flash" },
+            { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        },
     },
-
     -- lsp, autocompletion
     {
         'neovim/nvim-lspconfig',
