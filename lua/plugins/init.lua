@@ -145,6 +145,7 @@ return {
         keys = { { '<leader>v' } },
         config = function() require('plugins.configs.nvim_tree') end
     },
+    { 'echasnovski/mini.nvim', version = false, config = function() require('plugins.configs.mini') end },
 
     { 'sindrets/diffview.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.diffview' end },
     { 'lewis6991/gitsigns.nvim', event = 'BufReadPre', config = function() require 'plugins.configs.gitsigns' end },
