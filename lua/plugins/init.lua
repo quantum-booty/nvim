@@ -34,17 +34,6 @@ return {
         dependencies = 'ggandor/flit.nvim',
         config = function() require('plugins.configs.leap') end,
     },
-    {
-        "folke/flash.nvim",
-        event = "VeryLazy",
-        config = function() require('plugins.configs.flash') end,
-        keys = {
-            -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump({mode = "jump", search = { forward = true }}) end, desc = "Flash" },
-            -- { "S", mode = { "n", "x", "o" }, function() require("flash").jump({mode = "jump", search = { forward = false }}) end, desc = "Flash" },
-            -- { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-        },
-    },
     -- lsp, autocompletion
     {
         'neovim/nvim-lspconfig',
