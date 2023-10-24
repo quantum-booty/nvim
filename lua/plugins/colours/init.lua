@@ -24,7 +24,7 @@ return {
     },
     {
         'rose-pine/neovim',
-        lazy = true,
+        lazy = false,
         priority = 1000,
         name = 'rose-pine',
         config = function()
@@ -34,7 +34,7 @@ return {
     },
     {
         'EdenEast/nightfox.nvim',
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             require('plugins.colours.nightfox')
